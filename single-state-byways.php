@@ -74,7 +74,7 @@ switch ( $title ) {
     case "Kentucky" :
         $nb_meta_value = "KY";
         break;
-    case "Louisana" :
+    case "Louisiana" :
         $nb_meta_value = "LA";
         break;
     case "Maine" :
