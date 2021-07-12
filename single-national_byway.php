@@ -12,8 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header();
-// Add slider component as an include to dry the code
-include_once('includes/salient_template_parts/nectar_slider.php');
+// Add slider component as template-part to dry the code
+	get_template_part('includes/salient_template_parts/nectar_slider');
+
+// Template Detail Byway Variables
 
 $intrinsic_quality = get_field('nb_intrinsic_quality');
 $state = get_field('nb_state');
@@ -66,6 +68,7 @@ if ( true === $fullscreen_header ) {
 
 
 <div class="<?php echo esc_attr( $container_wrap_class ); if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) { echo ' no-sidebar'; } ?>" data-midnight="dark" data-remove-post-date="<?php echo esc_attr( $remove_single_post_date ); ?>" data-remove-post-author="<?php echo esc_attr( $remove_single_post_author ); ?>" data-remove-post-comment-number="<?php echo esc_attr( $remove_single_post_comment_number ); ?>">
+ 
 	<div class="container main-content">
 		
 		<?php
@@ -78,27 +81,8 @@ if ( true === $fullscreen_header ) {
 			<?php
 
 			nectar_hook_before_content(); 
+            get_template_part('includes/salient_template_parts/salient_options_before_post');
 
-			$blog_standard_type = ( ! empty( $nectar_options['blog_standard_type'] ) ) ? $nectar_options['blog_standard_type'] : 'classic';
-			$blog_type          = $nectar_options['blog_type'];
-			
-			if ( null === $blog_type ) {
-				$blog_type = 'std-blog-sidebar';
-			}
-
-			if ( 'minimal' === $blog_standard_type && 'std-blog-sidebar' === $blog_type || 'std-blog-fullwidth' === $blog_type ) {
-				$std_minimal_class = 'standard-minimal';
-			} else {
-				$std_minimal_class = '';
-			}
-
-			if ( 'std-blog-fullwidth' === $blog_type || '1' === $hide_sidebar ) {
-				// No sidebar.
-				echo '<div class="post-area col ' . $std_minimal_class . ' span_12 col_last">'; // WPCS: XSS ok.
-			} else {
-				// Sidebar.
-				echo '<div class="post-area col ' . $std_minimal_class . ' span_9">'; // WPCS: XSS ok.
-			}
 			
 			// Main content loop.
 			if ( have_posts() ) :
@@ -194,9 +178,9 @@ if ( true === $fullscreen_header ) {
                     <div>[ Columns W - CD ] <strong>Point of Interest:</strong> <?php the_sub_field('nb_poi_name');?></div>
                     <div><?php the_sub_field('nb_poi_brief_description');?></div>
                     <div><?php the_sub_field('nb_poi_map_url');?></div>
-                    <div style="margin-bottom: 10px;"><?php the_sub_field('nb_poi_website');?></div>                    
+                    <div style="margin-bottom: 10px;"><?php the_sub_field('nb_poi_website');?></div>
 
-                    <? endwhile;
+                    <?php endwhile;
 
                     endif;
 
@@ -210,9 +194,9 @@ if ( true === $fullscreen_header ) {
 
                     <div>[ Columns CE - DB ] <strong>Partner Organizations:</strong> <?php the_sub_field('nb_po_name');?></div>
                     <div><?php the_sub_field('nb_po_phone');?></div>
-                    <div style="margin-bottom: 10px;"><?php the_sub_field('nb_po_website');?></div>                    
+                    <div style="margin-bottom: 10px;"><?php the_sub_field('nb_po_website');?></div>
 
-                    <? endwhile;
+                    <?php endwhile;
 
                     endif;
 
@@ -226,7 +210,7 @@ if ( true === $fullscreen_header ) {
                     <div>[ Columns DC - DH ] <strong>Itineraries:</strong> <?php the_sub_field('nb_itinerary_name');?></div>
                     <div style="margin-bottom: 10px;"><?php the_sub_field('nb_itinerary_brief_description');?></div>
 
-                    <? endwhile;
+                    <?php endwhile;
 
                     endif;
 
@@ -304,7 +288,7 @@ if ( true === $fullscreen_header ) {
 
 	</div><!--/container-->
 
-</div><!--/container-wrap-->
+<!-- </div> container-wrap ::skr this may not exist -->
 
 <?php if ( 'fixed' === $blog_social_style ) {
 	  // Social sharing buttons.
