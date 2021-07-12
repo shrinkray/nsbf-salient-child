@@ -1,15 +1,13 @@
 # Include your project-specific ignores in this file
+# Project initiated Jul-12-2021 by Shrinkray Interactive in association with Cadenza Media
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 # THEME LEVEL FILES
 
-# Reference Files
 
 # IDE
 .idea
 .history
 .DS_Store
-
-# WORDPRESS LEVEL FILES FROM https://wpengine.com/wp-content/uploads/2013/10/recommended-gitignore-no-wp.txt
 *~
 .svn
 .cvs
@@ -17,17 +15,9 @@
 *.swp
 Thumbs.db
 
-# wordpress specific
-
-# wpengine specific
+# host specific (irrelevant for this repo)
 .gitattributes
 _wpeprivate*
-
-/index.php
-/license.txt
-
-
-
 
 # large/disallowed file types
 # a CDN should be used for these
