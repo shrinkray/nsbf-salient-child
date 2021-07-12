@@ -2,7 +2,7 @@
 # Project initiated Jul-12-2021 by Shrinkray Interactive in association with Cadenza Media
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 # THEME LEVEL FILES
-
+**/vendor
 
 # IDE
 .idea
