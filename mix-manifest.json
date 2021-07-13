@@ -2,6 +2,6 @@
     "/dist/custom-scripts.js": "/dist/custom-scripts.js",
     "/dist/child-styles.css": "/dist/child-styles.css",
     "/dist/child-responsive-styles.css": "/dist/child-responsive-styles.css",
-    "/css/byways-custom.css": "/css/byways-custom.css",
-    "/dist/byways-custom.css": "/dist/byways-custom.css"
+    "/css/main.css": "/css/main.css",
+    "/dist/main.css": "/dist/main.css"
 }
