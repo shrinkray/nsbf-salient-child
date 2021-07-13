@@ -1,0 +1,23 @@
+{
+  "name": "salient-child",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Greg <hello@gregmiller.io>",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.php",
+  "scripts": {
+    "dev": "mix",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "mix --production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "laravel-mix": "^6.0.25"
+  }
+}
