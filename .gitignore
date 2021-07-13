@@ -3,7 +3,8 @@
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 # THEME LEVEL FILES
 **/vendor
-**/dist
+/dist/
+/node_modules/
 
 # IDE
 .idea
@@ -54,4 +55,3 @@ _wpeprivate*
 *.asf
 *.wmv
 *.avi
-/dist/
