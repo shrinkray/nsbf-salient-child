@@ -6,6 +6,9 @@
 /dist/
 /node_modules/
 
+# Computed file
+/css/byways-custom.css
+
 # IDE
 .idea
 .history
@@ -55,3 +58,4 @@ _wpeprivate*
 *.asf
 *.wmv
 *.avi
+
