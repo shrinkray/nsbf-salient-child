@@ -2,7 +2,7 @@
   "name": "salient-child",
   "version": "1.0.0",
   "description": "",
-  "author": "Greg <hello@gregmiller.io>",
+  "author": "",
   "keywords": [],
   "license": "ISC",
   "main": "index.php",
@@ -14,10 +14,22 @@
     "hot": "mix watch --hot",
     "prod": "mix --production"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "laravel-mix": "^6.0.25"
+    "browser-sync": "^2.27.4",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "laravel-mix": "^6.0.25",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
+    "postcss-custom-properties": "^11.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-sorting": "^6.0.0",
+    "postcss-url": "^10.1.3",
+    "prettier": "^2.3.2"
+  },
+  "directories": {
+    "includes": "includes",
+    "page-templates": "page-templates",
+    "memberpress": "memberpress"
   }
 }
