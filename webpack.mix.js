@@ -5,9 +5,9 @@ let mix = require('laravel-mix');
  const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 mix.js('js/custom-scripts.js', 'dist').setPublicPath('dist')
+    .sass('scss/byways-custom.scss', 'dist')
     .postCss('css/child-responsive-styles.css', 'dist')
     .postCss('css/child-styles.css', 'dist')
-    .postCss('css/byways-custom.css', 'dist')
     .options({
         postCss :[
             require('postcss-custom-properties'),

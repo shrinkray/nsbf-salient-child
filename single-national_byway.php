@@ -17,7 +17,7 @@ get_header();
  <div class="container-wrap">
 	<div class="container main-content">
         
-        <h1 class="entry-title"><?php the_title(); ?></h1>
+        <h1 class="entry-title"><?php the_title(); ?> HELLO</h1>
         
 		<div class="row">
    
