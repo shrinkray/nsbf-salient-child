@@ -12,95 +12,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header();
-// Add slider component as template-part to dry the code
-	get_template_part('includes/salient_template_parts/nectar_slider');
+?>
 
-// Template Detail Byway Variables
-
-$intrinsic_quality = get_field('nb_intrinsic_quality');
-$state = get_field('nb_state');
-$state_or_states_that_contain_byway = get_field('nb_state_or_states_that_contain_byway');
-$designation = get_field('nb_current_national_designation');
-$designation_year = get_field('nb_designation_year');
-$official_byway_name = get_field('nb_official_byway_name');
-$dedicated_byway_organization = get_field('nb_dedicated_byway_organization');
-$dedicated_byway_organization_url = get_field('nb_dedicated_byway_organization_url');
-$dedicated_byway_organization_phone = get_field('nb_dedicated_byway_organization_phone');
-$state_dot_name = get_field('nb_state_dot_name');
-$state_dot_byway_url = get_field('nb_state_dot_byway_url');
-$state_dot_byway_phone = get_field('nb_state_dot_byway_phone');
-$state_tourism_board_name = get_field('nb_state_tourism_board_name');
-$state_tourism_board_url = get_field('nb_state_tourism_board_url');
-$state_tourism_board_phone = get_field('nb_state_tourism_board_phone');
-$designating_agency = get_field('nb_designating_agency');
-$length_of_byway_miles = get_field('nb_length_of_byway_miles');
-$byway_synopsis = get_field('nb_byway_synopsis');
-$byway_story = get_field('nb_byway_story');
-$driving_directions = get_field('nb_driving_directions_route_description');
-$point_of_interest = get_field('nb_point_of_interest');
-$poi_name = get_sub_field('nb_poi_name');
-$poi_brief_description = get_sub_field('nb_poi_brief_description');
-$poi_map_url = get_sub_field('nb_poi_map_url');        
-$poi_website = get_sub_field('nb_poi_website');
-$local_partner_organization = get_field('nb_local_partner_organization');
-$partner_organization = get_sub_field('nb_po_name');
-$partner_organization_phone = get_sub_field('nb_po_phone');
-$partner_organization_website = get_sub_field('nb_po_website');
-$itinerary = get_field('nb_itinerary');
-$itinerary_name = get_sub_field('nb_itinerary_name');
-$itinerary_description = get_sub_field('nb_itinerary_brief_description');
-
-// Post header.
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		
-		the_post();
-		nectar_page_header( $post->ID );
-
-endwhile;
-endif;
-
-
-// Post header fullscreen style when no image is supplied.
-if ( true === $fullscreen_header ) {
-	get_template_part( 'includes/partials/single-post/post-header-no-img-fullscreen' );
-} ?>
-
-
-<div class="<?php echo esc_attr( $container_wrap_class ); if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) { echo ' no-sidebar'; } ?>" data-midnight="dark" data-remove-post-date="<?php echo esc_attr( $remove_single_post_date ); ?>" data-remove-post-author="<?php echo esc_attr( $remove_single_post_author ); ?>" data-remove-post-comment-number="<?php echo esc_attr( $remove_single_post_comment_number ); ?>">
- 
+ <div class="container-wrap">
 	<div class="container main-content">
-		
-		<?php
-		// Post header regular style when no image is supplied.
-		get_template_part( 'includes/partials/single-post/post-header-no-img-regular' );
-		?>
-			
+        
+        <h1 class="entry-title"><?php the_title(); ?></h1>
+        
 		<div class="row">
-			
+   
 			<?php
-
-			nectar_hook_before_content(); 
-            get_template_part('includes/salient_template_parts/salient_options_before_post');
-
-			
+            // Template Detail Byway Variables
+            
+            $intrinsic_quality = get_field('nb_intrinsic_quality');
+            $state = get_field('nb_state');
+            $state_or_states_that_contain_byway = get_field('nb_state_or_states_that_contain_byway');
+            $designation = get_field('nb_current_national_designation');
+            $designation_year = get_field('nb_designation_year');
+            $official_byway_name = get_field('nb_official_byway_name');
+            $dedicated_byway_organization = get_field('nb_dedicated_byway_organization');
+            $dedicated_byway_organization_url = get_field('nb_dedicated_byway_organization_url');
+            $dedicated_byway_organization_phone = get_field('nb_dedicated_byway_organization_phone');
+            $state_dot_name = get_field('nb_state_dot_name');
+            $state_dot_byway_url = get_field('nb_state_dot_byway_url');
+            $state_dot_byway_phone = get_field('nb_state_dot_byway_phone');
+            $state_tourism_board_name = get_field('nb_state_tourism_board_name');
+            $state_tourism_board_url = get_field('nb_state_tourism_board_url');
+            $state_tourism_board_phone = get_field('nb_state_tourism_board_phone');
+            $designating_agency = get_field('nb_designating_agency');
+            $length_of_byway_miles = get_field('nb_length_of_byway_miles');
+            $byway_synopsis = get_field('nb_byway_synopsis');
+            $byway_story = get_field('nb_byway_story');
+            $driving_directions = get_field('nb_driving_directions_route_description');
+            $point_of_interest = get_field('nb_point_of_interest');
+            $poi_name = get_sub_field('nb_poi_name');
+            $poi_brief_description = get_sub_field('nb_poi_brief_description');
+            $poi_map_url = get_sub_field('nb_poi_map_url');
+            $poi_website = get_sub_field('nb_poi_website');
+            $local_partner_organization = get_field('nb_local_partner_organization');
+            $partner_organization = get_sub_field('nb_po_name');
+            $partner_organization_phone = get_sub_field('nb_po_phone');
+            $partner_organization_website = get_sub_field('nb_po_website');
+            $itinerary = get_field('nb_itinerary');
+            $itinerary_name = get_sub_field('nb_itinerary_name');
+            $itinerary_description = get_sub_field('nb_itinerary_brief_description');
+            
 			// Main content loop.
 			if ( have_posts() ) :
 				while ( have_posts() ) :
-					
 					the_post();
 					?>
-
-
+                    
+                    
                     <div>[ Column C ] <strong>Intrinsic Qualities:</strong> <?php echo $intrinsic_quality;?></div>
-
-
                     <div>[ Column D ] <strong>State:</strong> <?php echo $state;?></div>
-
-
                     <div style="margin-bottom: 25px;">[ Column E ] <strong>States:</strong> <?php echo $state_or_states_that_contain_byway;?></div>
-
-
                     <div>[ Column F ] [ Post Title ] <strong>Official Byway Name:</strong> <?php echo $official_byway_name;?></div>
 
 
@@ -220,81 +186,81 @@ if ( true === $fullscreen_header ) {
 
 			wp_link_pages();
 			
-			nectar_hook_after_content(); 
+//			nectar_hook_after_content();
 
-			// Bottom social location for default minimal post header style.
-			if ( 'default_minimal' === $blog_header_type && 
-			'fixed' !== $blog_social_style && 
-			'post' === get_post_type() ) {
-
-				get_template_part( 'includes/partials/single-post/default-minimal-bottom-social' );
-
-			}
-			
-			if ( true === $fullscreen_header && get_post_type() === 'post' ) {
-				// Bottom meta bar when using fullscreen post header.
-				get_template_part( 'includes/partials/single-post/post-meta-bar-ascend-skin' );
-			}
-
-			if ( 'ascend' !== $theme_skin ) {
-				
-				// Original/Material Theme Skin Author Bio.
-				if ( ! empty( $nectar_options['author_bio'] ) && 
-					$nectar_options['author_bio'] === '1' && 
-					'post' == get_post_type() ) {
-					 get_template_part( 'includes/partials/single-post/author-bio' );
-
-				}
-
-			}
-			
-			?>
-
-		</div><!--/post-area-->
-			
-			<?php if ( 'std-blog-fullwidth' !== $blog_type && '1' !== $hide_sidebar ) { ?>
-				
-				<div id="sidebar" data-nectar-ss="<?php echo esc_attr( $enable_ss ); ?>" class="col span_3 col_last">
-					<?php get_sidebar(); ?>
-				</div><!--/sidebar-->
-				
-			<?php } ?>
-				
-		</div><!--/row-->
-
-		<div class="row">
-
-			<?php 
-				
-				// Pagination/Related Posts.
-				nectar_next_post_display();
-				nectar_related_post_display();
-				
-				// Ascend Theme Skin Author Bio.
-				if ( ! empty( $nectar_options['author_bio'] ) && 
-					'1' === $nectar_options['author_bio'] && 
-					'ascend' === $theme_skin && 
-					'post' == get_post_type() ) {
-					get_template_part( 'includes/partials/single-post/author-bio-ascend-skin' );
-				}
-			
-			?>
-
-			<div class="comments-section" data-author-bio="<?php if ( ! empty( $nectar_options['author_bio'] ) && $nectar_options['author_bio'] === '1' ) { echo 'true'; } else { echo 'false'; } ?>">
-				<?php comments_template(); ?>
-			</div>   
-
-		</div>
+	// Bottom social location for default minimal post header style.
+//			if ( 'default_minimal' === $blog_header_type &&
+//			'fixed' !== $blog_social_style &&
+//			'post' === get_post_type() ) {
+//
+//				get_template_part( 'includes/partials/single-post/default-minimal-bottom-social' );
+//
+//			}
+//
+//			if ( true === $fullscreen_header && get_post_type() === 'post' ) {
+//				// Bottom meta bar when using fullscreen post header.
+//				get_template_part( 'includes/partials/single-post/post-meta-bar-ascend-skin' );
+//			}
+//
+//			if ( 'ascend' !== $theme_skin ) {
+//
+//				// Original/Material Theme Skin Author Bio.
+//				if ( ! empty( $nectar_options['author_bio'] ) &&
+//					$nectar_options['author_bio'] === '1' &&
+//					'post' == get_post_type() ) {
+//					 get_template_part( 'includes/partials/single-post/author-bio' );
+//
+//				}
+//
+//			}
+//
+//			?>
+<!---->
+<!--		</div>/post-area-->
+<!--			-->
+<!--			--><?php //if ( 'std-blog-fullwidth' !== $blog_type && '1' !== $hide_sidebar ) { ?>
+<!--				-->
+<!--				<div id="sidebar" data-nectar-ss="--><?php //echo esc_attr( $enable_ss ); ?><!--" class="col span_3 col_last">-->
+<!--					--><?php //get_sidebar(); ?>
+<!--				</div>/sidebar-->
+<!--				-->
+<!--			--><?php //} ?>
+<!--				-->
+<!--		</div>/row-->
+<!---->
+<!--		<div class="row">-->
+<!---->
+<!--			--><?php //
+//
+//				// Pagination/Related Posts.
+//				nectar_next_post_display();
+//				nectar_related_post_display();
+//
+//				// Ascend Theme Skin Author Bio.
+//				if ( ! empty( $nectar_options['author_bio'] ) &&
+//					'1' === $nectar_options['author_bio'] &&
+//					'ascend' === $theme_skin &&
+//					'post' == get_post_type() ) {
+//					get_template_part( 'includes/partials/single-post/author-bio-ascend-skin' );
+//				}
+//
+//			?>
+<!---->
+<!--			<div class="comments-section" data-author-bio="--><?php //if ( ! empty( $nectar_options['author_bio'] ) && $nectar_options['author_bio'] === '1' ) { echo 'true'; } else { echo 'false'; } ?><!--">-->
+<!--				--><?php //comments_template(); ?>
+<!--			</div>   -->
+<!---->
+<!--		</div>-->
 
 	</div><!--/container-->
 
-<!-- </div> container-wrap ::skr this may not exist -->
+ </div> <!-- .container-wrap -->
 
-<?php if ( 'fixed' === $blog_social_style ) {
-	  // Social sharing buttons.
-		if( function_exists('nectar_social_sharing_output') ) {
-			nectar_social_sharing_output('fixed');
-		}
-}
+<?php //if ( 'fixed' === $blog_social_style ) {
+//	  // Social sharing buttons.
+//		if( function_exists('nectar_social_sharing_output') ) {
+//			nectar_social_sharing_output('fixed');
+//		}
+//}
 
 get_footer(); ?>
