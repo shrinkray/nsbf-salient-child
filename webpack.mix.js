@@ -4,10 +4,13 @@
 let mix = require('laravel-mix');
  const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-mix.js('js/custom-scripts.js', 'dist').setPublicPath('dist')
-    .sass('scss/byways-custom.scss', 'dist')
-    .postCss('css/child-responsive-styles.css', 'dist')
-    .postCss('css/child-styles.css', 'dist')
+mix
+    .disableNotifications()
+    .js('js/custom-scripts.js', 'dist')
+    .sass('scss/byways-custom.scss', 'css/byways-custom.css')
+    .postCss('css/child-responsive-styles.css', 'dist/child-responsive-styles.css')
+    .postCss('css/child-styles.css', 'dist/child-styles.css')
+    .postCss('css/byways-custom.css', 'dist/byways-custom.css')
     .options({
         postCss :[
             require('postcss-custom-properties'),
@@ -16,7 +19,7 @@ mix.js('js/custom-scripts.js', 'dist').setPublicPath('dist')
         autoprefixer: {remove: false},
     })
     .sourceMaps()
-    .browserSync({proxy: 'http://localhost:10048/'})
+    .browserSync({proxy: 'http://localhost:10048/new-york/'})
     .webpackConfig({
             plugins: [
                 new CleanWebpackPlugin({
