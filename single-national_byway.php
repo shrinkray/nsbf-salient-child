@@ -69,8 +69,41 @@ get_header();
                         <li class="anchor-nav"><a href="#directions" class="">Driving Directions</a></li>
                         <li class="anchor-nav"><a href="#points" class="">Points of Interest</a></li>
                     </ul>
-                    <div id="details" class="anchored"></div>
-                    <h2 class="h2 wayfinder">Details</h2>
+                    
+        </div>
+        <div class="row">
+            <div id="details" class="anchored"></div>
+            <h2 class="h2 wayfinder">Details</h2>
+        </div>
+        <div class="row">
+            <div class="details-section">
+                <ul>
+                    <li><span class="label-minor-heading">Designation</span><?php echo $designation;?></li>
+                    <li><span class="label-minor-heading">Intrinsic Qualities</span><?php echo $intrinsic_quality;
+                    ?></li>
+                    <li><span class="label-minor-heading">Location</span><?php echo $state_or_states_that_contain_byway;
+                    ?></li>
+                    <li><span class="label-minor-heading">Length</span><?php echo $length_of_byway_miles;?> of
+                        [total]</li>
+	                <?php
+		                /** @todo add logic for length of total miles */
+	                ?>
+                </ul>
+                <ul>
+                    <li><span class="label-minor-heading">Byway Visitor Information</span></li>
+                    <li><span class=""><?php echo $dedicated_byway_organization ;?></span></li>
+                    <li><a class="byway-website-property" href="<?php echo $dedicated_byway_organization_website;
+                    ?>">Website</a></li>
+                    <li><a class="byway-phone-property" href="tel:<?php echo $dedicated_byway_organization_phone;?>"><?php echo $dedicated_byway_organization_phone;?></a></li>
+                </ul>
+            </div>
+        </div>
+        <div>[ Column J ] <strong>Official Byway Organization Website:</strong> </div>
+
+
+
+        <div style="margin-bottom: 25px;">[ Column K ] <strong>Official Byway Organization Phone:</strong> <?php echo $dedicated_byway_organization_phone;?></div>
+                    
                     
                     <div id="overview" class="anchored"></div>
                     <h2 class="h2 overview">Overview</h2>

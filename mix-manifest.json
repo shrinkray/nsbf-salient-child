@@ -1,7 +1,7 @@
 {
     "/dist/custom-scripts.js": "/dist/custom-scripts.js",
+    "/dist/main.css": "/dist/main.css",
     "/dist/child-styles.css": "/dist/child-styles.css",
     "/dist/child-responsive-styles.css": "/dist/child-responsive-styles.css",
-    "/css/main.css": "/css/main.css",
-    "/dist/main.css": "/dist/main.css"
+    "/css/main.css": "/css/main.css"
 }
