@@ -1,6 +1,6 @@
-<?php 
-
-add_action( 'wp_enqueue_scripts', 'salient_child_enqueue_styles', 100);
+<?php /** @noinspection ALL */
+	
+	add_action( 'wp_enqueue_scripts', 'salient_child_enqueue_styles', 100);
 
 function salient_child_enqueue_styles() {
 		
@@ -34,7 +34,13 @@ function child_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'child_theme_scripts' );
 
 // Changing excerpt more
-function new_excerpt_more($more) {
+	/**
+	 * @param $more
+	 *
+	 * @return string
+	 * @noinspection PhpUnusedParameterInspection
+	 */
+	function new_excerpt_more($more): string {
 	global $post;
 	remove_filter('excerpt_more', 'new_excerpt_more'); 
 	return ' <a class="read_more" href="'. get_permalink($post->ID) . '">' . 'Read More' . '</a>';
@@ -56,10 +62,14 @@ add_action('admin_head', 'my_custom_fonts');
 /* End */
 
 /* Function to display data for board member shortcodes */
-
-function board_member_post_data($data, $atts){
-
-	$result;
+	
+	/** @noinspection PhpSwitchCaseWithoutDefaultBranchInspection
+	 */
+	function board_member_post_data($data, $atts){
+	
+	if ( isset( $result ) ) {
+		$result;
+	}
 
 	switch($data){
 
@@ -88,7 +98,7 @@ function board_member_post_data($data, $atts){
 		case 'nsbf_position_job':
 
 				foreach(get_field($atts['custom_field'][0]) as $key => $val){
-					if( $key == 'job_title' ){
+					if( $key === 'job_title' ){
 						$result = $val;
 					}
 				}
@@ -97,7 +107,7 @@ function board_member_post_data($data, $atts){
 		case 'nsbf_position_committee':
 			
 				foreach(get_field($atts['custom_field'][0]) as $key => $val){
-					if( $key == 'committee_position' ){
+					if( $key === 'committee_position' ){
 						$result = $val;
 					}
 				}
@@ -143,4 +153,3 @@ function board_member_post_data($data, $atts){
 // add_action( 'admin_init', 'redirect_non_admin_user' );
 
 /* End */
-?>
