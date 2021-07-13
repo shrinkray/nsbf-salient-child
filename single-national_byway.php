@@ -16,11 +16,9 @@ get_header();
 
  <div class="container-wrap">
 	<div class="container main-content">
-        
-        <h1 class="entry-title"><?php the_title(); ?> HELLO</h1>
-        
+
 		<div class="row">
-   
+            <h1 class="entry-title"><?php the_title(); ?> HELLO</h1>
 			<?php
             // Template Detail Byway Variables
             
@@ -62,6 +60,33 @@ get_header();
 				while ( have_posts() ) :
 					the_post();
 					?>
+					<?php
+					get_the_post_thumbnail();
+					?>
+                    <ul class="byway-subnav">
+                        <li class="anchor-nav"><a href="#overview" class="active">Overview</a></li>
+                        <li class="anchor-nav"><a href="#story" class="">Story of the Byways</a></li>
+                        <li class="anchor-nav"><a href="#directions" class="">Driving Directions</a></li>
+                        <li class="anchor-nav"><a href="#points" class="">Points of Interest</a></li>
+                    </ul>
+                    <div id="details" class="anchored"></div>
+                    <h2 class="h2 wayfinder">Details</h2>
+                    
+                    <div id="overview" class="anchored"></div>
+                    <h2 class="h2 overview">Overview</h2>
+                    
+                    <div id="story" class="anchored"></div>
+                    <h2 class="h2 story">Story of the Byway</h2>
+                   
+                    <div id="directions" class="anchored"></div>
+                    <h2 class="h2 driving">Driving Directions</h2>
+                    
+                    <div id="points" class="anchored"></div>
+                    <h2 class="h2 poi">Points of Interest</h2>
+                    
+                    <div id="itinerary" class="anchored"></div>
+                    <h2 class="h2 itinerary">Itinerary</h2>
+                    
                     
                     
                     <div>[ Column C ] <strong>Intrinsic Qualities:</strong> <?php echo $intrinsic_quality;?></div>
