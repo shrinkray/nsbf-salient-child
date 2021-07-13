@@ -7,10 +7,10 @@ let mix = require('laravel-mix');
 mix
     .disableNotifications()
     .js('js/custom-scripts.js', 'dist')
-    .sass('scss/byways-custom.scss', 'css/byways-custom.css')
+    .sass('scss/main.scss', 'css/main.css')
     .postCss('css/child-responsive-styles.css', 'dist/child-responsive-styles.css')
     .postCss('css/child-styles.css', 'dist/child-styles.css')
-    .postCss('css/byways-custom.css', 'dist/byways-custom.css')
+    .postCss('css/main.css', 'dist/main.css')
     .options({
         postCss :[
             require('postcss-custom-properties'),

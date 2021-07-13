@@ -24,7 +24,7 @@ function print_var($val){
 function child_theme_styles() {
     wp_enqueue_style( 'child-styles', get_stylesheet_directory_uri() . '/dist/child-styles.css' );
     wp_enqueue_style( 'child-responsive-styles', get_stylesheet_directory_uri() . '/dist/child-responsive-styles.css' );
-    wp_enqueue_style( 'byway-styles', get_stylesheet_directory_uri() . '/dist/byways-custom.css' );
+    wp_enqueue_style( 'byway-styles', get_stylesheet_directory_uri() . '/dist/main.css' );
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_styles', 999, 1 );
 
