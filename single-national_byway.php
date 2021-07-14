@@ -13,13 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
+ 
 
  <div class="container-wrap">
 	<div class="container main-content">
-
-		<div class="row">
-            <h1 class="entry-title"><?php the_title(); ?> HELLO</h1>
-			<?php
+<?php
             // Template Detail Byway Variables
             
             $intrinsic_quality = get_field('nb_intrinsic_quality');
@@ -31,12 +29,14 @@ get_header();
             $dedicated_byway_organization = get_field('nb_dedicated_byway_organization');
             $dedicated_byway_organization_url = get_field('nb_dedicated_byway_organization_url');
             $dedicated_byway_organization_phone = get_field('nb_dedicated_byway_organization_phone');
+            
             $state_dot_name = get_field('nb_state_dot_name');
             $state_dot_byway_url = get_field('nb_state_dot_byway_url');
             $state_dot_byway_phone = get_field('nb_state_dot_byway_phone');
             $state_tourism_board_name = get_field('nb_state_tourism_board_name');
             $state_tourism_board_url = get_field('nb_state_tourism_board_url');
             $state_tourism_board_phone = get_field('nb_state_tourism_board_phone');
+            
             $designating_agency = get_field('nb_designating_agency');
             $length_of_byway_miles = get_field('nb_length_of_byway_miles');
             $byway_synopsis = get_field('nb_byway_synopsis');
@@ -53,14 +53,18 @@ get_header();
             $partner_organization_website = get_sub_field('nb_po_website');
             $itinerary = get_field('nb_itinerary');
             $itinerary_name = get_sub_field('nb_itinerary_name');
-            $itinerary_description = get_sub_field('nb_itinerary_brief_description');
-            
+            $itinerary_description = get_sub_field('nb_itinerary_brief_description'); ?>
+		
+        <div class="row">
+           
+            <h1 class="entry-title"><?php the_title(); ?></h1>
+
+            <?php
 			// Main content loop.
 			if ( have_posts() ) :
 				while ( have_posts() ) :
 					the_post();
-					?>
-					<?php
+			
 					get_the_post_thumbnail();
 					?>
                     <ul class="byway-subnav">
@@ -70,7 +74,8 @@ get_header();
                         <li class="anchor-nav"><a href="#points" class="">Points of Interest</a></li>
                     </ul>
                     
-        </div>
+        </div> <!-- .row // H1 & Anchor Nav -->
+        
         <div class="row">
             <div id="details" class="anchored"></div>
             <h2 class="h2 wayfinder">Details</h2>
@@ -89,21 +94,80 @@ get_header();
 		                /** @todo add logic for length of total miles */
 	                ?>
                 </ul>
-                <ul>
-                    <li><span class="label-minor-heading">Byway Visitor Information</span></li>
-                    <li><span class=""><?php echo $dedicated_byway_organization ;?></span></li>
-                    <li><a class="byway-website-property" href="<?php echo $dedicated_byway_organization_website;
-                    ?>">Website</a></li>
-                    <li><a class="byway-phone-property" href="tel:<?php echo $dedicated_byway_organization_phone;?>"><?php echo $dedicated_byway_organization_phone;?></a></li>
-                </ul>
-            </div>
-        </div>
-        <div>[ Column J ] <strong>Official Byway Organization Website:</strong> </div>
-
-
-
-        <div style="margin-bottom: 25px;">[ Column K ] <strong>Official Byway Organization Phone:</strong> <?php echo $dedicated_byway_organization_phone;?></div>
+                
+<!--                Dedicated organization -->
+                <div class="detail-subsection">
+                    <div class="label-minor-heading">Byway Visitor Information</div>
+                    <div class="detail-organization"><?php echo $dedicated_byway_organization ;?></div>
+                    <div class="detail-properties">
+                
+	            <?php // If we have a website URL add a link
+		            if ( $dedicated_byway_organization_website ) :  ?>
+                        <a class="byway-website-property" href="<?php echo $dedicated_byway_organization_website;
+				            ?>" target="_parent" title="Learn more at our website!">Website</a>
+			    <?php endif; ?>
+                
+                <?php // If we have a phone URL add a link
+		            if (  $dedicated_byway_organization_phone ) :  ?>
+                        <a class="byway-phone-property" href="tel:<?php echo $dedicated_byway_organization_phone;
+			            ?>" title="Need help? Call our offices."><?php echo $dedicated_byway_organization_phone;?></a>
+			    <?php endif; ?>
+                
+                    </div> <!-- .detail-organization -->
                     
+                </div> <!-- .detail-subsection -->
+	
+	
+	           
+                <div class="detail-subsection">
+                    <div class="label-minor-heading">Statewide Byway Partners</div>
+                    <div class="detail-organization"><?php // dept of transportation if it exists  ;?></div>
+	
+	                <?php
+                    
+                    if ( $state_dot_name ) : ?>
+                        <div class="detail-organization"><?php echo $state_dot_name;?></div>
+                    <div class="detail-properties">
+	                    <?php // If we have a website URL add a link
+		                    if ( $state_dot_byway_url ) :  ?>
+                                <a class="byway-website-property" href="<?php echo $state_dot_byway_url;
+			                    ?>" target="_parent" title="Learn more at our website!">Website</a>
+		                    <?php endif; ?>
+	
+	                    <?php // If we have a phone URL add a link
+		                    if (  $state_dot_byway_phone ) :  ?>
+                                <a class="byway-phone-property" href="tel:<?php echo $state_dot_byway_phone;
+			                    ?>" title="Need help? Call our offices."><?php echo $state_dot_byway_phone;?></a>
+		                    <?php endif; ?>
+                    </div> <!-- .detail-properties -->
+	                    <?php endif; // $state_dot_name
+	                   
+                     
+	                    if ( $state_tourism_board_name ) :
+	                    ?>
+                     
+                    <div class="detail-organization"><?php echo $state_tourism_board_name;?></div>
+                    
+                    <div class="detail-properties">
+	                    <?php // If we have a website URL add a link
+		                    if ( $state_tourism_board_url ) :  ?>
+                                <a class="byway-website-property" href="<?php echo $state_tourism_board_url;
+			                    ?>" target="_parent" title="Learn more at our website!">Website</a>
+		                    <?php endif; ?>
+	
+	                    <?php // If we have a phone URL add a link
+		                    if (  $state_tourism_board_phone ) :  ?>
+                                <a class="byway-phone-property" href="tel:<?php echo $state_tourism_board_phone;
+			                    ?>" title="Need help? Call our offices."><?php echo $state_tourism_board_phone;?></a>
+		                    <?php endif; ?>
+                    </div> <!-- .detail-properties -->
+                    <?php endif; // $state_tourism_board_name
+                    ?>
+                    
+                </div> <!-- .detail-subsection // Statewide Byway Partners  -->
+            </div> <!-- .details-section -->
+        </div> <!-- .row // Details -->
+        
                     
                     <div id="overview" class="anchored"></div>
                     <h2 class="h2 overview">Overview</h2>
