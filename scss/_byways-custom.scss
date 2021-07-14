@@ -8,7 +8,16 @@
         padding: 0px 90px;
     }
     .container {
-        outline: #9ba626;
+        outline: #9ba626 1px solid;
+    }
+    // This removes 90 px padding left and right netting more width
+    .main-content {
+        padding: 0;
+    }
+    // Override theme based stylings for useful classes
+    .row {
+        padding: 0;
+        margin: 0;
     }
     .entry-title {
         font-size: 3em;
@@ -16,7 +25,7 @@
     .h2 {
         font-size: 2.5em;
         padding-left: 50px;
-        margin-left: 2rem;
+        margin: 2rem 0 0 2.5rem;
     }
     .anchor-nav {
         font-size: 0.8em;
@@ -42,7 +51,8 @@
         }
     }
     .anchored {
-        margin-top: 2rem;
+        position: absolute;
+        top: -75px;
     }
 }
 // SECTONS
@@ -52,7 +62,12 @@
     margin-right: 0.8rem;
 }
 .section {
-
+    position: relative;
+    .item {
+        .item-heading {
+            font-weight: 700;
+        }
+    }
 }
 .details-subsection {
     padding-top: 1.5rem;
@@ -88,7 +103,8 @@
 }
 .wayfinder {
     background-position-x: 9px;
-    background-image: url("data:image/svg+xml,%3Csvg width='29' height='35' viewBox='0 0 29 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.9365 24.0501L14.2693 33.1968L5.5887 24.0501C4.45107 22.8515 3.54854 21.428 2.93275 19.8609C2.31696 18.2938 2 16.614 2 14.9176C2 13.2211 2.31696 11.5413 2.93275 9.97423C3.54854 8.40717 4.45107 6.98362 5.5887 5.78503V5.78503C7.89112 3.3612 11.0105 2 14.2626 2C17.5147 2 20.6341 3.3612 22.9365 5.78503V5.78503C24.0741 6.98362 24.9767 8.40717 25.5925 9.97423C26.2082 11.5413 26.5252 13.2211 26.5252 14.9176C26.5252 16.614 26.2082 18.2938 25.5925 19.8609C24.9767 21.428 24.0741 22.8515 22.9365 24.0501Z' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M22.9365 24.0501L14.2693 31.7787L5.58868 24.0501' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.2693 20.7885C17.416 20.7885 19.9668 18.1029 19.9668 14.7899C19.9668 11.477 17.416 8.7914 14.2693 8.7914C11.1227 8.7914 8.57184 11.477 8.57184 14.7899C8.57184 18.1029 11.1227 20.7885 14.2693 20.7885Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-position-y: 0.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='34' height='39' viewBox='0 0 34 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27.6102 26.7382L17.0082 37L6.38981 26.7382C4.99822 25.3935 3.89422 23.7964 3.14097 22.0383C2.38772 20.2802 2 18.3956 2 16.4923C2 14.5891 2.38772 12.7045 3.14097 10.9464C3.89422 9.18826 4.99822 7.59117 6.38981 6.24647V6.24647C9.2062 3.52714 13.0219 2 17 2C20.9781 2 24.7938 3.52714 27.6102 6.24647V6.24647C29.0018 7.59117 30.1058 9.18826 30.859 10.9464C31.6123 12.7045 32 14.5891 32 16.4923C32 18.3956 31.6123 20.2802 30.859 22.0383C30.1058 23.7964 29.0018 25.3935 27.6102 26.7382Z' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M27.61 26.7382L17.0081 35.409L6.38965 26.7382' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17.0081 23.079C20.8572 23.079 23.9775 20.0659 23.9775 16.3492C23.9775 12.6324 20.8572 9.61935 17.0081 9.61935C13.159 9.61935 10.0388 12.6324 10.0388 16.3492C10.0388 20.0659 13.159 23.079 17.0081 23.079Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 }
 .overview {
     background-position-x: 7px;
