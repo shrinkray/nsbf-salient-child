@@ -6,3 +6,15 @@
   --steelblue: #006B94;
   --dimgray: #4B4145;
 }
+
+// Universally set this pattern for an unordered list
+ul {
+  margin: 0;
+  padding: 0;
+  &> li {
+    list-style: none;
+    span {
+
+    }
+  }
+}
