@@ -34,5 +34,8 @@
     "includes": "includes",
     "page-templates": "page-templates",
     "memberpress": "memberpress"
+  },
+  "dependencies": {
+    "mix-tailwindcss": "^1.3.0"
   }
 }
