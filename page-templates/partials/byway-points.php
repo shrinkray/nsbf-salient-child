@@ -1,0 +1,65 @@
+<?php
+	/**
+	 * @template
+	 * @date Jul142021
+	 * @author Greg Miller, gregmiller.io
+	 * @testedwith
+	 */
+
+?>
+	
+	<div class="row">
+		<div class="section">
+			
+			<div id="points" class="anchored"></div>
+			<h2 class="h2 poi">Points of Interest</h2>
+			<?php
+				
+				
+				// Check rows exists.
+				if ( have_rows( 'nb_point_of_interest' ) ):
+					?>
+					
+					<ul>
+						<?php
+							// Loop through rows.
+							while ( have_rows( 'nb_point_of_interest' ) ) : the_row();
+								// vars
+								
+								$poi_name = get_sub_field('nb_poi_name');
+								$poi_brief_description = get_sub_field('nb_poi_brief_description');
+								$poi_map_url = get_sub_field('nb_poi_map_url');
+								$poi_website = get_sub_field('nb_poi_website');
+								?>
+								<li class="item">
+									<div class="item-heading"><?php echo $poi_name; ?></div>
+									<div><?php echo $poi_brief_description; ?></div>
+									<div class="detail-properties">
+										<?php
+											
+											if ( $poi_map_url ) : ?>
+												<a class="byway-website-property"
+												   href="<?php echo $poi_map_url;
+												   ?>" target="_blank" title="Explore!">Map</a>
+											<?php endif; // opts out if no PO website URL
+											
+											if ( $poi_website ) :  ?>
+												<a class="byway-website-property" href="<?php echo $$poi_website;
+												?>" target="_blank" title="Learn more at our website!">Website</a>
+											<?php endif; // opts out if no PO website URL
+										
+										?>
+									</div>
+								
+								</li>
+							<?php endwhile; // nb_point_of_interest
+						?>
+					
+					</ul>
+				
+				<?php
+				endif; // nb_point_of_interest
+			?>
+		
+		</div> <!-- .section Points of Interest -->
+	</div> <!-- .row  // POI-->
