@@ -15,10 +15,12 @@
     "prod": "mix --production"
   },
   "devDependencies": {
+    "autoprefixer": "^10.3.1",
     "browser-sync": "^2.27.4",
     "browser-sync-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "laravel-mix": "^6.0.25",
+    "mix-tailwindcss": "^1.3.0",
     "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
     "postcss-custom-properties": "^11.0.0",
@@ -28,14 +30,13 @@
     "prettier": "^2.3.2",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.35.2",
-    "sass-loader": "^12.1.0"
+    "sass-loader": "^12.1.0",
+    "tailwindcss": "^2.2.4"
   },
   "directories": {
     "includes": "includes",
     "page-templates": "page-templates",
     "memberpress": "memberpress"
   },
-  "dependencies": {
-    "mix-tailwindcss": "^1.3.0"
-  }
+  "dependencies": {}
 }

@@ -2,6 +2,7 @@
 // Jul-13-2021 Shrinkray
 
 let mix = require('laravel-mix');
+require('mix-tailwindcss');
  const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 mix
@@ -10,7 +11,9 @@ mix
     .sass('scss/main.scss', 'css/main.css')
     .postCss('css/child-responsive-styles.css', 'dist/child-responsive-styles.css')
     .postCss('css/child-styles.css', 'dist/child-styles.css')
-    .postCss('css/main.css', 'dist/main.css')
+    .postCss('css/main.css', 'dist/main.css',[
+        require('tailwindcss'),
+    ])
     .options({
         postCss :[
             require('postcss-custom-properties'),
