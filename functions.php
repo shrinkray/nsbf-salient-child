@@ -13,6 +13,13 @@ function salient_child_enqueue_styles() {
 }
 
 /****  Begin Functions  ****/
+	
+	add_theme_support( 'post-thumbnails' );
+	
+	if ( function_exists( 'add_image_size' ) ) {
+		add_image_size('byway_large', 800, 600 ); // Byway Large
+		add_image_size('byway_small', 640, 480 ); // Byway Small
+	}
 
 function print_var($val){
 	echo '<pre>';
