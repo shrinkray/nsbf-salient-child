@@ -4,6 +4,8 @@
  *
  * @package Salient WordPress Theme
  * @version 10.5
+ * @filename single-national-byway-page.php
+ * @description This represents the details of one national byway.
  */
 
 // Exit if accessed directly
@@ -30,11 +32,7 @@ get_header();
            
             <h1 class="entry-title"><?php the_title(); ?></h1>
 
-            <?php
-			// Main content loop.
-	            the_post();
-	            
-            ?>
+            
             <ul class="byway-sub-nav">
                 <li class="anchor-nav"><a href="#overview" class="active">Overview</a></li>
                 <li class="anchor-nav"><a href="#story" class="">Story of the Byway</a></li>
