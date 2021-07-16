@@ -1,10 +1,10 @@
 // tailwind.config.js
 module.exports = {
     purge: [
-        './page-templates/partials/**.php',
-        './js/custom-scripts.js',
-        'single-national_byway.php',
-        'single-state-byways.php',
+        './page-templates/partials/*.php',
+        'single-national-byway-page.php',
+        'single-state-byway-page.php',
+        'single-state-page.php',
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
