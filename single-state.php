@@ -75,7 +75,7 @@
 			$nb_meta_value = "LA";
 			break;
 		case "Maine" :
-			$nb_meta_value = "ME";https://nsbf.ca-den-za.com/nsbflogin
+			$nb_meta_value = "ME";
 			break;
 		case "Maryland" :
 			$nb_meta_value = "MD";
@@ -99,7 +99,7 @@
 			$nb_meta_value = "MT";
 			break;
 		case "Nebraska" :
-			$nb_meta_value = "NB";
+			$nb_meta_value = "NE";
 			break;
 		case "Nevada" :
 			$nb_meta_value = "NV";
@@ -118,6 +118,9 @@
 			break;
 		case "North Carolina" :
 			$nb_meta_value = "NC";
+			break;
+        case "North Dakota" :
+			$nb_meta_value = "ND";
 			break;
 		case "Ohio" :
 			$nb_meta_value = "OH";
@@ -211,72 +214,52 @@
 	$sb_query = new WP_Query( $sb_args );
 	
 		?>
-
-
-
+  
 <div class="container-wrap">
-    <div class="container main-content">`
+    <div class="container main-content">
+
         <h1 class="text-5xl text-center mb-14">Scenic Byways of <?php echo $title;?></h1>
-        <?php
-            
-            // Loop querying posts for National Byways ($nb_query) to capture partner data
-            if ( have_posts() ) : while ( $nb_query->have_posts() ) : $nb_query->the_post();
-            $permalink = get_permalink( $the_query->ID );
-            $query_id  = get_the_title( $the_query->ID );
-            
-            include_once('page-templates/partials/state-tourism.php');
-            
-            endwhile;
-            endif;
-        ?>
-        
-        <div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600"></div>
-            <h3 class="text-2xl text-steelblue  mt-10 mb-8">America's Byways Collection</h3>
-            <ul class="byway-collection grid grid-cols-1">
-
-                <?php
-	                // Loop querying posts for National Byways ($nb_query) to present the Byway Info
-                    
-                    if ( have_posts() ) : while ( $nb_query->have_posts() ) : $nb_query->the_post();
-                    $permalink = get_permalink( $the_query->ID );
-                    $query_id  = get_the_title( $the_query->ID );
-                    ?>
-                <li class="byway-item"><a href="<?php echo $permalink; ?>"><?php echo $query_id; ?></a></li>
-	
-                <?php
-                    endwhile;
-                endif;
-                ?>
-                
-            </ul> <!-- .byway-collection (National) -->
-	<?php
-        wp_reset_postdata();
-
-?>
-	
-	
-	<h3 class="text-2xl text-forestgreen mt-10 mb-8">State Byways</h3>
-
-        <ul class="byway-collection grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4">
-        
 	    <?php
+		
+		    // Loop querying posts for National Byways ($nb_query) to capture partner data
+		    if ( !empty( have_posts() ) ) :
+			    while ( $nb_query->have_posts() ) :
+				    $nb_query->the_post();
+				
+				    $permalink = get_permalink( $the_query->ID );
+				    $query_id  = get_the_title( $the_query->ID );
+				
+				    include_once('page-templates/partials/state-tourism.php');
+				    
+			    endwhile;
+		
+		    endif;
+	    ?>
+	
+	
+	    <?php
+		    /**
+		     * This is for the national byway list
+		     */
+		    include_once( 'page-templates/partials/national-byway-list.php' );
+	
 
-	// Loop querying posts for State Byways ($sb_query) for state list
+		    /**
+		     * This is for the state byway list
+		     */
+		  //  include_once( 'page-templates/partials/state-byway-list.php' );
+	
+	    ?>
         
-        if ( have_posts() ) : while ( $sb_query->have_posts() ) : $sb_query->the_post();
-            
-            $permalink = get_permalink( $the_query->ID );
-            $query_id = get_the_title( $the_query->ID )
-            ?>
-            
-            <li class="byway-item"><a href="<?php echo $permalink; ?>"><?php echo $query_id; ?></a></li>
-	
-        <?php
-        endwhile; endif;
-        ?>
-            
-        </ul> <!-- .byway-collection (State) -->
-	
+        
+	<div class="state-information mt-10">
+        <h4 class="text-2xl mb-4">Information</h4>
+        <p>National Scenic Byways and All-American Roads are designated by the Federal Department of Transportation and
+            become part of the <em>America’s Byways</em>® collection. To become an official National Scenic Byways, qualifying
+            roads must have one of the following six “intrinsic qualities”: <strong>1. Scenic, 2. Historic, 3. Archeological, 4. Recreational, 5. Cultural, or 6. Natural</strong>. To become an All-American Road, two or
+            more of these unique intrinsic qualities must be present (along with a more comprehensive “corridor management plan”). State-level byways are most frequently designated by the State Department of Transportation (DOT), but can also be designated by federal agencies (at the state level) such as the US Forest Service, NPS, BLM, USACE, US Fish & Wildlife, as well as by tribal organizations.</p>
+        <p><sup>*</sup>Byways in the <em>America’s Byways</em> collection with an asterisk are All-American Roads.</p>
+    </div>
         <?php
             wp_reset_postdata();
 
