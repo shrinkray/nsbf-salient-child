@@ -21,7 +21,28 @@
             $designation                        = get_field( 'nb_current_national_designation' );
 	        $designation_year                   = get_field('nb_designation_year');
             $length_of_byway_miles              = get_field( 'nb_length_of_byway_miles' );
-
+  
+            
+//            switch ( $intrinsic_quality ) {
+//	            case 'S':
+//		            $intrinsic_quality = 'Scenic';
+//		            break;
+//	            case 'H':
+//		            $intrinsic_quality = 'Historic';
+//		            break;
+//	            case 'A':
+//		            $intrinsic_quality = 'Archeological';
+//		            break;
+//	            case 'R':
+//		            $intrinsic_quality = 'Recreation';
+//		            break;
+//	            case 'C':
+//		            $intrinsic_quality = 'Cultural';
+//		            break;
+//	            case 'N':
+//		            $intrinsic_quality = 'Natural';
+//		            break;
+//            }
         ?>
         <ul>
             <li><span class="label-minor-heading">Designation</span><?php echo $designation;?> (<?php echo $designation_year ?>)</li>
@@ -36,7 +57,7 @@
 		<?php
 			//vars
 			$dedicated_byway_organization       = get_field( 'nb_dedicated_byway_organization' );
-			$dedicated_byway_organization_url   = get_field( 'nb_dedicated_byway_organization_url' );
+			$dedicated_byway_organization_website   = get_field( 'nb_dedicated_byway_organization_website' );
 			$dedicated_byway_organization_phone = get_field( 'nb_dedicated_byway_organization_phone' );
 		
 		?>
@@ -78,7 +99,7 @@
 					<?php
 						// vars
 						$state_dot_name = get_field('nb_state_dot_name');
-						$state_dot_byway_url = get_field('nb_state_dot_byway_url');
+						$state_dot_byway_website = get_field('nb_state_dot_byway_website');
 						$state_dot_byway_phone = get_field('nb_state_dot_byway_phone');
 						
 						/**
@@ -90,8 +111,8 @@
 
                             <div class="detail-properties">
 								<?php // If we have a website URL add a link
-									if ( $state_dot_byway_url ) :  ?>
-                                        <a class="byway-website-property" href="<?php echo $state_dot_byway_url;
+									if ( $state_dot_byway_website ) :  ?>
+                                        <a class="byway-website-property" href="<?php echo $state_dot_byway_website;
 										?>" target="_blank" title="Learn more at our website!">Website</a>
 									<?php endif; ?>
 								
@@ -109,7 +130,7 @@
 					<?php
 						// vars
 						$state_tourism_board_name = get_field('nb_state_tourism_board_name');
-						$state_tourism_board_url = get_field('nb_state_tourism_board_url');
+						$state_tourism_board_website = get_field('nb_state_tourism_board_website');
 						$state_tourism_board_phone = get_field('nb_state_tourism_board_phone');
 						
 						/**
@@ -122,8 +143,8 @@
 
                             <div class="detail-properties">
 								<?php // If we have a website URL add a link
-									if ( $state_tourism_board_url ) :  ?>
-                                        <a class="byway-website-property" href="<?php echo $state_tourism_board_url;
+									if ( $state_tourism_board_website ) :  ?>
+                                        <a class="byway-website-property" href="<?php echo $state_tourism_board_website;
 										?>" target="_blank" title="Learn more at our website!">Website</a>
 									<?php endif; ?>
 								
@@ -144,6 +165,6 @@
         </div> <!-- .detail-subsection // Statewide Byway Partners  -->
     </div> <!-- .section -->
     <div class="section">
-        <div class="container mx-auto border-4 border-dotted"></div>
+        <div class=""></div>
     </div> <!-- .section -->
 </div> <!-- .row // Details -->

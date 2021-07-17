@@ -4,7 +4,7 @@
 		<?php
 			// vars
 			$state_dot_name = get_field('nb_state_dot_name');
-			$state_dot_byway_url = get_field('nb_state_dot_byway_url');
+			$state_dot_byway_website = get_field('nb_state_dot_byway_website');
 			$state_dot_byway_phone = get_field('nb_state_dot_byway_phone');
 			
 			/**
@@ -16,8 +16,8 @@
 
                 <div class="detail-properties">
 					<?php // If we have a website URL add a link
-						if ( $state_dot_byway_url ) :  ?>
-                            <a class="byway-website-property" href="<?php echo $state_dot_byway_url;
+						if ( $state_dot_byway_website ) :  ?>
+                            <a class="byway-website-property" href="<?php echo $state_dot_byway_website;
 							?>" target="_blank" title="Learn more at our website!">Website</a>
 						<?php endif; ?>
 					
@@ -36,7 +36,7 @@
             
             // vars
             $state_tourism_board_name = get_field('nb_state_tourism_board_name');
-            $state_tourism_board_url = get_field('nb_state_tourism_board_url');
+            $state_tourism_board_website = get_field('nb_state_tourism_board_website');
             $state_tourism_board_phone = get_field('nb_state_tourism_board_phone');
             
             /**
@@ -49,8 +49,8 @@
     
                 <div class="detail-properties">
                     <?php // If we have a website URL add a link
-                        if ( $state_tourism_board_url ) :  ?>
-                            <a class="byway-website-property" href="<?php echo $state_tourism_board_url;
+                        if ( $state_tourism_board_website ) :  ?>
+                            <a class="byway-website-property" href="<?php echo $state_tourism_board_website;
                             ?>" target="_blank" title="Learn more at our website!">Website</a>
                         <?php endif; ?>
                     

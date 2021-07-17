@@ -28,7 +28,7 @@
 								
 								$poi_name = get_sub_field('nb_poi_name');
 								$poi_brief_description = get_sub_field('nb_poi_brief_description');
-								$poi_map_url = get_sub_field('nb_poi_map_url');
+								$poi_map_website = get_sub_field('nb_poi_map_website');
 								$poi_website = get_sub_field('nb_poi_website');
 								?>
 								<li class="item">
@@ -37,10 +37,10 @@
 									<div class="detail-properties">
 										<?php
 											
-											if ( $poi_map_url ) : ?>
+											if ( $poi_map_website ) : ?>
 												<a class="byway-website-property"
-												   href="<?php echo $poi_map_url;
-												   ?>" target="_blank" title="Explore!">Map</a>
+												   href="<?php echo $poi_map_website;
+												   ?>" target="_blank" title="Explore <?php echo $poi_name; ?>!">Explore</a>
 											<?php endif; // opts out if no PO website URL
 											
 											if ( $poi_website ) :  ?>

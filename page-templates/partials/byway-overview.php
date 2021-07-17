@@ -10,7 +10,7 @@
 ?>
 	
 	<div class="row"><!-- overview  -->
-		<div class="section">
+		<div class="section my-4">
 			<div class="boxed-subsection">
 				<?php
 					//vars

@@ -19,7 +19,7 @@
 						
 						?>
 						
-						<ul>
+						<ul class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 							
 							<?php
 								// Loop through rows.
