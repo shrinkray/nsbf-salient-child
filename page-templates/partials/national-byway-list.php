@@ -16,13 +16,11 @@
 	<?php
 		// Loop querying posts for National Byways ($nb_query) to present the Byway Info
 		
-		if ( !empty( have_posts() ) ) :
+		if ( !empty( $nb_query->have_posts() ) ) :
 			while ( $nb_query->have_posts() ) :
 				$nb_query->the_post();
 				$permalink = get_permalink( $the_query->ID );
 				$query_id  = get_the_title( $the_query->ID );
-				
-				
 				
 				?>
 				<li class="byway-item">
