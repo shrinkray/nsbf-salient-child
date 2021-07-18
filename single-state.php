@@ -209,9 +209,10 @@
 
 // America's Byways Collection Query
 	$nb_query = new WP_Query( $nb_args );
-
+	
+// Don't run this query until we need it
 // State Byways Query
-	$sb_query = new WP_Query( $sb_args );
+//	$sb_query = new WP_Query( $sb_args );
 	
 		?>
   
@@ -228,7 +229,8 @@
 				
 				    $permalink = get_permalink( $the_query->ID );
 				    $query_id  = get_the_title( $the_query->ID );
-				
+				    
+				// Prints website and phone number to the page
 				    include_once('page-templates/partials/state-tourism.php');
 				    
 			    endwhile;
