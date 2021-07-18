@@ -22,14 +22,21 @@
 				$permalink = get_permalink( $the_query->ID );
 				$query_id  = get_the_title( $the_query->ID );
 				
-				?>
+				// Gets the taxonomy slug from the $nb_query array
+				$tax  = get_the_terms( $the_query->ID, 'nb_designation' )[0]->slug;
+				
+				// If the tax equates to All American Roadway, we echo out our notification in the list item below
+				if ( $tax === 'aar' ) :
+					$asterisk = '*';
+				endif;	?>
+	
 				<li class="byway-item">
-					<a href="<?php echo $permalink; ?>"><?php echo $query_id; ?></a>
+					<a href="<?php echo $permalink; ?>"><?php echo $query_id; ?></a><?php echo $asterisk; ?>
 				</li>
-			
+    
 			<?php
 			endwhile;
-			else : // Instead of creating a list, show this gentle message.
+        else : // Instead of creating a list, show this gentle message.
 			?>
 			<li class="byway-item">
 				Sorry, there are no known All-American Roads or National Scenic Byways in <?php echo $title; ?>.
