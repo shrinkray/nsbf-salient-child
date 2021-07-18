@@ -1,48 +1,42 @@
 // webpack.mix.js
 // Jul-13-2021 Shrinkray
 
-let mix = require('laravel-mix');
-require('mix-tailwindcss');
- const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
+let autoprefixer;
+autoprefixer = require("autoprefixer");
+const  { CleanWebpackPlugin }  = require('clean-webpack-plugin');
+let CopyPlugin;
+CopyPlugin = require('copy-webpack-plugin');
+require('laravel-mix-purgecss');
 
 mix
-    .disableNotifications()
+   // .disableNotifications()
     .js('js/custom-scripts.js', 'dist')
-    .sass('scss/main.scss', 'css/main.css')
-    .postCss('css/child-responsive-styles.css', 'dist/child-responsive-styles.css')
-    .postCss('css/child-styles.css', 'dist/child-styles.css')
-    .postCss('css/main.css', 'dist/main.css',[
-        require('tailwindcss'),
-    ])
-    .options({
-        postCss :[
-            require('postcss-custom-properties'),
-            require('autoprefixer')
-        ],
-        autoprefixer: {remove: false},
-    })
+    .sass('scss/main.scss', 'dist')
     .sourceMaps()
+    .postCss("css/components.css", "dist", [
+        tailwindcss(),
+    ])
     .browserSync({proxy: 'http://localhost:10048/new-york/'})
     .webpackConfig({
             plugins: [
-                new CleanWebpackPlugin({
-                    // Simulate the removal of files
-                    // default: false
-                    dry: true,
-
-                    // Write Logs to Console
-                    // (Always enabled when dry is true)
-                    // default: false
-                    verbose: true,
-
-                    // Automatically remove all unused webpack assets on rebuild
-                    // default: true
-                    cleanStaleWebpackAssets: true,
-
-                    // Do not allow removal of current webpack assets
-                    // default: true
-                    protectWebpackAssets: true,
-                    cleanOnceBeforeBuildPatterns: ['dist/*', '!static-files*'],
+                // new CleanWebpackPlugin({
+                //     // Simulate the removal of files
+                //     dry: true,
+                //     // Write Logs to Console
+                //     verbose: true,
+                //     // Automatically remove all unused webpack assets on rebuild
+                //     cleanStaleWebpackAssets: true,
+                //     // Do not allow removal of current webpack assets
+                //     protectWebpackAssets: true,
+                //     cleanOnceBeforeBuildPatterns: ['dist/*', '!static-files*'],
+                // }),
+                new CopyPlugin({
+                    patterns: [
+                        { from: 'css/child-responsive-styles.css', to: 'dist' },
+                        { from: 'css/child-styles.css', to: 'dist' },
+                    ],
                 }),
             ]
         }

@@ -12,19 +12,23 @@
     "watch": "mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
-    "prod": "mix --production"
+    "prod": "mix --production",
+    "production": "mix --production"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.1",
     "browser-sync": "^2.27.4",
     "browser-sync-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
     "laravel-mix": "^6.0.25",
+    "laravel-mix-purgecss": "^6.0.0",
     "mix-tailwindcss": "^1.3.0",
     "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
     "postcss-custom-properties": "^11.0.0",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-import": "^14.0.2",
+    "postcss-nesting": "^7.0.1",
     "postcss-sorting": "^6.0.0",
     "postcss-url": "^10.1.3",
     "prettier": "^2.3.2",
@@ -32,11 +36,5 @@
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "tailwindcss": "^2.2.4"
-  },
-  "directories": {
-    "includes": "includes",
-    "page-templates": "page-templates",
-    "memberpress": "memberpress"
-  },
-  "dependencies": {}
+  }
 }
