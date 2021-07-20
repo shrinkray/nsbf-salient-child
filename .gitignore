@@ -60,3 +60,6 @@ _wpeprivate*
 *.avi
 
 
+/__single-state-byways.php
+/webpack.development.config.js
+/webpack.production.config.js
