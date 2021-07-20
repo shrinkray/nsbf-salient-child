@@ -232,7 +232,6 @@
 				    
 				// Prints website and phone number to the page
 				    include_once('page-templates/partials/state-tourism.php');
-				    
 			    endwhile;
 		
 		    endif;

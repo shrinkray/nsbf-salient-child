@@ -7,6 +7,7 @@
 	 */
 
 ?>
+
 	<div class="row">
 		<div class="section">
 			<div id="itinerary" class="anchored"></div>
@@ -17,7 +18,7 @@
 				if ( have_rows( 'nb_itinerary' ) ):
 					?>
                     
-                    <h2 class="h2 itinerary">Itinerary</h2>
+                    <h2 class="text-4xl h2 itinerary">Itinerary</h2>
 					<ul>
 						<?php
 							
@@ -26,6 +27,7 @@
 								//vars
 								$itinerary_name = get_sub_field('nb_itinerary_name');
 								$itinerary_description = get_sub_field('nb_itinerary_brief_description');
+								$toggle_anchor = 'block';
 								?>
 								
 								<li class="item">

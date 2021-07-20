@@ -10,7 +10,7 @@
 <div class="row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
     <div class="section details order-last md:order-none lg:order-none ">
         <div id="details" class="anchored"></div>
-        <h2 class="h2 wayfinder">Details</h2>
+        <h2 class="text-4xl h2 wayfinder">Details</h2>
         <?php
 
             $intrinsic_quality                  = get_field( 'nb_intrinsic_quality' );

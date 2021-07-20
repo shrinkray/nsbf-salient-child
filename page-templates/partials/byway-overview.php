@@ -18,7 +18,7 @@
 				
 				?>
 				<div id="overview" class="anchored"></div>
-				<h2 class="h2 overview">Overview</h2>
+				<h2 class="text-4xl h2 overview">Overview</h2>
 				<?php echo $byway_synopsis; ?>
 			</div> <!-- .boxed-subsection -->
 		</div>

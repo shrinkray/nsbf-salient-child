@@ -13,7 +13,7 @@
 		<div class="section">
 			<div class="col">
 				<div id="story" class="anchored"></div>
-				<h2 class="h2 story">Story of the Byway</h2>
+				<h2 class="text-4xl h2 story">Story of the Byway</h2>
 				
 				<?php
 					//vars
@@ -27,7 +27,7 @@
 			
 			<div class="col">
 				<div id="directions" class="anchored"></div>
-				<h2 class="h2 driving">Driving Directions</h2>
+				<h2 class="h2 text-4xl driving">Driving Directions</h2>
 				
 				<?php
 					$driving_directions = get_field( 'nb_driving_directions_route_description' );

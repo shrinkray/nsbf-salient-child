@@ -10,7 +10,7 @@
 ?>
 
 <div class="color-bar bg-gradient-to-r from-yellow-600 to-yellow-300 mt-10"></div>
-<h3 class="text-3xl text-outerspace  mt-12 mb-8">America's Byways Collection</h3>
+<h2 class="text-3xl text-outerspace  mt-12 mb-8">America's Byways Collection</h2>
 <ul class="byway-collection grid grid-cols-1">
 	
 	<?php

@@ -25,20 +25,22 @@ get_header();
    
     $official_byway_name = get_field('nb_official_byway_name');
     $designating_agency = get_field('nb_designating_agency');
+    $toggle_anchor = 'hidden';
 
             ?>
 		
-        <div class="row">
+        <div class="row my-4">
            
-            <h1 class="entry-title"><?php the_title(); ?></h1>
+            <h1 class="text-5xl entry-title "><?php the_title(); ?></h1>
 
             
-            <ul class="byway-sub-nav">
-                <li class="anchor-nav"><a href="#overview" class="active">Overview</a></li>
-                <li class="anchor-nav"><a href="#story" class="">Story of the Byway</a></li>
-                <li class="anchor-nav"><a href="#directions" class="">Driving Directions</a></li>
-                <li class="anchor-nav"><a href="#points" class="">Points of Interest</a></li>
-                <li class="anchor-nav"><a href="#itinerary" class="">Itinerary</a></li>
+            <ul class="byway-sub-nav mt-6 mb-10">
+                <li class="anchor-nav"><a href="#overview" class="active" title="Trip Overview">Overview</a></li>
+                <li class="anchor-nav"><a href="#story" class="" title="Story of the Byway">Story</a></li>
+                <li class="anchor-nav"><a href="#directions" class="" title="Driving Directions">Directions</a></li>
+                <li class="anchor-nav"><a href="#points" class="" title="Points of Interest">POIs</a></li>
+                <li class="anchor-nav <?php echo $toggle_anchor; ?>" title="Itinerary"><a href="#itinerary"
+                                                                            class="">Itinerary</a></li>
             </ul>
 
         </div> <!-- .row // H1 & Anchor Nav -->
