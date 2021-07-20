@@ -29,29 +29,34 @@
 									$partner_organization         = get_sub_field( 'nb_po_name' );
 									$partner_organization_phone   = get_sub_field( 'nb_po_phone' );
 									$partner_organization_website = get_sub_field( 'nb_po_website' );
-									
 									?>
 									
 									<li class="item">
 										<div class="detail-organization"><?php echo $partner_organization; ?></div>
 										
+										<?php
+											// If either of these exist, create the detail otherwise, skip
+											if ( $partner_organization_website || $partner_organization_phone ) :
+										?>
 										<div class="detail-properties">
 											<?php
 												if ( $partner_organization_website ) : ?>
-													<a class="byway-website-property"
+                                            <a class="byway-website-property"
 													   href="<?php echo $partner_organization_website;
-													   ?>" target="" title="Learn more at our website!">Website</a>
+													   ?>" target="_blank" title="Learn more at our
+													   website!">Website</a>
 												<?php endif; // opts out if no PO website URL
 												
 												if ( $partner_organization_phone ) : ?>
-													<a class="byway-phone-property"
+                                            <a class="byway-phone-property"
 													   href="tel:<?php echo $partner_organization_phone;
 													   ?>"
 													   title="Need help? Call our offices."><?php echo $partner_organization_phone; ?></a>
 												<?php endif; // opts out if no PO phone  ?>
 										
-										
 										</div> <!-- .detail-properties -->
+										<?php endif; //  
+										?>
 									</li>
 								
 								<?php endwhile; // end of nb_local_partner_organization
