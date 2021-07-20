@@ -1,6 +1,8 @@
-// Import SCSS
-@import "variables";
-@import "byways-custom";
+/* Import Tailwind Base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import Byways */
+@import "variables";
+@import "byways-custom";
