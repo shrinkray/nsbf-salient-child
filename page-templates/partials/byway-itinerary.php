@@ -10,13 +10,14 @@
 	<div class="row">
 		<div class="section">
 			<div id="itinerary" class="anchored"></div>
-			<h2 class="h2 itinerary">Itinerary</h2>
+			
 			<?php
 				
 				// Check rows exists.
 				if ( have_rows( 'nb_itinerary' ) ):
 					?>
-					
+                    
+                    <h2 class="h2 itinerary">Itinerary</h2>
 					<ul>
 						<?php
 							
@@ -27,8 +28,8 @@
 								$itinerary_description = get_sub_field('nb_itinerary_brief_description');
 								?>
 								
-								<li>
-									<div class=""><?php echo $itinerary_name; ?></div>
+								<li class="item">
+									<div class="item-heading"><?php echo $itinerary_name; ?></div>
 									<div class=""><?php echo $itinerary_description; ?></div>
 								</li>
 							
