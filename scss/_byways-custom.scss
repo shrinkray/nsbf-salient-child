@@ -8,7 +8,7 @@
         max-width: 1425px;
         width: 100%;
         margin: 0 auto;
-        padding: 0px 90px;
+        padding: 0; // was: 0px 90px;
     }
     .container {
         //outline: #9ba626 1px solid;
@@ -19,12 +19,13 @@
     }
     // Override theme based stylings for useful classes
     .row {
-        padding: 0;
         margin: 0;
+        padding: 0;
     }
     .entry-title {
-        font-size: 3.3rem;
+        font-size: 2.7rem;
         letter-spacing: -0.02rem;
+        line-height: 1.1;
     }
     .h2 {
         font-size: 2.5em;
@@ -64,34 +65,58 @@
 }
 // SECTONS
 .label-minor-heading {
-    color: var(--forestgreen);
+    color: $forestgreen;
     font-weight: 700;
     margin-right: 0.4rem;
 }
 .section {
     position: relative;
-    .item {
-        .item-heading {
+    li {
+        &> .item-heading {
             font-weight: 700;
         }
     }
+
 }
+
+@media screen and (min-width: 765px) {
+     .section {
+         &.details {
+             margin-top: -2.35rem;
+         }
+         &.image {
+             margin-top: 4.25rem;
+         }
+     }
+}
+
 .boxed-subsection {
-    border: 4px solid var(--steelblue);
+    border: 4px solid $steelblue;
     padding: 25px 40px;
 }
 .details-subsection {
     padding-top: 1.5rem;
 }
+.partner-digits {
+    margin-bottom: 1rem;
+}
+.detail-organization {
+    margin-bottom: .6rem;
+    line-height: 1.5rem;
+}
 .detail-properties {
-    padding: 0.5rem 0;
+    padding: 0 0 0.5rem;
     .byway-website-property {
-        padding: 0.17rem 0.8rem 0.3rem;
-        background-color: var(--steelblue);
+        padding: 0.18rem 0.8rem 0.19rem;
+        background-color: $steelblue;
         color: #fff;
         border-radius: 1rem;
         margin-right: 0.4rem;
         font-size: 0.9rem;
+        &:hover {
+           background-color: $mangotango;
+            transition: color 0.2s;
+        }
     }
     .byway-phone-property {
         background-repeat: no-repeat;
@@ -111,8 +136,6 @@
 .color-bar {
     padding: 0.3rem;
     width: 100%;
-    margin: 3rem 0 4rem;
-
 }
 
 // Sub Heading background images

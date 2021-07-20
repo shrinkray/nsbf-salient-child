@@ -5,9 +5,9 @@
   --goldenrod: #DBA510;
   --steelblue: #006B94;
   --dimgray: #4B4145;
+  --outerspace: #444444;
 }
-
-
+// Color Specs
 .text-forestgreen {
   color: var(--forestgreen);
 }
@@ -23,6 +23,36 @@
 .text-dimgray {
   color: var(--dimgray);
 }
+.text-outerspace {
+  color: var(--outerspace);
+}
+// Color Vars
+$forestgreen: #02AE4B;
+$mangotango: #D5641C;
+$goldenrod: #DBA510;
+$steelblue: #006B94;
+$dimgray: #4B4145;
+$outerspace: #444444;
+// Reset
+
+.text-5xl {
+ font-size: 2.9rem;
+  line-height: 1.1;
+}
+.text-3xl{
+  line-height: 1.95rem;
+}
+a {
+  transition: color 0.2s;
+  transition: background-color 0.2s;
+  &:hover {
+    transition: color 0.2s;
+    transition: background-color 0.2s;
+  }
+}
+p {
+  padding-bottom: 1rem;
+}
 
 // Universally set this pattern for an unordered list
 ul {
@@ -30,8 +60,14 @@ ul {
   padding: 0;
   &> li {
     list-style: none;
+
     span {
 
     }
+  }
+}
+.section {
+  p {
+    padding: 0 0 0.5rem;
   }
 }

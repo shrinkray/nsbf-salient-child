@@ -219,7 +219,7 @@
 <div class="container-wrap">
     <div class="container main-content">
 
-        <h1 class="text-5xl text-center mb-14">Scenic Byways of <?php echo $title;?></h1>
+        <h1 class="text-5xl text-center mb-9 lg:mb-14">Scenic Byways of <?php echo $title;?></h1>
 	    <?php
 		
 		    // Loop querying posts for National Byways ($nb_query) to capture partner data
@@ -255,7 +255,7 @@
         
         
 	<div class="state-information mt-10">
-        <h4 class="text-2xl mb-4">Information</h4>
+        <h4 class="text-xl mb-4">Information</h4>
         <p>National Scenic Byways and All-American Roads are designated by the Federal Department of Transportation and
             become part of the <em>America’s Byways</em>® collection. To become an official National Scenic Byways, qualifying
             roads must have one of the following six “intrinsic qualities”: <strong>1. Scenic, 2. Historic, 3. Archeological, 4. Recreational, 5. Cultural, or 6. Natural</strong>. To become an All-American Road, two or

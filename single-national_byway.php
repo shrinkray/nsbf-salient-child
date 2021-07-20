@@ -38,6 +38,7 @@ get_header();
                 <li class="anchor-nav"><a href="#story" class="">Story of the Byway</a></li>
                 <li class="anchor-nav"><a href="#directions" class="">Driving Directions</a></li>
                 <li class="anchor-nav"><a href="#points" class="">Points of Interest</a></li>
+                <li class="anchor-nav"><a href="#itinerary" class="">Itinerary</a></li>
             </ul>
 
         </div> <!-- .row // H1 & Anchor Nav -->
@@ -61,7 +62,6 @@ get_header();
 
         //
         include('page-templates/partials/byway-itinerary.php');
-		
 		?>
 
     </div><!--/container main-content-->

@@ -12,7 +12,7 @@
 			 * render, otherwise do not show them.
 			 */
 			if ( $state_dot_name ) : ?>
-                <div class="detail-organization text-2xl font-bold"><?php echo $state_dot_name;?></div>
+                <div class="detail-organization text-xl font-bold"><?php echo $state_dot_name;?></div>
 
                 <div class="detail-properties">
 					<?php // If we have a website URL add a link
@@ -45,7 +45,7 @@
              */
             if ( $state_tourism_board_name ) :  ?>
     
-                <div class="detail-organization text-2xl font-bold"><?php echo $state_tourism_board_name;?></div>
+                <div class="detail-organization text-xl font-bold"><?php echo $state_tourism_board_name;?></div>
     
                 <div class="detail-properties">
                     <?php // If we have a website URL add a link

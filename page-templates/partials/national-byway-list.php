@@ -9,8 +9,8 @@
 
 ?>
 
-<div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600"></div>
-<h3 class="text-2xl text-steelblue  mt-10 mb-8">America's Byways Collection</h3>
+<div class="color-bar bg-gradient-to-r from-yellow-600 to-yellow-300 mt-10"></div>
+<h3 class="text-3xl text-outerspace  mt-12 mb-8">America's Byways Collection</h3>
 <ul class="byway-collection grid grid-cols-1">
 	
 	<?php
@@ -39,7 +39,7 @@
         else : // Instead of creating a list, show this gentle message.
 			?>
 			<li class="byway-item">
-				Sorry, there are no known All-American Roads or National Scenic Byways in <?php echo $title; ?>.
+				Currently there are no All-American Roads or National Scenic Byways in <?php echo $title; ?>.
 			</li>
 		
 		<?php
@@ -47,5 +47,7 @@
 	?>
 
 </ul> <!-- .byway-collection (National) -->
+    <div class="color-bar bg-gradient-to-r
+from-yellow-300 to-yellow-600 mt-14"></div>
 <?php
 	wp_reset_postdata();
