@@ -7,13 +7,10 @@
 	 */
 	?>
 
-<div class="row">
-    <div id="details" class="anchored"></div>
-    <h2 class="h2 wayfinder">Details</h2>
-</div> <!-- .row // Detail H2 -->
-    
-<div class="row grid grid-cols-2">
-    <div class="section">
+<div class="row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
+    <div class="section details order-last md:order-none lg:order-none ">
+        <div id="details" class="anchored"></div>
+        <h2 class="h2 wayfinder">Details</h2>
         <?php
 
             $intrinsic_quality                  = get_field( 'nb_intrinsic_quality' );
@@ -21,32 +18,46 @@
             $designation                        = get_field( 'nb_current_national_designation' );
 	        $designation_year                   = get_field('nb_designation_year');
             $length_of_byway_miles              = get_field( 'nb_length_of_byway_miles' );
-  
-            
-//            switch ( $intrinsic_quality ) {
-//	            case 'S':
-//		            $intrinsic_quality = 'Scenic';
-//		            break;
-//	            case 'H':
-//		            $intrinsic_quality = 'Historic';
-//		            break;
-//	            case 'A':
-//		            $intrinsic_quality = 'Archeological';
-//		            break;
-//	            case 'R':
-//		            $intrinsic_quality = 'Recreation';
-//		            break;
-//	            case 'C':
-//		            $intrinsic_quality = 'Cultural';
-//		            break;
-//	            case 'N':
-//		            $intrinsic_quality = 'Natural';
-//		            break;
-//            }
+	
+	        // split the phrase by any number of commas or space characters into an array()
+	        // which include " ", \r, \t, \n and \f
+         
+	        $keywords = preg_split("/[\s,]+/", $intrinsic_quality);
+	     
+	        // for each single letter associate a word and build a new string
+	        foreach ( $keywords as $keyword ) {
+		       
+		        switch ( $keyword ) {
+			        case 'S':
+				        $quality = 'Scenic';
+				        break;
+			        case 'H':
+				        $quality = 'Historic';
+				        break;
+			        case 'A':
+				        $quality = 'Archeological';
+				        break;
+			        case 'R':
+				        $quality = 'Recreation';
+				        break;
+			        case 'C':
+				        $quality = 'Cultural';
+				        break;
+			        case 'N':
+				        $quality = 'Natural';
+				        break;
+		        }
+		        // a word list is created along with a trailing comma and space 😞.
+		        $list .= $quality . ', ' ;
+	        }
+	        // Remove space and last comma from the list and return the trimmed result
+	        $trimmed = rtrim( trim( $list ), ',' );
+	        
+	     //   echo $list;
         ?>
         <ul>
             <li><span class="label-minor-heading">Designation</span><?php echo $designation;?> (<?php echo $designation_year ?>)</li>
-            <li><span class="label-minor-heading">Intrinsic Qualities</span><?php echo $intrinsic_quality;
+            <li><span class="label-minor-heading">Intrinsic Qualities</span><?php echo $trimmed;
 				?></li>
             <li><span class="label-minor-heading">Location</span><?php echo $state_or_states_that_contain_byway;
 				?></li>
@@ -164,7 +175,22 @@
 
         </div> <!-- .detail-subsection // Statewide Byway Partners  -->
     </div> <!-- .section -->
-    <div class="section">
-        <div class=""></div>
+    <div class="section image order-first md:order-none lg:order-none mt-5">
+        <div class="">
+	        <?php
+		
+		        /**
+		         * $attachmemt_id is value coming from ACF,
+		         * image $size,
+		         * $icon = usually false,
+		         * $attr = image attributes
+		         *
+		         * $var = wp_get_attachment_image($attachment_id, $size, $icon=false, $attr = [ css classes and image alt string ]);
+		         */
+		        $image_alt = '';
+		        $image = get_the_post_thumbnail();
+	echo $image;
+	        ?>
+        </div>
     </div> <!-- .section -->
 </div> <!-- .row // Details -->
