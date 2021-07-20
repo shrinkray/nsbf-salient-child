@@ -28,19 +28,28 @@
 								
 								$poi_name = get_sub_field('nb_poi_name');
 								$poi_brief_description = get_sub_field('nb_poi_brief_description');
-								$poi_map_website = get_sub_field('nb_poi_map_website');
+								$poi_map_website = get_sub_field('nb_poi_map_url');
 								$poi_website = get_sub_field('nb_poi_website');
+								
+								echo $poi_map_website;
 								?>
 								<li class="item">
 									<div class="item-heading"><?php echo $poi_name; ?></div>
 									<div><?php echo $poi_brief_description; ?></div>
+									
+									<?php
+										// If either of these properties exist, build out this section,
+                                        // otherwise, skip.
+										if ( $poi_map_website || $poi_website ) : ?>
 									<div class="detail-properties">
 										<?php
 											
 											if ( $poi_map_website ) : ?>
 												<a class="byway-website-property"
 												   href="<?php echo $poi_map_website;
-												   ?>" target="_blank" title="Explore <?php echo $poi_name; ?>!">Explore</a>
+												   ?>" target="_blank" title="Use Google Maps to explore <?php echo
+                                                $poi_name;
+												   ?>!">Directions</a>
 											<?php endif; // opts out if no PO website URL
 											
 											if ( $poi_website ) :  ?>
@@ -50,7 +59,9 @@
 										
 										?>
 									</div>
-								
+								<?php endif; //
+								?>
+        
 								</li>
 							<?php endwhile; // nb_point_of_interest
 						?>
