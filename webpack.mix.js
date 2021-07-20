@@ -13,25 +13,25 @@ require('laravel-mix-purgecss');
 mix
    // .disableNotifications()
     .js('js/custom-scripts.js', 'dist')
-    .sass('scss/main.scss', 'dist')
     .sourceMaps()
-    .postCss("css/components.css", "dist", [
+    .postCss("vendor/temp/main.css", "dist", [
         tailwindcss(),
     ])
+    .sass('scss/main.scss', 'vendor/temp/')
     .browserSync({proxy: 'http://localhost:10048/new-york/'})
     .webpackConfig({
             plugins: [
-                // new CleanWebpackPlugin({
-                //     // Simulate the removal of files
-                //     dry: true,
-                //     // Write Logs to Console
-                //     verbose: true,
-                //     // Automatically remove all unused webpack assets on rebuild
-                //     cleanStaleWebpackAssets: true,
-                //     // Do not allow removal of current webpack assets
-                //     protectWebpackAssets: true,
-                //     cleanOnceBeforeBuildPatterns: ['dist/*', '!static-files*'],
-                // }),
+                new CleanWebpackPlugin({
+                    // Simulate the removal of files
+                    dry: true,
+                    // Write Logs to Console
+                    verbose: true,
+                    // Automatically remove all unused webpack assets on rebuild
+                    cleanStaleWebpackAssets: true,
+                    // Do not allow removal of current webpack assets
+                    protectWebpackAssets: true,
+                    cleanOnceBeforeBuildPatterns: ['dist/*', '!static-files*'],
+                }),
                 new CopyPlugin({
                     patterns: [
                         { from: 'css/child-responsive-styles.css', to: 'dist' },
