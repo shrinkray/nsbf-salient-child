@@ -8,34 +8,28 @@
 
 ?>
 	
-	<div class="row"> <!-- Story of the Byway + Driving Directions -->
+	<div class="row mb-12"> <!-- Story of the Byway + Driving Directions -->
 		
 		<div class="section">
-			<div class="col">
+			<div class="">
 				<div id="story" class="anchored"></div>
-				<h2 class="text-4xl h2 story">Story of the Byway</h2>
 				
 				<?php
 					//vars
 					$byway_story        = get_field( 'nb_byway_story' );
+					$toggle_story = 'block';
 					
-					if ( $byway_story ) :  ?>
+					if ( ! empty( $byway_story ) ) :  ?>
+     
+				<h2 class="text-4xl h2 story">Story of the Byway</h2>
+      
 						<?php echo $byway_story;  ?>
+					<?php else :
+						//$toggle_story = 'hidden';
+						?>
 					<?php endif; // end
 				?>
 			</div><!-- .col // story of byway -->
-			
-			<div class="col">
-				<div id="directions" class="anchored"></div>
-				<h2 class="h2 text-4xl driving">Driving Directions</h2>
-				
-				<?php
-					$driving_directions = get_field( 'nb_driving_directions_route_description' );
-					
-					if ( $driving_directions ) :  ?>
-						<?php echo $driving_directions;  ?>
-					<?php endif; // end
-				?>
-			</div> <!-- .col // directions -->
+   
 		</div> <!-- .section -->
 	</div> <!-- .row // story of byway + directions -->

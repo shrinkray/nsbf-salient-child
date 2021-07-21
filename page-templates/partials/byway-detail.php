@@ -7,7 +7,7 @@
 	 */
 	?>
 
-<div class="row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
+<div class="row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-12">
     <div class="section details order-last md:order-none lg:order-none ">
         <div id="details" class="anchored"></div>
         <h2 class="text-4xl h2 wayfinder">Details</h2>
@@ -55,7 +55,7 @@
 	        
 	     //   echo $list;
         ?>
-        <ul>
+        <ul class="detail-list mt-7 mb-7">
             <li><span class="label-minor-heading">Designation</span><?php echo $designation;?> (<?php echo $designation_year ?>)</li>
             <li><span class="label-minor-heading">Intrinsic Qualities</span><?php echo $trimmed;
 				?></li>
@@ -102,10 +102,10 @@
     ?>
 
 
-        <div class="detail-subsection">
+        <div class="detail-subsection mt-7">
             <div class="label-minor-heading">Statewide Byway Partners</div>
 			
-			<div class="departments grid grid-cols-1 md:grid-cols-2">
+			<div class="departments grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div class="partner-digits">
 					<?php
 						// vars
@@ -175,22 +175,37 @@
 
         </div> <!-- .detail-subsection // Statewide Byway Partners  -->
     </div> <!-- .section -->
-    <div class="section image order-first md:order-none lg:order-none mt-5">
-        <div class="">
+    <div class="section image order-first mb-8 md:order-none lg:order-none">
+        <div class="detail-image">
 	        <?php
-		
-		        /**
-		         * $attachmemt_id is value coming from ACF,
-		         * image $size,
-		         * $icon = usually false,
-		         * $attr = image attributes
-		         *
-		         * $var = wp_get_attachment_image($attachment_id, $size, $icon=false, $attr = [ css classes and image alt string ]);
-		         */
-		        $image_alt = '';
-		        $image = get_the_post_thumbnail();
+          
+		        $image = get_the_post_thumbnail($post_id, "byway_large" );
 	echo $image;
 	        ?>
+        </div>
+        <div class="attribution text-right">
+         
+	        <?php if ( ! empty( have_rows( 'nb_iconic_images' ) ) ) :
+                $first_credit = true;
+	        
+	        // combo conditional to get just the first record
+		         while ( $first_credit && have_rows( 'nb_iconic_images' ) ) : the_row();
+			         ?>
+                     <span class="photo-credit">Photo Credit: </span>
+
+			         <?php
+		        $attribution = get_sub_field( 'image_attribution' );
+		        // set to false to stop from getting the next record
+                 $first_credit = false;
+			        ?>
+
+                <span class="source"><?php echo $attribution; ?></span>
+		
+		        <?php
+		        endwhile; ?>
+	        <?php else : ?>
+		        <?php // no rows found ?>
+	        <?php endif; ?>
         </div>
     </div> <!-- .section -->
 </div> <!-- .row // Details -->

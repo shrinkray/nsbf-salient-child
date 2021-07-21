@@ -8,7 +8,7 @@
 
 ?>
 	
-	<div class="row"> <!-- Local Byway Partners -->
+	<div class="row short"> <!-- Local Byway Partners -->
 		
 		<div class="section">
 			<div class="detail-subsection"> <!-- Byway Partners -->

@@ -3,9 +3,13 @@
 	<div class="partner-digits text-center">
 		<?php
 			// vars
-			$state_dot_name = get_field('nb_state_dot_name');
-			$state_dot_byway_website = get_field('nb_state_dot_byway_website');
-			$state_dot_byway_phone = get_field('nb_state_dot_byway_phone');
+//			$state_dot_name = get_field('nb_state_dot_name');
+//			$state_dot_byway_website = get_field('nb_state_dot_byway_website');
+//			$state_dot_byway_phone = get_field('nb_state_dot_byway_phone');
+			
+			$state_dot_name = get_field(' sp_state_department_of_transportation_name');
+			$state_dot_byway_website = get_field('sp_state_department_of_transportation_website');
+			$state_dot_byway_phone = get_field('sp_state_department_of_transportation_phone');
 			
 			/**
 			 * If the organization exists, add it's name. If the web and or phone properties exist,
@@ -35,9 +39,13 @@
         <?php
             
             // vars
-            $state_tourism_board_name = get_field('nb_state_tourism_board_name');
-            $state_tourism_board_website = get_field('nb_state_tourism_board_website');
-            $state_tourism_board_phone = get_field('nb_state_tourism_board_phone');
+//            $state_tourism_board_name = get_field('nb_state_tourism_board_name');
+//            $state_tourism_board_website = get_field('nb_state_tourism_board_website');
+//            $state_tourism_board_phone = get_field('nb_state_tourism_board_phone');
+            
+            $state_tourism_board_name = get_field(' sp_state_tourism_board_name');
+            $state_tourism_board_website = get_field('sp_state_tourism_board_website');
+            $state_tourism_board_phone = get_field('sp_state_tourism_board_phone');
             
             /**
              * If the organization exists, add it's name. If the web and or phone properties exist,

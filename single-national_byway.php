@@ -25,24 +25,34 @@ get_header();
    
     $official_byway_name = get_field('nb_official_byway_name');
     $designating_agency = get_field('nb_designating_agency');
-    $toggle_anchor = 'hidden';
+    
+    // Initialize Anchor Navigation visibility,
+    // if content is loaded, toggle_{section} = 'block'
+	$toggle_overview = 'block';
+    $toggle_story = 'block';
+    $toggle_directions = 'block';
+    $toggle_points = 'block';
+    $toggle_itinerary = 'block';
 
             ?>
 		
-        <div class="row my-4">
+        <div class="row mb-0 md:mb-4 lg:mb-14">
            
             <h1 class="text-5xl entry-title "><?php the_title(); ?></h1>
-
             
-            <ul class="byway-sub-nav mt-6 mb-10">
-                <li class="anchor-nav"><a href="#overview" class="active" title="Trip Overview">Overview</a></li>
-                <li class="anchor-nav"><a href="#story" class="" title="Story of the Byway">Story</a></li>
-                <li class="anchor-nav"><a href="#directions" class="" title="Driving Directions">Directions</a></li>
-                <li class="anchor-nav"><a href="#points" class="" title="Points of Interest">POIs</a></li>
-                <li class="anchor-nav <?php echo $toggle_anchor; ?>" title="Itinerary"><a href="#itinerary"
+            <ul class="byway-sub-nav mt-3 mb-10">
+                <li class="anchor-nav <?php echo $toggle_overview; ?>"><a href="#overview" class="active" title="Trip
+                Overview">Overview</a></li>
+                <li class="anchor-nav <?php echo $toggle_story; ?>"><a href="#story" class="" title="Story of the
+                Byway">Story</a></li>
+                <li class="anchor-nav <?php echo $toggle_directions; ?>"><a href="#directions" class="" title="Driving
+                Directions">Directions</a></li>
+                <li class="anchor-nav <?php echo $toggle_points; ?>"><a href="#points" class="" title="Points of
+                Interest">POIs</a></li>
+                <li class="anchor-nav <?php echo $toggle_itinerary; ?>" title="Itinerary"><a href="#itinerary"
                                                                             class="">Itinerary</a></li>
-            </ul>
 
+            </ul>
         </div> <!-- .row // H1 & Anchor Nav -->
 		
 		
@@ -58,6 +68,9 @@ get_header();
 	
         //
         include('page-templates/partials/byway-story.php');
+        
+        //
+        include('page-templates/partials/byway-directions.php');
 
         //
         include('page-templates/partials/byway-points.php');
