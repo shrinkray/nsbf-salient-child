@@ -38,7 +38,7 @@ get_header();
 		
         <div class="row mb-0 md:mb-4 lg:mb-14">
            
-            <h1 class="text-5xl entry-title "><?php the_title(); ?></h1>
+            <h1 class="text-3xl md:text-5xl entry-title"><?php the_title(); ?></h1>
             
             <ul class="byway-sub-nav mt-3 mb-10">
                 <li class="anchor-nav <?php echo $toggle_overview; ?>"><a href="#overview" class="active" title="Trip

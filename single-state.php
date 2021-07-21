@@ -206,52 +206,73 @@
 			))
 	);
 
-
+	
 // America's Byways Collection Query
 	$nb_query = new WP_Query( $nb_args );
+	
+
 	
 // Don't run this query until we need it
 // State Byways Query
 //	$sb_query = new WP_Query( $sb_args );
 	
+	
+	// State Partner Args
+	$sp_args = array(
+		'numberposts'       => -1,
+		'post_type'         => 'state_partners',
+		'orderby'           => 'title',
+		'post_status'       => 'publish',
+		'meta_key'          => 'sp_state',
+		'meta_value'        => $nb_meta_value,
+	);
+	
+	// State Partner Query
+	$partners = new WP_Query( $sp_args );
 		?>
   
 <div class="container-wrap">
     <div class="container main-content">
 
-        <h1 class="text-5xl text-center mb-9 lg:mb-14">Scenic Byways of <?php echo $title;?></h1>
+        <h1 class="entry-title text-3xl md:text-5xl  text-center mb-9 lg:mb-14">Scenic Byways of <?php echo $title;
+        ?></h1>
 	    <?php
-		
+
 		    // Loop querying posts for National Byways ($nb_query) to capture partner data
-		    if ( !empty( have_posts() ) ) :
-			    while ( $nb_query->have_posts() ) :
-				    $nb_query->the_post();
-				
-				    $permalink = get_permalink( $the_query->ID );
-				    $query_id  = get_the_title( $the_query->ID );
-				    
-				// Prints website and phone number to the page
-				    include_once('page-templates/partials/state-tourism.php');
-			    endwhile;
-		
+		    if ( $partners->have_posts() ) :
+			    ?>
+
+            <ul>
+			
+			    <?php
+			    while ( $partners->have_posts() ) :
+				    $partners->the_post();
+	
+				    // Prints website and phone number to the page
+				    include_once( 'page-templates/partials/state-partners.php' );
+			    endwhile; ?>
+
+            </ul>
+			
+			    <?php
+			    wp_reset_query();
 		    endif;
 	    ?>
-	
-	
+
+        <div class="color-bar bg-gradient-to-r from-yellow-600 to-yellow-300 mt-10"></div>
 	    <?php
 		    /**
-		     * This is for the national byway list
+		     * This is for the NATIONAL byway list
 		     */
 		    include_once( 'page-templates/partials/national-byway-list.php' );
-	
-
+		    
 		    /**
-		     * This is for the state byway list
+		     * This is for the STATE byway list
 		     */
-		  //  include_once( 'page-templates/partials/state-byway-list.php' );
+		//    include_once( 'page-templates/partials/state-byway-list.php' );
 	
 	    ?>
-        
+        <div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>
         
 	<div class="state-information mt-10">
         <h4 class="text-xl mb-4">Information</h4>

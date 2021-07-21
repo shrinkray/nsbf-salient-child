@@ -9,8 +9,8 @@
 
 ?>
 
-<div class="color-bar bg-gradient-to-r from-yellow-600 to-yellow-300 mt-10"></div>
-<h2 class="text-3xl text-outerspace  mt-12 mb-8">America's Byways Collection</h2>
+
+<h2 class="text-2xl md:text-3xl text-outerspace  mt-12 mb-8">America's Byways Collection</h2>
 <ul class="byway-collection grid grid-cols-1">
 	
 	<?php
@@ -31,7 +31,8 @@
 				endif;	?>
 	
 				<li class="byway-item">
-					<a href="<?php echo $permalink; ?>"><?php echo $query_id; ?></a><?php echo $asterisk; ?>
+					<a href="<?php echo $permalink; ?>" class="item-link"><?php echo $query_id; ?></a><?php echo
+                    $asterisk; ?>
 				</li>
     
 			<?php
@@ -47,7 +48,6 @@
 	?>
 
 </ul> <!-- .byway-collection (National) -->
-    <div class="color-bar bg-gradient-to-r
-from-yellow-300 to-yellow-600 mt-14"></div>
+
 <?php
 	wp_reset_postdata();

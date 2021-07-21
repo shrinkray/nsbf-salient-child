@@ -21,7 +21,7 @@
 					
 					if ( ! empty( $byway_story ) ) :  ?>
      
-				<h2 class="text-4xl h2 story">Story of the Byway</h2>
+				<h2 class="text-2xl md:text-4xl h2 story">Story of the Byway</h2>
       
 						<?php echo $byway_story;  ?>
 					<?php else :

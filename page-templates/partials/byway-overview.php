@@ -11,7 +11,7 @@
 	
 	<div class="row mt-3 mb-12"><!-- overview  -->
 		<div class="section">
-			<div class="boxed-subsection">
+			<div class="boxed-subsection border-2 md:border-4">
 				<?php
 					//vars
 					$byway_synopsis = get_field( 'nb_byway_synopsis' );
@@ -22,7 +22,7 @@
 					
 					if ( ! empty( $byway_synopsis ) ) :
 						?>
-				<h2 class="text-4xl h2 overview">Overview</h2>
+				<h2 class="text-2xl md:text-4xl h2 overview">Overview</h2>
 				<?php echo $byway_synopsis; ?>
 
                 <?php else :
