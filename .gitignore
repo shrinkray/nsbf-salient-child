@@ -5,6 +5,7 @@
 **/vendor
 /dist/
 /node_modules/
+**/__*.php
 
 # Computed file
 /css/byways-custom.css
@@ -59,7 +60,6 @@ _wpeprivate*
 *.wmv
 *.avi
 
-
-/__single-state-byways.php
 /webpack.development.config.js
 /webpack.production.config.js
+
