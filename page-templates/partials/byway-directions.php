@@ -22,7 +22,7 @@
 					
 					if ( ! empty( $driving_directions ) ) :  ?>
                         
-                        <h2 class="text-2xl md:text-4xl h2 driving">Driving Directions</h2>
+                        <h2 class="text-3xl md:text-4xl h2 driving">Driving Directions</h2>
                         
 						<?php echo $driving_directions;  ?>
                     <?php else :

@@ -18,7 +18,7 @@
 				if ( ! empty( have_rows( 'nb_itinerary' ) ) ) :
 					?>
                     
-                    <h2 class="text-2xl md:text-4xl h2 itinerary">Itinerary</h2>
+                    <h2 class="text-3xl md:text-4xl h2 itinerary">Itinerary</h2>
 					<ul>
 						<?php
 							

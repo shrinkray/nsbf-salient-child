@@ -22,7 +22,7 @@
 					
 					if ( ! empty( $byway_synopsis ) ) :
 						?>
-				<h2 class="text-2xl md:text-4xl h2 overview">Overview</h2>
+				<h2 class="text-3xl md:text-4xl h2 overview">Overview</h2>
 				<?php echo $byway_synopsis; ?>
 
                 <?php else :

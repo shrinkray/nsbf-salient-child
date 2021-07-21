@@ -19,7 +19,7 @@
 				if ( ! empty( have_rows( 'nb_point_of_interest' ) ) ) :
 					?>
 					
-			<h2 class="text-2xl md:text-4xl h2 poi">Points of Interest</h2>
+			<h2 class="text-3xl md:text-4xl h2 poi">Points of Interest</h2>
 					<ul>
 						<?php
 							// Loop through rows.
