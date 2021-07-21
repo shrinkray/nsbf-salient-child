@@ -48,7 +48,7 @@ get_header();
                 <li class="anchor-nav <?php echo $toggle_directions; ?>"><a href="#directions" class="" title="Driving
                 Directions">Directions</a></li>
                 <li class="anchor-nav <?php echo $toggle_points; ?>"><a href="#points" class="" title="Points of
-                Interest">POIs</a></li>
+                Interest">Points of Interest</a></li>
                 <li class="anchor-nav <?php echo $toggle_itinerary; ?>" title="Itinerary"><a href="#itinerary"
                                                                             class="">Itinerary</a></li>
 
