@@ -1,5 +1,5 @@
 // webpack.mix.js
-// Jul-13-2021 Shrinkray
+// Jul-22-2021 Shrinkray
 
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
@@ -8,24 +8,24 @@ autoprefixer = require("autoprefixer");
 const  { CleanWebpackPlugin }  = require('clean-webpack-plugin');
 let CopyPlugin;
 CopyPlugin = require('copy-webpack-plugin');
-require('laravel-mix-purgecss');
+
 
 mix
    // .disableNotifications()
     .js('js/custom-scripts.js', 'dist')
-    .sourceMaps()
-    .postCss("vendor/temp/main.css", "dist", [
-        tailwindcss(),
+    .sass('scss/main.scss', 'dist', {}, [
+        require('tailwindcss'),
+        require('autoprefixer'),
     ])
-    .sass('scss/main.scss', 'vendor/temp/')
-    .browserSync({proxy: 'http://localhost:10048/new-york/'})
+    .sourceMaps()
+    .browserSync({proxy: 'http://localhost:10048/colorado/'})
     .webpackConfig({
             plugins: [
                 new CleanWebpackPlugin({
                     // Simulate the removal of files
                     dry: true,
                     // Write Logs to Console
-                    verbose: true,
+                    verbose: false,
                     // Automatically remove all unused webpack assets on rebuild
                     cleanStaleWebpackAssets: true,
                     // Do not allow removal of current webpack assets
