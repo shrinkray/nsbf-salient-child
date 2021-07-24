@@ -24,9 +24,12 @@
 				<h2 class="text-3xl md:text-4xl h2 story">Story of the Byway</h2>
       
 						<?php echo $byway_story;  ?>
-					<?php else :
-						//$toggle_story = 'hidden';
-						?>
+
+                        <script>
+                            const itemStory = document.getElementById('item-story');
+                            itemStory.classList.remove('hidden');
+                            itemStory.classList.add('block');
+                        </script>
 					<?php endif; // end
 				?>
 			</div><!-- .col // story of byway -->

@@ -5,7 +5,6 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-
 ?>
 
 	<div class="row mb-12">
@@ -17,12 +16,13 @@
 				// Check rows exists.
 				if ( ! empty( have_rows( 'nb_itinerary' ) ) ) :
 					?>
-                    
+     
                     <h2 class="text-3xl md:text-4xl h2 itinerary">Itinerary</h2>
+                    
+                    
 					<ul>
+      
 						<?php
-							
-							// Loop through rows.
 							while ( have_rows( 'nb_itinerary' ) ) : the_row();
 								//vars
 								$itinerary_name = get_sub_field('nb_itinerary_name');
@@ -39,10 +39,13 @@
 						?>
 					
 					</ul>
-				
+                    <script>
+                        const itemItinerary = document.getElementById('item-itinerary');
+                        itemItinerary.classList.remove('hidden');
+                        itemItinerary.classList.add('block');
+                    </script>
+     
 				<?php
-                else :
-                    // $toggle_itinerary = "hidden";
 				endif;
 			
 			?>

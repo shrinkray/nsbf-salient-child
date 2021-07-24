@@ -25,9 +25,12 @@
                         <h2 class="text-3xl md:text-4xl h2 driving">Driving Directions</h2>
                         
 						<?php echo $driving_directions;  ?>
-                    <?php else :
-						//$toggle_directions = 'hidden';
-                        ?>
+
+                        <script>
+                            const itemDirections = document.getElementById('item-directions');
+                            itemDirections.classList.remove('hidden');
+                            itemDirections.classList.add('block');
+                        </script>
 					<?php endif; // end
 				?>
 			</div> <!-- .col // directions -->

@@ -67,10 +67,12 @@
 						?>
 					
 					</ul>
-				
+                    <script>
+                        const itemPoints = document.getElementById('item-points');
+                        itemPoints.classList.remove('hidden');
+                        itemPoints.classList.add('block');
+                    </script>
 				<?php
-                else :
-                    // $toggle_points = 'hidden';
 				endif; // nb_point_of_interest
 			?>
 		
