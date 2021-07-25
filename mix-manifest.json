@@ -1,5 +1,4 @@
 {
     "/dist/custom-scripts.js": "/dist/custom-scripts.js",
-    "/dist/main.css": "/dist/main.css",
-    "/vendor/temp/main.css": "/vendor/temp/main.css"
+    "/dist/main.css": "/dist/main.css"
 }
