@@ -29,7 +29,7 @@ function print_var($val){
 
 //Enqueue Styles from child theme
 function child_theme_styles() {
-//	wp_enqueue_style( 'tailwind-styles', get_stylesheet_directory_uri() . '/dist/components.css' );
+
     wp_enqueue_style( 'child-styles', get_stylesheet_directory_uri() . '/dist/child-styles.css' );
     wp_enqueue_style( 'child-responsive-styles', get_stylesheet_directory_uri() . '/dist/child-responsive-styles.css' );
 	wp_enqueue_style( 'byway-styles', get_stylesheet_directory_uri() . '/dist/main.css' );

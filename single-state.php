@@ -185,6 +185,7 @@
 		'tax_query'         => array(
 			array(
 				'taxonomy' => 'nb_designation',
+				'field'    => 'slug',
 				'terms'    => array('nsb', 'aar'),
 			))
 	);
@@ -202,6 +203,7 @@
 		'tax_query'         => array(
 			array(
 				'taxonomy' => 'sb_designation',
+				'field'    => 'slug',
 				'terms'    => array('fsb', 'sb'),
 			))
 	);
@@ -231,10 +233,10 @@
 	$partners = new WP_Query( $sp_args );
 		?>
   
-<div class="container-wrap">
+<div class="container-wrap" style="padding-top:40px;">
     <div class="container main-content">
 
-        <h1 class="entry-title text-3xl md:text-5xl  text-center mb-9 lg:mb-14">Scenic Byways of <?php echo $title;
+        <h1 class="entry-title text-3xl md:text-5xl  text-center mb-9 lg:mb-14">National Byways in <?php echo $title;
         ?></h1>
 	    <?php
 

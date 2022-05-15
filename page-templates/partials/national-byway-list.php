@@ -15,8 +15,8 @@
 	
 	<?php
 		// Loop querying posts for National Byways ($nb_query) to present the Byway Info
-		
 		if ( !empty( $nb_query->have_posts() ) ) :
+			
 			while ( $nb_query->have_posts() ) :
 				$nb_query->the_post();
 				$permalink = get_permalink( $the_query->ID );
@@ -26,8 +26,10 @@
 				$tax  = get_the_terms( $the_query->ID, 'nb_designation' )[0]->slug;
 				
 				// If the tax equates to All American Roadway, we echo out our notification in the list item below
-				if ( $tax === 'aar' ) :
+				if ( $tax === "aar" )  :
 					$asterisk = '*';
+				else :
+                    $asterisk = '';
 				endif;	?>
 	
 				<li class="byway-item">

@@ -18,7 +18,10 @@ mix
         require('autoprefixer'),
     ])
     .sourceMaps()
-    .browserSync({proxy: 'http://localhost:10048/colorado/'})
+    .browserSync({
+        proxy: 'http://localhost:10048/colorado/',
+        port: '10048'
+        })
     .webpackConfig({
             plugins: [
                 new CleanWebpackPlugin({

@@ -423,6 +423,15 @@ div[class*="chair"].basic-item *{
 
 /* End */
 
+/* Mailchimp Resubscribe Form */
+.indicates-required {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+/* End */
+
+
 /* Newsletter Styles */
 
 .newsletter-container > div{

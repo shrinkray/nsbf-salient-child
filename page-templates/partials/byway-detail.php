@@ -201,7 +201,7 @@
 
                 <span class="source"><?php echo $attribution; ?></span>
 			         <?php if( ! empty( $attribution ) ) : ?>
-                         <span class="photo-credit"> Photo</span>
+                         <span class="photo-credit"></span>
 			         <?php endif; //
 			         ?>
 		        <?php
