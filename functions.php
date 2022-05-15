@@ -20,7 +20,31 @@ function salient_child_enqueue_styles() {
 		add_image_size('byway_large', 800, 600 ); // Byway Large
 		add_image_size('byway_small', 640, 480 ); // Byway Small
 	}
-
+	
+	/**
+	 * Responsive Image Helper Function
+	 *
+	 * @param string $image_id the id of the image (from ACF or similar)
+	 * @param string $image_size the size of the thumbnail image or custom image size
+	 * @param string $max_width the max width this image will be shown to build the sizes attribute
+	 */
+	
+	function awesome_acf_responsive_image($image_id,$image_size,$max_width){
+		
+		// check the image ID is not blank
+		if($image_id != '') {
+			
+			// set the default src image size
+			$image_src = wp_get_attachment_image_url( $image_id, $image_size );
+			
+			// set the srcset with various image sizes
+			$image_srcset = wp_get_attachment_image_srcset( $image_id, $image_size );
+			
+			// generate the markup for the responsive image
+			echo 'src="'.$image_src.'" srcset="'.$image_srcset.'" sizes="(max-width: '.$max_width.') 100vw, '.$max_width.'"';
+			
+		}
+	}
 function print_var($val){
 	echo '<pre>';
 		print_r($val);
@@ -33,7 +57,7 @@ function child_theme_styles() {
     wp_enqueue_style( 'child-styles', get_stylesheet_directory_uri() . '/dist/child-styles.css' );
     wp_enqueue_style( 'child-responsive-styles', get_stylesheet_directory_uri() . '/dist/child-responsive-styles.css' );
 	wp_enqueue_style( 'byway-styles', get_stylesheet_directory_uri() . '/dist/main.css' );
-    
+ 
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_styles', 999, 1 );
 
@@ -54,7 +78,7 @@ add_action( 'wp_enqueue_scripts', 'child_theme_scripts' );
 	 */
 	function new_excerpt_more($more): string {
 	global $post;
-	remove_filter('excerpt_more', 'new_excerpt_more'); 
+	remove_filter('excerpt_more', 'new_excerpt_more');
 	return ' <a class="read_more" href="'. get_permalink($post->ID) . '">' . 'Read More' . '</a>';
   }
 add_filter('excerpt_more','new_excerpt_more');
@@ -65,7 +89,7 @@ function my_custom_fonts() {
 	echo '<style>
     .menu-icon-nsbf_training {
 		background:#02AE4B;
-    } 
+    }
 	</style>';
 }
 

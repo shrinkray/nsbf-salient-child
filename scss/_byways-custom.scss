@@ -2,7 +2,8 @@
 #footer-outer {
     margin-top: 2rem;
 }
-.single-national_byway {
+.single-national_byway,
+.single-state_byway {
     .byway-sub-nav {
         display: inline-flex;
         flex-wrap: wrap;
@@ -28,6 +29,7 @@
     }
 }
 .single-national_byway,
+.single-state_byway,
 .page-template-single-state {
     .container-wrap {
         max-width: 1425px;
@@ -117,6 +119,7 @@
 
 @media screen and (max-width: 765px) {
     .single-national_byway,
+    .single-state_byway,
     .page-template-single-state {
         .container {
             max-width: 100%;
@@ -135,7 +138,8 @@
             justify-content: center;
         }
     }
-    .single-national_byway {
+    .single-national_byway,
+    .single-state_byway {
         .boxed-subsection {
             padding: 1.3rem 1.1rem 0.8rem;
         }
@@ -207,14 +211,17 @@
     background-repeat: no-repeat;
 }
 .itinerary  {
-    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 43 43' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;'%3E%3Cg transform='matrix(0.930995,0.365033,-0.365033,0.930995,20.0519,-24.0103)'%3E%3Cpath d='M24.925,21.647C22.327,21.647 20.217,23.757 20.217,26.355C20.217,28.954 22.327,31.064 24.925,31.064C27.523,31.064 29.634,28.954 29.634,26.355C29.634,23.757 27.523,21.647 24.925,21.647ZM24.925,24.022C26.213,24.022 27.258,25.068 27.258,26.355C27.258,27.643 26.213,28.689 24.925,28.689C23.637,28.689 22.591,27.643 22.591,26.355C22.591,25.068 23.637,24.022 24.925,24.022Z'/%3E%3C/g%3E%3Cg transform='matrix(1,0,0,1,-17.6546,10.0283)'%3E%3Cpath d='M24.925,21.647C22.327,21.647 20.217,23.757 20.217,26.355C20.217,28.954 22.327,31.064 24.925,31.064C27.523,31.064 29.634,28.954 29.634,26.355C29.634,23.757 27.523,21.647 24.925,21.647ZM24.925,24.022C26.213,24.022 27.258,25.068 27.258,26.355C27.258,27.643 26.213,28.689 24.925,28.689C23.637,28.689 22.591,27.643 22.591,26.355C22.591,25.068 23.637,24.022 24.925,24.022Z'/%3E%3C/g%3E%3Cg transform='matrix(0.930995,0.365033,-0.365033,0.930995,13.9272,-5.63462)'%3E%3Cpath d='M24.925,21.647C22.327,21.647 20.217,23.757 20.217,26.355C20.217,28.954 22.327,31.064 24.925,31.064C27.523,31.064 29.634,28.954 29.634,26.355C29.634,23.757 27.523,21.647 24.925,21.647ZM24.925,24.022C26.213,24.022 27.258,25.068 27.258,26.355C27.258,27.643 26.213,28.689 24.925,28.689C23.637,28.689 22.591,27.643 22.591,26.355C22.591,25.068 23.637,24.022 24.925,24.022Z'/%3E%3C/g%3E%3Cg transform='matrix(1,0,0,1,-10.0932,-9.09087)'%3E%3Cpath d='M24.925,21.647C22.327,21.647 20.217,23.757 20.217,26.355C20.217,28.954 22.327,31.064 24.925,31.064C27.523,31.064 29.634,28.954 29.634,26.355C29.634,23.757 27.523,21.647 24.925,21.647ZM24.925,24.022C26.213,24.022 27.258,25.068 27.258,26.355C27.258,27.643 26.213,28.689 24.925,28.689C23.637,28.689 22.591,27.643 22.591,26.355C22.591,25.068 23.637,24.022 24.925,24.022Z'/%3E%3C/g%3E%3Cg id='Layer1'%3E%3Cpath d='M11.493,19.069C11.493,19.069 3.471,22.248 7.085,32.396' style='fill:none;stroke:black;stroke-width:2.5px;'/%3E%3Cpath d='M17.884,19.365L24.714,25.189' style='fill:none;stroke:black;stroke-width:2.5px;'/%3E%3C/g%3E%3Cg transform='matrix(0.930995,0.365033,-0.365033,0.930995,11.0191,-7.64725)'%3E%3Cpath d='M29.45,11.121C29.45,11.121 34.534,17.02 29.819,23.49' style='fill:none;stroke:black;stroke-width:2.5px;'/%3E%3C/g%3E%3C/svg%3E%0A");
     background-position-y: -0.1rem;
     background-position-x: 0rem;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDMiIGhlaWdodD0iNDMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0idHJhbnNwYXJlbnQiIGQ9Ik0wIDBoNDN2NDNIMHoiLz48ZyBjbGlwLXBhdGg9InVybCgjcHJlZml4X19wcmVmaXhfX2NsaXAwXzIwMV8yKSI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNi43MjMgNS40NzVjLTIuMTc0LTEuMTIzLTQuOTcyLS4yNzUtNi4yNDQgMS44OTItMS4yNzIgMi4xNjctLjUzOSA0LjgzOCAxLjYzNSA1Ljk2IDIuMTc0IDEuMTIzIDQuOTczLjI3NSA2LjI0NS0xLjg5MiAxLjI3Mi0yLjE2Ni41MzgtNC44MzgtMS42MzYtNS45NnptLTEuMTYyIDEuOThjMS4wNzcuNTU3IDEuNDQgMS44OC44MSAyLjk1NC0uNjMgMS4wNzQtMi4wMTcgMS40OTQtMy4wOTQuOTM4LTEuMDc4LS41NTYtMS40NDItMS44OC0uODExLTIuOTU1LjYzLTEuMDczIDIuMDE3LTEuNDkzIDMuMDk1LS45Mzd6TTcuNDQgMzAuOTM5Yy0yLjY1OSAwLTQuODE4IDIuMDYtNC44MTggNC41OTggMCAyLjUzOSAyLjE1OSA0LjYgNC44MTcgNC42IDIuNjU5IDAgNC44MTktMi4wNjEgNC44MTktNC42IDAtMi41MzctMi4xNi00LjU5OC00LjgxOS00LjU5OHptMCAyLjMyYzEuMzE3IDAgMi4zODcgMS4wMjEgMi4zODcgMi4yNzggMCAxLjI1OC0xLjA3IDIuMjgtMi4zODggMi4yOC0xLjMxNyAwLTIuMzg4LTEuMDIyLTIuMzg4LTIuMjggMC0xLjI1NyAxLjA3LTIuMjc5IDIuMzg4LTIuMjc5em0yMy4wMTYtOS44MzZjLTIuMTc0LTEuMTIyLTQuOTczLS4yNzQtNi4yNDQgMS44OTItMS4yNzIgMi4xNjctLjUzOSA0LjgzOCAxLjYzNSA1Ljk2IDIuMTc0IDEuMTIzIDQuOTczLjI3NiA2LjI0NS0xLjg5MiAxLjI3Mi0yLjE2Ni41MzgtNC44MzctMS42MzYtNS45NnptLTEuMTYzIDEuOThjMS4wNzguNTU3IDEuNDQgMS44OC44MTEgMi45NTQtLjYzIDEuMDc0LTIuMDE3IDEuNDk1LTMuMDk1LjkzOC0xLjA3Ny0uNTU2LTEuNDQtMS44OC0uODEtMi45NTQuNjMtMS4wNzQgMi4wMTctMS40OTQgMy4wOTQtLjkzOHpNMTUuMTc3IDEyLjI2NGMtMi42NTkgMC00LjgxOCAyLjA2MS00LjgxOCA0LjU5OSAwIDIuNTM4IDIuMTYgNC42IDQuODE4IDQuNiAyLjY1OCAwIDQuODE4LTIuMDYyIDQuODE4LTQuNnMtMi4xNi00LjU5OS00LjgxOC00LjU5OXptMCAyLjMyYzEuMzE4IDAgMi4zODcgMS4wMjIgMi4zODcgMi4yNzkgMCAxLjI1OC0xLjA3IDIuMjgtMi4zODcgMi4yOC0xLjMxOCAwLTIuMzg5LTEuMDIyLTIuMzg5LTIuMjggMC0xLjI1NyAxLjA3LTIuMjggMi4zODktMi4yOHoiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMTEuNzYgMTguNjI1cy04LjIwOCAzLjEwNi00LjUxIDEzLjAxOE0xOC4zIDE4LjkxNWw2Ljk4OSA1LjY4OE0zNS41MiAxMy4xNDRzMS43NDIgNy4zMTUtNC42NjUgMTEuMzA5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0icHJlZml4X19wcmVmaXhfX2NsaXAwXzIwMV8yIj48cGF0aCBmaWxsPSJ0cmFuc3BhcmVudCIgZD0iTTAgMGg0M3Y0M0gweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg==");
 }
 .wayfinder {
-    background-position-x: 9px;
-    background-position-y: 0.1rem;
-    background-image: url("data:image/svg+xml,%3Csvg width='34' height='39' viewBox='0 0 34 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27.6102 26.7382L17.0082 37L6.38981 26.7382C4.99822 25.3935 3.89422 23.7964 3.14097 22.0383C2.38772 20.2802 2 18.3956 2 16.4923C2 14.5891 2.38772 12.7045 3.14097 10.9464C3.89422 9.18826 4.99822 7.59117 6.38981 6.24647V6.24647C9.2062 3.52714 13.0219 2 17 2C20.9781 2 24.7938 3.52714 27.6102 6.24647V6.24647C29.0018 7.59117 30.1058 9.18826 30.859 10.9464C31.6123 12.7045 32 14.5891 32 16.4923C32 18.3956 31.6123 20.2802 30.859 22.0383C30.1058 23.7964 29.0018 25.3935 27.6102 26.7382Z' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M27.61 26.7382L17.0081 35.409L6.38965 26.7382' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17.0081 23.079C20.8572 23.079 23.9775 20.0659 23.9775 16.3492C23.9775 12.6324 20.8572 9.61935 17.0081 9.61935C13.159 9.61935 10.0388 12.6324 10.0388 16.3492C10.0388 20.0659 13.159 23.079 17.0081 23.079Z' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-position-x: 0rem;
+    background-position-y: 0rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='29' height='35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.936 24.05l-8.667 9.147-8.68-9.147a12.973 12.973 0 01-2.656-4.19A13.527 13.527 0 012 14.919c0-1.697.317-3.377.933-4.944a12.973 12.973 0 012.656-4.189v0C7.89 3.361 11.01 2 14.263 2c3.252 0 6.371 1.361 8.673 3.785v0a12.974 12.974 0 012.657 4.19c.615 1.566.932 3.246.932 4.943 0 1.696-.317 3.376-.932 4.943a12.974 12.974 0 01-2.657 4.19z' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M22.936 24.05L14.27 31.78 5.59 24.05' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.27 20.788c3.146 0 5.697-2.685 5.697-5.998S17.416 8.79 14.269 8.79c-3.146 0-5.697 2.686-5.697 5.999 0 3.313 2.55 5.998 5.697 5.998z' stroke='%23000' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    padding-left: 3.1rem;
+    background-size: contain;
 }
 .overview {
     background-position-x: 7px;

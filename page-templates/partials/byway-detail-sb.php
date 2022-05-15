@@ -13,55 +13,22 @@
         <h2 class="text-3xl md:text-4xl h2 wayfinder">Details</h2>
         <?php
 
-            $intrinsic_quality                  = get_field( 'nb_intrinsic_quality' );
-            $state_or_states_that_contain_byway = get_field( 'nb_state_or_states_that_contain_byway' );
-            $designation                        = get_field( 'nb_current_national_designation' );
-	        $designation_year                   = get_field('nb_designation_year');
-            $length_of_byway_miles              = get_field( 'nb_length_of_byway_miles' );
+//            $intrinsic_quality                  = get_field( 'sb_intrinsic_quality' );
+            $state_or_states_that_contain_byway = get_field( 'sb_state_or_states_that_contain_byway' );
+            $designation                        = get_field( 'sb_current_state_designation' );
+	        $designation_year                   = get_field('sb_designation_year');
+            $length_of_byway_miles              = get_field( 'sb_length_of_byway_miles' );
+            $sb_state                           = get_field( 'sb_state' );
+            $organization              = get_field( 'sb_dedicated_byway_organization' );
 	
-	        // split the phrase by any number of commas or space characters into an array()
-	        // which include " ", \r, \t, \n and \f
-         
-	        $keywords = preg_split("/[\s,]+/", $intrinsic_quality);
-	     
-	        // for each single letter associate a word and build a new string
-	        foreach ( $keywords as $keyword ) {
-		       
-		        switch ( $keyword ) {
-			        case 'S':
-				        $quality = 'Scenic';
-				        break;
-			        case 'H':
-				        $quality = 'Historic';
-				        break;
-			        case 'A':
-				        $quality = 'Archeological';
-				        break;
-			        case 'R':
-				        $quality = 'Recreation';
-				        break;
-			        case 'C':
-				        $quality = 'Cultural';
-				        break;
-			        case 'N':
-				        $quality = 'Natural';
-				        break;
-		        }
-		        // a word list is created along with a trailing comma and space 😞.
-		
-		        
-		        $typelist .= $quality . ', ' ;
-	        }
-	        // Remove space and last comma from the list and return the trimmed result
-	        $trimmed = rtrim( trim( $typelist ), ',' );
 	        
-	     //   echo $list;
         ?>
         <ul class="detail-list mt-7 mb-7">
-            <li><span class="label-minor-heading">Designation</span><?php echo $designation;?> (<?php echo $designation_year ?>)</li>
-            <li><span class="label-minor-heading">Intrinsic Qualities</span><?php echo $trimmed;
-				?></li>
-            <li><span class="label-minor-heading">Location</span><?php echo $state_or_states_that_contain_byway;
+            <!--  Setting Year only if it exists, otherwise do not show parenthesis   -->
+            <li><span class="label-minor-heading">Designation</span><?php echo $designation;?> <?php
+                    echo $designation_year? '(' . $designation_year . ')' : '' ?></li>
+        
+            <li><span class="label-minor-heading">Location</span><?php echo $sb_state;
 				?></li>
             <li><span class="label-minor-heading">Length</span><?php echo $length_of_byway_miles;?>&nbsp;miles</li>
         </ul>
@@ -69,9 +36,9 @@
 		
 		<?php
 			//vars
-			$dedicated_byway_organization       = get_field( 'nb_dedicated_byway_organization' );
-			$dedicated_byway_organization_website   = get_field( 'nb_dedicated_byway_organization_website' );
-			$dedicated_byway_organization_phone = get_field( 'nb_dedicated_byway_organization_phone' );
+			$dedicated_byway_organization       = get_field( 'sb_dedicated_byway_organization' );
+			$dedicated_byway_organization_website   = get_field( 'sb_dedicated_byway_organization_website' );
+			$dedicated_byway_organization_phone = get_field( 'sb_dedicated_byway_organization_phone' );
 		
 		?>
     <?php
@@ -111,9 +78,9 @@
                 <div class="partner-digits">
 					<?php
 						// vars
-						$state_dot_name = get_field('nb_state_dot_name');
-						$state_dot_byway_website = get_field('nb_state_dot_byway_website');
-						$state_dot_byway_phone = get_field('nb_state_dot_byway_phone');
+						$state_dot_name = get_field('sp_state_department_of_transportation_name');
+						$state_dot_byway_website = get_field('sp_state_department_of_transportation_website');
+						$state_dot_byway_phone = get_field('sp_state_department_of_transportation_phone');
 						
 						/**
 						 * If the organization exists, add it's name. If the web and or phone properties exist,
@@ -142,9 +109,9 @@
                 <div class="partner-digits">
 					<?php
 						// vars
-						$state_tourism_board_name = get_field('nb_state_tourism_board_name');
-						$state_tourism_board_website = get_field('nb_state_tourism_board_website');
-						$state_tourism_board_phone = get_field('nb_state_tourism_board_phone');
+						$state_tourism_board_name = get_field('sp_state_tourism_board_name');
+						$state_tourism_board_website = get_field('sp_state_tourism_board_website');
+						$state_tourism_board_phone = get_field('sp_state_tourism_board_phone');
 						
 						/**
 						 * If the organization exists, add it's name. If the web and or phone properties exist,
@@ -177,40 +144,63 @@
 
         </div> <!-- .detail-subsection // Statewide Byway Partners  -->
     </div> <!-- .section -->
+
     <div class="section image order-first mb-8 md:order-none lg:order-none">
         <div class="detail-image">
-	        <?php
-          
-		        $image = get_the_post_thumbnail($post_id, "byway_large" );
-	    echo $image;
-	        ?>
+	        <?php if ( have_rows( 'sb_iconic_images' ) ) : ?>
+		        <?php while ( have_rows( 'sb_iconic_images' ) ) : the_row(); ?>
+			        <?php
+			        $image_title = get_sub_field( 'image_title' );
+			        $image_alt = get_sub_field( 'image_alt_text' );
+			        $image_attr = get_sub_field( 'image_attribution' );
+			        $image = get_sub_field( 'image_url' );
+
+			        echo $image['url'] ;
+			        echo $image_title ;
+			        echo $image_alt ;
+			        echo $image_attr ;
+			        ?>
+		        <?php endwhile; ?>
+	        <?php else : ?>
+		        <?php // No rows found ?>
+	        <?php endif; ?>
+			<?php
+				
+				$image = get_the_post_thumbnail($post_id, "byway_large" );
+				echo $image;
+			?>
         </div>
         <div class="attribution text-right italic">
-         
-	        <?php if ( ! empty( have_rows( 'nb_iconic_images' ) ) ) :
-                $first_credit = true;
-	        
-	        // combo conditional to get just the first record
-		         while ( $first_credit && have_rows( 'nb_iconic_images' ) ) : the_row();
-			         ?>
+			
+			<?php if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
+				$first_credit = true;
+				
+				// combo conditional to get just the first record
+				while ( $first_credit && have_rows( 'sb_iconic_images' ) ) : the_row();
+					?>
+					
+					<?php
+					$attribution = get_sub_field( 'image_attribution' );
+					// set as false to stop from getting the next record
+					$first_credit = false;
+					?>
 
-			         <?php
-		        $attribution = get_sub_field( 'image_attribution' );
-		        // set to false to stop from getting the next record
-                 $first_credit = false;
-			        ?>
-			         
 
-                <span class="source"><?php echo $attribution; ?></span>
-			         <?php if( ! empty( $attribution ) ) : ?>
-                         <span class="photo-credit"></span>
-			         <?php endif; //
-			         ?>
-		        <?php
-		        endwhile; ?>
-	        <?php else : ?>
-		        <?php // no rows found ?>
-	        <?php endif; ?>
+                    <span class="source"><?php echo $attribution; ?></span>
+					<?php if( ! empty( $attribution ) ) : ?>
+                        <span class="photo-credit"></span>
+					<?php endif; //
+					?>
+					<?php
+					wp_reset_postdata();
+					
+					?>
+				<?php
+				endwhile; ?>
+			<?php else : ?>
+				<?php // no rows found ?>
+			<?php endif; ?>
         </div>
     </div> <!-- .section -->
+
 </div> <!-- .row // Details -->

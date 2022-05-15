@@ -1,0 +1,1259 @@
+/* Import Tailwind Base */
+
+/* ! tailwindcss v2.2.6 | MIT License | https://tailwindcss.com */
+
+/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+/*
+Document
+========
+*/
+
+/**
+Use a better box model (opinionated).
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+Use a more readable tab size (opinionated).
+*/
+
+html {
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+     tab-size: 4;
+}
+
+/**
+1. Correct the line height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+*/
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/*
+Sections
+========
+*/
+
+/**
+Remove the margin in all browsers.
+*/
+
+body {
+  margin: 0;
+}
+
+/**
+Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+*/
+
+body {
+  font-family:
+		system-ui,
+		-apple-system, /* Firefox supports this but not yet `system-ui` */
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji';
+}
+
+/*
+Grouping content
+================
+*/
+
+/**
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+}
+
+/*
+Text-level semantics
+====================
+*/
+
+/**
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr[title] {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/**
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family:
+		ui-monospace,
+		SFMono-Regular,
+		Consolas,
+		'Liberation Mono',
+		Menlo,
+		monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+Tabular data
+============
+*/
+
+/**
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+}
+
+/*
+Forms
+=====
+*/
+
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+Remove the inheritance of text transform in Edge and Firefox.
+1. Remove the inheritance of text transform in Firefox.
+*/
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+
+button {
+  -webkit-appearance: button;
+}
+
+/**
+Remove the inner border and padding in Firefox.
+*/
+
+/**
+Restore the focus styles unset by the previous rule.
+*/
+
+/**
+Remove the additional ':invalid' styles in Firefox.
+See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+*/
+
+/**
+Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+*/
+
+legend {
+  padding: 0;
+}
+
+/**
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+/**
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.
+*/
+
+/*
+Interactive
+===========
+*/
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/**
+ * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
+ * A thin layer on top of normalize.css that provides a starting point more
+ * suitable for web applications.
+ */
+
+/**
+ * Removes the default spacing and border for appropriate elements.
+ */
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Tailwind custom reset styles
+ */
+
+/**
+ * 1. Use the user's configured `sans` font-family (with Tailwind's default
+ *    sans-serif font stack as a fallback) as a sane default.
+ * 2. Use Tailwind's default "normal" line-height so the user isn't forced
+ *    to override it to ensure consistency even when using the default theme.
+ */
+
+html {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  line-height: 1.5; /* 2 */
+}
+
+/**
+ * Inherit font-family and line-height from `html` so users can set them as
+ * a class directly on the `html` element.
+ */
+
+body {
+  font-family: inherit;
+  line-height: inherit;
+}
+
+/**
+ * 1. Prevent padding and border from affecting element width.
+ *
+ *    We used to set this in the html element and inherit from
+ *    the parent element for everything else. This caused issues
+ *    in shadow-dom-enhanced elements like <details> where the content
+ *    is wrapped by a div with box-sizing set to `content-box`.
+ *
+ *    https://github.com/mozdevs/cssremedy/issues/4
+ *
+ *
+ * 2. Allow adding a border to an element by just adding a border-width.
+ *
+ *    By default, the way the browser specifies that an element should have no
+ *    border is by setting it's border-style to `none` in the user-agent
+ *    stylesheet.
+ *
+ *    In order to easily add borders to elements by just setting the `border-width`
+ *    property, we change the default border-style for all elements to `solid`, and
+ *    use border-width to hide them instead. This way our `border` utilities only
+ *    need to set the `border-width` property instead of the entire `border`
+ *    shorthand, making our border utilities much more straightforward to compose.
+ *
+ *    https://github.com/tailwindcss/tailwindcss/pull/116
+ */
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: currentColor; /* 2 */
+}
+
+/*
+ * Ensure horizontal rules are visible by default
+ */
+
+hr {
+  border-top-width: 1px;
+}
+
+/**
+ * Undo the `border-style: none` reset that Normalize applies to images so that
+ * our `border-{width}` utilities have the expected effect.
+ *
+ * The Normalize reset is unnecessary for us since we default the border-width
+ * to 0 on all elements.
+ *
+ * https://github.com/tailwindcss/tailwindcss/issues/362
+ */
+
+img {
+  border-style: solid;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+
+button {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/**
+ * Reset links to optimize for opt-in styling instead of
+ * opt-out.
+ */
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/**
+ * Reset form element properties that are easy to forget to
+ * style explicitly so you don't inadvertently introduce
+ * styles that deviate from your design system. These styles
+ * supplement a partial reset that is already applied by
+ * normalize.css.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+
+/**
+ * Use the configured 'mono' font family for elements that
+ * are expected to be rendered with a monospace font, falling
+ * back to the system monospace stack if there is no configured
+ * 'mono' font family.
+ */
+
+pre,
+code,
+kbd,
+samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/**
+ * 1. Make replaced elements `display: block` by default as that's
+ *    the behavior you want almost all of the time. Inspired by
+ *    CSS Remedy, with `svg` added as well.
+ *
+ *    https://github.com/mozdevs/cssremedy/issues/14
+ * 
+ * 2. Add `vertical-align: middle` to align replaced elements more
+ *    sensibly by default when overriding `display` by adding a
+ *    utility like `inline`.
+ *
+ *    This can trigger a poorly considered linting error in some
+ *    tools but is included by design.
+ * 
+ *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
+ */
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/**
+ * Constrain images and videos to the parent width and preserve
+ * their intrinsic aspect ratio.
+ *
+ * https://github.com/mozdevs/cssremedy/issues/14
+ */
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Ensure the default browser behavior of the `hidden` attribute.
+ */
+
+[hidden] {
+  display: none;
+}
+
+*, ::before, ::after {
+  --tw-border-opacity: 1;
+  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+}
+
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.order-first {
+  order: -9999;
+}
+
+.order-last {
+  order: 9999;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-7 {
+  margin-bottom: 1.75rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-9 {
+  margin-bottom: 2.25rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.block {
+  display: block;
+}
+
+.table {
+  display: table;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+.transform {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@-webkit-keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+@-webkit-keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
+            animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
+            animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-x-4 {
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.from-yellow-300 {
+  --tw-gradient-from: #fcd34d;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(252, 211, 77, 0));
+}
+
+.from-yellow-600 {
+  --tw-gradient-from: #d97706;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(217, 119, 6, 0));
+}
+
+.to-yellow-300 {
+  --tw-gradient-to: #fcd34d;
+}
+
+.to-yellow-600 {
+  --tw-gradient-to: #d97706;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+*, ::before, ::after {
+  --tw-shadow: 0 0 #0000;
+}
+
+*, ::before, ::after {
+  --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+}
+
+.filter {
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.drop-shadow-md {
+  --tw-drop-shadow: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
+}
+
+/* Import Byways */
+
+/* Variables for Byways */
+
+:root {
+  --forestgreen: #02AE4B;
+  --mangotango: #D5641C;
+  --goldenrod: #DBA510;
+  --steelblue: #006B94;
+  --dimgray: #4B4145;
+  --outerspace: #444444;
+}
+
+.text-forestgreen {
+  color: var(--forestgreen);
+}
+
+.text-mangotango {
+  color: var(--mangotango);
+}
+
+.text-goldenrod {
+  color: var(--goldenrod);
+}
+
+.text-steelblue {
+  color: var(--steelblue);
+}
+
+.text-dimgray {
+  color: var(--dimgray);
+}
+
+.text-outerspace {
+  color: var(--outerspace);
+}
+
+.text-5xl {
+  font-size: 2.9rem;
+  line-height: 1.1;
+}
+
+.text-3xl {
+  line-height: 1.95rem;
+}
+
+a {
+  transition: color 0.2s;
+  transition: background-color 0.2s;
+}
+
+a:hover {
+  transition: color 0.2s;
+  transition: background-color 0.2s;
+}
+
+p {
+  padding-bottom: 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul > li {
+  list-style: none;
+}
+
+.section p {
+  padding: 0 0 0.5rem;
+}
+
+/* Byways Custom Stylesheet */
+
+#footer-outer {
+  margin-top: 2rem;
+}
+
+.single-national_byway .byway-sub-nav,
+.single-state_byway .byway-sub-nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.single-national_byway .byway-sub-nav > li,
+.single-state_byway .byway-sub-nav > li {
+  font-size: 0.8em;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.single-national_byway .byway-sub-nav > li a,
+.single-state_byway .byway-sub-nav > li a {
+  margin: 0 0.5rem 0 0;
+  padding: 0.3rem 0.8rem 0.35rem;
+  white-space: nowrap;
+  border: 1px solid var(--steelblue);
+  border-radius: 3rem;
+}
+
+.single-national_byway .byway-sub-nav > li:first-child > a,
+.single-state_byway .byway-sub-nav > li:first-child > a {
+  margin-left: 0;
+}
+
+.single-national_byway .byway-sub-nav > li:last-child > a,
+.single-state_byway .byway-sub-nav > li:last-child > a {
+  margin-right: 0;
+}
+
+.single-national_byway .container-wrap,
+.single-state_byway .container-wrap,
+.page-template-single-state .container-wrap {
+  max-width: 1425px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.single-national_byway #top > .container > .row,
+.single-state_byway #top > .container > .row,
+.page-template-single-state #top > .container > .row {
+  margin: 0;
+}
+
+.single-national_byway .row,
+.single-state_byway .row,
+.page-template-single-state .row {
+  padding: 0;
+}
+
+.single-national_byway .row.short,
+.single-state_byway .row.short,
+.page-template-single-state .row.short {
+  margin-bottom: 2rem;
+}
+
+.single-national_byway .entry-title,
+.single-state_byway .entry-title,
+.page-template-single-state .entry-title {
+  letter-spacing: -0.02rem;
+}
+
+.single-national_byway .h2,
+.single-state_byway .h2,
+.page-template-single-state .h2 {
+  padding-left: 50px;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.5rem 2.5rem !important;
+}
+
+.single-national_byway .h2.overview,
+.single-state_byway .h2.overview,
+.page-template-single-state .h2.overview {
+  margin-top: 0;
+}
+
+.single-national_byway .anchored,
+.single-state_byway .anchored,
+.page-template-single-state .anchored {
+  position: absolute;
+  top: -60px;
+  z-index: 0;
+}
+
+.label-minor-heading {
+  color: #02AE4B;
+  font-weight: 600;
+  margin-right: 0.4rem;
+}
+
+.section {
+  position: relative;
+}
+
+.section li > .item-heading {
+  font-weight: 600;
+}
+
+.photo-credit {
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.attribution {
+  font-size: 0.9rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.detail-image {
+  border: 1px solid black;
+}
+
+.detail-list > li {
+  margin-bottom: 0 !important;
+}
+
+.boxed-subsection {
+  border-color: #006B94;
+  border-style: solid;
+  padding: 1.5rem 1.8rem 0.8rem;
+}
+
+@media screen and (min-width: 765px) {
+  .section.details {
+    margin-top: -2.35rem;
+  }
+
+  .section.image {
+    margin-top: 2.9rem;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .single-national_byway .container,
+.single-state_byway .container,
+.page-template-single-state .container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .single-national_byway .h2,
+.single-state_byway .h2,
+.page-template-single-state .h2 {
+    padding-top: 0.4rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .single-national_byway .entry-title,
+.single-state_byway .entry-title,
+.page-template-single-state .entry-title {
+    letter-spacing: -0.02rem;
+  }
+
+  .page-template-single-state .detail-properties {
+    justify-content: center;
+  }
+
+  .single-national_byway .boxed-subsection,
+.single-state_byway .boxed-subsection {
+    padding: 1.3rem 1.1rem 0.8rem;
+  }
+}
+
+.details-subsection {
+  padding-top: 1.5rem;
+}
+
+.partner-digits {
+  margin-bottom: 1rem;
+}
+
+.detail-organization {
+  margin-bottom: 0.6rem;
+  line-height: 1.5rem;
+}
+
+.detail-properties {
+  padding: 0 0 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.detail-properties .byway-website-property {
+  padding: 0.3rem 0.8rem 0.35rem;
+  background-color: #006B94;
+  color: #fff;
+  border-radius: 1rem;
+  margin-right: 0.4rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.detail-properties .byway-website-property:hover {
+  background-color: #D5641C;
+  transition: color 0.2s;
+}
+
+.detail-properties .byway-phone-property {
+  background-repeat: no-repeat;
+  background-position-y: 0.2rem;
+  background-position-x: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 7V1H17' stroke='%23003484' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 8L23 1' stroke='%23003484' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7294C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5902 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5342 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.271 2.11999 4.18001C2.095 3.90347 2.12787 3.62477 2.21649 3.36163C2.30512 3.09849 2.44756 2.85669 2.63476 2.65163C2.82196 2.44656 3.0498 2.28271 3.30378 2.17053C3.55777 2.05834 3.83233 2.00027 4.10999 2.00001H7.10999C7.5953 1.99523 8.06579 2.16708 8.43376 2.48354C8.80172 2.79999 9.04207 3.23945 9.10999 3.72001C9.23662 4.68007 9.47144 5.62273 9.80999 6.53001C9.94454 6.88793 9.97366 7.27692 9.8939 7.65089C9.81414 8.02485 9.62886 8.36812 9.35999 8.64001L8.08999 9.91001C9.51355 12.4136 11.5864 14.4865 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1859 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z' stroke='%23003484' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  font-size: 1rem;
+  padding: 4px 4px 4px 30px;
+  position: relative;
+}
+
+.page-template-single-state .detail-properties {
+  justify-content: center;
+}
+
+.byway-collection {
+  line-height: 1.2;
+}
+
+.byway-collection > .byway-item {
+  margin: 0 0 0.8rem 0;
+}
+
+.color-bar {
+  padding: 0.3rem;
+  width: 100%;
+}
+
+.itinerary, .wayfinder, .overview, .poi, .story, .driving {
+  position: relative;
+  left: -43px;
+  background-repeat: no-repeat;
+}
+
+.itinerary {
+  background-position-y: -0.1rem;
+  background-position-x: 0rem;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDMiIGhlaWdodD0iNDMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0idHJhbnNwYXJlbnQiIGQ9Ik0wIDBoNDN2NDNIMHoiLz48ZyBjbGlwLXBhdGg9InVybCgjcHJlZml4X19wcmVmaXhfX2NsaXAwXzIwMV8yKSI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNi43MjMgNS40NzVjLTIuMTc0LTEuMTIzLTQuOTcyLS4yNzUtNi4yNDQgMS44OTItMS4yNzIgMi4xNjctLjUzOSA0LjgzOCAxLjYzNSA1Ljk2IDIuMTc0IDEuMTIzIDQuOTczLjI3NSA2LjI0NS0xLjg5MiAxLjI3Mi0yLjE2Ni41MzgtNC44MzgtMS42MzYtNS45NnptLTEuMTYyIDEuOThjMS4wNzcuNTU3IDEuNDQgMS44OC44MSAyLjk1NC0uNjMgMS4wNzQtMi4wMTcgMS40OTQtMy4wOTQuOTM4LTEuMDc4LS41NTYtMS40NDItMS44OC0uODExLTIuOTU1LjYzLTEuMDczIDIuMDE3LTEuNDkzIDMuMDk1LS45Mzd6TTcuNDQgMzAuOTM5Yy0yLjY1OSAwLTQuODE4IDIuMDYtNC44MTggNC41OTggMCAyLjUzOSAyLjE1OSA0LjYgNC44MTcgNC42IDIuNjU5IDAgNC44MTktMi4wNjEgNC44MTktNC42IDAtMi41MzctMi4xNi00LjU5OC00LjgxOS00LjU5OHptMCAyLjMyYzEuMzE3IDAgMi4zODcgMS4wMjEgMi4zODcgMi4yNzggMCAxLjI1OC0xLjA3IDIuMjgtMi4zODggMi4yOC0xLjMxNyAwLTIuMzg4LTEuMDIyLTIuMzg4LTIuMjggMC0xLjI1NyAxLjA3LTIuMjc5IDIuMzg4LTIuMjc5em0yMy4wMTYtOS44MzZjLTIuMTc0LTEuMTIyLTQuOTczLS4yNzQtNi4yNDQgMS44OTItMS4yNzIgMi4xNjctLjUzOSA0LjgzOCAxLjYzNSA1Ljk2IDIuMTc0IDEuMTIzIDQuOTczLjI3NiA2LjI0NS0xLjg5MiAxLjI3Mi0yLjE2Ni41MzgtNC44MzctMS42MzYtNS45NnptLTEuMTYzIDEuOThjMS4wNzguNTU3IDEuNDQgMS44OC44MTEgMi45NTQtLjYzIDEuMDc0LTIuMDE3IDEuNDk1LTMuMDk1LjkzOC0xLjA3Ny0uNTU2LTEuNDQtMS44OC0uODEtMi45NTQuNjMtMS4wNzQgMi4wMTctMS40OTQgMy4wOTQtLjkzOHpNMTUuMTc3IDEyLjI2NGMtMi42NTkgMC00LjgxOCAyLjA2MS00LjgxOCA0LjU5OSAwIDIuNTM4IDIuMTYgNC42IDQuODE4IDQuNiAyLjY1OCAwIDQuODE4LTIuMDYyIDQuODE4LTQuNnMtMi4xNi00LjU5OS00LjgxOC00LjU5OXptMCAyLjMyYzEuMzE4IDAgMi4zODcgMS4wMjIgMi4zODcgMi4yNzkgMCAxLjI1OC0xLjA3IDIuMjgtMi4zODcgMi4yOC0xLjMxOCAwLTIuMzg5LTEuMDIyLTIuMzg5LTIuMjggMC0xLjI1NyAxLjA3LTIuMjggMi4zODktMi4yOHoiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMTEuNzYgMTguNjI1cy04LjIwOCAzLjEwNi00LjUxIDEzLjAxOE0xOC4zIDE4LjkxNWw2Ljk4OSA1LjY4OE0zNS41MiAxMy4xNDRzMS43NDIgNy4zMTUtNC42NjUgMTEuMzA5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0icHJlZml4X19wcmVmaXhfX2NsaXAwXzIwMV8yIj48cGF0aCBmaWxsPSJ0cmFuc3BhcmVudCIgZD0iTTAgMGg0M3Y0M0gweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg==");
+}
+
+.wayfinder {
+  background-position-x: 0rem;
+  background-position-y: 0rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='29' height='35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.936 24.05l-8.667 9.147-8.68-9.147a12.973 12.973 0 01-2.656-4.19A13.527 13.527 0 012 14.919c0-1.697.317-3.377.933-4.944a12.973 12.973 0 012.656-4.189v0C7.89 3.361 11.01 2 14.263 2c3.252 0 6.371 1.361 8.673 3.785v0a12.974 12.974 0 012.657 4.19c.615 1.566.932 3.246.932 4.943 0 1.696-.317 3.376-.932 4.943a12.974 12.974 0 01-2.657 4.19z' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M22.936 24.05L14.27 31.78 5.59 24.05' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.27 20.788c3.146 0 5.697-2.685 5.697-5.998S17.416 8.79 14.269 8.79c-3.146 0-5.697 2.686-5.697 5.999 0 3.313 2.55 5.998 5.697 5.998z' stroke='%23000' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  padding-left: 3.1rem;
+  background-size: contain;
+}
+
+.overview {
+  background-position-x: 7px;
+  background-position-y: 0.1rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='35' height='43' viewBox='0 0 35 43' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28.9164 42.6521H5.19356C3.81664 42.6504 2.4966 42.0897 1.52298 41.093C0.549351 40.0963 0.00164571 38.745 0 37.3354V5.31666C0.00164571 3.90711 0.549351 2.55578 1.52298 1.55907C2.4966 0.562372 3.81664 0.00168488 5.19356 1.63363e-07H20.7504C20.9546 -9.45445e-05 21.1568 0.040991 21.3455 0.12091C21.5342 0.200829 21.7056 0.318016 21.85 0.465778L33.655 12.5484C33.7993 12.6963 33.9138 12.8718 33.9919 13.0649C34.0699 13.2581 34.1101 13.4651 34.11 13.6741V37.3344C34.1086 38.7441 33.561 40.0957 32.5874 41.0926C31.6137 42.0896 30.2935 42.6504 28.9164 42.6521ZM5.19356 3.18299C4.64094 3.18355 4.11112 3.40853 3.72037 3.80855C3.32961 4.20857 3.10984 4.75095 3.10929 5.31666V37.3354C3.10984 37.9012 3.32961 38.4435 3.72037 38.8435C4.11112 39.2436 4.64094 39.4685 5.19356 39.4691H28.9164C29.469 39.4685 29.9989 39.2436 30.3896 38.8435C30.7804 38.4435 31.0001 37.9012 31.0007 37.3354V14.333L20.1088 3.18299H5.19356Z' fill='black'/%3E%3Cpath d='M32.5553 15.2656H24.3914C23.0145 15.2639 21.6944 14.7033 20.7208 13.7065C19.7472 12.7098 19.1995 11.3585 19.1978 9.94897V1.5915C19.1978 1.1694 19.3616 0.764601 19.6532 0.466138C19.9447 0.167675 20.3401 0 20.7525 0C21.1648 0 21.5602 0.167675 21.8518 0.466138C22.1433 0.764601 22.3071 1.1694 22.3071 1.5915V9.94897C22.3077 10.5147 22.5274 11.0571 22.9182 11.4571C23.3089 11.8571 23.8388 12.0821 24.3914 12.0826H32.5553C32.9677 12.0826 33.3631 12.2503 33.6546 12.5488C33.9462 12.8472 34.11 13.252 34.11 13.6741C34.11 14.0962 33.9462 14.501 33.6546 14.7995C33.3631 15.0979 32.9677 15.2656 32.5553 15.2656Z' fill='black'/%3E%3Cpath d='M25.348 21.0077H8.7651C8.35278 21.0077 7.95735 20.8401 7.66579 20.5416C7.37424 20.2431 7.21045 19.8383 7.21045 19.4162C7.21045 18.9941 7.37424 18.5893 7.66579 18.2909C7.95735 17.9924 8.35278 17.8247 8.7651 17.8247H25.348C25.5521 17.8247 25.7543 17.8659 25.9429 17.9459C26.1315 18.0258 26.3029 18.1431 26.4473 18.2909C26.5917 18.4386 26.7062 18.6141 26.7843 18.8072C26.8624 19.0003 26.9026 19.2072 26.9026 19.4162C26.9026 19.6252 26.8624 19.8322 26.7843 20.0253C26.7062 20.2184 26.5917 20.3938 26.4473 20.5416C26.3029 20.6894 26.1315 20.8066 25.9429 20.8866C25.7543 20.9666 25.5521 21.0077 25.348 21.0077Z' fill='black'/%3E%3Cpath d='M25.348 27.586H8.7651C8.35278 27.586 7.95735 27.4183 7.66579 27.1198C7.37424 26.8214 7.21045 26.4166 7.21045 25.9945C7.21045 25.5724 7.37424 25.1676 7.66579 24.8691C7.95735 24.5707 8.35278 24.403 8.7651 24.403H25.348C25.7603 24.403 26.1557 24.5707 26.4473 24.8691C26.7388 25.1676 26.9026 25.5724 26.9026 25.9945C26.9026 26.4166 26.7388 26.8214 26.4473 27.1198C26.1557 27.4183 25.7603 27.586 25.348 27.586Z' fill='black'/%3E%3Cpath d='M25.348 34.164H8.7651C8.35278 34.164 7.95735 33.9963 7.66579 33.6979C7.37424 33.3994 7.21045 32.9946 7.21045 32.5726C7.21045 32.1505 7.37424 31.7457 7.66579 31.4472C7.95735 31.1488 8.35278 30.9811 8.7651 30.9811H25.348C25.7603 30.9811 26.1557 31.1488 26.4473 31.4472C26.7388 31.7457 26.9026 32.1505 26.9026 32.5726C26.9026 32.9946 26.7388 33.3994 26.4473 33.6979C26.1557 33.9963 25.7603 34.164 25.348 34.164Z' fill='black'/%3E%3C/svg%3E%0A");
+}
+
+.poi {
+  background-position-y: 0.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='43' height='43' viewBox='0 0 43 43' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M41.28 31.5352H39.1569L36.636 21.6721C36.636 21.6129 36.636 21.6129 36.5769 21.5592C36.5769 21.5001 36.5178 21.4463 36.5178 21.4463C36.5178 21.3872 36.4586 21.3334 36.4586 21.2743C36.4586 21.2152 36.3995 21.2152 36.3995 21.1614C36.3404 21.1023 36.3404 21.0486 36.2866 20.9894C36.2866 20.9303 36.2275 20.9303 36.2275 20.8766C36.1684 20.8174 36.1146 20.7637 36.0555 20.7637C35.9964 20.7637 35.9964 20.7046 35.9426 20.7046L29.6969 16.3401L23.564 4.92895C23.3329 4.47207 22.876 4.12807 22.36 4.00982C21.844 3.9507 21.2689 4.06895 20.9249 4.4667L13.76 11.3521C13.7009 11.4112 13.6471 11.4649 13.588 11.5832L13.5289 11.6423C13.4698 11.7552 13.416 11.8734 13.3569 11.9863L8.82575 23.5694L3.66575 31.5406H1.72C0.747125 31.5406 0 32.2877 0 33.2606C0 34.2334 0.747125 34.9806 1.72 34.9806H37.84H41.28C42.2529 34.9806 43 34.2334 43 33.2606C43 32.2877 42.2529 31.5352 41.28 31.5352ZM21.6129 8.54095L26.832 18.2858C26.9449 18.5169 27.1169 18.7427 27.348 18.8609L29.1809 20.1241L26.144 20.0649L20.984 21.5001L21.2151 16.5121L17.372 12.6152L21.6129 8.54095ZM7.74 31.5352L11.7551 25.2841C11.8142 25.1712 11.868 25.1121 11.9271 24.9992L15.5391 15.7112L17.716 17.8881L17.372 26.0849L26.5471 23.5049L33.5991 23.7361L35.604 31.5352H7.74Z' fill='black'/%3E%3C/svg%3E");
+}
+
+.story {
+  background-position-y: 0.3rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='43' height='43' viewBox='0 0 43 43' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M41.5381 11.3157H41.5013C40.7939 11.3204 40.6842 10.6808 40.6719 10.3839V5.73918C40.6719 5.24333 40.2859 4.84155 39.8109 4.84155H27.054C23.8533 4.84155 22.6593 6.07646 22.363 6.46413L22.2817 6.58171L22.2811 6.58372L22.0287 6.94385C22.0281 6.94385 22.0281 6.94385 22.0281 6.94385C21.6892 7.42827 21.3942 7.22201 21.2522 7.06344L20.7695 6.43658L20.5307 6.13693C20.1292 5.69819 19.083 4.84155 17.0092 4.84155H3.41841C2.94208 4.84155 2.55611 5.24333 2.55611 5.73918V10.3247C2.55611 11.1276 2.13723 11.2889 1.88035 11.3157H1.6893C1.48018 11.3292 0.99353 11.4555 0.99353 12.3874V34.2428C0.99353 34.779 1.41112 35.213 1.92617 35.213H14.33C18.2871 35.213 20.0117 36.7664 20.5287 37.3623L20.8237 37.7426H20.8243C20.8243 37.7426 21.6156 38.6745 22.4495 37.7426L22.6225 37.5316V37.5323L22.6251 37.5303L22.8458 37.2615C22.8523 37.2535 22.9052 37.1917 22.982 37.1097C23.6423 36.4412 25.2926 35.213 28.5198 35.213H41.3025C41.8182 35.213 42.2351 34.779 42.2351 34.2428V12.1757C42.2351 11.3856 41.6859 11.3198 41.5381 11.3157ZM38.7511 30.8136C38.7511 31.2442 38.4058 31.5916 37.976 31.5916H27.4587C23.7159 31.5916 22.3572 33.3519 22.3572 33.3519L22.1849 33.5924L22.1042 33.7087C22.1036 33.7087 22.1036 33.7087 22.1036 33.7087C21.7466 34.2132 21.2219 33.7127 21.2193 33.71L20.9773 33.3949C20.7979 33.1705 19.4231 31.5909 16.0959 31.5909H5.25271C4.8248 31.5909 4.47885 31.2429 4.47885 30.8129V7.52435C4.47885 7.09435 4.8248 6.74632 5.25271 6.74632H13.671C19.933 6.74632 20.5261 10.449 20.5668 11.5247V27.7209C20.5668 28.898 21.1057 29.1191 21.4097 29.1513H21.8622C22.172 29.1191 22.6644 28.9276 22.6644 28.0091V11.3157H22.6593C22.7058 9.96863 23.2105 6.74565 26.9766 6.74565H37.976C38.4058 6.74565 38.7511 7.09368 38.7511 7.52368V30.8136Z' fill='%23241F20'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='41.3074' height='43' fill='white' transform='translate(0.960632)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+}
+
+.driving {
+  background-position-y: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='41' height='41' viewBox='0 0 41 41' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M20.5 0.819946C9.64895 0.819946 0.820007 9.64807 0.820007 20.4999C0.820007 31.3518 9.64895 40.1799 20.5 40.1799C31.3511 40.1799 40.18 31.3518 40.18 20.4999C40.18 9.64807 31.3511 0.819946 20.5 0.819946ZM20.5 36.0799C11.9097 36.0799 4.92001 29.0911 4.92001 20.4999C4.92001 11.9088 11.9097 4.91995 20.5 4.91995C29.0903 4.91995 36.0792 11.9088 36.0792 20.4999C36.0792 29.0911 29.0903 36.0799 20.5 36.0799Z' stroke='black' stroke-width='2.1111' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.37592 23.7799C5.37592 23.7799 12.2155 23.7799 13.12 23.7799C15.4857 23.7799 17.22 25.6085 17.22 27.8799C17.22 29.4027 17.22 34.4399 17.22 34.4399M35.6241 18.0399C29.0641 18.0399 25.9145 13.9399 20.5 13.9399C15.0773 13.9399 12.3459 18.0399 5.37592 18.0399H35.6241ZM23.78 34.4399C23.78 34.4399 23.78 29.3518 23.78 27.8799C23.78 25.6791 25.6332 23.7799 27.88 23.7799C28.8976 23.7799 35.3059 23.7799 35.3059 23.7799L23.78 34.4399Z' stroke='black' stroke-width='2' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20.5 23.78C22.3115 23.78 23.78 22.3115 23.78 20.5C23.78 18.6885 22.3115 17.22 20.5 17.22C18.6885 17.22 17.22 18.6885 17.22 20.5C17.22 22.3115 18.6885 23.78 20.5 23.78Z' stroke='black' stroke-width='2' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='41' height='41' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+}
+
+/* Targets top Navigation, fixes styling broken by some Tailwind configurations */
+
+#header-secondary-outer[data-lhe=animated_underline] nav > .sf-menu > li:not([class*=button_]) > a::after {
+  bottom: 0;
+  border-width: 1px 0 0 0;
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:order-none {
+    order: 0;
+  }
+
+  .md\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .md\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:border-4 {
+    border-width: 4px;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:drop-shadow-xl {
+    --tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:order-none {
+    order: 0;
+  }
+
+  .lg\:mb-14 {
+    margin-bottom: 3.5rem;
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1536px) {
+}

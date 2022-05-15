@@ -19,8 +19,8 @@ mix
     ])
     .sourceMaps()
     .browserSync({
-        proxy: 'http://localhost:10048/colorado/',
-        port: '10048'
+        proxy: 'http://localhost:10051/colorado/',
+        port: '10051'
         })
     .webpackConfig({
             plugins: [
