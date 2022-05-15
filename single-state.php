@@ -216,7 +216,7 @@
 	
 // Don't run this query until we need it
 // State Byways Query
-//	$sb_query = new WP_Query( $sb_args );
+	$sb_query = new WP_Query( $sb_args );
 	
 	
 	// State Partner Args
@@ -271,7 +271,7 @@
 		    /**
 		     * This is for the STATE byway list
 		     */
-		//    include_once( 'page-templates/partials/state-byway-list.php' );
+		    include_once( 'page-templates/partials/state-byway-list.php' );
 	
 	    ?>
         <div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>

@@ -11,9 +11,10 @@
 
 
 <h2 class="text-2xl md:text-3xl text-outerspace  mt-12 mb-8">America's Byways Collection</h2>
-<ul class="byway-collection grid grid-cols-1">
-	
-	<?php
+<!--    <ul class="byway-collection grid grid-cols-1">-->
+    <ul class="byway-collection grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-4">
+
+    <?php
 		// Loop querying posts for National Byways ($nb_query) to present the Byway Info
 		if ( !empty( $nb_query->have_posts() ) ) :
 			
