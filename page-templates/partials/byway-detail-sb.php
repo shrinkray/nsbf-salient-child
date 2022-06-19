@@ -7,7 +7,7 @@
 	 */
 	?>
 
-<div class="row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-12">
+<div class="row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-6">
     <div class="section details order-last md:order-none lg:order-none ">
         <div id="details" class="anchored"></div>
         <h2 class="text-3xl md:text-4xl h2 wayfinder">Details</h2>
@@ -69,17 +69,16 @@
         </div> <!-- .detail-subsection -->
     <?php endif; //dedicated organization
     ?>
-
-
+        
         <div class="detail-subsection mt-7">
             <div class="label-minor-heading">Statewide Byway Partners</div>
 			
 			<div class="departments grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2">
                 <div class="partner-digits">
 					<?php
-						// vars
+					// vars
 						$state_dot_name = get_field('sp_state_department_of_transportation_name');
-						$state_dot_byway_website = get_field('sp_state_department_of_transportation_website');
+						$state_dot_byway_website = get_field('pb_state_department_of_transportation_website');
 						$state_dot_byway_phone = get_field('sp_state_department_of_transportation_phone');
 						
 						/**
@@ -101,8 +100,13 @@
                                         <a class="byway-phone-property" href="tel:<?php echo $state_dot_byway_phone;
 										?>" title="Need help? Call our offices."><?php echo $state_dot_byway_phone;?></a>
 									<?php endif; ?>
-                            </div> <!-- .detail-properties -->
-						<?php endif; // $state_dot_name
+                            </div>
+                            <!-- .detail-properties -->
+                            <?php else : ?>
+                           <div class="text-sm text-mangotango truncate ...">
+	                           <?php  echo 'missing sp_state_department_of_transportation_name ?'; ?>
+                           </div>
+						<?php endif; // $state_dot_names
 					?>
                 </div> <!-- .partner-digits -->
 
@@ -134,6 +138,10 @@
 										?>" title="Need help? Call our offices."><?php echo $state_tourism_board_phone;?></a>
 									<?php endif; ?>
                             </div> <!-- .detail-properties -->
+						<?php else : ?>
+                            <div class="text-sm text-mangotango truncate ...">
+								<?php  echo 'missing sp_state_tourism_board_name ?'; ?>
+                            </div>
 						<?php endif; // $state_tourism_board_name
 					?>
                 </div> <!-- .partner-digits -->
@@ -143,64 +151,47 @@
 	        
 
         </div> <!-- .detail-subsection // Statewide Byway Partners  -->
-    </div> <!-- .section -->
 
+    </div> <!-- .section -->
+    
+    
+	<?php if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
+		$first_credit = true;
+		
+		// combo conditional to get just the first record
+		while ( $first_credit && have_rows( 'sb_iconic_images' ) ) : the_row();
+            $img_title = get_sub_field( 'image_title' );
+            $img_alt = get_sub_field( 'image_alt_text' );
+            $attr = get_sub_field( 'image_attribution' );
+            $img_url = get_sub_field( 'image_url' );
+            
+	?>
     <div class="section image order-first mb-8 md:order-none lg:order-none">
         <div class="detail-image">
-	        <?php if ( have_rows( 'sb_iconic_images' ) ) : ?>
-		        <?php while ( have_rows( 'sb_iconic_images' ) ) : the_row(); ?>
-			        <?php
-			        $image_title = get_sub_field( 'image_title' );
-			        $image_alt = get_sub_field( 'image_alt_text' );
-			        $image_attr = get_sub_field( 'image_attribution' );
-			        $image = get_sub_field( 'image_url' );
-
-			        echo $image['url'] ;
-			        echo $image_title ;
-			        echo $image_alt ;
-			        echo $image_attr ;
-			        ?>
-		        <?php endwhile; ?>
-	        <?php else : ?>
-		        <?php // No rows found ?>
-	        <?php endif; ?>
+	       
 			<?php
 				
-				$image = get_the_post_thumbnail($post_id, "byway_large" );
+				$image = get_the_post_thumbnail( $post_id, "byway_large" );
 				echo $image;
-			?>
+				echo $img_title;
+//			?>
         </div>
         <div class="attribution text-right italic">
-			
-			<?php if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
-				$first_credit = true;
+            <?php
+            // set false to stop from getting the next record
+            $first_credit = false;
+            ?>
+            <span class="source"><?php echo $attr; ?></span>
+            <?php if( ! empty( $attr ) ) : ?>
+                <span class="photo-credit"></span>
+            <?php endif; //
+            ?>
 				
-				// combo conditional to get just the first record
-				while ( $first_credit && have_rows( 'sb_iconic_images' ) ) : the_row();
-					?>
-					
-					<?php
-					$attribution = get_sub_field( 'image_attribution' );
-					// set as false to stop from getting the next record
-					$first_credit = false;
-					?>
-
-
-                    <span class="source"><?php echo $attribution; ?></span>
-					<?php if( ! empty( $attribution ) ) : ?>
-                        <span class="photo-credit"></span>
-					<?php endif; //
-					?>
-					<?php
-					wp_reset_postdata();
-					
-					?>
-				<?php
-				endwhile; ?>
-			<?php else : ?>
-				<?php // no rows found ?>
-			<?php endif; ?>
         </div>
     </div> <!-- .section -->
-
+		<?php
+		endwhile; ?>
+	<?php else : ?>
+		<?php // no rows found ?>
+	<?php endif; ?>
 </div> <!-- .row // Details -->

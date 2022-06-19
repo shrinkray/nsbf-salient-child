@@ -9,12 +9,12 @@
 
 ?>
 	
-	<div class="row mt-3 mb-12"><!-- overview  -->
+	<div class="row mt-3 mb-6"><!-- overview  -->
 		<div class="section">
 			<div class="boxed-subsection filter drop-shadow-md md:drop-shadow-xl">
 				<?php
 					//vars
-					$byway_synopsis = get_field( 'nb_byway_synopsis' );
+					$byway_synopsis = get_field( 'sb_byway_synopsis' );
 					
 				?>
 				<div id="overview" class="anchored"></div>

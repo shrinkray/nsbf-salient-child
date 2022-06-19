@@ -105,6 +105,13 @@
     border-style: solid;
     padding: 1.5rem 1.8rem 0.8rem;
 }
+// for byway-detail-sb template
+.single-state_byway {
+    & .boxed-subsection {
+        border: 0;
+        padding: 0;
+    }
+}
 
 @media screen and (min-width: 765px) {
      .section {

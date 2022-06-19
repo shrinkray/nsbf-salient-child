@@ -8,7 +8,7 @@
 
 ?>
 	
-	<div class="row mb-12"> <!-- Story of the Byway + Driving Directions -->
+	<div class="row mb-3"> <!-- Story of the Byway + Driving Directions -->
 		
 		<div class="section">
 			<div class="">
@@ -16,7 +16,7 @@
 				
 				<?php
 					//vars
-					$byway_story        = get_field( 'nb_byway_story' );
+					$byway_story        = get_field( 'sb_byway_story' );
 					$toggle_story = 'block';
 					
 					if ( ! empty( $byway_story ) ) :  ?>
