@@ -74,5 +74,3 @@
 				?>
         </div> <!-- .section   // Byway Partners -->
     </div> <!-- .row -->
-	
-	 <!-- byway partner row -->
