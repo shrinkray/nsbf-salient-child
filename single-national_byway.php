@@ -17,7 +17,7 @@ get_header();
 ?>
  
 
- <div class="container-wrap">
+ <main class="container-wrap">
 	<div class="container main-content">
 
 <?php
@@ -80,7 +80,7 @@ get_header();
         </div>
     </div><!--/container main-content-->
 
- </div> <!-- .container-wrap -->
+ </main> <!-- .container-wrap -->
 
 
 <?php
