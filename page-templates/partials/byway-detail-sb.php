@@ -5,16 +5,17 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-	?>
+	
+    
+    ?>
 
 <div class="row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-6">
     <div class="section details order-last md:order-none lg:order-none ">
+       
         <div id="details" class="anchored"></div>
         <h2 class="text-3xl md:text-4xl h2 wayfinder">Details</h2>
         <?php
-
-//            $intrinsic_quality                  = get_field( 'sb_intrinsic_quality' );
-            $state_or_states_that_contain_byway = get_field( 'sb_state_or_states_that_contain_byway' );
+            
             $designation                        = get_field( 'sb_current_state_designation' );
 	        $designation_year                   = get_field('sb_designation_year');
             $length_of_byway_miles              = get_field( 'sb_length_of_byway_miles' );
@@ -41,7 +42,7 @@
 			$dedicated_byway_organization_phone = get_field( 'sb_dedicated_byway_organization_phone' );
 		
 		?>
-    <?php
+        <?php
         // Add if we have a field for a dedicated organization
         if ( $dedicated_byway_organization ) :
             
@@ -67,95 +68,65 @@
             </div> <!-- .detail-organization -->
 
         </div> <!-- .detail-subsection -->
-    <?php endif; //dedicated organization
-    ?>
+        <?php endif; //dedicated organization
+	       
+        ?>
         
         <div class="detail-subsection mt-7">
-            <div class="label-minor-heading">Statewide Byway Partners</div>
-			
-			<div class="departments grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-2">
-                <div class="partner-digits">
-					<?php
-					// vars
-						$state_dot_name = get_field('sp_state_department_of_transportation_name');
-						$state_dot_byway_website = get_field('pb_state_department_of_transportation_website');
-						$state_dot_byway_phone = get_field('sp_state_department_of_transportation_phone');
-						
-						/**
-						 * If the organization exists, add it's name. If the web and or phone properties exist,
-						 * render, otherwise do not show them.
-						 */
-						if ( $state_dot_name ) : ?>
-                            <div class="detail-organization"><?php echo $state_dot_name;?></div>
-
-                            <div class="detail-properties">
-								<?php // If we have a website URL add a link
-									if ( $state_dot_byway_website ) :  ?>
-                                        <a class="byway-website-property" href="<?php echo $state_dot_byway_website;
-										?>" target="_blank" title="Learn more at our website!">Website</a>
-									<?php endif; ?>
-								
-								<?php // If we have a phone URL add a link
-									if (  $state_dot_byway_phone ) :  ?>
-                                        <a class="byway-phone-property" href="tel:<?php echo $state_dot_byway_phone;
-										?>" title="Need help? Call our offices."><?php echo $state_dot_byway_phone;?></a>
-									<?php endif; ?>
-                            </div>
-                            <!-- .detail-properties -->
-                            <?php else : ?>
-                           <div class="text-sm text-mangotango truncate ...">
-	                           <?php  echo 'missing sp_state_department_of_transportation_name ?'; ?>
-                           </div>
-						<?php endif; // $state_dot_names
-					?>
-                </div> <!-- .partner-digits -->
-
-                <div class="partner-digits">
-					<?php
-						// vars
-						$state_tourism_board_name = get_field('sp_state_tourism_board_name');
-						$state_tourism_board_website = get_field('sp_state_tourism_board_website');
-						$state_tourism_board_phone = get_field('sp_state_tourism_board_phone');
-						
-						/**
-						 * If the organization exists, add it's name. If the web and or phone properties exist,
-						 * render, otherwise do not show them.
-						 */
-						if ( $state_tourism_board_name ) :  ?>
-
-                            <div class="detail-organization"><?php echo $state_tourism_board_name;?></div>
-
-                            <div class="detail-properties">
-								<?php // If we have a website URL add a link
-									if ( $state_tourism_board_website ) :  ?>
-                                        <a class="byway-website-property" href="<?php echo $state_tourism_board_website;
-										?>" target="_blank" title="Learn more at our website!">Website</a>
-									<?php endif; ?>
-								
-								<?php // If we have a phone URL add a link
-									if (  $state_tourism_board_phone ) :  ?>
-                                        <a class="byway-phone-property" href="tel:<?php echo $state_tourism_board_phone;
-										?>" title="Need help? Call our offices."><?php echo $state_tourism_board_phone;?></a>
-									<?php endif; ?>
-                            </div> <!-- .detail-properties -->
-						<?php else : ?>
-                            <div class="text-sm text-mangotango truncate ...">
-								<?php  echo 'missing sp_state_tourism_board_name ?'; ?>
-                            </div>
-						<?php endif; // $state_tourism_board_name
-					?>
-                </div> <!-- .partner-digits -->
-            </div> <!-- .departments -->
+        
+            <?php
             
+            // vars
 	
-	        
+	            $sp_args = array(
+		            'numberposts'       => -1,
+		            'post_type'         => 'state_partners',
+		            'orderby'           => 'title',
+		            'post_status'       => 'publish',
+		            'meta_key'          => 'sp_state',
+		            'meta_value'        => $sb_state,
+	            );
+	
+	            // State Partner Query
+	            $partners = new WP_Query( $sp_args );
+                
+                $state_dot_name = get_field('sp_state_department_of_transportation_name');
+                $state_dot_byway_website = get_field('sb_state_department_of_transportation_website');
+                $state_dot_byway_phone = get_field('sp_state_department_of_transportation_phone');
+                
+                /**
+                 * If the organization exists, add its name. If the web and or phone properties exist,
+                 * render, otherwise do not show them.
+                 */
+       
+                
 
-        </div> <!-- .detail-subsection // Statewide Byway Partners  -->
+		    // Loop querying posts for National Byways ($nb_query) to capture partner data
+		    if ( $partners->have_posts() ) :
+			    ?>
 
-    </div> <!-- .section -->
+            <ul>
+		
+		        <?php
+			        while ( $partners->have_posts() ) :
+				        $partners->the_post();
+				
+				        // Prints state partner info
+				        include_once( 'state-partners-sp.php' );
+			        endwhile; ?>
+
+            </ul>
+	
+	        <?php
+	        wp_reset_query();
+	        endif;
+            ?>
     
-    
-	<?php if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
+        </div>
+       
+	
+</div> <!-- .row // Details -->
+<?php if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
 		$first_credit = true;
 		
 		// combo conditional to get just the first record
@@ -194,4 +165,4 @@
 	<?php else : ?>
 		<?php // no rows found ?>
 	<?php endif; ?>
-</div> <!-- .row // Details -->
+</div>
