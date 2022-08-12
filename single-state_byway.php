@@ -17,17 +17,15 @@ get_header();
 ?>
  
 
- <div class="container-wrap">
+ <main class="container-wrap">
 	<div class="container main-content">
 
 <?php
     // Unused Template Detail Byway Variables
-    $state = get_field( 'nb_state' );
+    $state = get_field( 'sb_state' );
    
     $official_byway_name = get_field('sb_official_byway_name');
-    $designating_agency = get_field('nb_designating_agency');
-    
-
+   // $designating_agency = get_field('nb_designating_agency');
             ?>
         
 		
@@ -35,43 +33,19 @@ get_header();
            
             <h1 class="text-3xl md:text-5xl entry-title mb-10"><?php the_title(); ?></h1>
             
-<!--            <ul class="byway-sub-nav mt-3 mb-10">-->
-<!--                <li id="item-overview" class="anchor-nav hidden"><a href="#overview" class="" title="Trip-->
-<!--                Overview">Overview</a></li>-->
-<!--                <li id="item-story" class="anchor-nav hidden"><a href="#story" class="" title="Story of the-->
-<!--                Byway">Story</a></li>-->
-<!--                <li id="item-directions" class="anchor-nav hidden"><a href="#directions" class="" title="Driving-->
-<!--                Directions">Directions</a></li>-->
-<!--                <li id="item-points" class="anchor-nav hidden"><a href="#points" class="" title="Points of-->
-<!--                Interest">Points of Interest</a></li>-->
-<!--                <li id="item-itinerary" class="anchor-nav hidden" title="Itinerary" ><a-->
-<!--                            href="#itinerary" >Itinerary</a></li>-->
-<!---->
-<!--            </ul>-->
         </div> <!-- .row // H1 & Anchor Nav -->
 		
 		
 		<?php
-		//
+		// this loads some duplicate content
         include('page-templates/partials/byway-detail-sb.php');
         
-		//
+		// this loads but missing content
 		include('page-templates/partials/byway-overview-sb.php');
-
-		//
-		include('page-templates/partials/byway-local-partners-sb.php');
-	
-        // May not be used
-        // include('page-templates/partials/byway-story-sb.php');
         
-        // Not needed for state template
-        // include('page-templates/partials/byway-directions.php');
-
-        //
-        // include('page-templates/partials/byway-points.php');
-
-        //
-        // include('page-templates/partials/byway-itinerary.php');
+          //  this loads, but missing content
+		include('page-templates/partials/byway-local-partners-sb.php');
+  
 		?>
         <div class="update-data">
             <p><a href="<?php echo site_url( '/update/', 'https' ); ?>" class="bell" title="Help our foundation maintain accurate information about
@@ -80,7 +54,7 @@ get_header();
         </div>
     </div><!--/container main-content-->
 
- </div> <!-- .container-wrap -->
+ </main> <!-- .container-wrap -->
 
 
 <?php
