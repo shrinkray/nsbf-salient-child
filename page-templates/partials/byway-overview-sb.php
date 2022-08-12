@@ -8,7 +8,7 @@
 	 */
 
 ?>
-	
+
 	<div class="row mt-3 mb-6"><!-- overview  -->
 		<div class="section">
 			<div class="boxed-subsection filter drop-shadow-md md:drop-shadow-xl">
@@ -30,7 +30,18 @@
                             itemOverview.classList.remove('hidden');
                             itemOverview.classList.add('block');
                         </script>
-				<?php endif; // end
+						<?php
+						
+						else :
+							// see all the fields
+						?>
+
+                        <div class="text-sm text-mangotango truncate ...">
+							<?php  echo 'Missing Overview ...'; ?>
+                        </div>
+						
+						
+				<?php endif; // byway synopsis
 				?>
 			</div> <!-- .boxed-subsection -->
 		</div>
