@@ -120,7 +120,7 @@
         </div>
     </div> <!-- .row // Details -->
     <div class="section image order-first mb-8 md:order-none lg:order-none">
-        <div class="detail-image ">
+        <div class="detail-image">
 			<?php
 				
 				$image = get_the_post_thumbnail($post_id, "byway_large" );
