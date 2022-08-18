@@ -192,18 +192,16 @@
 	        
 	        // combo conditional to get just the first record
 		         while ( $first_credit && have_rows( 'nb_iconic_images' ) ) : the_row();
-			         ?>
-
-			         <?php
+			        
 		        $attribution = get_sub_field( 'image_attribution' );
-		        // set to false to stop from getting the next record
+		        // set  false to stop from getting the next record
                  $first_credit = false;
 			        ?>
 			         
 
                 <span class="source"><?php echo $attribution; ?></span>
 			         <?php if( ! empty( $attribution ) ) : ?>
-                         <span class="photo-credit"></span>
+                <span class="photo-credit"> Photo</span>
 			         <?php endif; //
 			         ?>
 		        <?php
