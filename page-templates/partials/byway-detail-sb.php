@@ -119,14 +119,34 @@
     
         </div>
     </div> <!-- .row // Details -->
+    
+    
     <div class="section image order-first mb-8 md:order-none lg:order-none">
+	    <?php
+		    $image = get_the_post_thumbnail($post_id, "byway_large",  ['alt' => get_the_title()] );
+		    if ( ! empty ($image) ) :
+			    ?>
+
         <div class="detail-image">
-			<?php
-				
-				$image = get_the_post_thumbnail($post_id, "byway_large" );
-                    echo $image;
-			?>
+		    <?php
+		
+		    echo $image;
+		
+		    ?>
         </div>
+		    <?php
+		    else :
+	    ?>
+
+        <div class="detail-image placeholder">
+        
+        </div>
+        
+	    <?php
+	endif;
+	    ?>
+        
+        
         <div class="attribution text-right italic">
             <?php if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
                     $first_credit = true;
@@ -142,12 +162,12 @@
         
             <span class="source"><?php echo $attribution; ?></span>
                 <?php if( ! empty( $attribution ) ) : ?>
-                <span class="photo-credit"></span>
+            <span class="photo-credit"> Photo</span>
                 <?php endif; ?>
             <?php
                 endwhile; ?>
-            <?php else : ?>
-                <?php // no rows found ?>
+            <?php else :
+	           // no rows found ?>
             <?php endif; ?>
         </div>
     </div> <!-- .section -->
