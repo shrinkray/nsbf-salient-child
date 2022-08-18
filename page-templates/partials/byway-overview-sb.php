@@ -23,17 +23,10 @@
 					if ( ! empty( $byway_synopsis ) ) :
 						?>
 				<h2 class="text-3xl md:text-4xl h2 overview">Overview</h2>
-				<?php echo $byway_synopsis; ?>
-
-                        <script>
-                            const itemOverview = document.getElementById('item-overview');
-                            itemOverview.classList.remove('hidden');
-                            itemOverview.classList.add('block');
-                        </script>
-						<?php
+				<?php echo $byway_synopsis;
 						
 						else :
-							// see all the fields
+							// see nothing
 						?>
 
                         <div class="text-sm text-mangotango truncate ...">
