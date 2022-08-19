@@ -2,4 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@forward "byways-styles";
+
+/* Import Byways */
+@import "variables";
+@import "byways-custom";
