@@ -21,15 +21,12 @@
 	}
 	
 	wp_head();
-	
-	?>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-	
-	<?php
-		// if site url is target domain then add tag manager otherwise ignore
-		if ( site_url() === 'https://nsbfoundation.com' ) : ?>
-
+    
+    // Check if site URL is production
+	$siteurl = get_site_url();
+		
+		if ( $siteurl === "https://nsbfoundation.com" ) : ?>
+            <!--Global site tag (gtag.js) - Google Analytics-->
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6NECT3EPH"></script>
                 <script>
                     window.dataLayer = window.dataLayer || [];
@@ -39,6 +36,12 @@
                     gtag('config', 'G-Z6NECT3EPH');
                 </script>
 		<?php
+        else :
+	        ?>
+
+    <!-- Google Tag Manager Script removed if not production site -->
+
+        <?php
         endif;
 	?>
 
