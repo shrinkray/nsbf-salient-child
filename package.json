@@ -1,6 +1,6 @@
 {
   "name": "salient-child",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "author": "",
   "keywords": [],
@@ -24,7 +24,7 @@
     "copy-webpack-plugin": "^9.0.1",
     "laravel-mix": "^6.0.25",
     "laravel-mix-purgecss": "^6.0.0",
-    "mix-tailwindcss": "^1.3.0",
+    "mix-tailwindcss": "1.3.0",
     "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
     "postcss-custom-properties": "^11.0.0",
@@ -34,8 +34,8 @@
     "postcss-url": "^10.1.3",
     "prettier": "^2.3.2",
     "resolve-url-loader": "^4.0.0",
-    "sass": "^1.35.2",
-    "sass-loader": "^12.1.0",
-    "tailwindcss": "^2.2.4"
+    "sass": "^1.54.4",
+    "sass-loader": "^12.6.0",
+    "tailwindcss": "2.2.4"
   }
 }
