@@ -17,7 +17,7 @@ get_header();
 ?>
  
 
- <div class="container-wrap">
+ <main class="container-wrap">
 	<div class="container main-content">
 
 <?php
@@ -73,10 +73,14 @@ get_header();
         //
         include('page-templates/partials/byway-itinerary.php');
 		?>
-
+        <div class="update-data">
+            <p><a href="<?php echo site_url( '/update/', 'https' ); ?>" class="bell" title="Help our foundation maintain accurate information about
+<?php echo $official_byway_name; ?>."><i class="fa fa-bell"></i>&nbsp;Update</a> this byway information
+                today!</p>
+        </div>
     </div><!--/container main-content-->
 
- </div> <!-- .container-wrap -->
+ </main> <!-- .container-wrap -->
 
 
 <?php

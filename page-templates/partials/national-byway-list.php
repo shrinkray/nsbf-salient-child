@@ -11,12 +11,13 @@
 
 
 <h2 class="text-2xl md:text-3xl text-outerspace  mt-12 mb-8">America's Byways Collection</h2>
-<ul class="byway-collection grid grid-cols-1">
-	
-	<?php
+<!--    <ul class="byway-collection grid grid-cols-1">-->
+    <ul class="byway-collection grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-4">
+
+    <?php
 		// Loop querying posts for National Byways ($nb_query) to present the Byway Info
-		
 		if ( !empty( $nb_query->have_posts() ) ) :
+			
 			while ( $nb_query->have_posts() ) :
 				$nb_query->the_post();
 				$permalink = get_permalink( $the_query->ID );
@@ -26,8 +27,10 @@
 				$tax  = get_the_terms( $the_query->ID, 'nb_designation' )[0]->slug;
 				
 				// If the tax equates to All American Roadway, we echo out our notification in the list item below
-				if ( $tax === 'aar' ) :
+				if ( $tax === "aar" )  :
 					$asterisk = '*';
+				else :
+                    $asterisk = '';
 				endif;	?>
 	
 				<li class="byway-item">

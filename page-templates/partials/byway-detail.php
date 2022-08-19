@@ -48,10 +48,12 @@
 				        break;
 		        }
 		        // a word list is created along with a trailing comma and space 😞.
-		        $list .= $quality . ', ' ;
+		
+		        
+		        $typelist .= $quality . ', ' ;
 	        }
 	        // Remove space and last comma from the list and return the trimmed result
-	        $trimmed = rtrim( trim( $list ), ',' );
+	        $trimmed = rtrim( trim( $typelist ), ',' );
 	        
 	     //   echo $list;
         ?>
@@ -180,7 +182,7 @@
 	        <?php
           
 		        $image = get_the_post_thumbnail($post_id, "byway_large" );
-	echo $image;
+	    echo $image;
 	        ?>
         </div>
         <div class="attribution text-right italic">
@@ -190,18 +192,16 @@
 	        
 	        // combo conditional to get just the first record
 		         while ( $first_credit && have_rows( 'nb_iconic_images' ) ) : the_row();
-			         ?>
-
-			         <?php
+			        
 		        $attribution = get_sub_field( 'image_attribution' );
-		        // set to false to stop from getting the next record
+		        // set  false to stop from getting the next record
                  $first_credit = false;
 			        ?>
 			         
 
                 <span class="source"><?php echo $attribution; ?></span>
 			         <?php if( ! empty( $attribution ) ) : ?>
-                         <span class="photo-credit"> Photo</span>
+                <span class="photo-credit"> Photo</span>
 			         <?php endif; //
 			         ?>
 		        <?php
