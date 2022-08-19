@@ -39,7 +39,6 @@ mix
                     patterns: [
                         { from: 'css/child-responsive-styles.css', to: 'dist' },
                         { from: 'css/child-styles.css', to: 'dist' },
-                        { from: 'svg/scenic-byway.svg', to: 'dist' },
                     ],
                 }),
             ]
