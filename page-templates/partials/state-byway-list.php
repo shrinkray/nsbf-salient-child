@@ -22,9 +22,9 @@
                 if ( $sb_query->have_posts() ) :
 				?>
 
-    <h2 class="text-2xl text-forestgreen mt-10 mb-8">Additional Byways</h2>
+    <h2 class="text-2xl md:text-3xl text-outerspace mt-10 mb-8">Additional Byways</h2>
 
-    <ul class="byway-collection grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4">
+    <ul class="byway-collection grid grid-cols-1 md:grid-cols-2  gap-x-4">
 				
 				<?php
                 endif;
