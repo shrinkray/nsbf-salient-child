@@ -1,8 +1,5 @@
 <?php
-	$state_dot_name = get_field('sp_state_department_of_transportation_name');
-	$state_dot_byway_website = get_field('sb_state_department_of_transportation_website');
-	$state_dot_byway_phone = get_field('sp_state_department_of_transportation_phone');
- 
+
  
 	if ( $state_dot_name ) : ?>
 <div class="label-minor-heading">Statewide Byway Partners</div>
@@ -13,8 +10,8 @@
 			<?php
 				// vars
 				$state_dot_name = get_field('sp_state_department_of_transportation_name');
-				$state_dot_website = get_field('sp_state_department_of_transportation_website');
-				$state_dot_phone = get_field('sp_state_department_of_transportation_phone');
+				$state_dot_byway_website = get_field('sp_state_department_of_transportation_website');
+				$state_dot_byway_phone = get_field('sp_state_department_of_transportation_phone');
 				
 				/**
 				 * If the organization exists, add its name. If the web and or phone properties exist,
