@@ -8,8 +8,8 @@
 
     ?>
 
-<div class="row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-6">
-    <div class="section details order-last md:order-none lg:order-none ">
+<div class="grid grid-cols-1 mb-6 row md:grid-cols-2 lg:grid-cols-2">
+    <div class="order-last section details md:order-none lg:order-none ">
        
         <div id="details" class="anchored"></div>
         <h2 class="text-3xl md:text-4xl h2 wayfinder">Details</h2>
@@ -47,7 +47,7 @@
             ?>
         <!--                Dedicated organization -->
         <div class="detail-subsection">
-            <div class="label-minor-heading">Byway Visitor Information</div>
+            <div class="label-minor-heading">Dedicated Byway Visitor Information</div>
             <div class="detail-organization"><?php echo $dedicated_byway_organization; ?></div>
             <div class="detail-properties">
 				
@@ -67,61 +67,19 @@
         <?php endif; //dedicated_byway_organization
 	       
         ?>
-        
+<!--        State DOT byway info-->
         <div class="detail-subsection mt-7">
-        
-            <?php
-	           
-            // vars
-	
-	            $sp_args = array(
-		            'numberposts'       => -1,
-		            'post_type'         => 'state_partners',
-		            'orderby'           => 'title',
-		            'post_status'       => 'publish',
-		            'meta_key'          => 'sp_state',
-		            'meta_value'        => $sb_state,
-	            );
-	
-	            // State Partner Query
-	            $partners = new WP_Query( $sp_args );
-                
-                $state_dot_name = get_field('sp_state_department_of_transportation_name');
-                $state_dot_byway_website = get_field('sp_state_department_of_transportation_website');
-                $state_dot_byway_phone = get_field('sp_state_department_of_transportation_phone');
-                /**
-                 * If the organization exists, add its name. If the web and or phone properties exist,
-                 * render, otherwise do not show them.
-                 */
-       
-                
-
-		    // Loop querying posts for National Byways ($nb_query) to capture partner data
-		    if ( $partners->have_posts() ) :
-			    ?>
-
-            <ul>
-		
-		        <?php
-			        while ( $partners->have_posts() ) :
-				        $partners->the_post();
-				
-				        // Prints state partner info
-				        include_once( 'state-partners-sp.php' );
-			        endwhile; ?>
-
-            </ul>
-	
 	        <?php
-	        wp_reset_query();
-	        endif;
-            ?>
+		
+		        include_once( 'state-byway-visitor.php' );
+	
+	        ?>
     
         </div>
     </div> <!-- .row // Details -->
     
     
-    <div class="section image order-first mb-8 md:order-none lg:order-none">
+    <div class="order-first mb-8 section image md:order-none lg:order-none">
 	    <?php
 		    $image = get_the_post_thumbnail($post_id, "byway_large",  ['alt' => get_the_title()] );
 		    if ( ! empty ($image) ) :
@@ -147,7 +105,7 @@
 	    ?>
         
         
-        <div class="attribution text-right italic">
+        <div class="italic text-right attribution">
             <?php if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
                     $first_credit = true;
                     
