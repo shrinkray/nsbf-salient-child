@@ -45,8 +45,18 @@
 			<li class="byway-item">
 				Currently there are no All-American Roads or National Scenic Byways in <?php echo $title; ?>.
 			</li>
-		
-		<?php
+   
+		<?php // Set this value here instead of on state byway list
+            if ( $title === 'Texas' ) :
+                ?>
+                <h2 class="text-2xl md:text-3xl text-outerspace mt-10 mb-8">Additional Byways</h2>
+                <div class="unlinked">
+                    <p>Currently there are no additional byways in Texas</p>
+                </div>
+                
+            <?php
+            // see state-byway-list.php for script triggering visibility of the 'update' link (line 97)
+            endif;
 		endif;
 	?>
 
