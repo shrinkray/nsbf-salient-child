@@ -4,7 +4,9 @@
 	 * @template-part national-byway-list
 	 * @date Jul-16-2021
 	 * @author Greg Miller, gregmiller.io
-	 * @testedwith
+	 *
+     * @date 9-16-22
+     * Add check if $title is Texas; Return message about Additional Byways
 	 */
 
 ?>
@@ -12,7 +14,7 @@
 
 <h2 class="text-2xl md:text-3xl text-outerspace  mt-12 mb-8">America's Byways Collection</h2>
 <!--    <ul class="byway-collection grid grid-cols-1">-->
-    <ul class="byway-collection grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-4">
+    <ul class="byway-collection grid grid-cols-1  gap-x-4">
 
     <?php
 		// Loop querying posts for National Byways ($nb_query) to present the Byway Info
@@ -45,8 +47,18 @@
 			<li class="byway-item">
 				Currently there are no All-American Roads or National Scenic Byways in <?php echo $title; ?>.
 			</li>
-		
-		<?php
+   
+		<?php // Set this value here instead of on state byway list
+            if ( $title === 'Texas' ) :
+                ?>
+                <h2 class="text-2xl md:text-3xl text-outerspace mt-10 mb-8">Additional Byways</h2>
+                <div class="unlinked">
+                    <p>Currently there are no additional byways in <?php echo $title; ?></p>
+                </div>
+                
+            <?php
+            // see state-byway-list.php for script triggering visibility of the 'update' link (line 97)
+            endif;
 		endif;
 	?>
 
