@@ -4,7 +4,9 @@
 	 * @template-part national-byway-list
 	 * @date Jul-16-2021
 	 * @author Greg Miller, gregmiller.io
-	 * @testedwith
+	 *
+     * @date 9-16-22
+     * Add check if $title is Texas; Return message about Additional Byways
 	 */
 
 ?>
@@ -51,7 +53,7 @@
                 ?>
                 <h2 class="text-2xl md:text-3xl text-outerspace mt-10 mb-8">Additional Byways</h2>
                 <div class="unlinked">
-                    <p>Currently there are no additional byways in Texas</p>
+                    <p>Currently there are no additional byways in <?php echo $title; ?></p>
                 </div>
                 
             <?php

@@ -45,23 +45,15 @@
         </li>
 			    
 			<?php // displays all states except TX CA and VA
-                    elseif (  $nb_meta_value === 'TX' ) :
-                    ?>
-        
-        <h2 class="text-2xl md:text-3xl text-outerspace mt-10 mb-8">Additional Byways</h2>
-        <div class="unlinked">
-            <p>Currently there are no additional byways in Texas</p>
-        </div>
-	                <?php
-                    // For every other state use this method to link files
-                    else :
-                        // show for Texas?
-	                   ?>
+            
+            
+            else :
+	            // For every other state except for Texas and DC use this method to permalink
+               ?>
 
         <li class="byway-item">
             <a href="<?php echo $permalink; ?>"><?php echo $query_id; ?></a>
         </li>
-        
                        <?php
                endif;
 	              
@@ -72,6 +64,8 @@
 				<?php
 		
 			else :
+                // Catchall for unmatched states without byways
+                // I do not think this will be tripped as they will not run this loop.
 				?>
 
         <li class="byway-item unlinked">
@@ -84,14 +78,18 @@
 
 			<?php
 			endif;
+			
+    /**
+     * Note: #update_form will not display unless we have unlinked byways
+     * This is intended to enable visitors to volunteer info to keep the content current
+     */
 		?>
 
 <div id="update_form" class="mt-6 update-data hidden">
     <p><a href="<?php echo site_url( '/update/', 'https' ); ?>" class="bell" title="Help our foundation maintain accurate information about
 <?php echo $official_byway_name; ?>."><i class="fa fa-bell"></i>&nbsp;Update</a> byway information
         today!<br>
-<!--        <span class="">We are seeking your help to improve our records on the byways. Do you have information to-->
-<!--        share?</span> </p>-->
+
 </div>
 
 <script>
@@ -107,4 +105,3 @@
     }
 
 </script>
-
