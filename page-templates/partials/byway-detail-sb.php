@@ -26,7 +26,7 @@
         <ul class="detail-list mt-7 mb-7">
             <!--  Setting Year only if it exists, otherwise do not show parenthesis   -->
             <li><span class="label-minor-heading">Designation</span><?php echo $designation;?> <?php
-                    echo $designation_year? '(' . $designation_year . ')' : '' ?></li>
+                    echo $designation_year ? '(' . $designation_year . ')' : '' ?></li>
 	       
             <li><span class="label-minor-heading">Location</span><?php echo $sb_state;
 				?></li>
