@@ -25,29 +25,29 @@
     <ul class="byway-collection grid grid-cols-1 md:grid-cols-2  gap-x-4 mb-8">
 				
 				<?php
-                endif;
                 
-                while ( $sb_query->have_posts() ) :
+                
+                    while ( $sb_query->have_posts() ) :
                     
-                    $sb_query->the_post();
-	                $query_id = get_the_title( $the_query->ID );
-                    $permalink = get_permalink( $the_query->ID );
+                        $sb_query->the_post();
+	                    $query_id = get_the_title( $the_query->ID );
+                        $permalink = get_permalink( $the_query->ID );
 	                ?>
 
 	                <?php
 // This conditional was added per client. The page will show the byways but not
 // link to the detail page content.
-	                if ( $nb_meta_value === 'CA' |  $nb_meta_value === 'VA' ) :
+	                    if ( $nb_meta_value === 'CA' |  $nb_meta_value === 'VA' ) :
 				?>
 				
         <li class="byway-item unlinked">
-            <?php echo $query_id; ?>
+                            <?php echo $query_id; ?>
         </li>
 			    
 			<?php // displays all states except TX CA and VA
             
             
-            else :
+                        else :
 	            // For every other state except for Texas and DC use this method to permalink
                ?>
 
@@ -55,15 +55,17 @@
             <a href="<?php echo $permalink; ?>"><?php echo $query_id; ?></a>
         </li>
                        <?php
-               endif;
+                        endif;
 	              
-			endwhile;
+                    endwhile;
+                    
 				?>
     </ul>
 				
 				<?php
-		
+                endif;
 			else :
+               // If !empty( have_posts() ) is false
                 // Catchall for unmatched states without byways
                 // I do not think this will be tripped as they will not run this loop.
 				?>
@@ -77,7 +79,7 @@
     
 
 			<?php
-			endif;
+			endif; // !empty( have_posts() )
 			
     /**
      * Note: #update_form will not display unless we have unlinked byways
