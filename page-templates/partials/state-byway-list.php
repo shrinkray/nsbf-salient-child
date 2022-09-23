@@ -17,11 +17,13 @@
 			
 			if ( !empty( have_posts() ) ) :
     
-                if ( $sb_query->have_posts() ) :
+               
+                    $found = $sb_query->found_posts;
+                    $half_found = ceil( $found/2 );
 				?>
 
     <h2 class="text-2xl md:text-3xl text-outerspace mt-10 mb-8">Additional Byways</h2>
-
+<!-- <ul class="byway-collection grid grid-rows-<?php echo $half_found; ?> grid-cols-1 md:grid-cols-2 grid-flow-col gap-x-4 mb-8">-->
     <ul class="byway-collection grid grid-cols-1 md:grid-cols-2  gap-x-4 mb-8">
 				
 				<?php
@@ -63,22 +65,8 @@
     </ul>
 				
 				<?php
-                endif;
-			else :
-               // If !empty( have_posts() ) is false
-                // Catchall for unmatched states without byways
-                // I do not think this will be tripped as they will not run this loop.
-				?>
-
-        <li class="byway-item unlinked">
-            Sorry there are no known Scenic Byways in <?php echo $title; ?>.
-        </li>
     
-    </ul>
-    
-    
-
-			<?php
+	
 			endif; // !empty( have_posts() )
 			
     /**
