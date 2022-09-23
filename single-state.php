@@ -172,8 +172,6 @@
 			break;
 		
 	}
-	
-	
 		?>
   
 <main class="container-wrap" style="padding-top:40px;">
@@ -184,7 +182,8 @@
         
         <div class="color-bar bg-gradient-to-r from-yellow-600 to-yellow-300 mt-10"></div>
 	    <?php
-		    // National Byway Args
+		   // ===============================================================
+		    // *** National Byway Args ***
 		    $nb_args = array(
 			    'numberposts'       => -1,
 			    'post_type'         => 'national_byway',
@@ -203,13 +202,13 @@
 		
 		    // America's Byways Collection Query
 		    $nb_query = new WP_Query( $nb_args );
-		    /**
-		     * This is for the NATIONAL byway list
-		     */
+		    
 		    include_once( 'page-templates/partials/national-byway-list.php' );
 		    // Destroys the previous query and sets up a new query.
 		    wp_reset_query();
-		    // State Byway Args
+		
+		    // ===============================================================
+		    // *** State Byway Args ***
 		    $sb_args = array(
 			    'numberposts'       => -1,
 			    'posts_per_page'     => -1,
@@ -227,8 +226,8 @@
 				    ))
 		    );
 		
-		    // Don't run this query until we need it
-		    // State Byways Query
+		  
+		    //  State Byways Query
 		    $sb_query = new WP_Query( $sb_args );
 		    /**
 		     * This is for the STATE byway list
@@ -239,7 +238,8 @@
 	    ?>
  
 	    <?php
-		    // State Partner Args
+		    // ===============================================================
+		    // *** State Partner Args ***
 		    $sp_args = array(
 			    'numberposts'       => -1,
 			    'post_type'         => 'state_partners',
