@@ -173,60 +173,7 @@
 		
 	}
 	
-	// National Byway Args
-	$nb_args = array(
-		'numberposts'       => -1,
-		'post_type'         => 'national_byway',
-		'post_status'       => 'publish',
-		'orderby'           => 'title',
-		'order'             => 'ASC',
-		'meta_key'          => 'nb_state',
-		'meta_value'        => $nb_meta_value,
-		'tax_query'         => array(
-			array(
-				'taxonomy' => 'nb_designation',
-				'field'    => 'slug',
-				'terms'    => array('nsb', 'aar'),
-			))
-	);
 	
-	// America's Byways Collection Query
-	$nb_query = new WP_Query( $nb_args );
- 
-	// State Byway Args
-	$sb_args = array(
-		'numberposts'       => -1,
-		'post_type'         => 'state_byway',
-		'post_status'       => 'publish',
-		'orderby'           => 'title',
-		'order'             => 'ASC',
-		'meta_key'          => 'sb_state',
-		'meta_value'        => $nb_meta_value,
-		'tax_query'         => array(
-			array(
-				'taxonomy' => 'sb_designation',
-				'field'    => 'slug',
-				'terms'    => array('fsb', 'sb'),
-			))
-	);
-	
-// Don't run this query until we need it
-// State Byways Query
-	$sb_query = new WP_Query( $sb_args );
-	
-	
-	// State Partner Args
-	$sp_args = array(
-		'numberposts'       => -1,
-		'post_type'         => 'state_partners',
-		'orderby'           => 'title',
-		'post_status'       => 'publish',
-		'meta_key'          => 'sp_state',
-		'meta_value'        => $nb_meta_value,
-	);
-	
-	// State Partner Query
-	$partners = new WP_Query( $sp_args );
 		?>
   
 <main class="container-wrap" style="padding-top:40px;">
@@ -234,44 +181,99 @@
 
         <h1 class="entry-title text-3xl md:text-5xl  text-center mb-9 lg:mb-14">Byways in <?php echo $title;
         ?></h1>
-	    <?php
-
-		    // Loop querying posts for National Byways ($nb_query) to capture partner data
-		    if ( $partners->have_posts() ) :
-			    ?>
-
-            <ul>
-			
-			    <?php
-			    while ( $partners->have_posts() ) :
-				    $partners->the_post();
-	
-				    // Prints website and phone number to the page
-				    include_once( 'page-templates/partials/state-partners.php' );
-			    endwhile; ?>
-
-            </ul>
-			
-			    <?php
-			    wp_reset_query();
-		    endif;
-	    ?>
-
+        
         <div class="color-bar bg-gradient-to-r from-yellow-600 to-yellow-300 mt-10"></div>
 	    <?php
+		    // National Byway Args
+		    $nb_args = array(
+			    'numberposts'       => -1,
+			    'post_type'         => 'national_byway',
+			    'post_status'       => 'publish',
+			    'orderby'           => 'title',
+			    'order'             => 'ASC',
+			    'meta_key'          => 'nb_state',
+			    'meta_value'        => $nb_meta_value,
+			    'tax_query'         => array(
+				    array(
+					    'taxonomy' => 'nb_designation',
+					    'field'    => 'slug',
+					    'terms'    => array('nsb', 'aar'),
+				    ))
+		    );
+		
+		    // America's Byways Collection Query
+		    $nb_query = new WP_Query( $nb_args );
 		    /**
 		     * This is for the NATIONAL byway list
 		     */
 		    include_once( 'page-templates/partials/national-byway-list.php' );
-		    
+		    // Destroys the previous query and sets up a new query.
+		    wp_reset_query();
+		    // State Byway Args
+		    $sb_args = array(
+			    'numberposts'       => -1,
+			    'posts_per_page'     => -1,
+			    'post_type'         => 'state_byway',
+			    'post_status'       => 'publish',
+			    'orderby'           => 'title',
+			    'order'             => 'ASC',
+			    'meta_key'          => 'sb_state',
+			    'meta_value'        => $nb_meta_value,
+			    'tax_query'         => array(
+				    array(
+					    'taxonomy' => 'sb_designation',
+					    'field'    => 'slug',
+					    'terms'    => array('fsb', 'sb'),
+				    ))
+		    );
+		
+		    // Don't run this query until we need it
+		    // State Byways Query
+		    $sb_query = new WP_Query( $sb_args );
 		    /**
 		     * This is for the STATE byway list
 		     */
 		    include_once( 'page-templates/partials/state-byway-list.php' );
-	
+            //Destroys the previous query and sets up a new query.
+		    wp_reset_query();
+	    ?>
+ 
+	    <?php
+		    // State Partner Args
+		    $sp_args = array(
+			    'numberposts'       => -1,
+			    'post_type'         => 'state_partners',
+			    'orderby'           => 'title',
+			    'post_status'       => 'any',
+			    'meta_key'          => 'sp_state',
+			    'meta_value'        => $nb_meta_value,
+		    );
+		
+		    // State Partner Query
+		    $partners = new WP_Query( $sp_args );
+		
+		    // Loop querying posts for National Byways ($nb_query) to capture partner data
+		    if ( $partners->have_posts() ) :
+			    ?>
+
+                <ul>
+				
+				    <?php
+					    while ( $partners->have_posts() ) :
+						    $partners->the_post();
+						
+						    // Prints website and phone number to the page
+						    include_once( 'page-templates/partials/state-partners.php' );
+					    endwhile; ?>
+
+                </ul>
+			
+			    <?php
+                //Destroys the previous query and sets up a new query.
+			    wp_reset_query();
+		    endif;
 	    ?>
         <div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>
-        
 	<div class="state-information mt-10">
         <h3 class="text-xl mb-4">Information</h3>
         <p>National Scenic Byways and All-American Roads are designated by the Federal Department of Transportation and
@@ -281,6 +283,7 @@
         <p><sup>*</sup>Byways in the <em>America’s Byways</em> collection with an asterisk are All-American Roads.</p>
     </div>
         <?php
+            // After looping through a separate query, this function restores the $post global to the current post in the main query.
             wp_reset_postdata();
 
 ?>
