@@ -51,13 +51,18 @@ function print_var($val){
 	echo '</pre>';
 }
 
-//Enqueue Styles from child theme
+// Add versioning to stylesheet enqueue
+
 function child_theme_styles() {
 
-    wp_enqueue_style( 'child-styles', get_stylesheet_directory_uri() . '/dist/child-styles.css' );
-    wp_enqueue_style( 'child-responsive-styles', get_stylesheet_directory_uri() . '/dist/child-responsive-styles.css' );
-	wp_enqueue_style( 'byway-styles', get_stylesheet_directory_uri() . '/dist/main.css' );
- 
+    wp_enqueue_style( 'child-styles', get_stylesheet_directory_uri() . '/dist/child-styles.css',
+        [], filemtime(get_stylesheet_directory_uri() . '/dist/child-styles.css' ), 'all' );
+    
+	wp_enqueue_style( 'child-responsive-styles', get_stylesheet_directory_uri() . '/dist/child-responsive-styles.css',
+	    [], filemtime(get_stylesheet_directory_uri() . '/dist/child-responsive-styles.css' ), 'all' );
+	
+	wp_enqueue_style( 'byway-styles', get_stylesheet_directory_uri() . '/dist/byways.css',
+		[], filemtime(get_stylesheet_directory_uri() . '/dist/byways.css' ), 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_styles', 999, 1 );
 
