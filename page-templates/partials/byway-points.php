@@ -47,14 +47,12 @@
 											if ( $poi_map_website ) : ?>
 												<a class="byway-website-property"
 												   href="<?php echo $poi_map_website;
-												   ?>" target="_blank" title="Use Google Maps to explore <?php echo
-                                                $poi_name;
-												   ?>!">Directions</a>
+												   ?>" target="_blank" title="Use Google Maps to explore <?php echo $poi_name; ?>!">Directions</a>
 											<?php endif; // opts out if no PO website URL
 											
 											if ( $poi_website ) :  ?>
 												<a class="byway-website-property" href="<?php echo $poi_website;
-												?>" target="_blank" title="Learn more at our website!">Website</a>
+												?>" target="_blank" title="Learn more at the <?php echo $poi_name; ?> website!">Website</a>
 											<?php endif; // opts out if no PO website URL
 										
 										?>

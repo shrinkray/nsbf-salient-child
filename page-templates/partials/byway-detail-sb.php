@@ -54,7 +54,7 @@
 				<?php // If we have a website URL add a link
 					if ( $dedicated_byway_organization_website ) :  ?>
                         <a class="byway-website-property" href="<?php echo $dedicated_byway_organization_website;
-						?>" target="_blank" title="Learn more at our website!">Website</a>
+						?>" target="_blank" title="Learn more at the <?php echo $dedicated_byway_organization; ?> website!">Website</a>
 					<?php endif; // website ?>
 				
 				<?php // If we have a phone URL add a link
