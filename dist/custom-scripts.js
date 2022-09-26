@@ -19,14 +19,14 @@ eval("jQuery(document).ready(function ($) {\n  /* Add random images functionalit
 
 /***/ }),
 
-/***/ "./scss/main.scss":
-/*!************************!*\
-  !*** ./scss/main.scss ***!
-  \************************/
+/***/ "./scss/byways.scss":
+/*!**************************!*\
+  !*** ./scss/byways.scss ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zYWxpZW50LWNoaWxkLy4vc2Nzcy9tYWluLnNjc3M/ZjU5MSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEiLCJmaWxlIjoiLi9zY3NzL21haW4uc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./scss/main.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zYWxpZW50LWNoaWxkLy4vc2Nzcy9ieXdheXMuc2Nzcz8zNmY0Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSIsImZpbGUiOiIuL3Njc3MvYnl3YXlzLnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./scss/byways.scss\n");
 
 /***/ })
 
@@ -117,7 +117,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/dist/custom-scripts": 0,
-/******/ 			"dist/main": 0
+/******/ 			"dist/byways": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -165,8 +165,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["dist/main"], () => (__webpack_require__("./js/custom-scripts.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["dist/main"], () => (__webpack_require__("./scss/main.scss")))
+/******/ 	__webpack_require__.O(undefined, ["dist/byways"], () => (__webpack_require__("./js/custom-scripts.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["dist/byways"], () => (__webpack_require__("./scss/byways.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
