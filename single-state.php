@@ -181,9 +181,13 @@
         ?></h1>
         
         <div class="color-bar bg-gradient-to-r from-yellow-600 to-yellow-300 mt-10"></div>
+        
 	    <?php
-		   // ===============================================================
-		    // *** National Byway Args ***
+		    /* ===============================================================
+				 National Byway Args
+		         This loops through names and permalinks
+			 */
+		
 		    $nb_args = array(
 			    'numberposts'       => -1,
 			    'post_type'         => 'national_byway',
@@ -207,8 +211,11 @@
 		    // Destroys the previous query and sets up a new query.
 		    wp_reset_query();
 		
-		    // ===============================================================
-		    // *** State Byway Args ***
+		    /* ===============================================================
+                State Byway Args
+		        This loops through all byway names and permalinks
+		    */
+      
 		    $sb_args = array(
 			    'numberposts'       => -1,
 			    'posts_per_page'     => -1,
@@ -222,7 +229,9 @@
 				    array(
 					    'taxonomy' => 'sb_designation',
 					    'field'    => 'slug',
-					    'terms'    => array('fsb', 'sb'),
+					    'terms'    => array('fsb', 'sb', 'blm'),
+					    'include_children' => true,
+					    'operator' => 'EXISTS'
 				    ))
 		    );
 		
@@ -236,10 +245,14 @@
             //Destroys the previous query and sets up a new query.
 		    wp_reset_query();
 	    ?>
- 
+     
+     
 	    <?php
-		    // ===============================================================
-		    // *** State Partner Args ***
+		    /* ===============================================================
+                State Partner Args
+		        Loops through the limited data about partners
+		    */
+		
 		    $sp_args = array(
 			    'numberposts'       => -1,
 			    'post_type'         => 'state_partners',
@@ -254,21 +267,15 @@
 		
 		    // Loop querying posts for National Byways ($nb_query) to capture partner data
 		    if ( $partners->have_posts() ) :
-			    ?>
-
-                <ul>
-				
-				    <?php
+			    
 					    while ( $partners->have_posts() ) :
 						    $partners->the_post();
 						
 						    // Prints website and phone number to the page
 						    include_once( 'page-templates/partials/state-partners.php' );
-					    endwhile; ?>
+					    endwhile;
 
-                </ul>
-			
-			    <?php
+        
                 //Destroys the previous query and sets up a new query.
 			    wp_reset_query();
 		    endif;
