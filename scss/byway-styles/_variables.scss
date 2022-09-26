@@ -1,7 +1,7 @@
 /* Variables for Byways */
 :root {
-  --forestgreen: #02AE4B;
-  --mangotango: #D5641C;
+  --forestgreen: #008639;
+  --mangotango: #c15700;
   --goldenrod: #DBA510;
   --steelblue: #006B94;
   --dimgray: #4B4145;
@@ -27,8 +27,8 @@
   color: var(--outerspace);
 }
 // Color Vars
-$forestgreen: #02AE4B;
-$mangotango: #D5641C;
+$forestgreen: #008639;
+$mangotango: #c15700;
 $goldenrod: #DBA510;
 $steelblue: #006B94;
 $dimgray: #4B4145;
@@ -48,6 +48,7 @@ a {
   &:hover {
     transition: color 0.2s;
     transition: background-color 0.2s;
+    color: $mangotango;
   }
 }
 p {

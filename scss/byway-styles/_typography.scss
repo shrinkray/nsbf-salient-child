@@ -1,1 +1,14 @@
 @use "variables" as *;
+.container-wrap {
+  a {
+    color: $steelblue;
+    &:hover {
+      color: $mangotango;
+    }
+  }
+  .byway-website-property {
+    &:hover {
+      color: white;
+    }
+  }
+}
