@@ -14,7 +14,20 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-       extend: {},
+       extend: {
+         colors: {
+           transparent: "transparent",
+           current: "currentColor",
+           primary: {
+             'forestgreen': "#02AE4B",
+             'mangotango': "#D5641C",
+             'goldenrod': "#DBA510",
+             'steelblue': "#006B94",
+             'dimgray': "#4B4145",
+             'outerspace': "#444444",
+           },
+         },
+       },
   },
   variants: {},
   plugins: [],

@@ -13,14 +13,14 @@ CopyPlugin = require('copy-webpack-plugin');
 mix
    // .disableNotifications()
     .js('js/custom-scripts.js', 'dist')
-    .sass('scss/main.scss', 'dist', {}, [
+    .sass('scss/byways.scss', 'dist', {}, [
         require('tailwindcss'),
         require('autoprefixer'),
     ])
     .sourceMaps()
     .browserSync({
         proxy: 'http://localhost:10052/colorado/',
-        port: '10051'
+        port: '10052'
         })
     .webpackConfig({
             plugins: [
