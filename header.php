@@ -8,9 +8,10 @@
 	<?php
 	
 	$nectar_options = get_nectar_theme_options();
-	
+ 
+//	viewport scale and maximum zoom hurts accessibility. These parameters were removed from meta declaration.
 	if ( ! empty( $nectar_options['responsive'] ) && '1' === $nectar_options['responsive'] ) {
-		echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />';
+		echo '<meta name="viewport" content="width=device-width, initial-scale=1" />';
 	} else {
 		echo '<meta name="viewport" content="width=1200" />';
 	}
