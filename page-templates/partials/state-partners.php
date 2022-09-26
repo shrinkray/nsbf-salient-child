@@ -1,7 +1,7 @@
-
-<div class="detail-subsection grid grid-cols-1 md:grid-cols-2">
+<div class="spacer"></div>
+<div class="detail-subsection grid grid-cols-1 md:grid-cols-2 p-2  border-goldenrod mt-8">
 	
-	<div class="partner-digits text-center">
+	<div class="partner-digits text-center pt-2">
 		<?php
 			// vars
 			$state_dot_name = get_field('sp_state_department_of_transportation_name');
@@ -19,7 +19,8 @@
 					<?php // If we have a website URL add a link
 						if ( $state_dot_website ) :  ?>
 							<a class="byway-website-property" href="<?php echo $state_dot_website;
-							?>" target="_blank" title="Learn more at our website!">Website</a>
+							?>" target="_blank"
+                               title="Learn more about us at the <?php echo $state_dot_name; ?> website!">Website</a>
 						<?php endif; ?>
 					
 					<?php // If we have a phone URL add a link
@@ -32,7 +33,7 @@
 		
 		?>
 	</div>
-	<div class="partner-digits text-center">
+	<div class="partner-digits text-center pt-2">
 		<?php
 			
 			// vars
@@ -52,7 +53,8 @@
 					<?php // If we have a website URL add a link
 						if ( $state_tourism_board_website ) :  ?>
 							<a class="byway-website-property" href="<?php echo $state_tourism_board_website;
-							?>" target="_blank" title="Learn more at our website!">Website</a>
+							?>" target="_blank"
+                               title="Learn more about us at the <?php echo $state_tourism_board_name; ?> website!">Website</a>
 						<?php endif; ?>
 					
 					<?php // If we have a phone URL add a link

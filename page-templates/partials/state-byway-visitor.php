@@ -25,7 +25,7 @@
 			<?php // If we have a website URL add a link
 				if ( $state_dot_byway_website ) : ?>
                     <a class="byway-website-property" href="<?php echo $state_dot_byway_website;
-					?>" target="_blank" title="Learn more at our website!">Website</a>
+					?>" target="_blank" title="Learn more at the <?php echo $state_dot_name; ?> website!">Website</a>
 				<?php
 				
 				endif; ?>
@@ -58,7 +58,7 @@
 			<?php // If we have a website URL add a link
 				if ( $state_tourism_board_website ) :  ?>
                     <a class="byway-website-property" href="<?php echo $state_tourism_board_website;
-					?>" target="_blank" title="Learn more at our website!">Website</a>
+					?>" target="_blank" title="Learn more at the <?php echo $state_tourism_board_name; ?> website!">Website</a>
 				<?php endif; ?>
 			
 			<?php // If we have a phone URL add a link
