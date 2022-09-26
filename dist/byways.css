@@ -69,6 +69,40 @@ ul > li {
   padding: 0 0 0.5rem;
 }
 
+.border-forestgreen {
+  border-color: var(--forestgreen);
+  border-radius: 0.5rem;
+}
+
+.border-mangotango {
+  border: 1px solid var(--mangotango);
+  border-radius: 0.5rem;
+}
+
+.border-goldenrod {
+  border: 1px solid var(--goldenrod);
+  border-radius: 0.5rem;
+}
+
+.border-steelblue {
+  border: 1px solid var(--steelblue);
+  border-radius: 0.5rem;
+}
+
+.border-dimgray {
+  border: 1px solid var(--dimgray);
+  border-radius: 0.5rem;
+}
+
+.border-outerspace {
+  border: 1px solid var(--outerspace);
+  border-radius: 0.5rem;
+}
+
+.spacer {
+  padding: 0.5rem;
+}
+
 /* Byways Custom Stylesheet */
 
 #footer-outer {
@@ -264,7 +298,7 @@ ul > li {
 }
 
 .partner-digits {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .detail-organization {
@@ -1384,16 +1418,20 @@ video {
   order: 9999;
 }
 
+.mt-0 {
+  margin-top: 0px;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
 
-.mt-6 {
-  margin-top: 1.5rem;
-}
-
 .mt-7 {
   margin-top: 1.75rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .mt-10 {
@@ -1592,6 +1630,14 @@ video {
 
 .to-yellow-600 {
   --tw-gradient-to: #d97706;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
 }
 
 .text-center {
