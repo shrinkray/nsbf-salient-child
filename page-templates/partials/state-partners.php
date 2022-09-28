@@ -1,7 +1,15 @@
+<?php
+// Exit if accessed directly
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
+
+?>
+
 <div class="spacer"></div>
-<div class="detail-subsection grid grid-cols-1 md:grid-cols-2 p-2  border-goldenrod mt-8">
+<div class="detail-subsection grid grid-cols-1 md:grid-cols-2 px-2 py-6 border-goldenrod  mt-8">
 	
-	<div class="partner-digits text-center pt-2">
+	<div class="partner-digits text-center p-2">
 		<?php
 			// vars
 			$state_dot_name = get_field('sp_state_department_of_transportation_name');
@@ -33,7 +41,7 @@
 		
 		?>
 	</div>
-	<div class="partner-digits text-center pt-2">
+	<div class="partner-digits text-center pt-8 md:pt-2 px-2">
 		<?php
 			
 			// vars
