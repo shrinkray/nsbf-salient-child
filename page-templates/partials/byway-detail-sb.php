@@ -5,7 +5,10 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-
+	// Exit if accessed directly
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
     ?>
 
 <div class="grid grid-cols-1 mb-6 row md:grid-cols-2 lg:grid-cols-2">

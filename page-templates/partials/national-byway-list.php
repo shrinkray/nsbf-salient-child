@@ -8,7 +8,10 @@
      * @date 9-16-22
      * Add check if $title is Texas; Return message about Additional Byways
 	 */
-
+// Exit if accessed directly
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
 ?>
 
 

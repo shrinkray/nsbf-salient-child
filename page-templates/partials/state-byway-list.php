@@ -6,7 +6,10 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-
+	// Exit if accessed directly
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
 ?>
 
 	

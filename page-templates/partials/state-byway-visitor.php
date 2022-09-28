@@ -1,5 +1,10 @@
 
 <?php
+	// Exit if accessed directly
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
+ 
 	// vars
 	$state_dot_name = get_field('sb_state_dot_name');
 	$state_dot_byway_website = get_field('sb_state_dot_byway_website');

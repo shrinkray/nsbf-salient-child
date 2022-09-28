@@ -5,7 +5,11 @@
 	 * @date Jul-12-2021
 	 *
 	 */
-	
+	// Exit if accessed directly
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
+ 
 	get_header();
 	
 	$title = get_the_title();

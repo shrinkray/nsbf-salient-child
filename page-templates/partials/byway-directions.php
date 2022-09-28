@@ -5,7 +5,10 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-
+	// Exit if accessed directly
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
 ?>
 	
 	<div class="row mb-12"> <!-- Story of the Byway + Driving Directions -->
