@@ -140,6 +140,7 @@
              margin-top: 2.9rem;
          }
      }
+
 }
 
 @media screen and (max-width: 765px) {
@@ -176,7 +177,9 @@
     padding-top: 1.5rem;
 }
 .partner-digits {
-    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .detail-organization {
     margin-bottom: .6rem;
@@ -190,7 +193,7 @@
     justify-content: flex-start;
 
     .byway-website-property {
-        padding: 0.3rem 0.8rem 0.35rem;
+        padding: 0.3rem 0.8rem 0.45rem;
         background-color: $steelblue;
         color: #fff;
         border-radius: 1rem;

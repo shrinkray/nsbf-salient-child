@@ -29,3 +29,8 @@
 .spacer {
   padding: 0.5rem;
 }
+@media screen and (max-width: 765px) {
+  .border-forestgreen, .border-mangotango, .border-goldenrod, .border-steelblue, .border-dimgray, .border-outerspace  {
+     border: none;
+  }
+}
