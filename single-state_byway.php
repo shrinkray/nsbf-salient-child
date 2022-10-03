@@ -38,11 +38,11 @@ get_header();
 		
 		<?php
 		// this loads some duplicate content
-        include('page-templates/partials/byway-detail-sb.php');
+        include_once('page-templates/partials/byway-detail-sb.php');
 		// this loads but missing content
-		include('page-templates/partials/byway-overview-sb.php');
+		include_once('page-templates/partials/byway-overview-sb.php');
           //  this loads, but missing content
-		include('page-templates/partials/byway-local-partners-sb.php');
+		include_once('page-templates/partials/byway-local-partners-sb.php');
   
 		?>
         <div class="update-data">
