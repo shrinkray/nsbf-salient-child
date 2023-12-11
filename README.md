@@ -7,12 +7,25 @@ This is a [Salient child theme](https://themeforest.net/item/salient-responsive-
 
 ## Requirements
 
+Node use at least 16.18.0
+
+- `nvm use 16.18.0`
+- Have `.nvmrc` set for this value
+
+This theme requires Composer
+
+- `composer update` to update dependencies
+- `composer install` to install dependencies
+
 For code consistency, please ensure you have the following installed in your environment/IDE:
 
 - `editor config` (for `.editorconfig`) to share editor config for the project
 - `eslint` for JS linting ([how to →](https://medium.com/pvtl/linting-for-react-native-bdbb586ff694#df4e))
-- `npm` to compile frontend assets
+- `pnpm` (performant npm)to compile frontend assets
 
+- Running `pnpm install` listed out of date dependencies
+- Run `pnpm update packagename` to update them.
+- Do not update `tailwindcss` as it would affect classes we currently use.
 
 ---
 
@@ -21,10 +34,10 @@ For code consistency, please ensure you have the following installed in your env
 | Command | Description |
 | --- | --- |
 
-| `yarn dev` | Compiles/copies assets to /dist |
-| `yarn watch` | Watches your directory and compiles/copies assets to /dist each time you press save on a SCSS or JS file. Uses LiveReload to automatically inject assets into any open browser. Note that it polls a live reload server on port 3000. |
-| `yarn production`<br />or<br />`yarn prod` | Compiles/minifies/copies assets to /dist ready for production |
-| `yarn lint-js` | Provides a report on your JS, against the code styleguide |
+| `pnpm run dev` | Compiles/copies assets to /dist |
+| `pnpm run watch` | Watches your directory and compiles/copies assets to /dist each time you press save on a SCSS or JS file. Uses LiveReload to automatically inject assets into any open browser. Note that it polls a live reload server on port 3000. |
+| `pnpm run production` or `pnpm run prod` | Compiles/minifies/copies assets to /dist ready for production |
+| `pnpm run prettier` | Runs prettier on all files in the project |
 
 ---
 
