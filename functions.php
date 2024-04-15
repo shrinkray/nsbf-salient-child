@@ -56,13 +56,9 @@ function print_var($val){
 function child_theme_styles() {
 
 	$theme_version = wp_get_theme()->get('Version');
-
-    wp_enqueue_style( 'child-styles', 
-		get_stylesheet_directory_uri() . '/dist/child-styles.css',
-      [], $theme_version, 'all' );
     
-		wp_enqueue_style( 'child-responsive-styles', 
-		get_stylesheet_directory_uri() . '/dist/child-responsive-styles.css',
+		wp_enqueue_style( 'merged-child-styles', 
+		get_stylesheet_directory_uri() . '/dist/merged-styles.css',
 			[], $theme_version, 'all' );
 		
 		wp_enqueue_style( 'byway-styles', 

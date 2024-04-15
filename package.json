@@ -14,7 +14,7 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "pnpm run production",
-        "production": "mix --production",
+        "production": "cross-env NODE_ENV=production mix",
         "prettify": "prettier --write '**/*.{css,scss,js}' '!dist/**'"
     },
     "devDependencies": {
@@ -23,7 +23,7 @@
         "browser-sync": "2.29.3",
         "browser-sync-webpack-plugin": "2.3.0",
         "clean-webpack-plugin": "4.0.0",
-        "copy-webpack-plugin": "9.1.0",
+        "cross-env": "7.0.3",
         "laravel-mix": "6.0.49",
         "laravel-mix-purgecss": "6.0.0",
         "mix-tailwindcss": "1.3.0",
@@ -35,7 +35,7 @@
         "postcss-sorting": "6.0.0",
         "postcss-url": "10.1.3",
         "resolve-url-loader": "4.0.0",
-        "sass": "1.69.5",
+        "sass": "^1.75.0",
         "sass-loader": "12.6.0",
         "tailwindcss": "2.2.4",
         "webpack": "5.89.0"
