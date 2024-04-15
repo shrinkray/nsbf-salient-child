@@ -2,9 +2,9 @@
 :root {
   --forestgreen: #00883a;
   --mangotango: #c15700;
-  --goldenrod: #DBA510;
-  --steelblue: #006B94;
-  --dimgray: #4B4145;
+  --goldenrod: #dba510;
+  --steelblue: #006b94;
+  --dimgray: #4b4145;
   --outerspace: #444444;
 }
 // Color Specs
@@ -12,7 +12,7 @@
   color: var(--forestgreen);
 }
 .text-mangotango {
-  color:  var(--mangotango);
+  color: var(--mangotango);
 }
 .text-goldenrod {
   color: var(--goldenrod);
@@ -29,17 +29,17 @@
 // Color Vars
 $forestgreen: #00883a;
 $mangotango: #c15700;
-$goldenrod: #DBA510;
-$steelblue: #006B94;
-$dimgray: #4B4145;
+$goldenrod: #dba510;
+$steelblue: #006b94;
+$dimgray: #4b4145;
 $outerspace: #444444;
 // Reset
 
 .text-5xl {
- font-size: 2.9rem;
+  font-size: 2.9rem;
   line-height: 1.1;
 }
-.text-3xl{
+.text-3xl {
   line-height: 1.95rem;
 }
 a {
@@ -59,11 +59,10 @@ p {
 ul {
   margin: 0;
   padding: 0;
-  &> li {
+  & > li {
     list-style: none;
 
     span {
-
     }
   }
 }
