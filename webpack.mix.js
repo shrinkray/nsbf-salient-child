@@ -17,15 +17,11 @@ mix
         require('autoprefixer'),
     ])
     .sourceMaps()
-    .browserSync({
-        proxy: 'http://localhost:10052/colorado/',
-        port: '10052',
-    })
     .webpackConfig({
         plugins: [
             new CleanWebpackPlugin({
                 // Simulate the removal of files
-                dry: true,
+                dry: false,
                 // Write Logs to Console
                 verbose: false,
                 // Automatically remove all unused webpack assets on rebuild
