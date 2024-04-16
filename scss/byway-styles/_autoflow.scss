@@ -24,10 +24,11 @@
 .grid_rows_5 {
   grid-template-rows: repeat(5, minmax(0, auto));
   grid-template-columns: repeat(2, minmax(0, auto));
-}.grid_rows_6 {
-   grid-template-rows: repeat(6, minmax(0, auto));
-   grid-template-columns: repeat(2, minmax(0, auto));
- }
+}
+.grid_rows_6 {
+  grid-template-rows: repeat(6, minmax(0, auto));
+  grid-template-columns: repeat(2, minmax(0, auto));
+}
 .grid_rows_7 {
   grid-template-rows: repeat(7, minmax(0, auto));
   grid-template-columns: repeat(2, minmax(0, auto));

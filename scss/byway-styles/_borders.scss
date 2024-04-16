@@ -6,7 +6,7 @@
   border-radius: 0.5rem;
 }
 .border-mangotango {
-  border: 1px solid  var(--mangotango);
+  border: 1px solid var(--mangotango);
   border-radius: 0.5rem;
 }
 .border-goldenrod {
@@ -30,7 +30,12 @@
   padding: 0.5rem;
 }
 @media screen and (max-width: 765px) {
-  .border-forestgreen, .border-mangotango, .border-goldenrod, .border-steelblue, .border-dimgray, .border-outerspace  {
-     border: none;
+  .border-forestgreen,
+  .border-mangotango,
+  .border-goldenrod,
+  .border-steelblue,
+  .border-dimgray,
+  .border-outerspace {
+    border: none;
   }
 }

@@ -26,7 +26,7 @@
 			
 				?>
 
-    <h2 class="text-2xl md:text-3xl text-outerspace mt-10 mb-8 flex-1 ">Additional Byways</h2>
+    <h2 class="flex-1 mt-10 mb-8 text-2xl md:text-3xl text-outerspace ">Additional Byways</h2>
 				
     <ul class="byway-collection grid grid_rows_<?php echo $half_found; ?> grid-flow-col gap-x-4 mb-4">
 
@@ -50,7 +50,8 @@
 	                <?php
 // This conditional was added per client. The page will show the byways but not
 // link to the detail page content.
-	                    if ( $nb_meta_value === 'CA' |  $nb_meta_value === 'VA' ) :
+	                   // if ( $nb_meta_value === 'CA' |  $nb_meta_value === 'VA' ) :
+	                    if ( $nb_meta_value === 'VA' ) :
 				?>
 				 
         <li class="byway-item unlinked">
@@ -87,7 +88,7 @@
      */
 		?>
 
-<div id="update_form" class="mt-0 mb-4 update-data hidden">
+<div id="update_form" class="hidden mt-0 mb-4 update-data">
     <p><a href="<?php echo site_url( '/update/', 'https' ); ?>" class="bell" title="Help our foundation maintain accurate information about
 <?php echo $official_byway_name; ?>."><i class="fa fa-bell"></i>&nbsp;Update</a> byway information
         today!<br>

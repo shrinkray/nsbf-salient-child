@@ -56,13 +56,9 @@ function print_var($val){
 function child_theme_styles() {
 
 	$theme_version = wp_get_theme()->get('Version');
-
-    wp_enqueue_style( 'child-styles', 
-		get_stylesheet_directory_uri() . '/dist/child-styles.min.css',
-      [], $theme_version, 'all' );
     
-		wp_enqueue_style( 'child-responsive-styles', 
-		get_stylesheet_directory_uri() . '/dist/child-responsive-styles.min.css',
+		wp_enqueue_style( 'merged-child-styles', 
+		get_stylesheet_directory_uri() . '/dist/merged-styles.css',
 			[], $theme_version, 'all' );
 		
 		wp_enqueue_style( 'byway-styles', 
@@ -74,6 +70,9 @@ add_action( 'wp_enqueue_scripts', 'child_theme_styles', 999, 1 );
 //Enqueue Scripts from child theme
 
 function child_theme_scripts() {
+
+	$theme_version = wp_get_theme()->get('Version');
+
     wp_enqueue_script( 'custom-scripts', 
 		get_stylesheet_directory_uri() . '/dist/custom-scripts.js', array('jquery'),
 	    $theme_version,

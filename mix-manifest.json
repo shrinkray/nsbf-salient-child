@@ -1,4 +1,7 @@
 {
     "/dist/custom-scripts.js": "/dist/custom-scripts.js",
-    "/dist/byways.css": "/dist/byways.css"
+    "/dist/child-styles.css": "/dist/child-styles.css",
+    "/dist/child-responsive-styles.css": "/dist/child-responsive-styles.css",
+    "/dist/byways.css": "/dist/byways.css",
+    "/dist/merged-styles.css": "/dist/merged-styles.css"
 }
