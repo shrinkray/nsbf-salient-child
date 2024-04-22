@@ -31,20 +31,20 @@ get_header();
             ?>
         
 		
-        <div class="row mb-0 md:mb-4 lg:mb-14">
+        <div class="mb-0 row md:mb-4 lg:mb-14">
            
             <h1 class="text-3xl md:text-5xl entry-title"><?php the_title(); ?></h1>
             
-            <ul class="byway-sub-nav mt-3 mb-10">
-                <li id="item-overview" class="anchor-nav hidden"><a href="#overview" class="" title="Trip
+            <ul class="mt-3 mb-10 byway-sub-nav">
+                <li id="item-overview" class="hidden anchor-nav"><a href="#overview" class="" title="Trip
                 Overview">Overview</a></li>
-                <li id="item-story" class="anchor-nav hidden"><a href="#story" class="" title="Story of the
+                <li id="item-story" class="hidden anchor-nav"><a href="#story" class="" title="Story of the
                 Byway">Story</a></li>
-                <li id="item-directions" class="anchor-nav hidden"><a href="#directions" class="" title="Driving
+                <li id="item-directions" class="hidden anchor-nav"><a href="#directions" class="" title="Driving
                 Directions">Directions</a></li>
-                <li id="item-points" class="anchor-nav hidden"><a href="#points" class="" title="Points of
+                <li id="item-points" class="hidden anchor-nav"><a href="#points" class="" title="Points of
                 Interest">Points of Interest</a></li>
-                <li id="item-itinerary" class="anchor-nav hidden" title="Itinerary" ><a
+                <li id="item-itinerary" class="hidden anchor-nav" title="Itinerary" ><a
                             href="#itinerary" >Itinerary</a></li>
 
             </ul>
