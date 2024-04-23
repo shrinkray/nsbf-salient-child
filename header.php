@@ -27,15 +27,15 @@
 	$siteurl = get_site_url();
 		
 		if ( $siteurl === "https://nsbfoundation.com" ) : ?>
-            <!--Global site tag (gtag.js) - Google Analytics-->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6NECT3EPH"></script>
-                <script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
+						<!-- Google tag (gtag.js) -->
+						<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFVCQLEQLX"></script>
+						<script>
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
 
-                    gtag('config', 'G-Z6NECT3EPH');
-                </script>
+							gtag('config', 'G-HFVCQLEQLX');
+						</script>
 		<?php
         else :
 	        ?>
