@@ -35,7 +35,7 @@ $container_wrap_class              = ( true === $fullscreen_header ) ? 'containe
 // Post header.
 if ( have_posts() ) :
 	while ( have_posts() ) :
-		
+
 		the_post();
 		nectar_page_header( $post->ID );
 
@@ -49,7 +49,13 @@ if ( true === $fullscreen_header ) {
 } ?>
 
 
-<div class="<?php echo esc_attr( $container_wrap_class ); if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) { echo ' no-sidebar'; } ?>" data-midnight="dark" data-remove-post-date="<?php echo esc_attr( $remove_single_post_date ); ?>" data-remove-post-author="<?php echo esc_attr( $remove_single_post_author ); ?>" data-remove-post-comment-number="<?php echo esc_attr( $remove_single_post_comment_number ); ?>">
+<div class="
+<?php
+echo esc_attr( $container_wrap_class );
+if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) {
+	echo ' no-sidebar'; }
+?>
+" data-midnight="dark" data-remove-post-date="<?php echo esc_attr( $remove_single_post_date ); ?>" data-remove-post-author="<?php echo esc_attr( $remove_single_post_author ); ?>" data-remove-post-comment-number="<?php echo esc_attr( $remove_single_post_comment_number ); ?>">
 	<div class="container main-content">
 		
 		<?php
@@ -61,11 +67,11 @@ if ( true === $fullscreen_header ) {
 			
 			<?php
 
-			nectar_hook_before_content(); 
+			nectar_hook_before_content();
 
 			$blog_standard_type = ( ! empty( $nectar_options['blog_standard_type'] ) ) ? $nectar_options['blog_standard_type'] : 'classic';
 			$blog_type          = $nectar_options['blog_type'];
-			
+
 			if ( null === $blog_type ) {
 				$blog_type = 'std-blog-sidebar';
 			}
@@ -84,86 +90,92 @@ if ( true === $fullscreen_header ) {
 				// echo '<div class="post-area col ' . $std_minimal_class . ' span_9">'; // WPCS: XSS ok.
 				echo '<div class="post-area col ' . $std_minimal_class . '">'; // WPCS: XSS ok.
 			}
-			
+
 			// Main content loop.
 			if ( have_posts() ) :
 				while ( have_posts() ) :
-					
+
 					the_post();
 
-					/**** Modify template ****/
-					
+					/**** Modify template */
+
 					get_template_part( 'includes/partials/single-post/post-content-nsbf-board' );
 
-					/**** End ****/
+					/**** End */
 
-				 endwhile;
-			 endif;
+				endwhile;
+			endif;
 
 			wp_link_pages();
-			
-			nectar_hook_after_content(); 
+
+			nectar_hook_after_content();
 
 			// Bottom social location for default minimal post header style.
-			if ( 'default_minimal' === $blog_header_type && 
-			'fixed' !== $blog_social_style && 
+			if ( 'default_minimal' === $blog_header_type &&
+			'fixed' !== $blog_social_style &&
 			'post' === get_post_type() ) {
 
 				get_template_part( 'includes/partials/single-post/default-minimal-bottom-social' );
 
 			}
-			
+
 			if ( true === $fullscreen_header && get_post_type() === 'post' ) {
 				// Bottom meta bar when using fullscreen post header.
 				get_template_part( 'includes/partials/single-post/post-meta-bar-ascend-skin' );
 			}
 
 			if ( 'ascend' !== $theme_skin ) {
-				
+
 				// Original/Material Theme Skin Author Bio.
-				if ( ! empty( $nectar_options['author_bio'] ) && 
-					$nectar_options['author_bio'] === '1' && 
+				if ( ! empty( $nectar_options['author_bio'] ) &&
+					$nectar_options['author_bio'] === '1' &&
 					'post' == get_post_type() ) {
-					 get_template_part( 'includes/partials/single-post/author-bio' );
+					get_template_part( 'includes/partials/single-post/author-bio' );
 
 				}
-
 			}
-			
+
 			?>
 
 		</div><!--/post-area-->
 			
-			<?php //if ( 'std-blog-fullwidth' !== $blog_type && '1' !== $hide_sidebar ) { ?>
+			<?php // if ( 'std-blog-fullwidth' !== $blog_type && '1' !== $hide_sidebar ) { ?>
 				
-				<!-- <div id="sidebar" data-nectar-ss="<?php //echo esc_attr( $enable_ss ); ?>" class="col span_3 col_last">
-					<?php //get_sidebar(); ?>
+				<!-- <div id="sidebar" data-nectar-ss="<?php // echo esc_attr( $enable_ss ); ?>" class="col span_3 col_last">
+					<?php // get_sidebar(); ?>
 				</div> -->
 				<!--/sidebar-->
 				
-			<?php //} ?>
+			<?php // } ?>
 				
 		</div><!--/row-->
 
 		<div class="row">
 
-			<?php 
-				
+			<?php
+
 				// Pagination/Related Posts.
 				nectar_next_post_display();
 				nectar_related_post_display();
-				
+
 				// Ascend Theme Skin Author Bio.
-				if ( ! empty( $nectar_options['author_bio'] ) && 
-					'1' === $nectar_options['author_bio'] && 
-					'ascend' === $theme_skin && 
+			if ( ! empty( $nectar_options['author_bio'] ) &&
+					'1' === $nectar_options['author_bio'] &&
+					'ascend' === $theme_skin &&
 					'post' == get_post_type() ) {
-					get_template_part( 'includes/partials/single-post/author-bio-ascend-skin' );
-				}
-			
+				get_template_part( 'includes/partials/single-post/author-bio-ascend-skin' );
+			}
+
 			?>
 
-			<div class="comments-section" data-author-bio="<?php if ( ! empty( $nectar_options['author_bio'] ) && $nectar_options['author_bio'] === '1' ) { echo 'true'; } else { echo 'false'; } ?>">
+			<div class="comments-section" data-author-bio="
+			<?php
+			if ( ! empty( $nectar_options['author_bio'] ) && $nectar_options['author_bio'] === '1' ) {
+				echo 'true';
+			} else {
+				echo 'false'; }
+			?>
+			">
 				<?php comments_template(); ?>
 			</div>   
 
@@ -174,10 +186,10 @@ if ( true === $fullscreen_header ) {
 </div><!--/container-wrap-->
 
 <?php if ( 'fixed' === $blog_social_style ) {
-	  // Social sharing buttons.
-		if( function_exists('nectar_social_sharing_output') ) {
-			nectar_social_sharing_output('fixed');
-		}
+		// Social sharing buttons.
+	if ( function_exists( 'nectar_social_sharing_output' ) ) {
+		nectar_social_sharing_output( 'fixed' );
+	}
 }
 
 get_footer(); ?>

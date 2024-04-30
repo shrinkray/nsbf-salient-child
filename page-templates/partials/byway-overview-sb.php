@@ -1,5 +1,5 @@
 <?php
-	
+
 	/**
 	 * @template
 	 * @date Jul142021
@@ -7,38 +7,40 @@
 	 * @testedwith
 	 */
 	// Exit if accessed directly
-	if ( ! defined( 'ABSPATH' ) ) {
-		exit;
-	}
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 	<div class="row mt-3 mb-6"><!-- overview  -->
 		<div class="section">
 			<div class="boxed-subsection filter drop-shadow-md md:drop-shadow-xl">
 				<?php
-					//vars
+					// vars
 					$byway_synopsis = get_field( 'sb_byway_synopsis' );
-					
+
 				?>
 				<div id="overview" class="anchored"></div>
 				<?php
-					
-					if ( ! empty( $byway_synopsis ) ) :
-						?>
+
+				if ( ! empty( $byway_synopsis ) ) :
+					?>
 				<h2 class="text-3xl md:text-4xl h2 overview">Overview</h2>
-				<?php echo $byway_synopsis;
-						
+					<?php
+					echo $byway_synopsis;
+
 						else :
 							// see nothing
-						?>
+							?>
 
-                        <div class="text-sm text-mangotango truncate ...">
-							<?php  echo 'Missing Overview ...'; ?>
-                        </div>
+						<div class="text-sm text-mangotango truncate ...">
+							<?php echo 'Missing Overview ...'; ?>
+						</div>
 						
 						
-				<?php endif; // byway synopsis
-				?>
+							<?php
+				endif; // byway synopsis
+						?>
 			</div> <!-- .boxed-subsection -->
 		</div>
 	</div> <!-- overview row -->
