@@ -191,25 +191,172 @@ switch ( $title ) {
 		echo $title;
 		?>
 	</h1>
-			<?php
+			
 
-			$cb_intro_text   = the_field( 'intro_text_content_builder' );
-			$cb_mobile_text  = the_field( 'summary_content_mobile' );
-			$cb_desktop_text = the_field( 'full_content_desktop' );
+<?php
+/**
+ * This is an intro text field for leading information about the state byways
+ */
+
+	$intro_text = get_field( 'intro_text_content_builder' );
+
+	echo $intro_text ? '<div class="mt-10 state-information">' . $intro_text . '</div>' : '';
 
 
-			if ( $cb_intro_text ) :
-				?>
+	/**
+	 * This is a link builder allowing a user to add a URL, phone number, or PDF to a page.
+	 * It is a repeater field that allows for up to a row of four links to be added.
+	 */
+
+if ( have_rows( 'content_builder_links' ) ) :
+	?>
+	<div class="section">
+		<div class="detail-properties"> <!-- Byway Partners -->
+			<h2 class="mt-12 mb-8 text-2xl md:text-3xl text-outerspace">Local Byway Partners</h2>
 			<div class="mt-10 state-information">
-				<?php echo $cb_intro_text; ?> 
+
+				<ul class="grid gap-3 list-none list-outside sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+	<?php
+	while ( have_rows( 'content_builder_links' ) ) :
+		the_row();
+		$link_type  = get_sub_field( 'type_of_link' ); // this might not be needed
+		$show_url   = get_sub_field( 'content_builder_url_link' );
+		$show_pdf   = get_sub_field( 'content_builder_add_pdf' );
+		$show_phone = get_sub_field( 'content_builder_phone' );
+
+		?>
+		<?php
+
+		// This displays the the URL link
+		if ( $show_url ) :
+
+			if ( have_rows( 'url_meta' ) ) :
+				while ( have_rows( 'url_meta' ) ) :
+					the_row();
+
+					$url_heading     = get_sub_field( 'url_heading' );
+					$url_description = get_sub_field( 'url_description' );
+
+
+					?>
+
+					<li class="item state-link">
+						
+					<?php
+
+					// display heading & description if available
+					echo $url_heading ? '<h3 class="text-xl">' . $url_heading . '</h3>' : '';
+					echo $url_description ? '<p class="text-sm" id="urlDescription">' . $url_description . '</p>' : '';
+					?>
+
+						<a href="<?php echo esc_url( $show_url['url'] ); ?>" target="_blank" 
+						aria-labelledby="urlDescription urlLabel"
+						><span id="urlLabel"
+						>
+						<?php
+						echo esc_html( $show_url['title'] );
+						?>
+						</span></a>
+						
+					</li>
+
+						<?php
+					endwhile; // url_meta
+				endif; // url_meta
+
+			elseif ( $show_phone ) :
+
+				if ( have_rows( 'phone_meta' ) ) :
+					while ( have_rows( 'phone_meta' ) ) :
+						the_row();
+						$phone_heading     = get_sub_field( 'phone_name_of_organization' );
+						$phone_description = get_sub_field( 'phone_description' );
+
+						// strip hyphens for the linked phone number
+						$phone = str_replace( '-', '', $show_phone );
+						?>
+					<li class="item state-phone">
+						
+
+						<?php
+						// display heading & description if available
+						echo $phone_heading ? '<h3 class="text-xl">' . $pdf_heading . '</h3>' : '';
+						echo $phone_description ?
+						'<p class="text-sm" id="phoneDescription">' . $phone_description . '</p>' : '';
+						?>
+
+						<a href="tel:
+						<?php
+						echo esc_attr( $phone );
+						?>
+						" target="_blank" 
+						aria-labelledby="phoneDescription phoneLabel"
+						class=""><span id="phoneLabel">
+						<?php
+						echo esc_html( $show_phone );
+						?>
+						</span></a>
+						
+						
+					</li>
+					
+								<?php
+							endwhile; // phone_meta
+						endif; // phone_meta
+
+
+				elseif ( $show_pdf ) :
+					$pdf_url = wp_get_attachment_url( $show_pdf );
+
+					if ( have_rows( 'pdf_meta' ) ) :
+						while ( have_rows( 'pdf_meta' ) ) :
+							the_row();
+
+							$pdf_label       = get_sub_field( 'pdf_label' );
+							$pdf_description = get_sub_field( 'pdf_description' );
+							$pdf_heading     = get_sub_field( 'pdf_heading' );
+							?>
+					<li class="item state-download">
+						
+
+							<?php
+
+							// display heading & description if available
+							echo $pdf_heading ? '<h3 class="text-xl">' . $pdf_heading . '</h3>' : '';
+							echo $pdf_description ? '<p class="text-sm" id="pdfDescription">' . $pdf_description . '</p>' : '';
+							?>
+			
+						<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" aria-labelledby="pdfDescription pdfLabel"
+						class=""><span id="pdfLabel"
+						>
+										<?php
+										echo esc_html( $pdf_label );
+										?>
+											</span></a>
+						
+					</li>
+
+								<?php
+							endwhile; // pdf_meta
+						endif; // pdf_meta
+					else :
+						// show nothing
+					endif; // link types
+
+				endwhile; // content_builder_links
+	?>
+						</ul>
+					</div>
+				</div>
 			</div>
+			<?php
+		else : // content_builder_links
+			// No rows found
+		endif; // content_builder_links
+		?>
 
-				<?php
-			else :
-				// show nothing
-			endif;
 
-			?>
+
 		
 
 	<div class="mt-10 color-bar bg-gradient-to-r from-yellow-600 to-yellow-300"></div>
@@ -319,82 +466,29 @@ switch ( $title ) {
 		endif;
 		?>
 	<div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>
-			<div class="mt-10 state-information">
+			
 
-	<?php
-	if ( have_rows( 'content_builder_links' ) ) :
-
-		while ( have_rows( 'content_builder_links' ) ) :
-			the_row();
-			$content_builder_url_link = get_sub_field( 'content_builder_url_link' );
-
-			if ( $content_builder_url_link ) :
-				?>
-
-					<a href="
-					<?php
-					echo esc_url( $content_builder_url_link['url'] );
-					?>
-					" target="
-					<?php
-						echo esc_attr( $content_builder_url_link['target'] );
-					?>
-					"><?php echo esc_html( $content_builder_url_link['title'] ); ?></a>
-				<?php
-	endif;
-
-					$content_builder_add_pdf = get_sub_field( 'content_builder_add_pdf' );
-
-			if ( $content_builder_add_pdf ) :
-				$url = wp_get_attachment_url( $content_builder_add_pdf );
-				?>
-
-					<a href="<?php echo esc_url( $url ); ?>">Download File</a>
-
-				<?php
-				endif;
-					the_sub_field( 'content_builder_phone' );
-			endwhile;
-	else :
-		?>
+		
 		<?php
-		// No rows found
-endif;
-	?>
+			// After looping through a separate query, this function restores
+			// the $post global to the current post in the main query.
+			wp_reset_postdata();
 
-<?php
-if ( $cb_mobile_text ) :
-	?>
-<div class="mt-10 state-information">
-	<?php echo $cb_mobile_text; ?> 
-</div>
-
-	<?php
-	else :
-		// show nothing
-	endif;
-
-	if ( $cb_desktop_text ) :
 		?>
-	<div class="mt-10 state-information">
-		<?php echo $cb_desktop_text; ?> 
-	</div>
-
+		<div class="mt-10 state-information">
+			
 		<?php
-	endif;
-	?>
-	<div class="mt-10 state-information">
-		<?php echo $cb_desktop_text; ?> 
-	</div>
-	
-</div>
-	<?php
-		// After looping through a separate query, this function restores
-		// the $post global to the current post in the main query.
-		wp_reset_postdata();
+		$mobile_text  = get_field( 'summary_content_mobile' );
+		$desktop_text = get_field( 'full_content_desktop' );
 
-	?>
-</div>
+			echo $mobile_text ? '<div class="mobile-first">' . $mobile_text . '</div>' : '';
+
+			echo $desktop_text ? '<div class="no-mobile">' . $desktop_text . '</div>' : '';
+		?>
+
+		</div>
+		
+	</div>
 </main>
 
 <?php get_footer(); ?>
