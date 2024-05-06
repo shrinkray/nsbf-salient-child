@@ -1,8 +1,8 @@
 {
     "name": "nsbf-salient-child",
     "version": "2.0.2",
-    "description": "",
-    "author": "",
+    "description": "child theme for Salient",
+    "author": "Greg Miller",
     "keywords": [],
     "license": "ISC",
     "main": "index.php",

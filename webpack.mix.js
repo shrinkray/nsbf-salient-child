@@ -26,25 +26,13 @@ mix
   .styles(
     ["dist/child-responsive-styles.css", "dist/child-styles.css"],
     "dist/merged-styles.css",
-  )
-
-  .then(() => {
-    // Delete source CSS files after merging
-    const filesToDelete = [
-      "dist/child-responsive-styles.css",
-      "dist/child-styles.css",
-    ];
-
-    filesToDelete.forEach((file) => {
-      fs.unlink(path.resolve(__dirname, file), (err) => {
-        if (err) throw err;
-        console.log(`Deleted ${file}`);
-      });
-    });
-  })
+)
+  
 
   // Add more configurations if necessary
   .sourceMaps(!mix.inProduction())
+
+  
 
   .webpackConfig({
     plugins: [
