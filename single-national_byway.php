@@ -66,10 +66,10 @@ get_header();
 			endif;
 		if ( 'page-templates/partials/byway-directions.php' ) :
 			require 'page-templates/partials/byway-directions.php';
-			endif
+		endif;
 		if ( 'page-templates/partials/byway-points.php' ) :
 			require 'page-templates/partials/byway-points.php';
-			endif
+		endif;
 		if ( 'page-templates/partials/byway-itinerary.php' ) :
 			require 'page-templates/partials/byway-itinerary.php';
 			endif;
