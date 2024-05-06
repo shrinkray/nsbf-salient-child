@@ -59,6 +59,10 @@ function print_var($val){
 function my_acf_admin_head() {
     ?>
     <style>
+		.acf-accordion .acf-accordion-title label {
+			font-size: 1rem !important;
+			color: #3a67ff;
+		}
 
         div[aria-label="Smart Slider 3"] {
 			display: none;
