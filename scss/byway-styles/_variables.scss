@@ -1,30 +1,30 @@
 /* Variables for Byways */
 :root {
-  --forestgreen: #00883a;
-  --mangotango: #c15700;
-  --goldenrod: #dba510;
-  --steelblue: #006b94;
-  --dimgray: #4b4145;
-  --outerspace: #444444;
+    --forestgreen: #00883a;
+    --mangotango: #c15700;
+    --goldenrod: #dba510;
+    --steelblue: #006b94;
+    --dimgray: #4b4145;
+    --outerspace: #444444;
 }
 // Color Specs
 .text-forestgreen {
-  color: var(--forestgreen);
+    color: var(--forestgreen);
 }
 .text-mangotango {
-  color: var(--mangotango);
+    color: var(--mangotango);
 }
 .text-goldenrod {
-  color: var(--goldenrod);
+    color: var(--goldenrod);
 }
 .text-steelblue {
-  color: var(--steelblue);
+    color: var(--steelblue);
 }
 .text-dimgray {
-  color: var(--dimgray);
+    color: var(--dimgray);
 }
 .text-outerspace {
-  color: var(--outerspace);
+    color: var(--outerspace);
 }
 // Color Vars
 $forestgreen: #00883a;
@@ -36,38 +36,38 @@ $outerspace: #444444;
 // Reset
 
 .text-5xl {
-  font-size: 2.9rem;
-  line-height: 1.1;
+    font-size: 2.9rem;
+    line-height: 1.1;
 }
 .text-3xl {
-  line-height: 1.95rem;
+    line-height: 1.95rem;
 }
 a {
-  transition: color 0.2s;
-  transition: background-color 0.2s;
-  &:hover {
     transition: color 0.2s;
     transition: background-color 0.2s;
-    color: $mangotango;
-  }
+    &:hover {
+        transition: color 0.2s;
+        transition: background-color 0.2s;
+        color: $mangotango;
+    }
 }
 p {
-  padding-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 
 // Universally set this pattern for an unordered list
 ul {
-  margin: 0;
-  padding: 0;
-  & > li {
-    list-style: none;
+    margin: 0;
+    padding: 0;
+    & > li {
+        list-style: none;
 
-    span {
+        span {
+        }
     }
-  }
 }
 .section {
-  p {
-    padding: 0 0 0.5rem;
-  }
+    p {
+        padding: 0 0 0.5rem;
+    }
 }

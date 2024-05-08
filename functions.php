@@ -51,6 +51,43 @@ function print_var($val){
 	echo '</pre>';
 }
 
+/**
+ * Customize ACF UI Backend
+ *
+ * @return void
+ */
+function my_acf_admin_head() {
+    ?>
+    <style>
+		.acf-accordion .acf-accordion-title label {
+			font-size: 1rem !important;
+			color: #3a67ff;
+		}
+
+        div[aria-label="Smart Slider 3"] {
+			display: none;
+		}
+
+		.acf-repeater.-block > table > tbody > tr > td {
+            border-top: #8cb1ff solid 2px;
+        }
+
+        .acf-repeater.-block > table > tbody > tr:nth-child(even) > td:nth-child(2) {
+            background-color: #f3f6ff;
+        }
+		
+        .acf-row-number {
+            padding: 4px 8px;
+            background: white;
+            border-radius: 50%;
+            color: #0052fc;
+        }
+    </style>
+    <?php
+}
+
+add_action('acf/input/admin_head', 'my_acf_admin_head');
+
 // Use theme version instead of filetime() function to set version number for cache busting
 
 function child_theme_styles() {
