@@ -15,7 +15,7 @@
         "hot": "mix watch --hot",
         "prod": "pnpm run production",
         "production": "cross-env NODE_ENV=production mix",
-        "prettify": "prettier --write '**/*.{css,scss,js}' '!dist/**'"
+        "format": "prettier --write '**/*.{css,scss,js}' '!dist/**'"
     },
     "devDependencies": {
         "@prettier/plugin-php": "0.21.0",
