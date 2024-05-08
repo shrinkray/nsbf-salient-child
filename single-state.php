@@ -181,26 +181,69 @@ switch ( $title ) {
 		break;
 
 }
-?>
 
-<main class="container-wrap" style="padding-top:40px;">
-<div class="container main-content">
-
-	<h1 class="text-3xl text-center entry-title md:text-5xl mb-9 lg:mb-14">Byways in 
-		<?php
-		echo $title;
-		?>
-	</h1>
-			
-
-<?php
 /**
  * This is an intro text field for leading information about the state byways
  */
 
 	$intro_text = get_field( 'intro_text_content_builder' );
 
-	echo $intro_text ? '<div class="mt-10 state-information">' . $intro_text . '</div>' : '';
+?>
+
+<main class="container-wrap" style="padding-top:40px;">
+<div class="container main-content">
+
+<h1 class="text-3xl text-center entry-title md:text-5xl mb-9 lg:mb-14">Byways in 
+		<?php
+		echo $title;
+		?>
+	</h1>
+
+	<div class="mx-auto max-w-7xl " >
+		
+			<?php
+			$state_info = get_field( 'state_info' );
+			echo $state_info ? '<h2 class="text-2xl text-left md:text-3xl text-outerspace">' . $state_info . '</h2>' : '';
+
+			?>
+			
+		
+	</div>
+	<div class="mx-auto max-w-7xl ">
+		<section class="state-information">
+			<div class="max-w-3xl gap-8 mx-0 mt-4 lg:flex lg:max-w-none">
+				<div class="lg:flex-auto">
+					<?php
+					echo $intro_text ? '<div class="state-information">' . $intro_text . '</div>' : '';
+					?>
+				</div>
+				<div class="-mt-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+					<div class="state-map">
+						<?php
+						$byways_image = get_field( 'byways_image' );
+						$size         = 'full';
+						if ( $byways_image ) :
+							echo wp_get_attachment_image( $byways_image, $size );
+						endif;
+						?>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="local-byway-partner-section">
+			<div class="max-w-3xl mx-0 mt-4 lg:flex lg:max-w-none">
+				<div class="state-information huh">
+					<?php
+					$links_section_heading     = get_field( 'links_section_heading' );
+					$links_section_description = get_field( 'links_section_description' );
+
+					echo $links_section_heading ? '<h2 class="mt-12 mb-4 text-2xl text-left md:text-3xl text-outerspace">' . $links_section_heading . '</h2>' : '';
+					echo $links_section_description ? '<p class="mb-2 text-left">' . $links_section_description . '</p>' : '';
+					?>
+				</div>
+			</div>
+<?php
 
 
 	/**
@@ -209,152 +252,159 @@ switch ( $title ) {
 	 */
 
 if ( have_rows( 'content_builder_links' ) ) :
+	$link_heading     = get_field( 'cb_links_heading' );
+	$link_description = get_field( 'links_row_description' );
 	?>
-	<div class="section">
-		<div class="detail-properties"> <!-- Byway Partners -->
-			<h2 class="mt-12 mb-8 text-2xl md:text-3xl text-outerspace">Local Byway Partners</h2>
-			<div class="mt-10 state-information">
+		<div class="partner-links-group">
+			<div class="detail-properties"> <!-- Byway Partners -->
+			<?php
+			$link_heading ? '<h2 class="mt-12 mb-8 text-2xl text-left md:text-3xl text-outerspace">' . $link_heading . '</h2>' : '';
 
-				<ul class="grid gap-3 list-none list-outside sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-	<?php
-	while ( have_rows( 'content_builder_links' ) ) :
-		the_row();
-		$link_type  = get_sub_field( 'type_of_link' ); // this might not be needed
-		$show_url   = get_sub_field( 'content_builder_url_link' );
-		$show_pdf   = get_sub_field( 'content_builder_add_pdf' );
-		$show_phone = get_sub_field( 'content_builder_phone' );
+			$link_description ? '<p class="text-left">' . $link_description . '</p>' : '';
+			?>
+				
 
-		?>
+				<div class="mt-4 state-information">
+
+					<ul class="grid gap-3 list-none list-outside sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 		<?php
+		while ( have_rows( 'content_builder_links' ) ) :
+			the_row();
+			$link_type  = get_sub_field( 'type_of_link' ); // this might not be needed
+			$show_url   = get_sub_field( 'content_builder_url_link' );
+			$show_pdf   = get_sub_field( 'content_builder_add_pdf' );
+			$show_phone = get_sub_field( 'content_builder_phone' );
 
-		// This displays the the URL link
-		if ( $show_url ) :
+			?>
+			<?php
 
-			if ( have_rows( 'url_meta' ) ) :
-				while ( have_rows( 'url_meta' ) ) :
-					the_row();
+			// This displays the the URL link
+			if ( $show_url ) :
 
-					$url_heading     = get_sub_field( 'url_heading' );
-					$url_description = get_sub_field( 'url_description' );
-
-
-					?>
-
-					<li class="item state-link">
-						
-					<?php
-
-					// display heading & description if available
-					echo $url_heading ? '<h3 class="text-xl">' . $url_heading . '</h3>' : '';
-					echo $url_description ? '<p class="text-sm" id="urlDescription">' . $url_description . '</p>' : '';
-					?>
-
-						<a href="<?php echo esc_url( $show_url['url'] ); ?>" target="_blank" 
-						aria-labelledby="urlDescription urlLabel"
-						><span id="urlLabel"
-						>
-						<?php
-						echo esc_html( $show_url['title'] );
-						?>
-						</span></a>
-						
-					</li>
-
-						<?php
-					endwhile; // url_meta
-				endif; // url_meta
-
-			elseif ( $show_phone ) :
-
-				if ( have_rows( 'phone_meta' ) ) :
-					while ( have_rows( 'phone_meta' ) ) :
+				if ( have_rows( 'url_meta' ) ) :
+					while ( have_rows( 'url_meta' ) ) :
 						the_row();
-						$phone_heading     = get_sub_field( 'phone_name_of_organization' );
-						$phone_description = get_sub_field( 'phone_description' );
 
-						// strip hyphens for the linked phone number
-						$phone = str_replace( '-', '', $show_phone );
+						$url_heading     = get_sub_field( 'url_heading' );
+						$url_description = get_sub_field( 'url_description' );
+
+
 						?>
-					<li class="item state-phone">
-						
 
+						<li class="item state-link">
+							
 						<?php
+
 						// display heading & description if available
-						echo $phone_heading ? '<h3 class="text-xl">' . $pdf_heading . '</h3>' : '';
-						echo $phone_description ?
-						'<p class="text-sm" id="phoneDescription">' . $phone_description . '</p>' : '';
+						echo $url_heading ? '<h3 class="text-xl">' . $url_heading . '</h3>' : '';
+						echo $url_description ? '<p class="text-sm" id="urlDescription">' . $url_description . '</p>' : '';
 						?>
 
-						<a href="tel:
-						<?php
-						echo esc_attr( $phone );
-						?>
-						" target="_blank" 
-						aria-labelledby="phoneDescription phoneLabel"
-						class=""><span id="phoneLabel">
-						<?php
-						echo esc_html( $show_phone );
-						?>
-						</span></a>
-						
-						
-					</li>
-					
-								<?php
-							endwhile; // phone_meta
-						endif; // phone_meta
-
-
-				elseif ( $show_pdf ) :
-					$pdf_url = wp_get_attachment_url( $show_pdf );
-
-					if ( have_rows( 'pdf_meta' ) ) :
-						while ( have_rows( 'pdf_meta' ) ) :
-							the_row();
-
-							$pdf_label       = get_sub_field( 'pdf_label' );
-							$pdf_description = get_sub_field( 'pdf_description' );
-							$pdf_heading     = get_sub_field( 'pdf_heading' );
+							<a href="<?php echo esc_url( $show_url['url'] ); ?>" target="_blank" 
+							aria-labelledby="urlDescription urlLabel"
+							><span id="urlLabel"
+							>
+							<?php
+							echo esc_html( $show_url['title'] );
 							?>
-					<li class="item state-download">
-						
+							</span></a>
+							
+						</li>
 
 							<?php
+						endwhile; // url_meta
+					endif; // url_meta
 
-							// display heading & description if available
-							echo $pdf_heading ? '<h3 class="text-xl">' . $pdf_heading . '</h3>' : '';
-							echo $pdf_description ? '<p class="text-sm" id="pdfDescription">' . $pdf_description . '</p>' : '';
+				elseif ( $show_phone ) :
+
+					if ( have_rows( 'phone_meta' ) ) :
+						while ( have_rows( 'phone_meta' ) ) :
+							the_row();
+							$phone_heading     = get_sub_field( 'phone_name_of_organization' );
+							$phone_description = get_sub_field( 'phone_description' );
+
+							// strip hyphens for the linked phone number
+							$phone = str_replace( '-', '', $show_phone );
 							?>
-			
-						<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" aria-labelledby="pdfDescription pdfLabel"
-						class=""><span id="pdfLabel"
-						>
-										<?php
-										echo esc_html( $pdf_label );
-										?>
-											</span></a>
+						<li class="item state-phone">
+							
+
+							<?php
+							// display heading & description if available
+							echo $phone_heading ? '<h3 class="text-xl">' . $pdf_heading . '</h3>' : '';
+							echo $phone_description ?
+							'<p class="text-sm" id="phoneDescription">' . $phone_description . '</p>' : '';
+							?>
+
+							<a href="tel:
+							<?php
+							echo esc_attr( $phone );
+							?>
+							" target="_blank" 
+							aria-labelledby="phoneDescription phoneLabel"
+							class=""><span id="phoneLabel">
+							<?php
+							echo esc_html( $show_phone );
+							?>
+							</span></a>
+							
+							
+						</li>
 						
-					</li>
+									<?php
+								endwhile; // phone_meta
+							endif; // phone_meta
+
+
+					elseif ( $show_pdf ) :
+						$pdf_url = wp_get_attachment_url( $show_pdf );
+
+						if ( have_rows( 'pdf_meta' ) ) :
+							while ( have_rows( 'pdf_meta' ) ) :
+								the_row();
+
+								$pdf_label       = get_sub_field( 'pdf_label' );
+								$pdf_description = get_sub_field( 'pdf_description' );
+								$pdf_heading     = get_sub_field( 'pdf_heading' );
+								?>
+						<li class="item state-download">
+							
 
 								<?php
-							endwhile; // pdf_meta
-						endif; // pdf_meta
-					else :
-						// show nothing
-					endif; // link types
 
-				endwhile; // content_builder_links
-	?>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<?php
-		else : // content_builder_links
-			// No rows found
-		endif; // content_builder_links
+								// display heading & description if available
+								echo $pdf_heading ? '<h3 class="text-xl">' . $pdf_heading . '</h3>' : '';
+								echo $pdf_description ? '<p class="text-sm" id="pdfDescription">' . $pdf_description . '</p>' : '';
+								?>
+				
+							<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" aria-labelledby="pdfDescription pdfLabel"
+							class=""><span id="pdfLabel"
+							>
+											<?php
+											echo esc_html( $pdf_label );
+											?>
+												</span></a>
+							
+						</li>
+
+									<?php
+								endwhile; // pdf_meta
+							endif; // pdf_meta
+						else :
+							// show nothing
+						endif; // link types
+
+					endwhile; // content_builder_links
 		?>
+							</ul>
+						</div>
+					</div>
+				</div> <!-- .partner-links-group -->
+			<?php
 
+		endif; // content_builder_links
+?>
+			</section> <!-- .local-byway-partner-section -->
 
 
 		
