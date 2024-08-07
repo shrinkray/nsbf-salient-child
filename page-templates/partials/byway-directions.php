@@ -6,12 +6,12 @@
 	 * @testedwith
 	 */
 	// Exit if accessed directly
-	if ( ! defined( 'ABSPATH' ) ) {
-		exit;
-	}
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 	
-	<div class="row mb-12"> <!-- Story of the Byway + Driving Directions -->
+	<div class="mb-12 row"> <!-- Story of the Byway + Driving Directions -->
 		
 		<div class="section directions">
 			
@@ -21,20 +21,22 @@
 				
 				<?php
 					$driving_directions = get_field( 'nb_driving_directions_route_description' );
-					
-					
-					if ( ! empty( $driving_directions ) ) :  ?>
-                        
-                        <h2 class="text-3xl md:text-4xl h2 driving">Driving Directions</h2>
-                        
-						<?php echo $driving_directions;  ?>
 
-                        <script>
-                            const itemDirections = document.getElementById('item-directions');
-                            itemDirections.classList.remove('hidden');
-                            itemDirections.classList.add('block');
-                        </script>
-					<?php endif; // end
+
+				if ( ! empty( $driving_directions ) ) :
+					?>
+						
+						<h2 class="text-3xl md:text-4xl h2 driving">Driving Directions</h2>
+						
+						<?php echo esc_html( $driving_directions ); ?>
+
+						<script>
+							const itemDirections = document.getElementById('item-directions');
+							itemDirections.classList.remove('hidden');
+							itemDirections.classList.add('block');
+						</script>
+					<?php
+					endif; // end
 				?>
 			</div> <!-- .col // directions -->
    

@@ -33,46 +33,44 @@
 <?php
     // Issue with Tailwind CSS 2.2.19. Created own class for grid-row-# from 1 to 42 and with media-queries for
     // single row versions.
-                    while ( $sb_query->have_posts() ) :
-                    
-                        $sb_query->the_post();
-	                    $query_id = get_the_title( $the_query->ID );
-                        $permalink = get_permalink( $the_query->ID );
-	                   
-	                    //Optimized way to get a comma separated list of terms.
-	                    $term_obj_list = get_the_terms( $the_query->ID, 'sb_designation' );
-	                    $terms_string = implode(', ', wp_list_pluck($term_obj_list, 'name'));
-                   // Idea for $terms_string from: https://developer.wordpress.org
+        while ( $sb_query->have_posts() ) :
+        
+            $sb_query->the_post();
+            $query_id = get_the_title( $sb_query->ID );
+            $permalink = get_permalink( $sb_query->ID );
+
+            
+            //Optimized way to get a comma separated list of terms.
+            $term_obj_list = get_the_terms( get_the_ID(), 'sb_designation' );
+            $terms_string = implode(', ', wp_list_pluck($term_obj_list, 'name'));
+        // Idea for $terms_string from: https://developer.wordpress.org
                    
 	                  
-	                ?>
+        ?>
 
-	                <?php
-// This conditional was added per client. The page will show the byways but not
-// link to the detail page content.
-	                   // if ( $nb_meta_value === 'CA' |  $nb_meta_value === 'VA' ) :
-	                    if ( $nb_meta_value === 'VA' ) :
+        <?php
+            // This conditional was added per client. The page will show the byways but not
+            if ( $nb_meta_value === 'VA' ) :
 				?>
 				 
-        <li class="byway-item unlinked">
-                            <?php // $terms_string will be all the terms associated to the $query_id
-                                echo $query_id; ?>
-        </li>
+                <li class="byway-item unlinked">
+                    <?php // $terms_string will be all the terms associated to the $query_id
+                    echo esc_html( $query_id ); ?>
+                </li>
 			    
-			<?php // displays all states except TX CA and VA
+			    <?php // displays all states except TX CA and VA
             
-            
-                        else :
-	            // For every other state except for Texas and DC use this method to permalink
+            else:
+	           
                ?>
 
-        <li class="byway-item">
-            <a href="<?php echo $permalink; ?>"><?php echo $query_id; ?></a>
-        </li>
-                       <?php
-                        endif;
-	              
-                    endwhile;
+                <li class="byway-item">
+                    <a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $query_id ); ?></a>
+                </li>
+            <?php
+            endif;
+        
+        endwhile;
                     
 				?>
     </ul>
@@ -89,8 +87,8 @@
 		?>
 
 <div id="update_form" class="hidden mt-0 mb-4 update-data">
-    <p><a href="<?php echo site_url( '/update/', 'https' ); ?>" class="bell" title="Help our foundation maintain accurate information about
-<?php echo $official_byway_name; ?>."><i class="fa fa-bell"></i>&nbsp;Update</a> byway information
+    <p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" title="Help our foundation maintain accurate information about
+<?php echo esc_html( $official_byway_name ); ?>."><i class="fa fa-bell"></i>&nbsp;Update</a> byway information
         today!<br>
 
 </div>
