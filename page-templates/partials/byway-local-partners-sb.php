@@ -5,7 +5,7 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-	// Exit if accessed directly
+	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							// Loop through rows.
 						while ( have_rows( 'sb_local_partner_organization' ) ) :
 							the_row();
-							// set vars
+							// set vars.
 							$local_partner_organization   = get_field( 'sb_local_partner_organization' );
 							$partner_organization         = get_sub_field( 'sb_po_name' );
 							$partner_organization_phone   = get_sub_field( 'sb_po_phone' );
@@ -37,10 +37,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 							?>
 									
 							<li class="item">
-								<div class="detail-organization"><?php echo $partner_organization; ?></div>
+								<div class="detail-organization"><?php echo esc_html( $partner_organization ); ?></div>
 								
 								<?php
-								// If either of these exist, create the detail otherwise, skip
+								// If either of these exist, create the detail otherwise, skip.
 								if ( $partner_organization_website || $partner_organization_phone ) :
 									?>
 								<div class="detail-properties">
@@ -50,22 +50,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<a class="byway-website-property"
 												href="
 												<?php
-												echo $partner_organization_website;
+												echo esc_url( $partner_organization_website );
 												?>
 												" target="_blank" title="Learn more at our
 												website!">Website</a>
 										<?php
-										endif; // opts out if no PO website URL
+										endif; // opts out if no PO website URL.
 
 									if ( $partner_organization_phone ) :
 										?>
 									<a class="byway-phone-property"
 												href="tel:
 												<?php
-												echo $partner_organization_phone;
+												echo esc_url( $partner_organization_phone );
 												?>
 												"
-												title="Need help? Call our offices."><?php echo $partner_organization_phone; ?></a>
+												title="Need help? Call our offices."><?php echo esc_attr( $partner_organization_phone ); ?></a>
 										<?php endif; // opts out if no PO phone ?>
 								
 								</div> <!-- .detail-properties -->
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</li>
 								
 								<?php
-								endwhile; // end of sb_local_partner_organization
+								endwhile; // end of sb_local_partner_organization.
 						?>
 						
 						</ul>
