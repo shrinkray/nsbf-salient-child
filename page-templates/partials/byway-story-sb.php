@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 	
-	<div class="row mb-3"> <!-- Story of the Byway + Driving Directions -->
+	<div class="mb-3 row"> <!-- Story of the Byway + Driving Directions -->
 		
 		<div class="section">
 			<div class="">
@@ -27,12 +27,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 
 				<h2 class="text-3xl md:text-4xl h2 story">Story of the Byway</h2>
 	  
+<<<<<<< HEAD
 						<?php echo $byway_story; ?>
 
 						<script>
 							const itemStory = document.getElementById('item-story');
 							itemStory.classList.remove('hidden');
 							itemStory.classList.add('block');
+=======
+						<?php echo esc_html( $byway_story ); ?>
+
+						<script>
+							const itemStory = document.getElementById( 'item-story' );
+							itemStory.classList.remove( 'hidden' );
+							itemStory.classList.add( 'block') ;
+>>>>>>> phpFixer
 						</script>
 					<?php
 					endif; // end
