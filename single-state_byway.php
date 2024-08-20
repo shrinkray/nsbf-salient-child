@@ -21,11 +21,10 @@ get_header();
 	<div class="container main-content">
 
 <?php
-	// Unused Template Detail Byway Variables
+	// Value passed to other pages
 	$state = get_field( 'sb_state' );
-
 	$official_byway_name = get_field( 'sb_official_byway_name' );
-	// $designating_agency = get_field('nb_designating_agency');
+	$designating_agency = get_field('nb_designating_agency');
 ?>
 		
 		
@@ -37,18 +36,19 @@ get_header();
 		
 		
 		<?php
-		// this loads some duplicate content
-		require_once 'page-templates/partials/byway-detail-sb.php';
-		// this loads but missing content
-		require_once 'page-templates/partials/byway-overview-sb.php';
-			// this loads, but missing content
-		require_once 'page-templates/partials/byway-local-partners-sb.php';
+		
+		include_once 'page-templates/partials/byway-detail-sb.php';
+	
+		include_once 'page-templates/partials/byway-overview-sb.php';
+		
+		include_once 'page-templates/partials/byway-local-partners-sb.php';
 
 		?>
 		<div class="update-data">
-			<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" title="Help our foundation maintain accurate information about
-<?php echo esc_attr( $official_byway_name ); ?>."><i class="fa fa-bell"></i>&nbsp;Update</a> this byway information
-				today!</p>
+			<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" 
+            title="Help our foundation maintain accurate information about
+            <?php echo esc_attr( $official_byway_name ); ?>."><i class="fa fa-bell">
+            </i>&nbsp;Update</a> this byway information today!</p>
 		</div>
 	</div><!--/container main-content-->
 
