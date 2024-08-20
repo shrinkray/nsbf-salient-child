@@ -216,8 +216,8 @@ switch ( $title ) {
 			// America's Byways Collection Query
 			$nb_query = new WP_Query( $nb_args );
 
-			include_once 'page-templates/partials/national-byway-list.php';
-            
+			require_once 'page-templates/partials/national-byway-list.php';
+
 			// Destroys the previous query and sets up a new query.
 			wp_reset_postdata();
 
@@ -240,7 +240,7 @@ switch ( $title ) {
 					array(
 						'taxonomy'         => 'sb_designation',
 						'field'            => 'slug',
-                        'terms'            => array( 'fsb', 'sb', 'blm' ),
+						'terms'            => array( 'fsb', 'sb', 'blm' ),
 						'include_children' => true,
 						'operator'         => 'EXISTS',
 					),
@@ -253,12 +253,12 @@ switch ( $title ) {
 			/**
 			 * This is for the STATE byway list
 			 */
-//var_dump( $sb_query->request ); // Outputs the SQL query being run.
-//var_dump( $sb_query->posts );   // Outputs the array of posts returned.
+			// var_dump( $sb_query->request ); // Outputs the SQL query being run.
+			// var_dump( $sb_query->posts );   // Outputs the array of posts returned.
 
 
 
-		include_once 'page-templates/partials/state-byway-list.php';
+			require_once 'page-templates/partials/state-byway-list.php';
 
 
 			// Destroys the previous query and sets up a new query.
@@ -293,13 +293,13 @@ switch ( $title ) {
 
 					// Prints website and phone number to the page
 					include_once 'page-templates/partials/state-partners.php';
-                    
-                endwhile;
-				
+
+				endwhile;
+
 			endif;
-            
-            // Destroys the previous query and sets up a new query.
-            wp_reset_postdata();
+
+			// Destroys the previous query and sets up a new query.
+			wp_reset_postdata();
 			?>
 		<div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>
 	<div class="mt-10 state-information">
