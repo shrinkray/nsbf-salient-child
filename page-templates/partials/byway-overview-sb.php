@@ -6,17 +6,17 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-	// Exit if accessed directly
+	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
 
-	<div class="row mt-3 mb-6"><!-- overview  -->
+	<div class="mt-3 mb-6 row"><!-- overview  -->
 		<div class="section">
 			<div class="boxed-subsection filter drop-shadow-md md:drop-shadow-xl">
 				<?php
-					// vars
+					// vars.
 					$byway_synopsis = get_field( 'sb_byway_synopsis' );
 
 				?>
@@ -27,10 +27,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 				<h2 class="text-3xl md:text-4xl h2 overview">Overview</h2>
 					<?php
-					echo $byway_synopsis;
+					echo acf_esc_html( $byway_synopsis );
 
 						else :
-							// see nothing
+							// see nothing.
 							?>
 
 						<div class="text-sm text-mangotango truncate ...">
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						
 						
 							<?php
-				endif; // byway synopsis
+				endif; // byway synopsis.
 						?>
 			</div> <!-- .boxed-subsection -->
 		</div>
