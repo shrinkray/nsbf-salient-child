@@ -19,29 +19,31 @@ mix
     postCss: [tailwindcss(), require("autoprefixer")],
   })
   // You can chain the .css() here as you need
-  .css("css/child-responsive-styles.css", "dist")
-  .css("css/child-styles.css", "dist")
+  //.css("css/child-responsive-styles.css", "dist")
+  //.css("css/child-styles.css", "dist")
 
   // merge the original stylesheets
   .styles(
-    ["dist/child-responsive-styles.css", "dist/child-styles.css"],
+    ["css/child-responsive-styles.css", "css/child-styles.css"],
     "dist/merged-styles.css",
   )
 
-  .then(() => {
-    // Delete source CSS files after merging
-    const filesToDelete = [
-      "dist/child-responsive-styles.css",
-      "dist/child-styles.css",
-    ];
+  // This is unnecessary now, leaving as a reference 8/20/2024
+  //.then(() => {
+  // Delete source CSS files after merging
 
-    filesToDelete.forEach((file) => {
-      fs.unlink(path.resolve(__dirname, file), (err) => {
-        if (err) throw err;
-        console.log(`Deleted ${file}`);
-      });
-    });
-  })
+  // const filesToDelete = [
+  // "dist/child-responsive-styles.css",
+  // "dist/child-styles.css",
+  // ];
+
+  // filesToDelete.forEach((file) => {
+  //   fs.unlink(path.resolve(__dirname, file), (err) => {
+  //     if (err) throw err;
+  //     console.log(`Deleted ${file}`);
+  //   });
+  // });
+  //})
 
   // Add more configurations if necessary
   .sourceMaps(!mix.inProduction())
