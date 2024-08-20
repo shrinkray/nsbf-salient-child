@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						?>
 								<li class="item mb-7">
 									<div class="item-heading"><?php echo esc_html( $poi_name ); ?></div>
-									<div><?php echo esc_html( $poi_brief_description ); ?></div>
+									<div><?php echo wp_kses_post( $poi_brief_description ); ?></div>
 									
 							<?php
 								// If either of these properties exist, build out this section,
