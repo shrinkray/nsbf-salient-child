@@ -15,6 +15,7 @@
     "php": ">=7.4.21"
   },
   "require-dev": {
-    "phpcompatibility/php-compatibility": "^9.3"
+    "phpcompatibility/php-compatibility": "^9.3",
+    "friendsofphp/php-cs-fixer": "^3.53"
   }
 }
