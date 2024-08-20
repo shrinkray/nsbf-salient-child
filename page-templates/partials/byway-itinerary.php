@@ -5,13 +5,13 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-	// Exit if accessed directly
+	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
 
-	<div class="row mb-12">
+	<div class="mb-12 row">
 		<div class="section">
 			<div id="itinerary" class="anchored"></div>
 			
@@ -29,15 +29,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php
 					while ( have_rows( 'nb_itinerary' ) ) :
 						the_row();
-						// vars
+						// vars.
 						$itinerary_name        = get_sub_field( 'nb_itinerary_name' );
 						$itinerary_description = get_sub_field( 'nb_itinerary_brief_description' );
 						$toggle_itinerary      = 'block';
 						?>
 								
 								<li class="item mb-7">
-									<div class="item-heading"><?php echo $itinerary_name; ?></div>
-									<div class=""><?php echo $itinerary_description; ?></div>
+									<div class="item-heading"><?php echo esc_html( $itinerary_name ); ?></div>
+									<div class=""><?php echo acf_esc_html( $itinerary_description ); ?></div>
 								</li>
 							
 							<?php
