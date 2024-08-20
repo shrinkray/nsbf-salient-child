@@ -5,13 +5,13 @@
 	 * @author Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-	// Exit if accessed directly
+	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
 	
-	<div class="row mb-12"> <!-- Story of the Byway + Driving Directions -->
+	<div class="mb-12 row"> <!-- Story of the Byway + Driving Directions -->
 		
 		<div class="section directions">
 			
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						
 						<h2 class="text-3xl md:text-4xl h2 driving">Driving Directions</h2>
 						
-						<?php echo $driving_directions; ?>
+						<?php echo acf_esc_html( $driving_directions ); ?>
 
 						<script>
 							const itemDirections = document.getElementById('item-directions');
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							itemDirections.classList.add('block');
 						</script>
 					<?php
-					endif; // end
+					endif;
 				?>
 			</div> <!-- .col // directions -->
    
