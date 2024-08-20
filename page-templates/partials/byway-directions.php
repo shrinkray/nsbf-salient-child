@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						
 						<h2 class="text-3xl md:text-4xl h2 driving">Driving Directions</h2>
 						
-						<?php echo esc_html( $driving_directions ); ?>
+						<?php echo acf_esc_html( $driving_directions ); ?>
 
 						<script>
 							const itemDirections = document.getElementById('item-directions');
