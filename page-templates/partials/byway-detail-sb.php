@@ -1,11 +1,12 @@
 <?php
 	/**
-	 * @template Details Section
-	 * @date Jul142021
-	 * @author Greg Miller, gregmiller.io
+	 * @template   Details Section
+	 * @date       Jul142021
+	 * @update     Aug072024
+	 * @author     Greg Miller, gregmiller.io
 	 * @testedwith
 	 */
-	// Exit if accessed directly
+	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -28,69 +29,69 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 		<ul class="detail-list mt-7 mb-7">
 			<!--  Setting Year only if it exists, otherwise do not show parenthesis   -->
-			<li><span class="label-minor-heading">Designation</span><?php echo $designation; ?> <?php
-					echo $designation_year ? '(' . $designation_year . ')' : ''
+			<li><span class="label-minor-heading">Designation</span><?php echo esc_html( $designation ); ?> <?php
+					echo $designation_year ? '(' . esc_html( $designation_year ) . ')' : ''
 			?>
 																				</li>
 		   
 			<li><span class="label-minor-heading">Location</span>
 			<?php
-			echo $sb_state;
+			echo esc_html( $sb_state );
 			?>
-				</li>
-			<li><span class="label-minor-heading">Length</span><?php echo $length_of_byway_miles; ?>&nbsp;miles</li>
+			</li>
+			<li><span class="label-minor-heading">Length</span><?php echo esc_html( $length_of_byway_miles ); ?>&nbsp;miles</li>
 		</ul>
 		
 		
 		<?php
-			// vars
-			$dedicated_byway_organization         = get_field( 'sb_dedicated_byway_organization' );
-			$dedicated_byway_organization_website = get_field( 'sb_dedicated_byway_organization_website' );
-			$dedicated_byway_organization_phone   = get_field( 'sb_dedicated_byway_organization_phone' );
+		// vars
+		$dedicated_byway_organization         = get_field( 'sb_dedicated_byway_organization' );
+		$dedicated_byway_organization_website = get_field( 'sb_dedicated_byway_organization_website' );
+		$dedicated_byway_organization_phone   = get_field( 'sb_dedicated_byway_organization_phone' );
 
 		?>
 		<?php
-		// Add if we have a field for a dedicated organization
+		// Add if we have a field for a dedicated organization.
 		if ( $dedicated_byway_organization ) :
 			?>
 		<!--                Dedicated organization -->
 		<div class="detail-subsection">
 			<div class="label-minor-heading">Dedicated Byway Visitor Information</div>
-			<div class="detail-organization"><?php echo $dedicated_byway_organization; ?></div>
+			<div class="detail-organization"><?php echo esc_html( $dedicated_byway_organization ); ?></div>
 			<div class="detail-properties">
 				
-				<?php
-				// If we have a website URL add a link
-				if ( $dedicated_byway_organization_website ) :
-					?>
+			<?php
+			// If we have a website URL add a link.
+			if ( $dedicated_byway_organization_website ) :
+				?>
 						<a class="byway-website-property" href="
 						<?php
-						echo $dedicated_byway_organization_website;
+						echo esc_url( $dedicated_byway_organization_website );
 						?>
-						" target="_blank" title="Learn more at the <?php echo $dedicated_byway_organization; ?> website!">Website</a>
-					<?php endif; // website ?>
+						" target="_blank" title="Learn more at the <?php echo esc_attr( $dedicated_byway_organization ); ?> website!">Website</a>
+			<?php endif; // website. ?>
 				
-				<?php
-				// If we have a phone URL add a link
-				if ( $dedicated_byway_organization_phone ) :
-					?>
+			<?php
+			// If we have a phone URL add a link.
+			if ( $dedicated_byway_organization_phone ) :
+				?>
 						<a class="byway-phone-property" href="tel:
 						<?php
-						echo $dedicated_byway_organization_phone;
+						echo esc_url( $dedicated_byway_organization_phone );
 						?>
-						" title="Need help? Call our offices."><?php echo $dedicated_byway_organization_phone; ?></a>
-					<?php endif; // phone ?>
+						" title="Need help? Call our offices."><?php echo esc_attr( $dedicated_byway_organization_phone ); ?></a>
+			<?php endif; // phone ?>
 			</div> <!-- .detail-properties -->
 		</div> <!-- .detail-subsection -->
 			<?php
-		endif; // dedicated_byway_organization
+		endif; // dedicated_byway_organization.
 
 		?>
 <!--        State DOT byway info-->
 		<div class="detail-subsection mt-7">
 			<?php
 
-				require_once 'state-byway-visitor.php';
+			require_once 'state-byway-visitor.php';
 
 			?>
 	
@@ -100,14 +101,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 	<div class="order-first mb-8 section image md:order-none lg:order-none">
 		<?php
-			$image = get_the_post_thumbnail( $post_id, 'byway_large', array( 'alt' => get_the_title() ) );
-		if ( ! empty( $image ) ) :
+		$image = get_the_post_thumbnail(
+			$post_id,
+			'byway_large',
+			array( 'alt' => get_the_title() )
+		);
+
+		// checks for post image if none, do not show empty box nor line.
+		if ( has_post_thumbnail() ) :
 			?>
 
 		<div class="detail-image">
 			<?php
 
-			echo $image;
+			echo acf_esc_html( $image );
 
 			?>
 		</div>
@@ -115,40 +122,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 			else :
 				?>
 
-		<div class="detail-image placeholder">
-		
-		</div>
+		<div class="detail-image placeholder"></div>
 		
 				<?php
-	endif;
+			endif;
 			?>
 		
 		
-		<div class="italic text-right attribution">
+		<div class="italic attribution">
 			<?php
 			if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
 					$first_credit = true;
 
-					// combo conditional to get just the first record
+					// combo conditional to get just the first record.
 				while ( $first_credit && have_rows( 'sb_iconic_images' ) ) :
 					the_row();
 
 					$attribution = get_sub_field( 'image_attribution' );
-					// set false to stop from getting the next record
+					// set false to stop from getting the next record.
 					$first_credit = false;
 					?>
 		
 		
-			<span class="source"><?php echo $attribution; ?></span>
+			<span class="source"><?php echo esc_html( $attribution ); ?></span>
 					<?php if ( ! empty( $attribution ) ) : ?>
 			<span class="photo-credit"> Photo</span>
-				<?php endif; ?>
+					<?php endif; ?>
 					<?php
 				endwhile;
 				?>
 				<?php
 			else :
-				// no rows found
+				// no rows found.
 				?>
 			<?php endif; ?>
 		</div>
