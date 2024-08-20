@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				if ( ! empty( $byway_synopsis ) ) :
 					?>
 				<h2 class="text-3xl md:text-4xl h2 overview">Overview</h2>
-					<?php echo esc_html( $byway_synopsis ); ?>
+					<?php echo acf_esc_html( $byway_synopsis ); ?>
 
 						<script>
 							const itemOverview = document.getElementById( 'item-overview' );

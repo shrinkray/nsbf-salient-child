@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 				<h2 class="text-3xl md:text-4xl h2 overview">Overview</h2>
 					<?php
-					echo esc_html( $byway_synopsis );
+					echo acf_esc_html( $byway_synopsis );
 
 						else :
 							// see nothing
