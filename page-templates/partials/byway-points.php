@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 	
-	<div class="row mb-12">
+	<div class="mb-12 row">
 		<div class="section">
 			
 			<div id="points" class="anchored"></div>
@@ -38,8 +38,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						?>
 								<li class="item mb-7">
-									<div class="item-heading"><?php echo $poi_name; ?></div>
-									<div><?php echo $poi_brief_description; ?></div>
+									<div class="item-heading"><?php echo esc_html( $poi_name ); ?></div>
+									<div><?php echo wp_kses_post( $poi_brief_description ); ?></div>
 									
 							<?php
 								// If either of these properties exist, build out this section,
@@ -54,9 +54,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 												<a class="byway-website-property"
 													href="
 												<?php
-												echo $poi_map_website;
+												echo esc_url( $poi_map_website );
 												?>
-													" target="_blank" title="Use Google Maps to explore <?php echo $poi_name; ?>!">Directions</a>
+													" target="_blank" title="Use Google Maps to explore <?php echo esc_attr( $poi_name ); ?>!">Directions</a>
 											<?php
 											endif; // opts out if no PO website URL
 
@@ -64,9 +64,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 									?>
 												<a class="byway-website-property" href="
 											<?php
-											echo $poi_website;
+											echo esc_url( $poi_website );
 											?>
-												" target="_blank" title="Learn more at the <?php echo $poi_name; ?> website!">Website</a>
+												" target="_blank" title="Learn more at the <?php echo esc_attr( $poi_name ); ?> website!">Website</a>
 											<?php
 											endif; // opts out if no PO website URL
 
@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		
 								</li>
 							<?php
-							endwhile; // nb_point_of_interest
+							endwhile; // nb_point_of_interest.
 					?>
 					
 					</ul>
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						itemPoints.classList.add('block');
 					</script>
 				<?php
-				endif; // nb_point_of_interest
+				endif; // nb_point_of_interest.
 			?>
 		
 		</div> <!-- .section Points of Interest -->
