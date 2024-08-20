@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								
 								<li class="item mb-7">
 									<div class="item-heading"><?php echo esc_html( $itinerary_name ); ?></div>
-									<div class=""><?php echo esc_html( $itinerary_description ); ?></div>
+									<div class=""><?php echo acf_esc_html( $itinerary_description ); ?></div>
 								</li>
 							
 							<?php
