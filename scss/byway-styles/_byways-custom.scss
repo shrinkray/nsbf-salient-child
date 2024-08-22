@@ -88,7 +88,7 @@
         }
     }
   }
-  &.image {
+  .image {
     .placeholder {
       border: none !important;
       padding: 0.5rem;
@@ -140,14 +140,13 @@
             margin-top: 2.9rem;
         }
     }
-    &.image {
+    .image {
       margin-top: 2.9rem;
       &.placeholder {
         background-position: right;
       }
     }
   }
-}
 
 @media screen and (max-width: 765px) {
     .single-national_byway,

@@ -8,6 +8,8 @@
  * @description This represents the details of one national byway.
  */
 
+ // phpcs:disable WordPress.Files.FileName
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -34,9 +36,9 @@ get_header();
 		   
 			<h1 class="text-3xl md:text-5xl entry-title"><?php the_title(); ?></h1>
 			
-            <?php 
-             // Navigation of page
-            ?>
+		<?php
+		// Navigation of page.
+		?>
 			<ul class="mt-3 mb-10 byway-sub-nav">
 				<li id="item-overview" class="hidden anchor-nav"><a href="#overview" 
 				class="" title="Trip
@@ -57,21 +59,21 @@ get_header();
 		</div> <!-- .row // H1 & Anchor Nav -->
 		
 		
-		<?php 
-        // pull in templates to build page
-				include_once 'page-templates/partials/byway-detail.php';
+		<?php
+		// pull in templates to build page.
+				require_once 'page-templates/partials/byway-detail.php';
 
-				include_once 'page-templates/partials/byway-overview.php';
+				require_once 'page-templates/partials/byway-overview.php';
 
-				include_once 'page-templates/partials/byway-local-partners.php';
+				require_once 'page-templates/partials/byway-local-partners.php';
 
-				include_once 'page-templates/partials/byway-story.php';
+				require_once 'page-templates/partials/byway-story.php';
 
-				include_once 'page-templates/partials/byway-directions.php';
+				require_once 'page-templates/partials/byway-directions.php';
 
-				include_once 'page-templates/partials/byway-points.php';
+				require_once 'page-templates/partials/byway-points.php';
 
-				include_once 'page-templates/partials/byway-itinerary.php';
+				require_once 'page-templates/partials/byway-itinerary.php';
 		?>
 		<div class="update-data">
 			<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" 

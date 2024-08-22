@@ -1,11 +1,12 @@
 <?php
 	/**
-	 * @template
+	 * Story template.
+	 *
 	 * @date Jul142021
 	 * @author Greg Miller, gregmiller.io
-	 * @testedwith
+	 * @package template
 	 */
-	// Exit if accessed directly
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -18,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div id="story" class="anchored"></div>
 				
 				<?php
-					// vars
+					// vars.
 					$byway_story  = get_field( 'sb_byway_story' );
 					$toggle_story = 'block';
 
@@ -27,24 +28,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 
 				<h2 class="text-3xl md:text-4xl h2 story">Story of the Byway</h2>
 	  
-<<<<<<< HEAD
-						<?php echo $byway_story; ?>
-
-						<script>
-							const itemStory = document.getElementById('item-story');
-							itemStory.classList.remove('hidden');
-							itemStory.classList.add('block');
-=======
 						<?php echo esc_html( $byway_story ); ?>
 
 						<script>
 							const itemStory = document.getElementById( 'item-story' );
 							itemStory.classList.remove( 'hidden' );
 							itemStory.classList.add( 'block') ;
->>>>>>> phpFixer
 						</script>
 					<?php
-					endif; // end
+					endif; // end.
 				?>
 			</div><!-- .col // story of byway -->
    
