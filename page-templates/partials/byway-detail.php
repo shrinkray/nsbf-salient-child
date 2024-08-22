@@ -1,12 +1,14 @@
 <?php
 	/**
+	 * Byway detail template (national).
+	 *
 	 * @template   Details Section
 	 * @date       Jul142021
 	 * @date       Aug7,2024
 	 * @author     Greg Miller, gregmiller.io
-	 * @testedwith
+	 * @package    template
 	 */
-	// Exit if accessed directly.
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -18,16 +20,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<h2 class="text-3xl md:text-4xl h2 wayfinder">Details</h2>
 		<?php
 
-			$intrinsic_quality                  = get_field( 'nb_intrinsic_quality' );
-			$state_or_states_that_contain_byway = get_field( 'nb_state_or_states_that_contain_byway' );
-			$designation                        = get_field( 'nb_current_national_designation' );
-			$designation_year                   = get_field( 'nb_designation_year' );
-			$length_of_byway_miles              = get_field( 'nb_length_of_byway_miles' );
+		$intrinsic_quality                  = get_field( 'nb_intrinsic_quality' );
+		$state_or_states_that_contain_byway = get_field( 'nb_state_or_states_that_contain_byway' );
+		$designation                        = get_field( 'nb_current_national_designation' );
+		$designation_year                   = get_field( 'nb_designation_year' );
+		$length_of_byway_miles              = get_field( 'nb_length_of_byway_miles' );
 
 			// split the phrase by any number of commas or space characters into an array().
 			// which include " ", \r, \t, \n and \f.
 
 			$keywords = preg_split( '/[\s,]+/', $intrinsic_quality );
+			$typelist = '';
 
 			// for each single letter associate a word and build a new string.
 		foreach ( $keywords as $keyword ) {
@@ -59,8 +62,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 			// Remove space and last comma from the list and return the trimmed result.
 			$trimmed = rtrim( trim( $typelist ), ',' );
-
-		// echo $list;
 		?>
 		<ul class="detail-list mt-7 mb-7">
 			<li><span class="label-minor-heading">Designation info</span>
@@ -87,27 +88,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		
 		
 		<?php
-		// vars
-		$dedicated_byway_organization         = get_field( 'nb_dedicated_byway_organization' );
-		$dedicated_byway_organization_website = get_field( 'nb_dedicated_byway_organization_website' );
-		$dedicated_byway_organization_phone   = get_field( 'nb_dedicated_byway_organization_phone' );
-
-		?>
-	<?php
+		// vars.
+		$dedicated_byway_organization         =
+		get_field( 'nb_dedicated_byway_organization' );
+		$dedicated_byway_organization_website =
+		get_field( 'nb_dedicated_byway_organization_website' );
+		$dedicated_byway_organization_phone   =
+		get_field( 'nb_dedicated_byway_organization_phone' );
 		// Add if we have a field for a dedicated organization.
-	if ( $dedicated_byway_organization ) :
+		if ( $dedicated_byway_organization ) :
 
-		?>
+			?>
 		<!--                Dedicated organization -->
 		<div class="detail-subsection">
 			<div class="label-minor-heading">Byway Visitor Information</div>
-			<div class="detail-organization"><?php echo esc_html( $dedicated_byway_organization ); ?></div>
+			<div class="detail-organization">
+				<?php echo esc_html( $dedicated_byway_organization ); ?></div>
 			<div class="detail-properties">
 				
-		<?php
-		// If we have a website URL add a link.
-		if ( $dedicated_byway_organization_website ) :
-			?>
+			<?php
+			// If we have a website URL add a link.
+			if ( $dedicated_byway_organization_website ) :
+				?>
 						<a class="byway-website-property" href="
 						<?php
 						echo esc_url( $dedicated_byway_organization_website );
@@ -117,12 +119,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						echo esc_attr( $dedicated_byway_organization );
 						?>
 						website!">Website</a>
-		<?php endif; ?>
-				
-		<?php
-		// If we have a phone URL add a link.
-		if ( $dedicated_byway_organization_phone ) :
-			?>
+				<?php
+		endif;
+			// If we have a phone URL add a link.
+			if ( $dedicated_byway_organization_phone ) :
+				?>
 						<a class="byway-phone-property" href="tel:
 						<?php
 						echo esc_url( $dedicated_byway_organization_phone );
@@ -137,29 +138,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div> <!-- .detail-organization -->
 
 		</div> <!-- .detail-subsection -->
-		<?php
+			<?php
 	endif; // dedicated organization.
-	?>
+		?>
 
 
 		<div class="detail-subsection mt-7">
 			<div class="label-minor-heading">Statewide Byway Partners</div>
 			
-			<div class="grid grid-cols-1 gap-2 departments sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+			<div 
+			class="grid grid-cols-1 gap-2 departments sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
 				<div class="partner-digits">
 					<?php
-					// vars
+					// vars.
 					$state_dot_name          = get_field( 'nb_state_dot_name' );
 					$state_dot_byway_website = get_field( 'nb_state_dot_byway_website' );
 					$state_dot_byway_phone   = get_field( 'nb_state_dot_byway_phone' );
-
 					/**
-					 * If the organization exists, add it's name. If the web and or phone properties exist,
-					 * render, otherwise do not show them.
+					 * If the organization exists, add it's name.
+					 * If the web and or phone properties exist, render, otherwise do not show them.
 					 */
 					if ( $state_dot_name ) :
 						?>
-							<div class="detail-organization"><?php echo esc_html( $state_dot_name ); ?></div>
+							<div class="detail-organization">
+								<?php echo esc_html( $state_dot_name ); ?></div>
 
 							<div class="detail-properties">
 						<?php
@@ -199,7 +201,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<div class="partner-digits">
 					<?php
-					// vars
+					// vars.
 					$state_tourism_board_name    = get_field( 'nb_state_tourism_board_name' );
 					$state_tourism_board_website = get_field( 'nb_state_tourism_board_website' );
 					$state_tourism_board_phone   = get_field( 'nb_state_tourism_board_phone' );
@@ -212,7 +214,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					if ( $state_tourism_board_name ) :
 						?>
 
-							<div class="detail-organization"><?php echo esc_html( $state_tourism_board_name ); ?></div>
+							<div class="detail-organization">
+								<?php echo esc_html( $state_tourism_board_name ); ?></div>
 
 							<div class="detail-properties">
 						<?php
@@ -265,13 +268,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 
 
-		// checks for post image if none, do not show empty box nor line
+		// checks for post image if none, do not show empty box nor line.
 		if ( has_post_thumbnail() ) :
 			?>
 		<div class="detail-image">
 			<?php
 
-				echo acf_esc_html( $image );
+				echo wp_kses_post( $image );
 
 			?>
 		</div>
@@ -298,7 +301,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 					 
 
-				<span class="source"><?php echo acf_esc_html( $attribution ); ?></span>
+				<span class="source"><?php echo wp_kses_post( $attribution ); ?></span>
 					<?php if ( ! empty( $attribution ) ) : ?>
 				<span class="photo-credit"> Photo</span>
 						<?php
