@@ -2,13 +2,18 @@
 /**
  * Template Name: State Byway Detail
  *
+ * Note: This filename uses an underscore to match the custom post type name
+ * and follows WordPress template hierarchy conventions. Do not rename.
+ *
  * @package Salient WordPress Theme
+ *
  * @version 10.5
  * @filename single-state_byway.php
  * @description This represents the details of one state byway.
  */
 
-// Exit if accessed directly
+ // phpcs:disable WordPress.Files.FileName
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
