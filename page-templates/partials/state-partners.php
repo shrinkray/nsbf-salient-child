@@ -1,5 +1,10 @@
 <?php
-// Exit if accessed directly
+/**
+ * State partner template.
+ *
+ * @package template
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -11,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 	<div class="p-2 text-center partner-digits">
 		<?php
-			// vars
+			// vars.
 			$state_dot_name    = get_field( 'sp_state_department_of_transportation_name' );
 			$state_dot_website = get_field( 'sp_state_department_of_transportation_website' );
 			$state_dot_phone   = get_field( 'sp_state_department_of_transportation_phone' );
@@ -20,22 +25,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 * If the organization exists, add it's name. If the web and or phone properties exist,
 			 * render, otherwise do not show them.
 			 */
-			if ( $state_dot_name ) : ?>
-				<div class="text-xl font-bold detail-organization"><?php echo esc_html( $state_dot_name );?></div>
+		if ( $state_dot_name ) :
+			?>
+				<div class="text-xl font-bold detail-organization">
+					<?php echo esc_html( $state_dot_name ); ?></div>
 				
 				<div class="detail-properties">
-					<?php // If we have a website URL add a link
-						if ( $state_dot_website ) :  ?>
-							<a class="byway-website-property" href="<?php echo esc_html( $state_dot_website );
-							?>" target="_blank"
-                               title="Learn more about us at the <?php echo esc_html( $state_dot_name ); ?> website!">Website</a>
-						<?php endif; ?>
+					<?php
+					// If we have a website URL add a link.
+					if ( $state_dot_website ) :
+						?>
+							<a class="byway-website-property" href="
+							<?php
+							echo esc_html( $state_dot_website );
+							?>
+							" target="_blank"
+								title="Learn more about us at the&nbsp;
+								<?php echo esc_html( $state_dot_name ); ?> website!">Website</a>
+						<?php
+					endif;
+					?>
 					
-					<?php // If we have a phone URL add a link
-						if (  $state_dot_phone ) :  ?>
-							<a class="byway-phone-property" href="tel:<?php echo esc_html( $state_dot_phone );
-							?>" title="Need help? Call our offices."><?php echo esc_html( $state_dot_phone );?></a>
-						<?php endif; ?>
+					<?php
+					// If we have a phone URL add a link.
+					if ( $state_dot_phone ) :
+						?>
+							<a class="byway-phone-property" href="tel:
+							<?php
+							echo esc_html( $state_dot_phone );
+							?>
+							" title="Need help? Call our offices.">
+							<?php echo esc_html( $state_dot_phone ); ?></a>
+						<?php
+					endif;
+					?>
 				</div> <!-- .detail-properties -->
 			<?php
 			endif; // $state_dot_name
@@ -45,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="px-2 pt-8 text-center partner-digits md:pt-2">
 		<?php
 
-			// vars
+			// vars.
 			$state_tourism_board_name    = get_field( 'sp_state_tourism_board_name' );
 			$state_tourism_board_website = get_field( 'sp_state_tourism_board_website' );
 			$state_tourism_board_phone   = get_field( 'sp_state_tourism_board_phone' );
@@ -55,27 +78,46 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 * render, otherwise do not show them.
 			 */
 		if ( $state_tourism_board_name ) :
-			?>
+		?>
 				<?php the_content(); ?>
-				<div class="text-xl font-bold detail-organization"><?php echo esc_html( $state_tourism_board_name );?></div>
+				<div class="text-xl font-bold detail-organization">
+					<?php echo esc_html( $state_tourism_board_name ); ?></div>
 				
 				<div class="detail-properties">
-					<?php // If we have a website URL add a link
-						if ( $state_tourism_board_website ) :  ?>
-							<a class="byway-website-property" href="<?php echo esc_html( $state_tourism_board_website );
-							?>" target="_blank"
-                               title="Learn more about us at the <?php echo esc_html( $state_tourism_board_name ); ?> website!">Website</a>
-						<?php endif; ?>
+					<?php
+					// If we have a website URL add a link.
+					if ( $state_tourism_board_website ) :
+						?>
+						<a class="byway-website-property" href="
+						<?php
+						echo esc_html( $state_tourism_board_website );
+						?>
+						" target="_blank"
+							title="Learn more about us at the&nbsp;
+							<?php
+							echo esc_html( $state_tourism_board_name );
+							?>
+							&nbsp;website!">Website</a>
+					endif; 
+						?>
 					
-					<?php // If we have a phone URL add a link
-						if (  $state_tourism_board_phone ) :  ?>
-							<a class="byway-phone-property" href="tel:<?php echo esc_html( $state_tourism_board_phone );
-							?>" title="Need help? Call our offices."><?php echo esc_html( $state_tourism_board_phone );?></a>
-						<?php endif; ?>
+						<?php
+						// If we have a phone URL add a link.
+						if ( $state_tourism_board_phone ) :
+							?>
+							<a class="byway-phone-property" href="tel:
+							<?php
+							echo esc_html( $state_tourism_board_phone );
+							?>
+							" title="Need help? Call our offices.">
+							<?php echo esc_html( $state_tourism_board_phone ); ?></a>
+							<?php
+					endif;
+						?>
 				</div> <!-- .detail-properties -->
-			<?php
+						<?php
 			endif; // $state_tourism_board_name
-		?>
+					?>
 	
 	
 	</div>
