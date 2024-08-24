@@ -89,7 +89,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php echo esc_attr( $state_tourism_board_phone ); ?></a>
 				<?php endif; ?>
 		</div> <!-- .detail-properties -->
-		<?php endif; ?>
+			<?php
+		endif;
+		?>
 	</div> <!-- .partner-digits -->
 
 </div>
