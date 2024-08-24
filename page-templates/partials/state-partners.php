@@ -78,8 +78,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 * render, otherwise do not show them.
 			 */
 		if ( $state_tourism_board_name ) :
-		?>
-				<?php the_content(); ?>
+			// Removed the_content function.
+			?>
 				<div class="text-xl font-bold detail-organization">
 					<?php echo esc_html( $state_tourism_board_name ); ?></div>
 				
@@ -98,27 +98,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 							echo esc_html( $state_tourism_board_name );
 							?>
 							&nbsp;website!">Website</a>
-					endif; 
-						?>
-					
 						<?php
-						// If we have a phone URL add a link.
-						if ( $state_tourism_board_phone ) :
-							?>
-							<a class="byway-phone-property" href="tel:
-							<?php
-							echo esc_html( $state_tourism_board_phone );
-							?>
-							" title="Need help? Call our offices.">
-							<?php echo esc_html( $state_tourism_board_phone ); ?></a>
-							<?php
 					endif;
+						// If we have a phone URL add a link.
+					if ( $state_tourism_board_phone ) :
 						?>
-				</div> <!-- .detail-properties -->
+						<a class="byway-phone-property" href="tel:
 						<?php
-			endif; // $state_tourism_board_name
+						echo esc_html( $state_tourism_board_phone );
+						?>
+						" title="Need help? Call our offices.">
+						<?php echo esc_html( $state_tourism_board_phone ); ?></a>
+						<?php
+					endif;
 					?>
+				</div> <!-- .detail-properties -->
 	
+						<?php
+			endif; // $state_tourism_board_name.
+		?>
 	
 	</div>
 
