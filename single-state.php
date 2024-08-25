@@ -191,11 +191,21 @@ switch ( $the_title ) {
 		<div class="mt-10 color-bar bg-gradient-to-r from-yellow-600 to-yellow-300"></div>
 		
 		<?php
+		/**
+		 * This is custom content to load SEO dense info.
+		 *
+		 * @update Aug252024
+		 */
+		require_once 'page-templates/partials/state-seo-content.php';
+
 			/*
 			===============================================================
 				National Byway Args
 				This loops through names and permalinks
 			 */
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key.
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value.
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query.
 
 			$nb_args = array(
 				'numberposts' => -1,
