@@ -30,6 +30,15 @@
         <exclude name="Generic.Files.LineLength.TooLong"/>
     </rule>
 
+    <!-- ACF escape function  -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customEscapingFunctions" type="array">
+                <element value="acf_esc_html"/>
+            </property>
+        </properties>
+    </rule>
+
     <!-- Modify a specific rule -->
     
 </ruleset>
