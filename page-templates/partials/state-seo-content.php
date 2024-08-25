@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$state_info = get_field( 'state_info' );
 			echo $state_info ?
 			'<h2 class="text-2xl text-left md:text-3xl text-outerspace">' .
-			acf_esc_html( $state_info ) . '</h2>' : '';
+			esc_html( $state_info ) . '</h2>' : '';
 
 			?>
 			
@@ -36,7 +36,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="max-w-3xl gap-8 mx-0 mt-4 lg:flex lg:max-w-none">
 				<div class="lg:flex-auto">
 					<?php
-					echo $intro_text ? '<div class="state-information">' . $intro_text . '</div>' : '';
+					echo $intro_text ?
+					'<div class="state-information">' .
+					acf_esc_html( $intro_text ) . '</div>' : '';
 					?>
 				</div>
 				<div class="-mt-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
@@ -60,8 +62,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$links_section_heading     = get_field( 'links_section_heading' );
 					$links_section_description = get_field( 'links_section_description' );
 
-					echo $links_section_heading ? '<h2 class="mt-12 mb-4 text-2xl text-left md:text-3xl text-outerspace">' . $links_section_heading . '</h2>' : '';
-					echo $links_section_description ? '<p class="mb-2 text-left">' . $links_section_description . '</p>' : '';
+					echo $links_section_heading ?
+					'<h2 class="mt-12 mb-4 text-2xl text-left md:text-3xl text-outerspace">' .
+					esc_html( $links_section_heading ) .
+					'</h2>' : '';
+					echo $links_section_description ?
+					'<p class="mb-2 text-left">' .
+					esc_html( $links_section_description ) . '</p>' : '';
 					?>
 				</div>
 			</div>
@@ -80,19 +87,22 @@ if ( have_rows( 'content_builder_links' ) ) :
 		<div class="partner-links-group">
 			<div class="detail-properties"> <!-- Byway Partners -->
 			<?php
-			$link_heading ? '<h2 class="mt-12 mb-8 text-2xl text-left md:text-3xl text-outerspace">' . $link_heading . '</h2>' : '';
+			$link_heading ?
+			'<h2 class="mt-12 mb-8 text-2xl text-left md:text-3xl text-outerspace">' .
+			esc_html( $link_heading ) . '</h2>' : '';
 
-			$link_description ? '<p class="text-left">' . $link_description . '</p>' : '';
+			$link_description ? '<p class="text-left">' .
+			esc_html( $link_description ) . '</p>' : '';
 			?>
 				
 
 				<div class="mt-4 state-information">
 
-					<ul class="grid gap-3 list-none list-outside sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+<ul class="grid gap-3 list-none list-outside sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 		<?php
 		while ( have_rows( 'content_builder_links' ) ) :
 			the_row();
-			$link_type  = get_sub_field( 'type_of_link' ); // this might not be needed
+			$link_type  = get_sub_field( 'type_of_link' ); // is this needed?
 			$show_url   = get_sub_field( 'content_builder_url_link' );
 			$show_pdf   = get_sub_field( 'content_builder_add_pdf' );
 			$show_phone = get_sub_field( 'content_builder_phone' );
@@ -100,7 +110,7 @@ if ( have_rows( 'content_builder_links' ) ) :
 			?>
 			<?php
 
-			// This displays the the URL link
+			// This displays the the URL link.
 			if ( $show_url ) :
 
 				if ( have_rows( 'url_meta' ) ) :
@@ -117,9 +127,14 @@ if ( have_rows( 'content_builder_links' ) ) :
 							
 						<?php
 
-						// display heading & description if available
-						echo $url_heading ? '<h3 class="text-xl">' . $url_heading . '</h3>' : '';
-						echo $url_description ? '<p class="text-sm" id="urlDescription">' . $url_description . '</p>' : '';
+						// display heading & description if available.
+						echo $url_heading ?
+						'<h3 class="text-xl">' .
+						esc_html( $url_heading ) .
+						'</h3>' : '';
+						echo $url_description ?
+						'<p class="text-sm" id="urlDescription">' .
+						esc_html( $url_description ) . '</p>' : '';
 						?>
 
 							<a href="<?php echo esc_url( $show_url['url'] ); ?>" target="_blank" 
@@ -134,8 +149,8 @@ if ( have_rows( 'content_builder_links' ) ) :
 						</li>
 
 							<?php
-						endwhile; // url_meta
-					endif; // url_meta
+						endwhile; // url_meta.
+					endif; // url_meta.
 
 				elseif ( $show_phone ) :
 
@@ -145,17 +160,20 @@ if ( have_rows( 'content_builder_links' ) ) :
 							$phone_heading     = get_sub_field( 'phone_name_of_organization' );
 							$phone_description = get_sub_field( 'phone_description' );
 
-							// strip hyphens for the linked phone number
+							// strip hyphens for the linked phone number.
 							$phone = str_replace( '-', '', $show_phone );
 							?>
 						<li class="item state-phone">
 							
 
 							<?php
-							// display heading & description if available
-							echo $phone_heading ? '<h3 class="text-xl">' . $pdf_heading . '</h3>' : '';
+							// display heading & description if available.
+							echo $phone_heading ?
+							'<h3 class="text-xl">' .
+							esc_html( $pdf_heading ) . '</h3>' : '';
 							echo $phone_description ?
-							'<p class="text-sm" id="phoneDescription">' . $phone_description . '</p>' : '';
+							'<p class="text-sm" id="phoneDescription">' .
+							esc_html( $phone_description ) . '</p>' : '';
 							?>
 
 							<a href="tel:
@@ -174,8 +192,8 @@ if ( have_rows( 'content_builder_links' ) ) :
 						</li>
 						
 									<?php
-								endwhile; // phone_meta
-							endif; // phone_meta
+								endwhile; // phone_meta.
+							endif; // phone_meta.
 
 
 					elseif ( $show_pdf ) :
@@ -194,12 +212,18 @@ if ( have_rows( 'content_builder_links' ) ) :
 
 								<?php
 
-								// display heading & description if available
-								echo $pdf_heading ? '<h3 class="text-xl">' . $pdf_heading . '</h3>' : '';
-								echo $pdf_description ? '<p class="text-sm" id="pdfDescription">' . $pdf_description . '</p>' : '';
+								// display heading & description if available.
+								echo $pdf_heading ?
+								'<h3 class="text-xl">' .
+								esc_html( $pdf_heading ) . '</h3>' : '';
+								echo $pdf_description ?
+								'<p class="text-sm" id="pdfDescription">' .
+								esc_html( $pdf_description ) .
+								'</p>' : '';
 								?>
 				
-							<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" aria-labelledby="pdfDescription pdfLabel"
+							<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank"
+							aria-labelledby="pdfDescription pdfLabel"
 							class=""><span id="pdfLabel"
 							>
 											<?php
@@ -210,13 +234,11 @@ if ( have_rows( 'content_builder_links' ) ) :
 						</li>
 
 									<?php
-								endwhile; // pdf_meta
-							endif; // pdf_meta
-						else :
-							// show nothing
-						endif; // link types
+								endwhile; // pdf_meta.
+							endif; // pdf_meta.
+						endif; // link types.
 
-					endwhile; // content_builder_links
+					endwhile; // content_builder_links.
 		?>
 							</ul>
 						</div>
@@ -224,7 +246,7 @@ if ( have_rows( 'content_builder_links' ) ) :
 				</div> <!-- .partner-links-group -->
 			<?php
 
-		endif; // content_builder_links
+		endif; // content_builder_links.
 ?>
 			</section> <!-- .local-byway-partner-section -->
 
