@@ -196,7 +196,11 @@ switch ( $the_title ) {
 		 *
 		 * @update Aug252024
 		 */
-		require_once 'page-templates/partials/state-seo-content.php';
+		$show_partner_content_option = get_field( 'show_partner_content', 'option' );
+
+		if ( $show_partner_content_option ) :
+			require_once 'page-templates/partials/state-seo-content.php';
+		endif;
 
 			/*
 			===============================================================
