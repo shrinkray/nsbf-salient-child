@@ -13,18 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-// Feature: Overlook maps.
-$show_national_map = get_field( 'show_national_maps', 'option' );
-
-if ( $show_national_map ) :
-
-	require_once 'byway-overlook-map.php';
-endif;
-
 ?>
 
-<div class="grid grid-cols-1 mb-12 row md:grid-cols-2 lg:grid-cols-2">
+<section class="grid grid-cols-1 pt-8 pb-0 mb-12 row md:grid-cols-2 lg:grid-cols-2">
 
 	<div class="order-last section details md:order-none lg:order-none">
 		
@@ -327,4 +318,4 @@ endif;
 			<?php endif; ?>
 		</div>
 	</div> <!-- .section -->
-</div> <!-- .row // Details -->
+</section> <!-- .row // Details -->
