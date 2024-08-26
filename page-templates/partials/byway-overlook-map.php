@@ -11,31 +11,22 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 // vars.
-$national_overlook_map = the_field( 'national_map_url' );
+$overlook_map = get_field( 'national_map_url' );
+$proxy        = wp_remote_get( $overlook_map );
 
 // Currently not working due to Content Security Policy or method to block what I wanted to do.
-?>
-<div class="row">
 
-	<div style="width: 100%; height: 500px; position: relative;">
-		<iframe src="<?php echo esc_html( $national_overlook_map ); ?>"
-				title="<?php echo esc_html( $official_byway_name ) . ' Map'; ?>"
-				aria-label="Interactive map showing byway route and location."
-				width="100%"
-				height="100%"
-				frameborder="0"
-				allowfullscreen
-				tabindex="0"
-				loading="lazy"
-				style="border: none; position: absolute; top: 0; left: 0;">
-		<!-- Fallback content -->
-			<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/svg/scenic-byway.svg"
-			alt="Your browser does not support iframes"
-			style="width: 100%; height: 100%; object-fit: contain;">
-		</iframe>
-	</div>
+if ( $overlook_map ) :
+	?>
+<section class="pb-0 mb-12 row">
+	
+	<object type="text/html" data="<?php echo esc_url( $overlook_map ); ?>"
+	width="100%" height="500">
+		Fallback content in case the object is not supported.
+	</object>
 
-</div> <!-- .row // Overlook map -->
+</section> <!-- .row // Overlook map -->
 	<?php
-
+endif;
