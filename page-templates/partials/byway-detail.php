@@ -1,10 +1,10 @@
 <?php
 	/**
-	 * Byway detail template (national).
+	 * Byway detail template (national byways) required from single-national_byway.
 	 *
 	 * @template   Details Section
 	 * @date       Jul142021
-	 * @date       Aug7,2024
+	 * @update     Aug072024
 	 * @author     Greg Miller, gregmiller.io
 	 * @package    template
 	 */
@@ -20,14 +20,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<h2 class="text-3xl md:text-4xl h2 wayfinder">Details</h2>
 		<?php
 
+		// Feature: Overlook maps.
+		$show_national_map = get_field( 'show_national_maps', 'option' );
+
+		if ( $show_national_map ) :
+			require_once 'page-templates/partials/byway-overlook-maps.php';
+		endif;
+
+
+		// Feature: Location details.
 		$intrinsic_quality                  = get_field( 'nb_intrinsic_quality' );
 		$state_or_states_that_contain_byway = get_field( 'nb_state_or_states_that_contain_byway' );
 		$designation                        = get_field( 'nb_current_national_designation' );
 		$designation_year                   = get_field( 'nb_designation_year' );
 		$length_of_byway_miles              = get_field( 'nb_length_of_byway_miles' );
 
-			// split the phrase by any number of commas or space characters into an array().
-			// which include " ", \r, \t, \n and \f.
+		// split the phrase by any number of commas or space characters into an array().
+		// which include " ", \r, \t, \n and \f.
 
 			$keywords = preg_split( '/[\s,]+/', $intrinsic_quality );
 			$typelist = '';
@@ -56,7 +65,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					break;
 			}
 			// a word list is created along with a trailing comma and space 😞.
-
 
 			$typelist .= $quality . ', ';
 		}
