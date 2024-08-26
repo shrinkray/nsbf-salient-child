@@ -184,7 +184,7 @@ switch ( $the_title ) {
 
 		<h1 class="text-3xl text-center entry-title md:text-5xl mb-9 lg:mb-14">Byways in 
 		<?php
-		echo esc_html( $title );
+		echo esc_html( $the_title );
 		?>
 		</h1>
 		
