@@ -32,7 +32,7 @@ get_header();
 ?>
 		
 		
-		<div class="mb-0 row md:mb-4 lg:mb-14">
+		<div class="mb-0 row md:mb-2 ">
 		   
 			<h1 class="text-3xl md:text-5xl entry-title"><?php the_title(); ?></h1>
 			
@@ -61,19 +61,30 @@ get_header();
 		
 		<?php
 		// pull in templates to build page.
-				require_once 'page-templates/partials/byway-detail.php';
 
-				require_once 'page-templates/partials/byway-overview.php';
 
-				require_once 'page-templates/partials/byway-local-partners.php';
+		// Feature: Overlook maps.
+		$show_national_map = get_field( 'show_national_maps', 'option' );
 
-				require_once 'page-templates/partials/byway-story.php';
+		if ( $show_national_map ) :
+			require_once 'page-templates/partials/byway-overlook-map.php';
+		endif;
 
-				require_once 'page-templates/partials/byway-directions.php';
+		// Feature National content templates.
 
-				require_once 'page-templates/partials/byway-points.php';
+		require_once 'page-templates/partials/byway-detail.php';
 
-				require_once 'page-templates/partials/byway-itinerary.php';
+		require_once 'page-templates/partials/byway-overview.php';
+
+		require_once 'page-templates/partials/byway-local-partners.php';
+
+		require_once 'page-templates/partials/byway-story.php';
+
+		require_once 'page-templates/partials/byway-directions.php';
+
+		require_once 'page-templates/partials/byway-points.php';
+
+		require_once 'page-templates/partials/byway-itinerary.php';
 		?>
 		<div class="update-data">
 			<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" 
