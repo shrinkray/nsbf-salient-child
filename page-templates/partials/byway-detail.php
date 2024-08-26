@@ -12,21 +12,23 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+
+// Feature: Overlook maps.
+$show_national_map = get_field( 'show_national_maps', 'option' );
+
+if ( $show_national_map ) :
+
+	require_once 'byway-overlook-map.php';
+endif;
+
 ?>
 
 <div class="grid grid-cols-1 mb-12 row md:grid-cols-2 lg:grid-cols-2">
+
 	<div class="order-last section details md:order-none lg:order-none">
-		<div id="details" class="anchored"></div>
-		<h2 class="text-3xl md:text-4xl h2 wayfinder">Details</h2>
+		
 		<?php
-
-		// Feature: Overlook maps.
-		$show_national_map = get_field( 'show_national_maps', 'option' );
-
-		if ( $show_national_map ) :
-			require_once 'page-templates/partials/byway-overlook-maps.php';
-		endif;
-
 
 		// Feature: Location details.
 		$intrinsic_quality                  = get_field( 'nb_intrinsic_quality' );
@@ -64,13 +66,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$quality = 'Natural';
 					break;
 			}
-			// a word list is created along with a trailing comma and space 😞.
+			// a word list is created along with a trailing comma and space.
 
 			$typelist .= $quality . ', ';
 		}
 			// Remove space and last comma from the list and return the trimmed result.
 			$trimmed = rtrim( trim( $typelist ), ',' );
 		?>
+		<div id="details" class="anchored"></div>
+		<h2 class="text-3xl md:text-4xl h2 wayfinder">Details</h2>
 		<ul class="detail-list mt-7 mb-7">
 			<li><span class="label-minor-heading">Designation info</span>
 			<?php
