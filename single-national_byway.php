@@ -39,7 +39,7 @@ get_header();
 		<?php
 		// Navigation of page.
 		?>
-			<ul class="mt-3 mb-10 byway-sub-nav">
+			<ul class="pb-0 mt-3 mb-10 byway-sub-nav">
 				<li id="item-overview" class="hidden anchor-nav"><a href="#overview" 
 				class="" title="Trip
 				Overview">Overview</a></li>
