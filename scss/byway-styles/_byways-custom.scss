@@ -42,7 +42,8 @@
         max-width: 1425px;
         width: 100%;
         margin: 0 auto;
-        padding: 0; // was: 0px 90px;
+        padding-left: 0;
+        padding-right: 0;
     }
     #top > .container > .row {
         margin: 0;
@@ -50,7 +51,8 @@
 
     // Override theme based stylings for useful classes
     .row {
-        padding: 0;
+        padding-left: 0;
+        padding-right: 0;
         &.short {
             margin-bottom: 2rem;
         }
@@ -127,7 +129,8 @@
 .single-state_byway {
     & .boxed-subsection {
         border: 0;
-        padding: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 

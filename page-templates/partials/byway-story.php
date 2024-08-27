@@ -1,24 +1,27 @@
 <?php
 	/**
+	 * National byway story template.
+	 *
 	 * @template
 	 * @date Jul142021
 	 * @author Greg Miller, gregmiller.io
-	 * @testedwith
+	 * @package template
 	 */
-	// Exit if accessed directly
+
+	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
 	
-	<div class="row mb-12"> <!-- Story of the Byway + Driving Directions -->
+	<div class="mb-12 row"> <!-- Story of the Byway + Driving Directions -->
 		
 		<div class="section">
 			<div class="">
 				<div id="story" class="anchored"></div>
 				
 				<?php
-					// vars
+					// vars.
 					$byway_story  = get_field( 'nb_byway_story' );
 					$toggle_story = 'block';
 
@@ -27,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 
 				<h2 class="text-3xl md:text-4xl h2 story">Story of the Byway</h2>
 	  
-						<?php echo $byway_story; ?>
+						<?php echo acf_esc_html( $byway_story ); ?>
 
 						<script>
 							const itemStory = document.getElementById('item-story');
@@ -35,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							itemStory.classList.add('block');
 						</script>
 					<?php
-					endif; // end
+					endif; // end.
 				?>
 			</div><!-- .col // story of byway -->
    

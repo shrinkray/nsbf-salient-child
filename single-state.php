@@ -184,18 +184,32 @@ switch ( $the_title ) {
 
 		<h1 class="text-3xl text-center entry-title md:text-5xl mb-9 lg:mb-14">Byways in 
 		<?php
-		echo esc_html( $title );
+		echo esc_html( $the_title );
 		?>
 		</h1>
 		
 		<div class="mt-10 color-bar bg-gradient-to-r from-yellow-600 to-yellow-300"></div>
 		
 		<?php
+		/**
+		 * This is custom content to load SEO dense info.
+		 *
+		 * @update Aug252024
+		 */
+		$show_partner_content_option = get_field( 'show_partner_content', 'option' );
+
+		if ( $show_partner_content_option ) :
+			require_once 'page-templates/partials/state-seo-content.php';
+		endif;
+
 			/*
 			===============================================================
 				National Byway Args
 				This loops through names and permalinks
 			 */
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key.
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value.
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query.
 
 			$nb_args = array(
 				'numberposts' => -1,
