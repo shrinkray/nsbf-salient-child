@@ -32,7 +32,7 @@ get_header();
 ?>
 		
 		
-		<div class="mb-0 row md:mb-2 ">
+		<div class="pb-0 mb-0 row md:mb-2 ">
 		   
 			<h1 class="text-3xl md:text-5xl entry-title"><?php the_title(); ?></h1>
 			
@@ -67,7 +67,9 @@ get_header();
 		$show_national_map = get_field( 'show_national_maps', 'option' );
 
 		if ( $show_national_map ) :
+
 			require_once 'page-templates/partials/byway-iframe-map.php';
+
 		endif;
 
 		// Feature National content templates.
