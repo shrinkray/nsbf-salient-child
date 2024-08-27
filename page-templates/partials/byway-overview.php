@@ -1,12 +1,14 @@
 <?php
-
 	/**
+	 * Template for national byway overview area.
+	 *
 	 * @template
 	 * @date Jul142021
 	 * @author Greg Miller, gregmiller.io
-	 * @testedwith
+	 * @package template
 	 */
-	// Exit if accessed directly
+
+	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -16,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="section">
 			<div class="border-2 boxed-subsection md:border-4">
 				<?php
-					// vars
+					// vars.
 					$byway_synopsis = get_field( 'nb_byway_synopsis' );
 
 				?>
@@ -34,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							itemOverview.classList.add( 'block' );
 						</script>
 					<?php
-				endif; // end
+				endif; // end.
 				?>
 			</div> <!-- .boxed-subsection -->
 		</div>
