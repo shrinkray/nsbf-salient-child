@@ -1,6 +1,6 @@
 <?php
 /**
- * Building unique contextual content onto state pages.
+ * Building unique contextual content onto state pages (Partner content project).
  *
  * @template   single-state
  * @date       April302024
