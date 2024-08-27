@@ -67,7 +67,7 @@ get_header();
 		$show_national_map = get_field( 'show_national_maps', 'option' );
 
 		if ( $show_national_map ) :
-			require_once 'page-templates/partials/byway-overlook-map.php';
+			require_once 'page-templates/partials/byway-iframe-map.php';
 		endif;
 
 		// Feature National content templates.
