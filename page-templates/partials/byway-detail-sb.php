@@ -9,9 +9,9 @@
  * @package    Template
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) :
 	exit;
-}
+endif;
 ?>
 
 <div class="grid grid-cols-1 mb-6 row md:grid-cols-2 lg:grid-cols-2">
@@ -108,10 +108,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 	<div class="order-first mb-8 section image md:order-none lg:order-none">
 		<?php
+		$alt_text = get_sub_field( 'image_alt_text' );
+
+		// Evaluate if $alt_text contains a value, if not use message.
+		echo ( $alt_text ) ? esc_attr( $alt_text ) :
+		'Visit again for updated information';
+
 		$image = get_the_post_thumbnail(
 			$post_id,
 			'byway_large',
-			array( 'alt' => get_the_title() )
+			array( 'alt' => $alt_text )
 		);
 
 		// checks for post image if none, do not show empty box nor line.
