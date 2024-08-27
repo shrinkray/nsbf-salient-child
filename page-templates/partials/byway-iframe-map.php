@@ -29,15 +29,15 @@ if ( $overlook_map ) :
 	esc_url( get_stylesheet_directory_uri() ) . '/svg/scenic-byway.svg';
 	?>
 	"
-			title="<?php echo esc_html( $official_byway_name ) . ' Map'; ?>"
-			aria-label="Interactive map showing byway route and location."
-			width="100%"
-			height="100%"
-			frameborder="0"
-			allowfullscreen
-			tabindex="0"
-			loading="lazy"
-			style="border: none; position: absolute; top: 0; left: 0;">
+	title="<?php echo esc_html( $official_byway_name ) . ' Map'; ?>"
+	aria-label="Interactive map showing byway route and location."
+	width="100%"
+	height="100%"
+	frameborder="0"
+	allowfullscreen
+	tabindex="0"
+	loading="lazy"
+	style="border: none; position: absolute; top: 0; left: 0;">
 	<!-- Fallback content -->
 		
 		Your browser does not support iframes
