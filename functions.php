@@ -38,8 +38,9 @@ function salient_child_enqueue_styles() {
 	add_theme_support( 'post-thumbnails' );
 
 if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'byway_large', 800, 600 ); // Byway Large.
-	add_image_size( 'byway_small', 640, 480 ); // Byway Small.
+	add_image_size( 'byway_full', 1200, 800, true ); // Byway Full.
+	add_image_size( 'byway_large', 800, 600, true ); // Byway Large.
+	add_image_size( 'byway_small', 640, 480, true ); // Byway Small.
 }
 
 	/**
@@ -114,16 +115,16 @@ function child_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_scripts' );
 
-	/**
-	 * Custom function for more link.
-	 *
-	 * @param string $more The string contents.
-	 * @return string
-	 */
+/**
+ * Custom function for more link.
+ *
+ * @param string $more The string contents.
+ * @return string
+ */
 function new_excerpt_more( $more ): string {
 	global $post;
 	remove_filter( 'excerpt_more', 'new_excerpt_more' );
-	return ' <a class="read_more" href="' . get_permalink( $post->ID ) . '">Read More</a>';
+	return $more . ' <a class="read_more" href="' . get_permalink( $post->ID ) . '">Read More</a>';
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
 
