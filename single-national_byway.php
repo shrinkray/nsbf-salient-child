@@ -11,9 +11,9 @@
  // phpcs:disable WordPress.Files.FileName
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) :
 	exit;
-}
+endif;
 
 get_header();
 ?>
@@ -68,7 +68,7 @@ get_header();
 
 		if ( $show_national_map ) :
 
-			require_once 'page-templates/partials/byway-iframe-map.php';
+			require_once 'page-templates/partials/byway-map-national.php';
 
 		endif;
 
