@@ -264,7 +264,7 @@ endif;
 	</div> <!-- .section -->
 	<div class="order-first mb-8 section image md:order-none lg:order-none">
 		<?php
-		require_once 'sub-detail-image.php';
+		require_once 'current-detail-image.php';
 		?>
 	</div> <!-- .section -->
 </section> <!-- .row // Details -->
