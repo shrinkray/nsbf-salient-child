@@ -1,26 +1,13 @@
 <?php
-/**
- * Byway detail sub template pulled into byway-detail template.
- *
- * @template   Images Section
- * @date       Aug27,2024
- * @author     Greg Miller, gregmiller.io
- * @package    template
- */
-
-/**
- * Define custom image sizes.
- * Add to functions. Has not been tested.
- *
- * @return void
- */
-function custom_image_sizes() {
-	add_image_size( 'byway_large', 800, 600, true ); // Byway Large.
-	add_image_size( 'byway_small', 640, 480, true ); // Byway Small.
-}
-add_action( 'after_setup_theme', 'custom_image_sizes' );
-
-
+	/**
+	 * Byway detail sub template pulled into byway-detail-sb (state)template.
+	 * Differs using sb_iconic_images instead of nb_iconic_images.
+	 *
+	 * @template   Images Section
+	 * @date       Aug27,2024
+	 * @author     Greg Miller, gregmiller.io
+	 * @package    template
+	 */
 
 if ( ! defined( 'ABSPATH' ) ) :
 	exit;
@@ -85,10 +72,10 @@ if ( has_post_thumbnail() ) :
 	<div class="italic attribution">
 		<?php
 		// Check if there are iconic images and display the first attribution.
-		if ( have_rows( 'nb_iconic_images' ) ) :
+		if ( have_rows( 'sb_iconic_images' ) ) :
 			$first_credit = true;
 
-			while ( $first_credit && have_rows( 'nb_iconic_images' ) ) :
+			while ( $first_credit && have_rows( 'sb_iconic_images' ) ) :
 				the_row();
 
 				$attribution  = get_sub_field( 'image_attribution' );
