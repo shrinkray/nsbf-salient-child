@@ -38,18 +38,18 @@ function salient_child_enqueue_styles() {
 	add_theme_support( 'post-thumbnails' );
 
 if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'byway_full', 1200, 800, true ); // Byway Full.
+	add_image_size( 'byway_full', 1200, 800, true ); // Byway Full missing medium size.
 	add_image_size( 'byway_large', 800, 600, true ); // Byway Large.
 	add_image_size( 'byway_small', 640, 480, true ); // Byway Small.
 }
 
-	/**
-	 * Responsive Image Helper Function.
-	 *
-	 * @param string $image_id the id of the image (from ACF or similar).
-	 * @param string $image_size the size of the thumbnail image or custom image size.
-	 * @param string $max_width the max width this image will be shown to build the sizes attribute.
-	 */
+/**
+ * Responsive Image Helper Function.
+ *
+ * @param string $image_id the id of the image (from ACF or similar).
+ * @param string $image_size the size of the thumbnail image or custom image size.
+ * @param string $max_width the max width this image will be shown to build the sizes attribute.
+ */
 function awesome_acf_responsive_image( $image_id, $image_size, $max_width ) {
 
 	// check the image ID is not blank.
