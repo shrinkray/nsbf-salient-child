@@ -65,6 +65,7 @@ $alt_text = get_sub_field( 'image_alt_text' );
 			<span class="source"><?php echo esc_html( $attribution ); ?></span>
 					<?php if ( ! empty( $attribution ) ) : ?>
 			<span class="photo-credit"> Photo</span>
+						<?php echo esc_html( $show_alt_text ); ?>
 					<?php endif; ?>
 					<?php
 				endwhile;
