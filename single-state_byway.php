@@ -7,6 +7,7 @@
  *
  * @package Salient WordPress Theme
  *
+ * @date Aug17,2024
  * @version 10.5
  * @filename single-state_byway.php
  * @description This represents the details of one state byway.
@@ -14,9 +15,9 @@
 
  // phpcs:disable WordPress.Files.FileName
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) :
 	exit;
-}
+endif;
 
 get_header();
 ?>
@@ -26,6 +27,7 @@ get_header();
 	<div class="container main-content">
 
 <?php
+	// vars.
 	$state               = get_field( 'sb_state' );
 	$official_byway_name = get_field( 'sb_official_byway_name' );
 	$designating_agency  = get_field( 'nb_designating_agency' );
@@ -40,6 +42,19 @@ get_header();
 		
 		
 		<?php
+		// pull in templates to build page.
+
+
+		// Feature: Overlook maps.
+		$show_state_map = get_field( 'show_state_maps', 'option' );
+
+		if ( $show_state_map ) :
+
+			require_once 'page-templates/partials/byway-map-state.php';
+
+		endif;
+
+		// Feature State content templates.
 
 		require_once 'page-templates/partials/byway-detail-sb.php';
 

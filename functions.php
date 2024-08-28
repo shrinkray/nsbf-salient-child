@@ -38,17 +38,18 @@ function salient_child_enqueue_styles() {
 	add_theme_support( 'post-thumbnails' );
 
 if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'byway_large', 800, 600 ); // Byway Large.
-	add_image_size( 'byway_small', 640, 480 ); // Byway Small.
+	add_image_size( 'byway_full', 1200, 800, true ); // Byway Full missing medium size.
+	add_image_size( 'byway_large', 800, 600, true ); // Byway Large.
+	add_image_size( 'byway_small', 640, 480, true ); // Byway Small.
 }
 
-	/**
-	 * Responsive Image Helper Function.
-	 *
-	 * @param string $image_id the id of the image (from ACF or similar).
-	 * @param string $image_size the size of the thumbnail image or custom image size.
-	 * @param string $max_width the max width this image will be shown to build the sizes attribute.
-	 */
+/**
+ * Responsive Image Helper Function.
+ *
+ * @param string $image_id the id of the image (from ACF or similar).
+ * @param string $image_size the size of the thumbnail image or custom image size.
+ * @param string $max_width the max width this image will be shown to build the sizes attribute.
+ */
 function awesome_acf_responsive_image( $image_id, $image_size, $max_width ) {
 
 	// check the image ID is not blank.
@@ -67,6 +68,28 @@ function awesome_acf_responsive_image( $image_id, $image_size, $max_width ) {
 
 	}
 }
+
+/**
+ * Checks if a webP version of an image exists.
+ *
+ * @param mixed $image_url path to the image.
+ *
+ * @return string
+ */
+function get_webp_image_url( $image_url ) {
+	$webp_url = preg_replace( '/\.( jpg|jpeg|png )$/i', '.webp', $image_url );
+
+	// Check if the WebP version exists on the server.
+	$upload_dir = wp_upload_dir();
+	$webp_path  = str_replace( $upload_dir['baseurl'], $upload_dir['basedir'], $webp_url );
+
+	if ( file_exists( $webp_path ) ) {
+		return $webp_url;
+	}
+
+	return false;
+}
+
 
 /**
  * Use theme version instead of filetime() function to set version number for cache busting.
@@ -114,16 +137,16 @@ function child_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_scripts' );
 
-	/**
-	 * Custom function for more link.
-	 *
-	 * @param string $more The string contents.
-	 * @return string
-	 */
+/**
+ * Custom function for more link.
+ *
+ * @param string $more The string contents.
+ * @return string
+ */
 function new_excerpt_more( $more ): string {
 	global $post;
 	remove_filter( 'excerpt_more', 'new_excerpt_more' );
-	return ' <a class="read_more" href="' . get_permalink( $post->ID ) . '">Read More</a>';
+	return $more . ' <a class="read_more" href="' . get_permalink( $post->ID ) . '">Read More</a>';
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
 
