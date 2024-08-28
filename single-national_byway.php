@@ -23,14 +23,11 @@ get_header();
 
 <?php
 	// Unused Template Detail Byway Variables.
-	$state = get_field( 'nb_state' );
-
+	$state               = get_field( 'nb_state' );
 	$official_byway_name = get_field( 'nb_official_byway_name' );
 	$designating_agency  = get_field( 'nb_designating_agency' );
 
-
 ?>
-		
 		
 		<div class="pb-0 mb-0 row md:mb-2 ">
 		   
@@ -54,8 +51,8 @@ get_header();
 				Interest">Points of Interest</a></li>
 				<li id="item-itinerary" class="hidden anchor-nav" title="Itinerary" ><a
 							href="#itinerary" >Itinerary</a></li>
-
 			</ul>
+			
 		</div> <!-- .row // H1 & Anchor Nav -->
 		
 		
