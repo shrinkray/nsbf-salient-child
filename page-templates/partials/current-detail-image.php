@@ -16,13 +16,13 @@ endif;
 $alt_text = get_sub_field( 'image_alt_text' );
 
 		// Evaluate if $alt_text contains a value, if not use message.
-		echo ( $alt_text ) ? esc_attr( $alt_text ) :
+		$show_alt_text = ( $alt_text ) ? esc_attr( $alt_text ) :
 		'Visit again for updated information';
 
 		$image = get_the_post_thumbnail(
 			$post_id,
 			'byway_large',
-			array( 'alt' => $alt_text )
+			array( 'alt' => $show_alt_text )
 		);
 
 		// checks for post image if none, do not show empty box nor line.
