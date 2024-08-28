@@ -70,6 +70,28 @@ function awesome_acf_responsive_image( $image_id, $image_size, $max_width ) {
 }
 
 /**
+ * Checks if a webP version of an image exists.
+ *
+ * @param mixed $image_url path to the image.
+ *
+ * @return string
+ */
+function get_webp_image_url( $image_url ) {
+	$webp_url = preg_replace( '/\.( jpg|jpeg|png )$/i', '.webp', $image_url );
+
+	// Check if the WebP version exists on the server.
+	$upload_dir = wp_upload_dir();
+	$webp_path  = str_replace( $upload_dir['baseurl'], $upload_dir['basedir'], $webp_url );
+
+	if ( file_exists( $webp_path ) ) {
+		return $webp_url;
+	}
+
+	return false;
+}
+
+
+/**
  * Use theme version instead of filetime() function to set version number for cache busting.
  *
  * @return void
