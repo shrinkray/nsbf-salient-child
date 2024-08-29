@@ -7,25 +7,32 @@
     --dimgray: #4b4145;
     --outerspace: #444444;
 }
+
 // Color Specs
 .text-forestgreen {
     color: var(--forestgreen);
 }
+
 .text-mangotango {
     color: var(--mangotango);
 }
+
 .text-goldenrod {
     color: var(--goldenrod);
 }
+
 .text-steelblue {
     color: var(--steelblue);
 }
+
 .text-dimgray {
     color: var(--dimgray);
 }
+
 .text-outerspace {
     color: var(--outerspace);
 }
+
 // Color Vars
 $forestgreen: #00883a;
 $mangotango: #c15700;
@@ -39,9 +46,11 @@ $outerspace: #444444;
     font-size: 2.9rem;
     line-height: 1.1;
 }
+
 .text-3xl {
     line-height: 1.95rem;
 }
+
 a {
     transition: color 0.2s;
     transition: background-color 0.2s;
@@ -51,6 +60,7 @@ a {
         color: $mangotango;
     }
 }
+
 p {
     padding-bottom: 1rem;
 }
@@ -66,6 +76,7 @@ ul {
         }
     }
 }
+
 .section {
     p {
         padding: 0 0 0.5rem;
