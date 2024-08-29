@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) :
 endif;
 ?>
 
-<div class="grid grid-cols-1 mb-6 row md:grid-cols-2 lg:grid-cols-2">
+<section class="grid grid-cols-1 mb-6 grid-auto-cols-max row md:grid-cols-2 lg:grid-cols-2">
 	<div class="order-last section details md:order-none lg:order-none ">
 	   
 		<div id="details" class="anchored"></div>
@@ -87,7 +87,7 @@ endif;
 				?>
 				" title="Need help? Call our offices.">
 				<?php echo esc_attr( $dedicated_byway_organization_phone ); ?></a>
-	<?php endif; // phone. ?>
+				<?php endif; // phone. ?>
 			</div> <!-- .detail-properties -->
 		</div> <!-- .detail-subsection -->
 			<?php
@@ -108,7 +108,134 @@ endif;
 	
 	<div class="order-first mb-8 section image md:order-none lg:order-none">
 		<?php
-		require_once 'current-detail-image-sb.php';
+		// Debugging: Evaluate image.
+		$my_post_id = isset( $post->ID ) ? $post->ID : get_the_ID();
+
+		if ( ! $my_post_id ) :
+			echo 'Error: Unable to get post ID';
+		else :
+			$image = get_the_post_thumbnail(
+				$my_post_id,
+				'byway_large',
+				array(
+					'class'   => 'feature',
+					'loading' => 'lazy',
+				)
+			);
+
+			if ( empty( $image ) ) :
+				// Debugging: Check if the post has a thumbnail set.
+				if ( has_post_thumbnail( $my_post_id ) ) :
+					echo 'Post has a thumbnail, but get_the_post_thumbnail() returned empty.<br>';
+				else :
+					echo 'Post does not have a thumbnail set.<br>';
+				endif;
+
+				// Debugging: Check if 'byway_large' image size exists.
+				global $_wp_additional_image_sizes;
+				if ( ! isset( $_wp_additional_image_sizes['byway_large'] ) ) :
+					echo '\'byway_large\' image size is not defined.<br>';
+				endif;
+
+				// Check if 'byway_large' image size exists.
+				$image_sizes = wp_get_additional_image_sizes();
+				if ( isset( $image_sizes['byway_large'] ) ) :
+					echo esc_html(
+						"'byway_large' image size is defined.
+					Width: {$image_sizes['byway_large']['width']},
+					Height: {$image_sizes['byway_large']['height']}<br>"
+					);
+				else :
+					echo "'byway_large' image size is not defined.<br>";
+				endif;
+
+				// Fallback: Try to get the first image from the post content.
+				$post_content = get_post_field( 'post_content', $my_post_id );
+				$first_img    = '';
+				if ( preg_match(
+					'/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',
+					$post_content,
+					$matches
+				) ) :
+					$first_img = $matches[1];
+				endif;
+
+				if ( ! empty( $first_img ) ) :
+					echo '<img src="' . esc_url( $first_img ) .
+					'" alt="First image from post content" class="fallback-image">';
+				else :
+					echo 'No image found in post content.<br>';
+					// If no image in content, display a placeholder.
+					echo '<img src="' .
+					esc_url(
+						get_template_directory_uri() .
+						'/assets/images/placeholder.jpg'
+					)
+					. '" alt="Placeholder image" class="placeholder-image">';
+				endif;
+			endif;
+		endif;
+
 		?>
+			<?php
+			// Find the State image in the array.
+			if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
+				$first_credit = true;
+
+					// Combo conditional to get just the first record.
+				while ( $first_credit && have_rows( 'sb_iconic_images' ) ) :
+					the_row();
+
+					// Evaluate if $alt_text contains a value, if not use the default message.
+					$alt_text      = get_sub_field( 'image_alt_text' );
+					$show_alt_text = ( $alt_text ) ? esc_attr( $alt_text ) :
+						'Visit again for updated information';
+					$attribution   = get_sub_field( 'image_attribution' );
+					// Set  false to stop from getting the next record.
+					$first_credit = false;
+
+					// Add or replace the alt attribute in the image HTML.
+					$image_with_alt = preg_replace(
+						'/alt="[^"]*"/',
+						'alt="' . $show_alt_text . '"',
+						$image
+					);
+
+					// If no alt attribute is present, add it.
+					if ( strpos( $image_with_alt, 'alt="' ) === false ) :
+						$image_with_alt = str_replace(
+							'<img',
+							'<img alt="' . $show_alt_text . '"',
+							$image_with_alt
+						);
+					endif;
+
+					?>
+						<div class="image-container">
+									<?php
+
+									echo wp_kses_post( $image_with_alt );
+									?>
+						</div>
+						<div class="italic text-right attribution">
+							<span class="source">
+								<?php
+								if ( ! empty( $attribution ) ) :
+									echo esc_html( $attribution );
+									?>
+							</span>
+								
+							<span class="photo-credit"> Photo</span>
+									<?php
+					else :
+						?>
+						<span class="source">
+						unattributed
+						</span>
+						<?php
+					endif;
+				endwhile;
+			endif;
+			?>
 	</div> <!-- .section -->
-</div> <!-- .row // Details -->
+</section> <!-- .row // Details -->
