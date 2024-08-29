@@ -17,7 +17,7 @@ $overlook_map = get_field( 'state_byway_map' );
 
 if ( $overlook_map ) :
 	?>
-	<section class="pb-0 mb-12 row">
+	<section class="pb-0 mb-20 row">
 		
 		<div style="width: 100%; height: 500px; position: relative;">
 			<iframe src="<?php echo esc_url( $overlook_map ); ?>"

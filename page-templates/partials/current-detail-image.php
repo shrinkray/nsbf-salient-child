@@ -15,6 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) :
 endif;
 $alt_text = get_sub_field( 'image_alt_text' );
 
+echo ( $alt_text ) ? esc_html( $alt_text ) : 'No text available';
+
+
 		// Evaluate if $alt_text contains a value, if not use message.
 		$show_alt_text = ( $alt_text ) ? esc_attr( $alt_text ) :
 		'Visit again for updated information';
@@ -24,19 +27,24 @@ $alt_text = get_sub_field( 'image_alt_text' );
 			'byway_large',
 			array( 'alt' => $show_alt_text )
 		);
+		?>
+		<img src="<?php echo esc_url( $image['url'] ); ?>" alt="
+			<?php echo esc_attr( $image['alt'] ); ?>" />
+		
+			<?php
+			// checks for post image if none, do not show empty box nor line.
 
-		// checks for post image if none, do not show empty box nor line.
-		if ( has_post_thumbnail() ) :
-			?>
+			if ( has_post_thumbnail() ) :
+				?>
 
 		<div class="detail-image">
-			<?php
+				<?php
 
-			echo wp_kses_post( $image );
+				echo acf_esc_html( $image );
 
-			?>
+				?>
 		</div>
-			<?php
+				<?php
 			else :
 				?>
 
@@ -65,7 +73,7 @@ $alt_text = get_sub_field( 'image_alt_text' );
 			<span class="source"><?php echo esc_html( $attribution ); ?></span>
 					<?php if ( ! empty( $attribution ) ) : ?>
 			<span class="photo-credit"> Photo</span>
-						<?php echo esc_html( $show_alt_text ); ?>
+						
 					<?php endif; ?>
 					<?php
 				endwhile;

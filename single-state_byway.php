@@ -34,9 +34,9 @@ get_header();
 ?>
 		
 		
-		<div class="mb-0 row md:mb-4 lg:mb-14">
+		<div class="mb-0 row md:mb-4 lg:mb-8">
 		   
-			<h1 class="mb-10 text-3xl md:text-5xl entry-title"><?php the_title(); ?></h1>
+			<h1 class="mb-0 text-3xl md:text-5xl entry-title"><?php the_title(); ?></h1>
 			
 		</div> <!-- .row // H1 & Anchor Nav -->
 		

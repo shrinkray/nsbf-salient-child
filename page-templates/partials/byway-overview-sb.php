@@ -1,11 +1,13 @@
 <?php
-
 	/**
+	 * Byway overview.
+	 *
 	 * @template
 	 * @date Jul142021
 	 * @author Greg Miller, gregmiller.io
-	 * @testedwith
+	 * @package template
 	 */
+
 	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

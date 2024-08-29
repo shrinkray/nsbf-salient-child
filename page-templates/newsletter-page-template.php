@@ -1,6 +1,6 @@
 <?php
 /**
- * /*template name: Newsletter Page Template
+ * Template name: Newsletter Page Template
  *
  * @package Salient WordPress Theme
  * @version 10.5
@@ -20,7 +20,7 @@ $nectar_fp_options = nectar_get_full_page_options();
 <div class="container-wrap">
 	<div class="
 	<?php
-	if ( $nectar_fp_options['page_full_screen_rows'] !== 'on' ) {
+	if ( 'on' !== $nectar_fp_options['page_full_screen_rows'] ) {
 		echo 'container'; }
 	?>
 	main-content">
@@ -48,7 +48,7 @@ $nectar_fp_options = nectar_get_full_page_options();
 			echo '<div class="newsletter-container flex-container">';
 				echo '<div class="newsletter-inner flex-2-3-col margin-center-element">';
 
-			foreach ( $terms as $term ) {
+			foreach ( $terms as $the_term ) {
 
 				$args = array(
 					'post_type'      => 'nsbf_newsletters',
@@ -57,7 +57,7 @@ $nectar_fp_options = nectar_get_full_page_options();
 						array(
 							'taxonomy' => 'nsbf_news_year',
 							'field'    => 'slug',
-							'terms'    => $term->slug,
+							'terms'    => $the_term->slug,
 						),
 					),
 				);
@@ -66,59 +66,71 @@ $nectar_fp_options = nectar_get_full_page_options();
 
 				if ( $custom_post_type->have_posts() ) :
 
-					echo '<div id="nsbf-newsletter-' . $term->name . '" class="newsletter-header nsbf-news-' . $term->name . '">' .
+					echo esc_html(
+						'<div id="nsbf-newsletter-' .
+						$the_term->name . '" class="newsletter-header nsbf-news-' .
+						$the_term->name . '">' .
 						'<h4>' . $term->name . '</h4>' .
-					'</div>';
+						'</div>'
+					);
 
-					echo '<div class="nsbf-newsletter nsbf-newsletter-' . $term->name . '">';
+					echo esc_html(
+						'<div class="nsbf-newsletter nsbf-newsletter-' . $term->name . '">'
+					);
 
 					while ( $custom_post_type->have_posts() ) :
 						$custom_post_type->the_post();
 
-							$title              = get_the_title();
+							$the_title          = get_the_title();
 							$newsletter_link    = get_field( 'newsletter_link' );
 							$newsletter_pdf     = get_field( 'newsletter_pdf_link' );
 							$newsletter_stories = get_field( 'in_this_newsletter' );
 
 						if ( $newsletter_link || $newsletter_pdf ) {
 
-							echo '<div class="newsletter-item flex-container flex-wrap flex-v-center flex-space-between">' .
-							'<div class="newsletter-title"><h5>' . $title . '</h5></div>' .
-							'<div class="newsletter-link flex-container">' .
+							echo esc_html(
+								'<div class="flex-wrap newsletter-item' .
+								'flex-container flex-v-center flex-space-between">' .
+								'<div class="newsletter-title"><h5>' . $the_title . '</h5></div>' .
+								'<div class="newsletter-link flex-container">' .
 
 								( ( $newsletter_link ) ?
 								'<div class="newsletter-html general-button blue-button">' .
-									'<a href="' . $newsletter_link . '" target="_blank">Newsletter HTML</a>' .
+									'<a href="' . $newsletter_link . '
+									" target="_blank">Newsletter HTML</a>' .
 								'</div>'
 								: '' ) .
 
 								( ( $newsletter_pdf ) ?
 								'<div class="newsletter-pdf general-button green-button">' .
-									'<a href="' . $newsletter_pdf . '" target="_blank">Newsletter PDF</a>' .
+									'<a href="' . $newsletter_pdf . '
+									" target="_blank">Newsletter PDF</a>' .
 								'</div>'
 								: '' ) .
 
-							'</div>' .
+								'</div>' .
 
-							( ( $newsletter_stories ) ?
+								( ( $newsletter_stories ) ?
 								'<div class="in-the-news">' .
 									'<div><h5>In this Newsletter: </h5></div>' .
-									'<div class="newsletter-stories">' . $newsletter_stories . '</div>' .
+									'<div class="newsletter-stories">' . $newsletter_stories .
+									'</div>' .
 								'</div>'
-							: '' ) .
-							'</div>';
+								: '' ) .
+								'</div>'
+							);
 						}
 
 						endwhile;
 
-							echo '</div>'; // end newsletter class
+							echo '</div>'; // end newsletter class.
 
 							wp_reset_postdata();
 						endif;
 
-			} //end foreach
+			} //end foreach.
 
-				echo '</div>'; // end newsletter inner
+				echo '</div>'; // end newsletter inner.
 
 				echo '<div class="newsletter-signup-sidebar flex-3-col">';
 					echo '<div class="newsletter-signup-inner">';
@@ -126,7 +138,7 @@ $nectar_fp_options = nectar_get_full_page_options();
 					echo '</div>';
 				echo '</div>';
 
-			echo '</div>'; // end newsletter container
+			echo '</div>'; // end newsletter container.
 
 			?>
 			

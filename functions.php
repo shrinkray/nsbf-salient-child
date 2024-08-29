@@ -38,11 +38,19 @@ function salient_child_enqueue_styles() {
 	add_theme_support( 'post-thumbnails' );
 
 if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'byway_full', 1200, 800, true ); // Byway Full missing medium size.
 	add_image_size( 'byway_large', 800, 600, true ); // Byway Large.
 	add_image_size( 'byway_small', 640, 480, true ); // Byway Small.
 }
-
+/**
+ * Add byway inage sizes.
+ *
+ * @return void
+ */
+function add_byway_image_sizes() {
+	add_image_size( 'byway_large', 800, 600, true );
+	add_image_size( 'byway_small', 400, 300, true );
+}
+add_action( 'after_setup_theme', 'add_byway_image_sizes' );
 /**
  * Responsive Image Helper Function.
  *
