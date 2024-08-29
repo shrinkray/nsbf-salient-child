@@ -1,10 +1,13 @@
 <?php
 	/**
+	 * Byway local partners.
+	 *
 	 * @template
 	 * @date Jul142021
 	 * @author Greg Miller, gregmiller.io
-	 * @testedwith
+	 * @package template
 	 */
+
 	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -30,18 +33,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 						while ( have_rows( 'sb_local_partner_organization' ) ) :
 							the_row();
 							// set vars.
-							$local_partner_organization   = get_field( 'sb_local_partner_organization' );
+							$local_partner_organization   =
+							get_field( 'sb_local_partner_organization' );
 							$partner_organization         = get_sub_field( 'sb_po_name' );
 							$partner_organization_phone   = get_sub_field( 'sb_po_phone' );
 							$partner_organization_website = get_sub_field( 'sb_po_website' );
 							?>
 									
 							<li class="item">
-								<div class="detail-organization"><?php echo esc_html( $partner_organization ); ?></div>
+								<div class="detail-organization">
+									<?php echo esc_html( $partner_organization ); ?></div>
 								
 								<?php
 								// If either of these exist, create the detail otherwise, skip.
-								if ( $partner_organization_website || $partner_organization_phone ) :
+								if ( $partner_organization_website ||
+								$partner_organization_phone ) :
 									?>
 								<div class="detail-properties">
 									<?php
@@ -65,8 +71,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 												echo esc_url( $partner_organization_phone );
 												?>
 												"
-												title="Need help? Call our offices."><?php echo esc_attr( $partner_organization_phone ); ?></a>
-										<?php endif; // opts out if no PO phone ?>
+												title="Need help? Call our offices.">
+												<?php
+												echo esc_attr( $partner_organization_phone );
+												?>
+												</a>
+										<?php endif; // opts out if no PO phone. ?>
 								
 								</div> <!-- .detail-properties -->
 									<?php
@@ -82,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<?php else : ?>
 					<div class="text-sm text-mangotango truncate ...">
-						<?php // echo 'No local contacts loaded'; ?>
+						<?php // No local contacts loaded. ?>
 					</div>
 						<?php
 					endif;
