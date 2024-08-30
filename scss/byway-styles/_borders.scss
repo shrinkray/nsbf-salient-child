@@ -1,41 +1,47 @@
-@use "variables" as *;
+@use 'variables' as *;
 
 // border-color Specs
 .border-forestgreen {
-  border-color: var(--forestgreen);
-  border-radius: 0.5rem;
+    border-color: var(--forestgreen);
+    border-radius: 0.5rem;
 }
+
 .border-mangotango {
-  border: 1px solid var(--mangotango);
-  border-radius: 0.5rem;
+    border: 1px solid var(--mangotango);
+    border-radius: 0.5rem;
 }
+
 .border-goldenrod {
-  border: 1px solid var(--goldenrod);
-  border-radius: 0.5rem;
+    border: 1px solid var(--goldenrod);
+    border-radius: 0.5rem;
 }
+
 .border-steelblue {
-  border: 1px solid var(--steelblue);
-  border-radius: 0.5rem;
+    border: 1px solid var(--steelblue);
+    border-radius: 0.5rem;
 }
+
 .border-dimgray {
-  border: 1px solid var(--dimgray);
-  border-radius: 0.5rem;
+    border: 1px solid var(--dimgray);
+    border-radius: 0.5rem;
 }
+
 .border-outerspace {
-  border: 1px solid var(--outerspace);
-  border-radius: 0.5rem;
+    border: 1px solid var(--outerspace);
+    border-radius: 0.5rem;
 }
 
 .spacer {
-  padding: 0.5rem;
+    padding: 0.5rem;
 }
+
 @media screen and (max-width: 765px) {
-  .border-forestgreen,
-  .border-mangotango,
-  .border-goldenrod,
-  .border-steelblue,
-  .border-dimgray,
-  .border-outerspace {
-    border: none;
-  }
+    .border-forestgreen,
+    .border-mangotango,
+    .border-goldenrod,
+    .border-steelblue,
+    .border-dimgray,
+    .border-outerspace {
+        border: none;
+    }
 }

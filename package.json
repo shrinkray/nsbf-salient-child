@@ -1,8 +1,8 @@
 {
     "name": "nsbf-salient-child",
     "version": "2.0.2",
-    "description": "",
-    "author": "",
+    "description": "child theme for Salient",
+    "author": "Greg Miller",
     "keywords": [],
     "license": "ISC",
     "main": "index.php",
@@ -15,7 +15,7 @@
         "hot": "mix watch --hot",
         "prod": "pnpm run production",
         "production": "cross-env NODE_ENV=production mix",
-        "prettify": "prettier --write '**/*.{css,scss,js}' '!dist/**'"
+        "format": "prettier --write '**/*.{css,scss,js}' '!dist/**'"
     },
     "devDependencies": {
         "@prettier/plugin-php": "0.21.0",

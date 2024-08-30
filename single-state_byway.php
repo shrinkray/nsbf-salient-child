@@ -2,57 +2,82 @@
 /**
  * Template Name: State Byway Detail
  *
+ * Note: This filename uses an underscore to match the custom post type name
+ * and follows WordPress template hierarchy conventions. Do not rename.
+ *
  * @package Salient WordPress Theme
+ *
+ * @date Aug17,2024
  * @version 10.5
  * @filename single-state_byway.php
  * @description This represents the details of one state byway.
  */
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
+ // phpcs:disable WordPress.Files.FileName
+
+if ( ! defined( 'ABSPATH' ) ) :
 	exit;
-}
+endif;
 
 get_header();
 ?>
  
 
- <main class="container-wrap">
+<main class="container-wrap">
 	<div class="container main-content">
 
 <?php
-    // Unused Template Detail Byway Variables
-    $state = get_field( 'sb_state' );
-   
-    $official_byway_name = get_field('sb_official_byway_name');
-   // $designating_agency = get_field('nb_designating_agency');
-            ?>
-        
+	// vars.
+	$state               = get_field( 'sb_state' );
+	$official_byway_name = get_field( 'sb_official_byway_name' );
+	$designating_agency  = get_field( 'nb_designating_agency' );
+?>
 		
-        <div class="row mb-0 md:mb-4 lg:mb-14">
-           
-            <h1 class="text-3xl md:text-5xl entry-title mb-10"><?php the_title(); ?></h1>
-            
-        </div> <!-- .row // H1 & Anchor Nav -->
+		
+		<div class="mb-0 row md:mb-4 lg:mb-8">
+		   
+			<h1 class="mb-0 text-3xl md:text-5xl entry-title"><?php the_title(); ?></h1>
+			
+		</div> <!-- .row // H1 & Anchor Nav -->
 		
 		
 		<?php
-		// this loads some duplicate content
-        include_once('page-templates/partials/byway-detail-sb.php');
-		// this loads but missing content
-		include_once('page-templates/partials/byway-overview-sb.php');
-          //  this loads, but missing content
-		include_once('page-templates/partials/byway-local-partners-sb.php');
-  
-		?>
-        <div class="update-data">
-            <p><a href="<?php echo site_url( '/update/', 'https' ); ?>" class="bell" title="Help our foundation maintain accurate information about
-<?php echo $official_byway_name; ?>."><i class="fa fa-bell"></i>&nbsp;Update</a> this byway information
-                today!</p>
-        </div>
-    </div><!--/container main-content-->
+		// pull in templates to build page.
 
- </main> <!-- .container-wrap -->
+
+		// Feature: Overlook maps.
+		$show_state_map = get_field( 'show_state_maps', 'option' );
+
+		if ( $show_state_map ) :
+
+			require_once 'page-templates/partials/byway-map-state.php';
+		else :
+			?>
+			<section class="pb-0 mb-12 row">
+				<!-- Map Options are disabled -->
+			</section>
+			<?php
+
+		endif;
+
+		// Feature State content templates.
+
+		require_once 'page-templates/partials/byway-detail-sb.php';
+
+		require_once 'page-templates/partials/byway-overview-sb.php';
+
+		require_once 'page-templates/partials/byway-local-partners-sb.php';
+
+		?>
+		<div class="update-data">
+			<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" 
+			title="Help our foundation maintain accurate information about
+			<?php echo esc_attr( $official_byway_name ); ?>."><i class="fa fa-bell">
+			</i>&nbsp;Update</a> this byway information today!</p>
+		</div>
+	</div><!--/container main-content-->
+
+</main> <!-- .container-wrap -->
 
 
 <?php

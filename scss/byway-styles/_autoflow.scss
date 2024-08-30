@@ -1,348 +1,415 @@
 /*  Tailwind fixes  */
 .grid-flow-col {
-  grid-auto-flow: column;
+    grid-auto-flow: column;
 }
 // would like to find an @mixin that  calculates this for me
 // need second one for media queries
 // Using '_' in classname to escape conflict with Tailwind CSS
 .grid_rows_1 {
-  grid-template-rows: repeat(1, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(1, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_2 {
-  grid-template-rows: repeat(2, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(2, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_3 {
-  grid-template-rows: repeat(3, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(3, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_4 {
-  grid-template-rows: repeat(4, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(4, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_5 {
-  grid-template-rows: repeat(5, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(5, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_6 {
-  grid-template-rows: repeat(6, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(6, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_7 {
-  grid-template-rows: repeat(7, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(7, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_8 {
-  grid-template-rows: repeat(8, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(8, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_9 {
-  grid-template-rows: repeat(9, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(9, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_10 {
-  grid-template-rows: repeat(10, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(10, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_11 {
-  grid-template-rows: repeat(11, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(11, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_12 {
-  grid-template-rows: repeat(12, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(12, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_13 {
-  grid-template-rows: repeat(13, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(13, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_14 {
-  grid-template-rows: repeat(14, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(14, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_15 {
-  grid-template-rows: repeat(15, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(15, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_16 {
-  grid-template-rows: repeat(16, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(16, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_17 {
-  grid-template-rows: repeat(17, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(17, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_18 {
-  grid-template-rows: repeat(18, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(18, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_19 {
-  grid-template-rows: repeat(19, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(19, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_20 {
-  grid-template-rows: repeat(20, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(20, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_21 {
-  grid-template-rows: repeat(21, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(21, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_22 {
-  grid-template-rows: repeat(22, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(22, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_23 {
-  grid-template-rows: repeat(23, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(23, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_24 {
-  grid-template-rows: repeat(24, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(24, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_25 {
-  grid-template-rows: repeat(25, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(25, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_26 {
-  grid-template-rows: repeat(26, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(26, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_27 {
-  grid-template-rows: repeat(27, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(27, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_28 {
-  grid-template-rows: repeat(28, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(28, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_29 {
-  grid-template-rows: repeat(29, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(29, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_30 {
-  grid-template-rows: repeat(30, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(30, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_31 {
-  grid-template-rows: repeat(31, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(31, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_32 {
-  grid-template-rows: repeat(32, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(32, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_33 {
-  grid-template-rows: repeat(33, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(33, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_34 {
-  grid-template-rows: repeat(34, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(34, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_35 {
-  grid-template-rows: repeat(35, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(35, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_36 {
-  grid-template-rows: repeat(36, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(36, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
+
 .grid_rows_37 {
-  grid-template-rows: repeat(37, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(37, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_38 {
-  grid-template-rows: repeat(38, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(38, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_39 {
-  grid-template-rows: repeat(39, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(39, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_40 {
-  grid-template-rows: repeat(40, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(40, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_41 {
-  grid-template-rows: repeat(41, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(41, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 .grid_rows_42 {
-  grid-template-rows: repeat(42, minmax(0, auto));
-  grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-rows: repeat(42, minmax(0, auto));
+    grid-template-columns: repeat(2, minmax(0, auto));
 }
 
 // because rowws are calculated for desktop, cols will not stack
 // there's no width prefix for this form
 @media screen and (max-width: 830px) {
-  .grid_rows_1 {
-    grid-template-rows: repeat(2, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_2 {
-    grid-template-rows: repeat(4, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_3 {
-    grid-template-rows: repeat(6, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_4 {
-    grid-template-rows: repeat(8, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_5 {
-    grid-template-rows: repeat(10, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_6 {
-    grid-template-rows: repeat(12, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_7 {
-    grid-template-rows: repeat(14, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_8 {
-    grid-template-rows: repeat(16, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_9 {
-    grid-template-rows: repeat(18, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_10 {
-    grid-template-rows: repeat(20, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_11 {
-    grid-template-rows: repeat(22, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_12 {
-    grid-template-rows: repeat(24, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_13 {
-    grid-template-rows: repeat(26, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_14 {
-    grid-template-rows: repeat(28, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_15 {
-    grid-template-rows: repeat(30, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_16 {
-    grid-template-rows: repeat(32, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_17 {
-    grid-template-rows: repeat(34, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_18 {
-    grid-template-rows: repeat(36, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_19 {
-    grid-template-rows: repeat(38, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_20 {
-    grid-template-rows: repeat(40, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_21 {
-    grid-template-rows: repeat(42, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_22 {
-    grid-template-rows: repeat(44, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_23 {
-    grid-template-rows: repeat(46, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_24 {
-    grid-template-rows: repeat(48, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_25 {
-    grid-template-rows: repeat(50, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_26 {
-    grid-template-rows: repeat(52, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_27 {
-    grid-template-rows: repeat(54, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_28 {
-    grid-template-rows: repeat(56, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_29 {
-    grid-template-rows: repeat(58, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_30 {
-    grid-template-rows: repeat(60, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_31 {
-    grid-template-rows: repeat(62, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_32 {
-    grid-template-rows: repeat(64, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_33 {
-    grid-template-rows: repeat(66, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_34 {
-    grid-template-rows: repeat(68, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_35 {
-    grid-template-rows: repeat(70, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_36 {
-    grid-template-rows: repeat(72, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_37 {
-    grid-template-rows: repeat(74, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_38 {
-    grid-template-rows: repeat(76, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_39 {
-    grid-template-rows: repeat(78, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_40 {
-    grid-template-rows: repeat(80, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_41 {
-    grid-template-rows: repeat(82, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
-  .grid_rows_42 {
-    grid-template-rows: repeat(84, minmax(0, auto));
-    grid-template-columns: repeat(1, minmax(0, auto));
-  }
+    .grid_rows_1 {
+        grid-template-rows: repeat(2, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_2 {
+        grid-template-rows: repeat(4, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_3 {
+        grid-template-rows: repeat(6, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_4 {
+        grid-template-rows: repeat(8, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_5 {
+        grid-template-rows: repeat(10, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_6 {
+        grid-template-rows: repeat(12, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_7 {
+        grid-template-rows: repeat(14, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_8 {
+        grid-template-rows: repeat(16, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_9 {
+        grid-template-rows: repeat(18, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_10 {
+        grid-template-rows: repeat(20, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_11 {
+        grid-template-rows: repeat(22, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_12 {
+        grid-template-rows: repeat(24, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_13 {
+        grid-template-rows: repeat(26, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_14 {
+        grid-template-rows: repeat(28, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_15 {
+        grid-template-rows: repeat(30, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_16 {
+        grid-template-rows: repeat(32, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_17 {
+        grid-template-rows: repeat(34, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_18 {
+        grid-template-rows: repeat(36, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_19 {
+        grid-template-rows: repeat(38, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_20 {
+        grid-template-rows: repeat(40, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_21 {
+        grid-template-rows: repeat(42, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_22 {
+        grid-template-rows: repeat(44, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_23 {
+        grid-template-rows: repeat(46, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_24 {
+        grid-template-rows: repeat(48, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_25 {
+        grid-template-rows: repeat(50, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_26 {
+        grid-template-rows: repeat(52, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_27 {
+        grid-template-rows: repeat(54, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_28 {
+        grid-template-rows: repeat(56, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_29 {
+        grid-template-rows: repeat(58, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_30 {
+        grid-template-rows: repeat(60, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_31 {
+        grid-template-rows: repeat(62, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_32 {
+        grid-template-rows: repeat(64, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_33 {
+        grid-template-rows: repeat(66, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_34 {
+        grid-template-rows: repeat(68, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_35 {
+        grid-template-rows: repeat(70, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_36 {
+        grid-template-rows: repeat(72, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_37 {
+        grid-template-rows: repeat(74, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_38 {
+        grid-template-rows: repeat(76, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_39 {
+        grid-template-rows: repeat(78, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_40 {
+        grid-template-rows: repeat(80, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_41 {
+        grid-template-rows: repeat(82, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
+
+    .grid_rows_42 {
+        grid-template-rows: repeat(84, minmax(0, auto));
+        grid-template-columns: repeat(1, minmax(0, auto));
+    }
 }

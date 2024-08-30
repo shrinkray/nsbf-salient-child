@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.3] - 2024-05-08
+### Added
+- Prettier formatting
+- Bug fixes
+- Update dependencies
+- Add support for PHPCBF
+- Theme updates for state_byway template
+
 ## [1.2.2] - 2024-04-15
 ### Added
 - Content updates

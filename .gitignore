@@ -10,6 +10,11 @@
 # Computed file
 /css/byways-custom.css
 /css/main.css
+
+# Unused files
+dist/child-responsive-styles.css
+dist/child-styles.css
+
 # IDE
 .idea
 .history

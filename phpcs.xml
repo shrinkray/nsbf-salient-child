@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<ruleset name="Custom Coding Standards">
+    <!-- Describe what this ruleset is for -->
+    <description>The custom coding standards for our project.</description>
+
+    <config name="installed_paths" value="/Users/gregor/wp/projects/tools/.composer/vendor/wp-coding-standards/wpcs,/Users/gregor/wp/projects/tools/.composer/vendor/phpcsstandards/phpcsextra,/Users/gregor/wp/projects/tools/Wordpress-Coding-Standards/,/Users/gregor/wp/projects/tools/PHPCSUtils/,/Users/gregor/.composer/vendor/phpcsstandards/phpcsextra"/>
+    <config name="default_standard" value="WordPress"/>
+
+    <!-- Path to scan (relative or absolute) -->
+    <file>.</file>
+    <file>./page-templates/*</file>
+
+    <!-- Coding standards to use -->
+    <rule ref="WordPress"/>
+    
+    <!-- Exclude patterns -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/memberpress/*</exclude-pattern>
+    <exclude-pattern>*/js/*</exclude-pattern>
+    <exclude-pattern>*/scss/*</exclude-pattern>
+    <exclude-pattern>*/svg/*</exclude-pattern>
+    <exclude-pattern>*/.vscode/*</exclude-pattern>
+    <exclude-pattern>*/css/*</exclude-pattern>
+    <exclude-pattern>*/dist/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <!-- Specific sniffs to exclude -->
+    <rule ref="Generic.Files.LineLength">
+        <exclude name="Generic.Files.LineLength.TooLong"/>
+    </rule>
+
+    <!-- ACF escape function  -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customEscapingFunctions" type="array">
+                <element value="acf_esc_html"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Modify a specific rule -->
+    
+</ruleset>
