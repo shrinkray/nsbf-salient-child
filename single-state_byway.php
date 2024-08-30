@@ -54,7 +54,7 @@ get_header();
 		else :
 			?>
 			<section class="pb-0 mb-12 row">
-				<!-- No state map loaded -->
+				<!-- Map Options are disabled -->
 			</section>
 			<?php
 
