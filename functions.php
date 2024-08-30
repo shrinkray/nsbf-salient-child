@@ -251,3 +251,23 @@ function board_member_post_data( $data, $atts ) {
 
 	return $result;
 }
+/**
+ * Register sidebars.
+ *
+ * @return void
+ */
+function register_newsletter_signup_sidebar() {
+
+	register_sidebar(
+		array(
+			'name'          => 'Newsletter Signup',
+			'id'            => 'newsletter-signup',
+			'description'   => 'Add widgets here to appear in the newsletter signup sidebar.',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'register_newsletter_signup_sidebar' );
