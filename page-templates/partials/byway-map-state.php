@@ -37,10 +37,12 @@ if ( $overlook_map ) :
 			</iframe>
 		</div>
 
-	</section> <!-- .row // Overlook map -->
+	</section> <!-- .row // Overlook map --> 
 	<?php
 	else :
 		?>
-<!-- No state map is available -->
+	<section class="pb-0 mb-10 row">
+		<!-- No state map is available -->
+	</section>
 		<?php
 endif;

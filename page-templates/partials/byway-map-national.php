@@ -41,6 +41,8 @@ if ( $overlook_map ) :
 	<?php
 	else :
 		?>
-<!-- No national map is available -->
+	<section class="pb-0 mb-10 row">
+		<!-- No national map is available -->
+	</section>
 		<?php
 endif;
