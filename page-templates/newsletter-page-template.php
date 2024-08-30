@@ -66,16 +66,16 @@ $nectar_fp_options = nectar_get_full_page_options();
 
 				if ( $custom_post_type->have_posts() ) :
 
-					echo esc_html(
+					echo acf_esc_html(
 						'<div id="nsbf-newsletter-' .
 						$the_term->name . '" class="newsletter-header nsbf-news-' .
 						$the_term->name . '">' .
-						'<h4>' . $term->name . '</h4>' .
+						'<h4>' . $the_term->name . '</h4>' .
 						'</div>'
 					);
 
-					echo esc_html(
-						'<div class="nsbf-newsletter nsbf-newsletter-' . $term->name . '">'
+					echo acf_esc_html(
+						'<div class="nsbf-newsletter nsbf-newsletter-' . $the_term->name . '">'
 					);
 
 					while ( $custom_post_type->have_posts() ) :
@@ -88,7 +88,7 @@ $nectar_fp_options = nectar_get_full_page_options();
 
 						if ( $newsletter_link || $newsletter_pdf ) {
 
-							echo esc_html(
+							echo acf_esc_html(
 								'<div class="flex-wrap newsletter-item' .
 								'flex-container flex-v-center flex-space-between">' .
 								'<div class="newsletter-title"><h5>' . $the_title . '</h5></div>' .

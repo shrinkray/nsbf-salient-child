@@ -62,7 +62,7 @@ $nectar_fp_options = nectar_get_full_page_options();
 
 						$webinar_date = get_field( 'date' );
 
-						echo esc_html(
+						echo acf_esc_html(
 							'<div class="webinar-item flex-container flex-v-center">' .
 								'<div class="flex-3-4-col">' .
 									'<div class="webinar-title">
