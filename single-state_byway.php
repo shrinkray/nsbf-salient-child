@@ -51,6 +51,12 @@ get_header();
 		if ( $show_state_map ) :
 
 			require_once 'page-templates/partials/byway-map-state.php';
+		else :
+			?>
+			<section class="pb-0 mb-12 row">
+				<!-- No state map loaded -->
+			</section>
+			<?php
 
 		endif;
 
