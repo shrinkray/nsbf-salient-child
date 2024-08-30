@@ -6,7 +6,9 @@
  * @version 10.5
  */
 
-// Exit if accessed directly
+  // phpcs:disable WordPress.Files.FileName
+
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -14,23 +16,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 $nectar_options    = get_nectar_theme_options();
-$fullscreen_header = ( ! empty( $nectar_options['blog_header_type'] ) && 'fullscreen' === $nectar_options['blog_header_type'] && is_singular( 'post' ) ) ? true : false;
-$blog_header_type  = ( ! empty( $nectar_options['blog_header_type'] ) ) ? $nectar_options['blog_header_type'] : 'default';
-$theme_skin        = ( ! empty( $nectar_options['theme-skin'] ) ) ? $nectar_options['theme-skin'] : 'original';
-$header_format     = ( ! empty( $nectar_options['header_format'] ) ) ? $nectar_options['header_format'] : 'default';
+$fullscreen_header = ( ! empty( $nectar_options['blog_header_type'] )
+&& 'fullscreen' === $nectar_options['blog_header_type'] && is_singular( 'post' ) ) ? true : false;
+$blog_header_type  = ( ! empty( $nectar_options['blog_header_type'] ) )
+? $nectar_options['blog_header_type'] : 'default';
+$theme_skin        = ( ! empty( $nectar_options['theme-skin'] ) )
+? $nectar_options['theme-skin'] : 'original';
+$header_format     = ( ! empty( $nectar_options['header_format'] ) )
+? $nectar_options['header_format'] : 'default';
 if ( 'centered-menu-bottom-bar' === $header_format ) {
 	$theme_skin = 'material';
 }
 
-$hide_sidebar                      = ( ! empty( $nectar_options['blog_hide_sidebar'] ) ) ? $nectar_options['blog_hide_sidebar'] : '0';
+$hide_sidebar                      = ( ! empty( $nectar_options['blog_hide_sidebar'] ) ) ?
+										$nectar_options['blog_hide_sidebar'] : '0';
 $blog_type                         = $nectar_options['blog_type'];
-$blog_social_style                 = ( get_option( 'salient_social_button_style' ) ) ? get_option( 'salient_social_button_style' ) : 'fixed';
-$enable_ss                         = ( ! empty( $nectar_options['blog_enable_ss'] ) ) ? $nectar_options['blog_enable_ss'] : 'false';
-$remove_single_post_date           = ( ! empty( $nectar_options['blog_remove_single_date'] ) ) ? $nectar_options['blog_remove_single_date'] : '0';
-$remove_single_post_author         = ( ! empty( $nectar_options['blog_remove_single_author'] ) ) ? $nectar_options['blog_remove_single_author'] : '0';
-$remove_single_post_comment_number = ( ! empty( $nectar_options['blog_remove_single_comment_number'] ) ) ? $nectar_options['blog_remove_single_comment_number'] : '0';
-$remove_single_post_nectar_love    = ( ! empty( $nectar_options['blog_remove_single_nectar_love'] ) ) ? $nectar_options['blog_remove_single_nectar_love'] : '0';
-$container_wrap_class              = ( true === $fullscreen_header ) ? 'container-wrap fullscreen-blog-header' : 'container-wrap';
+$blog_social_style                 = ( get_option( 'salient_social_button_style' ) ) ?
+										get_option( 'salient_social_button_style' ) : 'fixed';
+$enable_ss                         = ( ! empty( $nectar_options['blog_enable_ss'] ) ) ?
+										$nectar_options['blog_enable_ss'] : 'false';
+$remove_single_post_date           = ( ! empty( $nectar_options['blog_remove_single_date'] ) ) ?
+										$nectar_options['blog_remove_single_date'] : '0';
+$remove_single_post_author         = ( ! empty( $nectar_options['blog_remove_single_author'] ) ) ?
+										$nectar_options['blog_remove_single_author'] : '0';
+$remove_single_post_comment_number = ( ! empty(
+	$nectar_options['blog_remove_single_comment_number']
+) ) ? $nectar_options['blog_remove_single_comment_number'] : '0';
+$remove_single_post_nectar_love    = ( ! empty( $nectar_options['blog_remove_single_nectar_love'] )
+										) ? $nectar_options['blog_remove_single_nectar_love'] : '0';
+$container_wrap_class              = ( true === $fullscreen_header ) ?
+										'container-wrap fullscreen-blog-header' : 'container-wrap';
 
 // Post header.
 if ( have_posts() ) :
@@ -52,10 +67,13 @@ if ( true === $fullscreen_header ) {
 <div class="
 <?php
 echo esc_attr( $container_wrap_class );
-if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) {
+if ( 'std-blog-fullwidth' === $blog_type || '1' === $hide_sidebar ) {
 	echo ' no-sidebar'; }
 ?>
-" data-midnight="dark" data-remove-post-date="<?php echo esc_attr( $remove_single_post_date ); ?>" data-remove-post-author="<?php echo esc_attr( $remove_single_post_author ); ?>" data-remove-post-comment-number="<?php echo esc_attr( $remove_single_post_comment_number ); ?>">
+" data-midnight="dark" data-remove-post-date="
+<?php echo esc_attr( $remove_single_post_date ); ?>" data-remove-post-author="
+<?php echo esc_attr( $remove_single_post_author ); ?>" data-remove-post-comment-number="
+<?php echo esc_attr( $remove_single_post_comment_number ); ?>">
 	<div class="container main-content">
 		
 		<?php
@@ -69,14 +87,16 @@ if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) {
 
 			nectar_hook_before_content();
 
-			$blog_standard_type = ( ! empty( $nectar_options['blog_standard_type'] ) ) ? $nectar_options['blog_standard_type'] : 'classic';
+			$blog_standard_type = ( ! empty( $nectar_options['blog_standard_type'] ) ) ?
+			$nectar_options['blog_standard_type'] : 'classic';
 			$blog_type          = $nectar_options['blog_type'];
 
 			if ( null === $blog_type ) {
 				$blog_type = 'std-blog-sidebar';
 			}
 
-			if ( 'minimal' === $blog_standard_type && 'std-blog-sidebar' === $blog_type || 'std-blog-fullwidth' === $blog_type ) {
+			if ( 'minimal' === ( $blog_standard_type && 'std-blog-sidebar' === $blog_type ) ||
+			'std-blog-fullwidth' === $blog_type ) {
 				$std_minimal_class = 'standard-minimal';
 			} else {
 				$std_minimal_class = '';
@@ -84,11 +104,14 @@ if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) {
 
 			if ( 'std-blog-fullwidth' === $blog_type || '1' === $hide_sidebar ) {
 				// No sidebar.
-				echo '<div class="post-area col ' . $std_minimal_class . ' span_12 col_last">'; // WPCS: XSS ok.
+				echo esc_html(
+					'<div class="post-area col ' . $std_minimal_class . ' span_12 col_last">'
+				); // WPCS: XSS ok.
 			} else {
 				// Sidebar.
-				// echo '<div class="post-area col ' . $std_minimal_class . ' span_9">'; // WPCS: XSS ok.
-				echo '<div class="post-area col ' . $std_minimal_class . '">'; // WPCS: XSS ok.
+				echo esc_html(
+					'<div class="post-area col ' . $std_minimal_class . '">'
+				); // WPCS: XSS ok.
 			}
 
 			// Main content loop.
@@ -128,25 +151,15 @@ if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) {
 
 				// Original/Material Theme Skin Author Bio.
 				if ( ! empty( $nectar_options['author_bio'] ) &&
-					$nectar_options['author_bio'] === '1' &&
-					'post' == get_post_type() ) {
+					'1' === $nectar_options['author_bio'] &&
+					'post' === get_post_type() ) {
 					get_template_part( 'includes/partials/single-post/author-bio' );
-
 				}
 			}
 
 			?>
 
-		</div><!--/post-area-->
-			
-			<?php // if ( 'std-blog-fullwidth' !== $blog_type && '1' !== $hide_sidebar ) { ?>
-				
-				<!-- <div id="sidebar" data-nectar-ss="<?php // echo esc_attr( $enable_ss ); ?>" class="col span_3 col_last">
-					<?php // get_sidebar(); ?>
-				</div> -->
-				<!--/sidebar-->
-				
-			<?php // } ?>
+		</div>
 				
 		</div><!--/row-->
 
@@ -162,7 +175,7 @@ if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) {
 			if ( ! empty( $nectar_options['author_bio'] ) &&
 					'1' === $nectar_options['author_bio'] &&
 					'ascend' === $theme_skin &&
-					'post' == get_post_type() ) {
+					'post' === get_post_type() ) {
 				get_template_part( 'includes/partials/single-post/author-bio-ascend-skin' );
 			}
 
@@ -170,7 +183,8 @@ if ( $blog_type === 'std-blog-fullwidth' || $hide_sidebar === '1' ) {
 
 			<div class="comments-section" data-author-bio="
 			<?php
-			if ( ! empty( $nectar_options['author_bio'] ) && $nectar_options['author_bio'] === '1' ) {
+			if ( ! empty( $nectar_options['author_bio'] ) &&
+				'1' === $nectar_options['author_bio'] ) {
 				echo 'true';
 			} else {
 				echo 'false'; }
