@@ -66,7 +66,12 @@ get_header();
 		if ( $show_national_map ) :
 
 			require_once 'page-templates/partials/byway-map-national.php';
-
+		else :
+			?>
+		<section class="pb-0 mb-12 row">
+			<!-- Map Options are disabled -->
+		</section>
+			<?php
 		endif;
 
 		// Feature National content templates.
