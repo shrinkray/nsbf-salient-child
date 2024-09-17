@@ -21,7 +21,7 @@ if ( $overlook_map ) :
 		
 		<div style="width: 100%; height: 500px; position: relative;">
 			<iframe src="<?php echo esc_url( $overlook_map ); ?>"
-			title="<?php echo esc_html( $official_byway_name ) . ' Map'; ?>"
+			title="<?php echo esc_attr( $official_byway_name ) . ' Map'; ?>"
 			aria-label="Interactive map showing byway route and location."
 			width="100%"
 			height="100%"
