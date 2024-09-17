@@ -25,7 +25,7 @@ get_header();
 	// Unused Template Detail Byway Variables.
 	$state               = get_field( 'nb_state' );
 	$official_byway_name = get_field( 'nb_official_byway_name' );
-	$designating_agency  = get_field( 'nb_designating_agency' );
+	// $designating_agency  = get_field( 'nb_designating_agency' );
 
 ?>
 		
