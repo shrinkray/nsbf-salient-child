@@ -30,7 +30,7 @@ get_header();
 	// vars.
 	$state               = get_field( 'sb_state' );
 	$official_byway_name = get_field( 'sb_official_byway_name' );
-	$designating_agency  = get_field( 'nb_designating_agency' );
+	// $designating_agency  = get_field( 'nb_designating_agency' );
 ?>
 		
 		
@@ -46,7 +46,7 @@ get_header();
 
 
 		// Feature: Overlook maps.
-		$show_state_map = get_field( 'show_state_maps', 'option' );
+		$show_state_map = esc_url( get_field( 'show_state_maps', 'option' ) );
 
 		if ( $show_state_map ) :
 
@@ -72,7 +72,7 @@ get_header();
 		<div class="update-data">
 			<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" 
 			title="Help our foundation maintain accurate information about
-			<?php echo esc_attr( $official_byway_name ); ?>."><i class="fa fa-bell">
+			<?php echo esc_html( $official_byway_name ); ?>."><i class="fa fa-bell">
 			</i>&nbsp;Update</a> this byway information today!</p>
 		</div>
 	</div><!--/container main-content-->
