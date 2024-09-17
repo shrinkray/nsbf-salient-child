@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	if ( ! empty( have_posts() ) ) :
 
 		// sets grid-rows up to 42 to enable alphabetical list down columns.
-			$found      = $sb_query->found_posts;
+			$found      = acf_esc_html( $sb_query->found_posts );
 			$half_found = ceil( $found / 2 );
 
 		?>
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<h2 class="flex-1 mt-10 mb-8 text-2xl md:text-3xl text-outerspace ">
 				Additional Byways</h2>
 						
-			<ul class="byway-collection grid grid_rows_<?php echo esc_html( $half_found ); ?> 
+			<ul class="byway-collection grid grid_rows_<?php echo $half_found; ?> 
 			&nbsp;grid-flow-col gap-x-4 mb-4">
 
 			<?php
@@ -39,8 +39,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			while ( $sb_query->have_posts() ) :
 
 				$sb_query->the_post();
-				$query_id  = get_the_title( $sb_query->ID );
-				$permalink = get_permalink( $sb_query->ID );
+				$query_id  = esc_html( get_the_title( $sb_query->ID ) );
+				$permalink = esc_url( get_permalink( $sb_query->ID ) );
 
 
 				// Optimized way to get a comma separated list of terms.
@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						
 						<li class="byway-item unlinked">
 						<?php
-						echo esc_html( $query_id );
+						echo $query_id;
 						?>
 						</li>
 						
@@ -66,14 +66,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 						?>
 
 						<li class="byway-item">
-							<a href="<?php echo esc_url( $permalink ); ?>">
-								<?php echo esc_html( $query_id ); ?>
+							<a href="<?php echo $permalink; ?>">
+								<?php echo $query_id; ?>
 							</a>
 						</li>
 						<?php
 					endif;
 
 				endwhile;
+
+				// Set this value here instead of on state byway list.
+			if ( 'Texas' === $the_title ) :
+				?>
+				<div class="unlinked">
+					<p>Currently there are no additional byways in
+						<?php
+				// escaped on single-state.php
+				echo $the_title;
+				?>.</p>
+				</div>
+				
+				<?php
+				// see state-byway-list.php for script triggering visibility of link (line 97).
+			endif;
 
 			?>
 			</ul>
@@ -83,20 +98,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		endif; // posts.
 
-	/**
-	 * Note: #update_form will not display unless we have unlinked byways
-	 * This is intended to enable visitors to volunteer info to keep the content current
-	 */
-	?>
 
-			<div id="update_form" class="hidden mt-0 mb-4 update-data">
-				<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ) . ' '; ?>" 
-				class="bell" title="Help our foundation maintain accurate information about
-			<?php echo esc_html( $official_byway_name ); ?>."><i class="fa fa-bell"></i>&nbsp;Update
-		</a> byway information
-					today!<br>
+/**
+ * Note: #update_form will not display unless we have unlinked byways
+ * This is intended to enable visitors to volunteer info to keep the content current
+ */
 
-			</div>
+// Define $official_byway_name or set a default value
+$official_byway_name = isset($official_byway_name) ? $official_byway_name : 'this byway';
+?>
+
+<div id="update_form" class="hidden mt-0 mb-4 update-data">
+    <p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ) . ' '; ?>" 
+    class="bell" title="Help our foundation maintain accurate information about
+    <?php echo esc_html( $official_byway_name ); ?>."><i class="fa fa-bell"></i>&nbsp;Update
+    </a> byway information
+        today!<br>
+</div>
 
 			<script>
 				// Show link to update items if displaying unlinked byways.

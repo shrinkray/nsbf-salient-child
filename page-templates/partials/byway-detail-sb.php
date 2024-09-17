@@ -107,135 +107,74 @@ endif;
 	
 	
 	<div class="order-first mb-8 section image md:order-none lg:order-none">
-		<?php
-		// Debugging: Evaluate image.
-		$my_post_id = isset( $post->ID ) ? $post->ID : get_the_ID();
+    <?php
+    $my_post_id = get_the_ID();
+    $image_html = '';
 
-		if ( ! $my_post_id ) :
-			echo 'Error: Unable to get post ID';
-		else :
-			$image = get_the_post_thumbnail(
-				$my_post_id,
-				'byway_large',
-				array(
-					'class'   => 'feature',
-					'loading' => 'lazy',
-				)
-			);
+    if ($my_post_id) :
+        $image = get_the_post_thumbnail(
+            $my_post_id,
+            'byway_large',
+            array(
+                'class'   => 'feature',
+                'loading' => 'lazy',
+            )
+        );
 
-			if ( empty( $image ) ) :
-				// Debugging: Check if the post has a thumbnail set.
-				if ( has_post_thumbnail( $my_post_id ) ) :
-					echo 'Post has a thumbnail, but get_the_post_thumbnail() returned empty.<br>';
-				else :
-					echo 'Post does not have a thumbnail set.<br>';
-				endif;
+        if (empty($image)) :
+            // Fallback: Try to get the first image from the post content
+            $post_content = get_post_field('post_content', $my_post_id);
+            $first_img = '';
+            if (preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $matches)) :
+                $first_img = $matches[1];
+            endif;
 
-				// Debugging: Check if 'byway_large' image size exists.
-				global $_wp_additional_image_sizes;
-				if ( ! isset( $_wp_additional_image_sizes['byway_large'] ) ) :
-					echo '\'byway_large\' image size is not defined.<br>';
-				endif;
+            if (!empty($first_img)) :
+                $image_html = '<img src="' . esc_url($first_img) . '" alt="First image from post content" class="fallback-image">';
+            else :
+                // If no image in content, display a placeholder
+                $image_html = '<img src="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/scenic-byway.jpg') . '" alt="Placeholder image" class="placeholder-image">';
+            endif;
+        else :
+            $image_html = $image;
+        endif;
 
-				// Check if 'byway_large' image size exists.
-				$image_sizes = wp_get_additional_image_sizes();
-				if ( isset( $image_sizes['byway_large'] ) ) :
-					echo esc_html(
-						"'byway_large' image size is defined.
-					Width: {$image_sizes['byway_large']['width']},
-					Height: {$image_sizes['byway_large']['height']}<br>"
-					);
-				else :
-					echo "'byway_large' image size is not defined.<br>";
-				endif;
+        if (!empty($image_html)) :
+            echo '<div class="image-container">';
+            echo wp_kses_post($image_html);
+            echo '</div>';
+        endif;
+    else :
+        echo 'Error: Unable to get post ID';
+    endif;
+    ?>
 
-				// Fallback: Try to get the first image from the post content.
-				$post_content = get_post_field( 'post_content', $my_post_id );
-				$first_img    = '';
-				if ( preg_match(
-					'/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',
-					$post_content,
-					$matches
-				) ) :
-					$first_img = $matches[1];
-				endif;
+    <?php
+    // Find the State image in the array.
+    if (!empty(have_rows('sb_iconic_images'))) :
+        $first_credit = true;
 
-				if ( ! empty( $first_img ) ) :
-					echo '<img src="' . esc_url( $first_img ) .
-					'" alt="First image from post content" class="fallback-image">';
-				else :
-					echo 'No image found in post content.<br>';
-					// If no image in content, display a placeholder.
-					echo '<img src="' .
-					esc_url(
-						get_template_directory_uri() .
-						'/assets/images/placeholder.jpg'
-					)
-					. '" alt="Placeholder image" class="placeholder-image">';
-				endif;
-			endif;
-		endif;
+        // Combo conditional to get just the first record.
+        while ($first_credit && have_rows('sb_iconic_images')) :
+            the_row();
 
-		?>
-			<?php
-			// Find the State image in the array.
-			if ( ! empty( have_rows( 'sb_iconic_images' ) ) ) :
-				$first_credit = true;
+            $alt_text = get_sub_field('image_alt_text');
+            $show_alt_text = ($alt_text) ? esc_attr($alt_text) : 'Visit again for updated information';
+            $attribution = get_sub_field('image_attribution');
+            $first_credit = false;
 
-					// Combo conditional to get just the first record.
-				while ( $first_credit && have_rows( 'sb_iconic_images' ) ) :
-					the_row();
-
-					// Evaluate if $alt_text contains a value, if not use the default message.
-					$alt_text      = get_sub_field( 'image_alt_text' );
-					$show_alt_text = ( $alt_text ) ? esc_attr( $alt_text ) :
-						'Visit again for updated information';
-					$attribution   = get_sub_field( 'image_attribution' );
-					// Set  false to stop from getting the next record.
-					$first_credit = false;
-
-					// Add or replace the alt attribute in the image HTML.
-					$image_with_alt = preg_replace(
-						'/alt="[^"]*"/',
-						'alt="' . $show_alt_text . '"',
-						$image
-					);
-
-					// If no alt attribute is present, add it.
-					if ( strpos( $image_with_alt, 'alt="' ) === false ) :
-						$image_with_alt = str_replace(
-							'<img',
-							'<img alt="' . $show_alt_text . '"',
-							$image_with_alt
-						);
-					endif;
-
-					?>
-						<div class="image-container">
-									<?php
-
-									echo wp_kses_post( $image_with_alt );
-									?>
-						</div>
-						<div class="italic text-right attribution">
-							<span class="source">
-								<?php
-								if ( ! empty( $attribution ) ) :
-									echo esc_html( $attribution );
-									?>
-							</span>
-								
-							<span class="photo-credit"> Photo</span>
-									<?php
-					else :
-						?>
-						<span class="source">
-						unattributed
-						</span>
-						<?php
-					endif;
-				endwhile;
-			endif;
-			?>
+            if (!empty($image_html)) :
+    ?>
+                <div class="italic text-right attribution">
+                    <span class="source">
+                        <?php echo !empty($attribution) ? esc_attr($attribution) : 'unattributed'; ?>
+                    </span>
+                    <span class="photo-credit"> Photo</span>
+                </div>
+    <?php
+            endif;
+        endwhile;
+    endif;
+    ?>
 	</div> <!-- .section -->
 </section> <!-- .row // Details -->

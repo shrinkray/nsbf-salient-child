@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	get_header();
 
-	$the_title = get_the_title();
-	$state     = get_field( 'nb_state' );
-	$the_link  = get_permalink();
+	$the_title = esc_html( get_the_title() );
+	$state     = acf_esc_html( get_field( 'nb_state' ) );
+	$the_link  = esc_url( get_permalink() );
 
 	/**
 	 * Switch structure enables setting variable then in the args below we call it.
@@ -183,8 +183,8 @@ switch ( $the_title ) {
 	<div class="container main-content">
 
 		<h1 class="text-3xl text-center entry-title md:text-5xl mb-9 lg:mb-14">Byways in 
-		<?php
-		echo esc_html( $the_title );
+		<?php // escaped above
+		echo $the_title;
 		?>
 		</h1>
 		

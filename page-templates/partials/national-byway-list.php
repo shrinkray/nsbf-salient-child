@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <h2 class="mt-12 mb-8 text-2xl md:text-3xl text-outerspace">America's Byways Collection</h2>
-<!--    <ul class="grid grid-cols-1 byway-collection">-->
+
 	<ul class="grid grid-cols-1 byway-collection gap-x-4">
 
 	<?php
@@ -52,23 +52,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 		else : // Instead of creating a list, show this gentle message.
 			?>
 			<li class="byway-item">
-				Currently there are no All-American Roads or National Scenic Byways in&nbsp;
-				<?php echo esc_html( $title ); ?>.
+				Currently there are no All-American Roads or National Scenic Byways in
+				<?php
+				// escaped on single-state.php
+				echo $the_title;
+				?>.
 			</li>
    
 			<?php
-			// Set this value here instead of on state byway list.
-			if ( 'Texas' === $title ) :
-				?>
-				<h2 class="mt-10 mb-8 text-2xl md:text-3xl text-outerspace">Additional Byways</h2>
-				<div class="unlinked">
-					<p>Currently there are no additional byways in&nbsp;
-						<?php echo esc_html( $title ); ?></p>
-				</div>
-				
-				<?php
-				// see state-byway-list.php for script triggering visibility of link (line 97).
-			endif;
+			
 		endif;
 		?>
 
