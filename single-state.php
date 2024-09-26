@@ -2,7 +2,7 @@
 /**
  * Template Name: Single State Page.
  *
- * @date Jul-12-2021
+ * @update Sept262024
  *
  * @package  templated
  */
@@ -178,6 +178,8 @@ switch ( $the_title ) {
 
 }
 ?>
+
+		
   
 <main class="container-wrap" style="padding-top:40px;">
 	<div class="container main-content">
@@ -189,8 +191,59 @@ switch ( $the_title ) {
 		</h1>
 		
 		<div class="mt-10 color-bar bg-gradient-to-r from-yellow-600 to-yellow-300"></div>
-		
+
 		<?php
+			/*
+			===============================================================
+				State Partner Args
+				Loops through the limited data about partners
+			*/
+
+			$sp_args = array(
+				'numberposts' => -1,
+				'post_type'   => 'state_partners',
+				'orderby'     => 'title',
+				'post_status' => 'any',
+				'meta_key'    => 'sp_state',
+				'meta_value'  => sanitize_text_field( $nb_meta_value ), // Sanitize meta value.
+			);
+
+			// State Partner Query.
+			$partners = new WP_Query( $sp_args );
+
+			// Loop querying posts for National Byways ($nb_query) to capture partner data.
+			if ( $partners->have_posts() ) :
+
+				while ( $partners->have_posts() ) :
+					$partners->the_post();
+
+							// Feature: Overlook maps.
+					$show_partner_map = esc_url( get_field( 'show_state_partner_maps', 'option' ) );
+
+					if ( $show_partner_map ) :
+
+						require_once 'page-templates/partials/byway-map-partner.php';
+					else :
+						?>
+						<section class="pb-0 mb-12 row">
+							<!-- Map Options are disabled -->
+						</section>
+						<?php
+
+					endif;
+					
+					// Prints website and phone number to the page.
+					include_once 'page-templates/partials/state-partners.php';
+
+				endwhile;
+
+			endif;
+
+			// Destroys the previous query and sets up a new query.
+			wp_reset_postdata();
+			?>
+		<?php
+
 		/**
 		 * This is custom content to load SEO dense info.
 		 *
@@ -279,41 +332,7 @@ switch ( $the_title ) {
 			?>
 	 
 	 
-		<?php
-			/*
-			===============================================================
-				State Partner Args
-				Loops through the limited data about partners
-			*/
 
-			$sp_args = array(
-				'numberposts' => -1,
-				'post_type'   => 'state_partners',
-				'orderby'     => 'title',
-				'post_status' => 'any',
-				'meta_key'    => 'sp_state',
-				'meta_value'  => sanitize_text_field( $nb_meta_value ), // Sanitize meta value.
-			);
-
-			// State Partner Query.
-			$partners = new WP_Query( $sp_args );
-
-			// Loop querying posts for National Byways ($nb_query) to capture partner data.
-			if ( $partners->have_posts() ) :
-
-				while ( $partners->have_posts() ) :
-					$partners->the_post();
-
-					// Prints website and phone number to the page.
-					include_once 'page-templates/partials/state-partners.php';
-
-				endwhile;
-
-			endif;
-
-			// Destroys the previous query and sets up a new query.
-			wp_reset_postdata();
-			?>
 		<div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>
 	<div class="mt-10 state-information">
 		<h3 class="mb-4 text-xl">Information</h3>
