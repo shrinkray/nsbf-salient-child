@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<li class="byway-item">
 					<a href="<?php echo esc_url( $permalink ); ?>" class="item-link">
 						<?php echo esc_html( $query_id ); ?></a>
-						<?php echo esc_html( $asterisk ); ?>
+						<?php // echo esc_html( $asterisk ); ?> 
 				</li>
 	
 			<?php
