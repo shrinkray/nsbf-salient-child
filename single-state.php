@@ -228,16 +228,7 @@ switch ( $the_title ) {
 		
 		<?php
 
-		/**
-		 * This is custom content to load SEO dense info.
-		 *
-		 * @update Aug252024
-		 */
-		$show_partner_content_option = get_field( 'show_partner_content', 'option' );
-
-		if ( $show_partner_content_option ) :
-			require_once 'page-templates/partials/state-seo-content.php';
-		endif;
+		
 
 			/*
 			===============================================================
@@ -363,27 +354,22 @@ switch ( $the_title ) {
 
 			// Destroys the previous query and sets up a new query.
 			wp_reset_postdata();
+
+			/**
+		 * This is custom content to load SEO dense info.
+		 *
+		 * @update Aug252024
+		 */
+		$show_partner_content_option = get_field( 'show_partner_content', 'option' );
+
+		if ( $show_partner_content_option ) :
+			require_once 'page-templates/partials/state-seo-content.php';
+		endif;
 			?>
 	 
 
 		<div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>
-	<div class="mt-10 state-information">
-		<h3 class="mb-4 text-xl">Information</h3>
-		<p>National Scenic Byways and All-American Roads are designated by the 
-			Federal Department of Transportation and
-			become part of the <em>America’s Byways</em>® collection. To become 
-			an official National Scenic Byways, qualifying
-			roads must have one of the following six “intrinsic qualities”: <strong>1.&nbsp;
-				Scenic, 2. Historic, 3. Archeological, 4. Recreational, 5. Cultural, or 6.&nbsp;
-				Natural</strong>. To become an All-American Road, two or more of these&nbsp;
-				unique intrinsic qualities must be present (along with a more comprehensive&nbsp;
-				“corridor management plan”). State-level byways are most frequently designated&nbsp;
-				by the State Department of Transportation (DOT), but can also be designated by&nbsp;
-				federal agencies (at the state level) such as the US Forest Service, NPS, BLM,&nbsp;
-				USACE, US Fish & Wildlife, as well as by tribal organizations.</p>
-		<p><sup>*</sup>Byways in the <em>America’s Byways</em> collection with an asterisk&nbsp;
-		are All-American Roads.</p>
-	</div>
+	
 		<?php
 			// this function restores the $post global to the current post in the main query.
 			wp_reset_postdata();
