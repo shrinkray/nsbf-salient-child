@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	$intro_text = get_field( 'intro_text_content_builder' );
 ?>
+	<div class="spacer-y-10"></div>
 	<div class="mx-auto max-w-7xl " >
 		
 			<?php
