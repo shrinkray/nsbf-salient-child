@@ -218,7 +218,7 @@ switch ( $the_title ) {
 
 		<div class="mt-4 text-right">
 			<a class="" href="<?php echo 'https://overlookmaps.com/states/' .
-			$hyphenated_name; ?>" target='_blank' >
+			$hyphenated_name . $nsbf_id; ?>" target='_blank' >
 			Embed this map on your site.
 			</a>
 	</div>
@@ -227,8 +227,6 @@ switch ( $the_title ) {
 
 		
 		<?php
-
-		
 
 			/*
 			===============================================================
@@ -365,12 +363,7 @@ switch ( $the_title ) {
 		if ( $show_partner_content_option ) :
 			require_once 'page-templates/partials/state-seo-content.php';
 		endif;
-			?>
-	 
-
-		<div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>
-	
-		<?php
+			
 			// this function restores the $post global to the current post in the main query.
 			wp_reset_postdata();
 
