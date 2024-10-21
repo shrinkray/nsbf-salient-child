@@ -329,19 +329,14 @@ switch ( $the_title ) {
 					$partners->the_post();
 
 							// Feature: Overlook maps.
-					$show_partner_map = esc_url( get_field( 'show_state_partner_maps', 'option' ) );
-
-					if ( $show_partner_map ) :
-
-						require_once 'page-templates/partials/byway-map-partner.php';
-					else :
+					
 						?>
 						<section class="pb-0 mb-12 row">
 							<!-- Map Options are disabled -->
 						</section>
 						<?php
 
-					endif;
+					
 					
 					// Prints website and phone number to the page.
 					include_once 'page-templates/partials/state-partners.php';
