@@ -327,16 +327,7 @@ switch ( $the_title ) {
 
 				while ( $partners->have_posts() ) :
 					$partners->the_post();
-
-							// Feature: Overlook maps.
-					
-						?>
-						<section class="pb-0 mb-12 row">
-							<!-- Map Options are disabled -->
-						</section>
-						<?php
-
-					
+						
 					
 					// Prints website and phone number to the page.
 					include_once 'page-templates/partials/state-partners.php';
@@ -348,21 +339,35 @@ switch ( $the_title ) {
 			// Destroys the previous query and sets up a new query.
 			wp_reset_postdata();
 
+			?>
+			<!-- Extra break -->
+			<div class="py-3"></div>
+
+			<section class="spacer-y-12">
+
+			<?php
 			/**
 		 * This is custom content to load SEO dense info.
 		 *
 		 * @update Aug252024
 		 */
-		$show_partner_content_option = get_field( 'show_partner_content', 'option' );
+		$show_seo_content_option = get_field( 'show_seo_content', 'option' );
 
-		if ( $show_partner_content_option ) :
-			require_once 'page-templates/partials/state-seo-content.php';
+		if ( $show_seo_content_option ) :
+			$seo_file = get_stylesheet_directory() . '/page-templates/partials/state-seo.php';
+			if (file_exists($seo_file)) {
+				require_once $seo_file;
+			} else {
+				error_log("SEO file not found: $seo_file");
+				echo "<!-- SEO file not found -->";
+			}
 		endif;
 			
 			// this function restores the $post global to the current post in the main query.
 			wp_reset_postdata();
 
 		?>
+		</section>
 	</div>
 </main>
 
