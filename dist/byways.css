@@ -1550,13 +1550,12 @@ video {
   order: 9999;
 }
 
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .mt-0 {
   margin-top: 0px;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mt-3 {
@@ -1799,6 +1798,11 @@ video {
   font-style: italic;
 }
 
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+
 *, ::before, ::after {
   --tw-shadow: 0 0 #0000;
 }
@@ -1860,8 +1864,8 @@ video {
     margin-bottom: 1rem;
   }
 
-  .md\:w-1\/2 {
-    width: 50%;
+  .md\:block {
+    display: block;
   }
 
   .md\:w-1\/3 {

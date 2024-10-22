@@ -26,6 +26,9 @@ if ( have_rows( 'add_state_page_content' ) ) :
         $image       = get_sub_field( 'add_row_image' );
         $size        = 'full';
         $enable_caption = get_sub_field( 'enable_caption' );
+        $disable_image_mobile = get_sub_field('disable_image'); 
+        $mobile_class = $disable_image_mobile ? 'hidden md:block' : '';
+        $image_removed = $disable_image_mobile ? 'w-full' : '';
 
 		if ( $add_heading !== 'none') {
 			$heading = get_sub_field('h' . $add_heading . '_heading');
@@ -41,7 +44,7 @@ if ( have_rows( 'add_state_page_content' ) ) :
 
     <div class="<?php echo $which_image !== 'none' ? 'flex flex-col md:flex-row gap-8' : ''; ?>">
         <?php if ( $which_image !== 'none' && $image ) : ?>
-    <div class="md:w-1/3 <?php echo $which_image === 'right' ? 'md:order-last' : ''; ?>">
+    <div class="<?php echo $mobile_class; ?> md:w-1/3 <?php echo $which_image === 'right' ? 'md:order-last' : ''; ?>">
         <?php
         $image_url = wp_get_attachment_image_url( $image, $size );
         $image_srcset = wp_get_attachment_image_srcset( $image, $size );
@@ -73,9 +76,9 @@ if ( have_rows( 'add_state_page_content' ) ) :
     </div>
 <?php endif; ?>
 
-        <div class="<?php echo $which_image !== 'none' ? 'md:w-2/3' : 'w-full'; ?>">
-            <?php echo wp_kses_post( $content ); ?>
-        </div>
+        <div class="<?php echo $which_image !== 'none' ? ($disable_image_mobile ? 'w-full md:w-2/3' : 'md:w-2/3') : 'w-full'; ?>">
+    <?php echo wp_kses_post( $content ); ?>
+</div>
     </div>
 
 
