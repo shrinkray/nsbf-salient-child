@@ -2,7 +2,7 @@
 /**
  * Template Name: Single State Page.
  *
- * @date Jul-12-2021
+ * @update Sept262024
  *
  * @package  templated
  */
@@ -13,9 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	get_header();
 
-	$the_title = esc_html( get_the_title() );
-	$state     = acf_esc_html( get_field( 'nb_state' ) );
-	$the_link  = esc_url( get_permalink() );
+	$the_title 		 = esc_html( get_the_title() );
+	$state     		 = acf_esc_html( get_field( 'nb_state' ) );
+	$the_link  		 = esc_url( get_permalink() );
+	$hyphenated_name = str_replace( ' ', '-', strtolower( $the_title ));
+	$nsbf_id         = '?ref=nsbs';
 
 	/**
 	 * Switch structure enables setting variable then in the args below we call it.
@@ -175,9 +177,10 @@ switch ( $the_title ) {
 	case 'Wyoming':
 		$nb_meta_value = 'WY';
 		break;
-
 }
 ?>
+
+		
   
 <main class="container-wrap" style="padding-top:40px;">
 	<div class="container main-content">
@@ -188,19 +191,42 @@ switch ( $the_title ) {
 		?>
 		</h1>
 		
-		<div class="mt-10 color-bar bg-gradient-to-r from-yellow-600 to-yellow-300"></div>
+		<!-- Set State map -->
+		<section class="pb-0 mb-12 row">
+		
+		<div style="width: 100%; height: 500px; position: relative;">
+
+			<iframe src="<?php echo 'https://overlookmaps.com/states/' .
+			esc_attr( $hyphenated_name ) .
+			'/map' .
+			esc_attr( $nsbf_id ); ?>"
+			title="<?php echo 'The great state of ' . $the_title . ' map from Overlook'; ?>"
+			aria-label="Interactive map showing <?= $the_title ?> state's byway routes and locations."
+			width="100%"
+			height="100%"
+			frameborder="0"
+			allowfullscreen
+			tabindex="0"
+			loading="eager"
+			style="border: none; position: absolute; top: 0; left: 0;">
+			<!-- Fallback content -->
+				
+				Your browser does not support iframes
+				
+			</iframe>
+		</div>
+
+		<div class="mt-4 text-right">
+			<a class="" href="<?php echo 'https://overlookmaps.com/states/' .
+			$hyphenated_name . $nsbf_id; ?>" target='_blank' >
+			Embed this map on your site.
+			</a>
+	</div>
+
+	</section>
+
 		
 		<?php
-		/**
-		 * This is custom content to load SEO dense info.
-		 *
-		 * @update Aug252024
-		 */
-		$show_partner_content_option = get_field( 'show_partner_content', 'option' );
-
-		if ( $show_partner_content_option ) :
-			require_once 'page-templates/partials/state-seo-content.php';
-		endif;
 
 			/*
 			===============================================================
@@ -277,9 +303,7 @@ switch ( $the_title ) {
 			// Destroys the previous query and sets up a new query.
 			wp_reset_postdata();
 			?>
-	 
-	 
-		<?php
+	 <?php
 			/*
 			===============================================================
 				State Partner Args
@@ -303,7 +327,8 @@ switch ( $the_title ) {
 
 				while ( $partners->have_posts() ) :
 					$partners->the_post();
-
+						
+					
 					// Prints website and phone number to the page.
 					include_once 'page-templates/partials/state-partners.php';
 
@@ -313,30 +338,36 @@ switch ( $the_title ) {
 
 			// Destroys the previous query and sets up a new query.
 			wp_reset_postdata();
+
 			?>
-		<div class="color-bar bg-gradient-to-r from-yellow-300 to-yellow-600 mt-14"></div>
-	<div class="mt-10 state-information">
-		<h3 class="mb-4 text-xl">Information</h3>
-		<p>National Scenic Byways and All-American Roads are designated by the 
-			Federal Department of Transportation and
-			become part of the <em>America’s Byways</em>® collection. To become 
-			an official National Scenic Byways, qualifying
-			roads must have one of the following six “intrinsic qualities”: <strong>1.&nbsp;
-				Scenic, 2. Historic, 3. Archeological, 4. Recreational, 5. Cultural, or 6.&nbsp;
-				Natural</strong>. To become an All-American Road, two or more of these&nbsp;
-				unique intrinsic qualities must be present (along with a more comprehensive&nbsp;
-				“corridor management plan”). State-level byways are most frequently designated&nbsp;
-				by the State Department of Transportation (DOT), but can also be designated by&nbsp;
-				federal agencies (at the state level) such as the US Forest Service, NPS, BLM,&nbsp;
-				USACE, US Fish & Wildlife, as well as by tribal organizations.</p>
-		<p><sup>*</sup>Byways in the <em>America’s Byways</em> collection with an asterisk&nbsp;
-		are All-American Roads.</p>
-	</div>
-		<?php
+			<!-- Extra break -->
+			<div class="py-3"></div>
+
+			<section class="spacer-y-12">
+
+			<?php
+			/**
+		 * This is custom content to load SEO dense info.
+		 *
+		 * @update Aug252024
+		 */
+		$show_seo_content_option = get_field( 'show_seo_content', 'option' );
+
+		if ( $show_seo_content_option ) :
+			$seo_file = get_stylesheet_directory() . '/page-templates/partials/state-seo.php';
+			if (file_exists($seo_file)) {
+				require_once $seo_file;
+			} else {
+				error_log("SEO file not found: $seo_file");
+				echo "<!-- SEO file not found -->";
+			}
+		endif;
+			
 			// this function restores the $post global to the current post in the main query.
 			wp_reset_postdata();
 
 		?>
+		</section>
 	</div>
 </main>
 

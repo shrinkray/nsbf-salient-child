@@ -27,10 +27,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$half_found = ceil( $found / 2 );
 
 		?>
-
+<section class="spacer-y-18">
 			<h2 class="flex-1 mt-10 mb-8 text-2xl md:text-3xl text-outerspace ">
 				Additional Byways</h2>
-						
+				
 			<ul class="byway-collection grid grid_rows_<?php echo $half_found; ?> 
 			&nbsp;grid-flow-col gap-x-4 mb-4">
 
@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			?>
 			</ul>
-				
+				</section>		
 				<?php
 
 
