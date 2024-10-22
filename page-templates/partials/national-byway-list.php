@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-
+<section class="spacer-y-18">
 <h2 class="mt-12 mb-8 text-2xl md:text-3xl text-outerspace">America's Byways Collection</h2>
 
 	<ul class="grid grid-cols-1 byway-collection gap-x-4">
@@ -65,6 +65,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 </ul> <!-- .byway-collection (National) -->
-
+</section>
 <?php
 
