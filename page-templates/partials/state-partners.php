@@ -11,8 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="spacer"></div>
-<div class="grid grid-cols-1 gap-4 px-2 py-6 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:max-w-2xl lg:max-w-4xl xl:max-w-6xl detail-subsection border-goldenrod">
+<section class="grid grid-cols-1 gap-4 px-2 py-6 md:grid-cols-2 lg:grid-cols-4 md:max-w-2xl lg:max-w-4xl detail-subsection border-goldenrod spacer-y-6">
 	
 <?php 
 // vars.
@@ -139,4 +138,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 		
 
-</div> <!-- .detail-subsection // Statewide Byway Partners  -->
+		</section> <!-- .detail-subsection // Statewide Byway Partners  -->
