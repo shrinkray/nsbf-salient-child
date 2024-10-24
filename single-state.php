@@ -354,7 +354,7 @@ switch ( $the_title ) {
 		$show_seo_content_option = get_field( 'show_seo_content', 'option' );
 
 		if ( $show_seo_content_option ) :
-			$seo_file = get_stylesheet_directory() . '/page-templates/partials/state-seo.php';
+			$seo_file = get_stylesheet_directory() . '/page-templates/partials/state-seo-flexy.php';
 			if (file_exists($seo_file)) {
 				require_once $seo_file;
 			} else {
