@@ -271,3 +271,18 @@ function register_newsletter_signup_sidebar() {
 	);
 }
 add_action( 'widgets_init', 'register_newsletter_signup_sidebar' );
+
+/**
+ * Calculate file size.
+ * 
+ * @return string;
+ */
+function format_filesize($bytes) {
+	if ($bytes >= 1048576) {
+		return number_format($bytes / 1048576, 2) . ' MB';
+	} elseif ($bytes >= 1024) {
+		return number_format($bytes / 1024, 2) . ' KB';
+	} else {
+		return $bytes . ' bytes';
+	}
+}
