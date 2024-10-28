@@ -14,6 +14,7 @@ endif;
 
 // vars.
 $overlook_map = get_field( 'state_byway_map' );
+$nsbf_id         = '?ref=nsbs';
 
 if ( $overlook_map ) :
 	?>
@@ -35,6 +36,13 @@ if ( $overlook_map ) :
 				Your browser does not support iframes
 				
 			</iframe>
+		</div>
+		<div class="mt-4 text-right">
+			<a class="" href="<?php echo esc_url( $overlook_map ) .
+			'/about/' .
+			esc_url( $nsbf_id ); ?>" target='_blank' >
+			Embed this map on your site.
+			</a>
 		</div>
 
 	</section> <!-- .row // Overlook map --> 
