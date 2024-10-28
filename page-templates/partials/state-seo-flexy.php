@@ -94,9 +94,9 @@ if ( have_rows( 'content_layout' ) ) :
             if ( $heading_tag === 'h2' ) :
                 $heading_class = 'flex-1 mt-10 mb-8 text-2xl md:text-3xl text-outerspace';
             elseif ( $heading_tag === 'h3' ) :
-                $heading_class = 'flex-1 mt-10 mb-8 text-xl font-bold md:text-2xl text-mangotango';
+                $heading_class = 'flex-1 mt-10 mb-8 text-2xl md:text-3xl text-outerspace';
             elseif ( $heading_tag === 'h4' ) :
-                $heading_class = 'flex-1 mt-10 mb-8 font-bold text-xl md:text-xl text-forestgreen';
+                $heading_class = 'flex-1 mt-10 mb-8 font-bold text-xl md:text-2xl text-outerspace';
             endif;
 
 			if ( $heading ) : ?>
