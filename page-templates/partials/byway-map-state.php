@@ -14,7 +14,7 @@ endif;
 
 // vars.
 $overlook_map = get_field( 'state_byway_map' );
-$nsbf_id         = '?ref=nsbs';
+$nsbf_id         = '?ref=nsbf';
 
 if ( $overlook_map ) :
 	?>

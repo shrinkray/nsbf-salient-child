@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$state     		 = acf_esc_html( get_field( 'nb_state' ) );
 	$the_link  		 = esc_url( get_permalink() );
 	$hyphenated_name = str_replace( ' ', '-', strtolower( $the_title ));
-	$nsbf_id         = '?ref=nsbs';
+	$nsbf_id         = '?ref=nsbf';
 
 	/**
 	 * Switch structure enables setting variable then in the args below we call it.
