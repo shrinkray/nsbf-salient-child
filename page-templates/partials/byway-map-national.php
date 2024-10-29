@@ -14,7 +14,7 @@ endif;
 
 // vars.
 $overlook_map = get_field( 'national_map_url' );
-$nsbf_id         = '?ref=nsbs';
+$nsbf_id         = '?ref=nsbf';
 
 
 if ( $overlook_map ) :
