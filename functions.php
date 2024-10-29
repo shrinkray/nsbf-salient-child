@@ -286,3 +286,34 @@ function format_filesize($bytes) {
 		return $bytes . ' bytes';
 	}
 }
+
+/**
+ * Apply custom CSS to ACF admin block.
+ *
+ * @return void
+ */
+function my_acf_admin_head() {
+    ?>
+    <style>
+
+        .acf-repeater.-block > table > tbody > tr > td {
+            border-top: #8cb1ff solid 2px;
+        }
+        .acf-repeater.-block > table > tbody > tr:nth-child(even) > td:nth-child(2) {
+            background-color: #f3f6ff;
+        }
+        .acf-row-number {
+            padding: 4px 8px;
+            background: white;
+            border-radius: 50%;
+            color: #0052fc;
+        }
+		 /* When #flexy-content exists, target #postbox-container-2 */
+        body.wp-admin #post-body:has(#flexy-content) #postbox-container-2 {
+            opacity: 0.5 !important;
+        }
+    </style>
+    <?php
+}
+
+add_action('acf/input/admin_head', 'my_acf_admin_head');
