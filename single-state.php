@@ -238,12 +238,12 @@ switch ( $the_title ) {
 			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query.
 
 			$nb_args = array(
-				'numberposts' => -1,
-				'post_type'   => 'national_byway',
-				'post_status' => 'publish',
-				'orderby'     => 'title',
-				'order'       => 'ASC',
-				'meta_key'    => 'nb_state',
+				'posts_per_page' => -1,
+				'post_type'      => 'national_byway',
+				'post_status'    => 'publish',
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+				'meta_key'       => 'nb_state',
 				'meta_value'  => sanitize_text_field( $nb_meta_value ), // Sanitize the meta value.
 				'tax_query'   => array(
 					array(
