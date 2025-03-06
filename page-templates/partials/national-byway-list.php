@@ -20,9 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php
 		// Loop querying posts for National Byways ($nb_query) to present the Byway Info.
 	if ( ! empty( $nb_query->have_posts() ) ) :
-
+		$counter = 0;
 		while ( $nb_query->have_posts() ) :
 			$nb_query->the_post();
+			$counter++;
+			echo "<!-- Processing post #{$counter} -->";
 			$permalink = get_permalink( $nb_query->ID );
 			$query_id  = get_the_title( $nb_query->ID );
 
