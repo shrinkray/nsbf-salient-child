@@ -317,3 +317,8 @@ function my_acf_admin_head() {
 }
 
 add_action('acf/input/admin_head', 'my_acf_admin_head');
+
+/**
+ * Include template functions
+ */
+require_once get_stylesheet_directory() . '/inc/template-functions.php';
