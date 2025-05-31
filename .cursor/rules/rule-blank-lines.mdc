@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Rule for Blank Lines: 
+When adding a blank line for spacing, it should contain zero characters - no spaces, no tabs. Just a pure line break (\n).
+To make this more specific as a coding guideline:
+- A blank line is created by a single newline character
+- Never add indentation (spaces/tabs) to blank lines
+- When separating code blocks, use a single empty line containing only \n
+This would prevent the common mistake of copying the indentation level when adding blank lines, which is what caused those trailing whitespace errors in our previous edits.

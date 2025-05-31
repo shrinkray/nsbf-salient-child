@@ -1,0 +1,152 @@
+# Expertise Context
+You are an expert in WordPress, PHP, HTML, CSS, JavaScript development, with strong emphasis on best practices, accessibility, responsive design, and modularity.
+
+# Core Development Principles
+- Write concise, technical responses with accurate PHP examples.
+- Follow WordPress coding standards (PHP, HTML, JavaScript, CSS).
+- Prioritize modular, reusable code using object-oriented programming where appropriate.
+- Prefer iteration and modularization over duplication.
+- Use descriptive, meaningful function, variable, and file names.
+- Use lowercase with hyphens for directories and filenames (e.g., `wp-content/themes/my-theme`).
+- Favor WordPress hooks (actions and filters) for extending functionality.
+- Follow semantic, accessible, and SEO-friendly HTML structure.
+- Write externalized CSS using TailwindCSS utility classes, avoid inline styles.
+  
+# PHP Commenting Conventions
+- Apply WordPress PHP coding standards.
+- Prioritize clear and useful function/method documentation.
+- Docblocks are encouraged for public functions, but strict @return and @var annotations are optional unless complex.
+- Avoid mandatory closing comments after conditionals, loops, or long blocks.
+- Omitting file-level docblocks is acceptable if the file is self-evident.
+- Maintain clear inline comments for logic blocks when necessary.
+- Spacing inside docblocks (e.g., after param names/types) should not block submission if minor inconsistencies occur.
+- Omit author tags from file docblocks unless the project specifically requires attribution.
+
+# PHP and WordPress Standards
+- Use PHP 7.4+ features where appropriate (typed properties, arrow functions, etc.).
+- Use `declare(strict_types=1);` in all PHP files unless WordPress compatibility forbids it.
+- Implement proper error handling:
+  - Use try-catch blocks for expected errors.
+  - Log errors via WordPress debug logging.
+  - Create custom error handlers only when necessary.
+- Sanitize, validate, and escape all data properly:
+  - Use WordPress sanitization functions (`sanitize_text_field`, `sanitize_email`, etc.).
+  - Use nonces and capabilities checks for all form submissions and sensitive operations.
+- Use `wpdb->prepare()` for safe database queries; prefer `WP_Query` and built-in APIs when possible.
+- Implement database schema updates safely using `dbDelta()`.
+- Use transients API, options API, and custom post types/taxonomies properly.
+- Implement localization and internationalization (`__()`, `_e()`, `esc_html__()`, etc.).
+
+# HTML/CSS Standards
+- Use semantic HTML elements: `<header>`, `<main>`, `<footer>`, `<section>`, `<article>`, `<nav>`, etc.
+- Always use `<button>` for buttons, `<a>` for links.
+- Ensure all `<img>` elements have an `alt` attribute.
+- Use TailwindCSS utility classes for styling and layout.
+- Follow TailwindCSS best practices:
+  - Use @apply for component classes when needed
+  - Maintain consistent spacing using Tailwind's spacing scale
+  - Use Tailwind's color palette or extend with custom colors as defined in tailwind.config.js
+  - Use responsive prefixes (sm:, md:, lg:, xl:) for responsive design
+  - Use dark: prefix for dark mode variants when enabled
+- Minimize use of custom CSS; prefer Tailwind utilities
+- Use CSS variables for theme customization when needed
+
+# JavaScript Standards
+- Follow StandardJS style guide enforced by ESLint and Standard.
+- Use ES6+ modern syntax.
+- Avoid semicolons unless necessary (StandardJS preference).
+- Use Laravel Mix for asset compilation and bundling.
+
+# PHP Standards
+- PHP 8.1+ required.
+- PSR-12 general standards.
+- WordPress PHP Coding Standards (with custom relaxed commenting in /lib).
+- Enforced using PHP_CodeSniffer.
+
+# SCSS/CSS Standards
+- Follow Sass Guidelines enforced by Stylelint.
+- Follow BEM methodology for class naming.
+- Properties should be ordered alphabetically.
+- Logical properties preferred over physical properties (`margin-inline-start` instead of `margin-left`).
+
+# Build and Development Tools
+- Use Laravel Mix for asset compilation
+- Use PostCSS for CSS processing
+- Use TailwindCSS for utility-first CSS
+- Use BrowserSync for development
+- Use Prettier for code formatting
+- Use pnpm as package manager
+- Node >= 20 required
+- Composer for PHP dependency management
+
+# Build Commands
+- `pnpm run dev` - Start development build
+- `pnpm run watch` - Watch for changes
+- `pnpm run prod` - Production build
+- `pnpm run format` - Format code with Prettier
+
+# Best Practices
+- Keep PHP, SCSS, and JavaScript code modular, clean, and documented.
+- Validate, sanitize, and escape all user-generated input.
+- Ensure accessibility, responsiveness, and performance.
+
+# Responsive Design Best Practices
+- Mobile-first CSS approach.
+- Use responsive images (`srcset` and `sizes`).
+- Use media queries strategically for breakpoints.
+- Ensure large touch targets on mobile devices.
+- Include `<meta name="viewport" content="width=device-width, initial-scale=1">`.
+
+# Accessibility Standards
+- Implement ARIA roles and attributes where necessary.
+- Maintain sufficient color contrast for text and interactive elements.
+- Ensure keyboard accessibility for all navigation and interactive components.
+- Use visible focus indicators.
+- Use landmark regions properly for screen readers (e.g., `<main>`, `<nav>`, `<aside>`).
+
+# Performance Optimization
+- Use Tailwind's purge feature to remove unused CSS
+- Minimize CSS, JS, and HTML files (minification, compression)
+- Lazy load images and non-critical assets
+- Optimize server response times for dynamic image generation
+
+# Testing and Validation
+- Test across multiple browsers and devices
+- Use tools like Lighthouse for auditing performance, accessibility, SEO
+- Validate HTML and CSS using W3C validators
+- Use PHPUnit and WordPress's `WP_UnitTestCase` for PHP unit tests when applicable
+
+# Documentation Standards
+- Comment complex logic in PHP and JavaScript
+- Use consistent naming conventions throughout the project
+- Document responsive breakpoints, key architectural decisions, and ACF field structures
+- Document custom TailwindCSS configurations and extensions
+
+# Dependencies
+- WordPress (latest stable version)
+- TailwindCSS 2.2.4
+- Laravel Mix 6.0.49
+- PostCSS 8.4.32
+- Composer (for managing PHP libraries)
+
+# WordPress-Specific Best Practices
+- Never modify core WordPress files
+- Enqueue scripts and styles properly (`wp_enqueue_script`, `wp_enqueue_style`)
+- Implement background processing using `wp_cron` where necessary
+- Handle AJAX properly using WordPress's admin-ajax.php or the REST API
+- Sanitize, validate, and escape all dynamic content
+- Implement caching (object cache, transients) where appropriate
+- Structure theme development following WordPress template hierarchy
+- Implement proper pagination using `paginate_links()` or `the_posts_pagination()`
+
+# External References
+- [WordPress Developer Documentation](https://developer.wordpress.org/)
+- [TailwindCSS Documentation](https://tailwindcss.com/docs)
+- [Laravel Mix Documentation](https://laravel-mix.com/docs)
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [W3C Accessibility Standards](https://www.w3.org/WAI/standards-guidelines/)
+
+# Cursor Configuration
+- Use the following Cursor configuration for PHP development:
+- Please help to define what to use to get the best results from Cursor.
+
