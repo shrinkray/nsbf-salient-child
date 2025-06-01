@@ -19,18 +19,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 function nsbf_get_template_part( $template_path, $fallback_path = '', $args = array() ) {
     // Set up any variables we want to have available in the template
     if ( is_array( $args ) ) {
-        extract( $args );
+        foreach ( $args as $key => $value ) {
+            ${$key} = $value;
+        }
     }
 
     // Try WordPress template part first
     if ( locate_template( $template_path . '.php' ) ) {
-        get_template_part( $template_path );
+        include( locate_template( $template_path . '.php' ) );
         return;
     }
 
     // Fallback to direct include if specified
     if ( ! empty( $fallback_path ) && file_exists( get_template_directory() . '/' . $fallback_path ) ) {
-        require_once get_template_directory() . '/' . $fallback_path;
+        include( get_template_directory() . '/' . $fallback_path );
         return;
     }
 

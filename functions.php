@@ -322,32 +322,3 @@ add_action('acf/input/admin_head', 'my_acf_admin_head');
  * Include template functions
  */
 require_once get_stylesheet_directory() . '/inc/template-functions.php';
-
-/**
- * Custom template part loader with fallback support.
- *
- * @param string $template_path The path to the template part.
- * @param string $name Optional. The name of the specialized template.
- * @param string $fallback_path Optional. The fallback path if template part is not found.
- * @return void
- */
-function nsbf_get_template_part($template_path, $name = '', $fallback_path = '') {
-    // Try WordPress template part first
-    if (locate_template($template_path . '.php')) {
-        get_template_part($template_path, $name);
-        return;
-    }
-    
-    // Fallback to direct include if specified
-    if (!empty($fallback_path) && file_exists(get_template_directory() . '/' . $fallback_path)) {
-        require_once get_template_directory() . '/' . $fallback_path;
-    } else {
-        // Log error if no template found
-        error_log(sprintf(
-            'Template part not found: %s%s%s',
-            $template_path,
-            $name ? '-' . $name : '',
-            '.php'
-        ));
-    }
-}
