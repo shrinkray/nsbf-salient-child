@@ -1,31 +1,43 @@
 <?php
-/**
- * Base byway overview template part
- *
- * @package NSBF_Theme
- */
+	/**
+	 * Template for national byway overview area.
+	 *
+	 * @template
+	 * @date Jul142021
+	 * @author Greg Miller, gregmiller.io
+	 * @package template
+	 */
 
+	// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
+	exit;
 }
-
-// Get overview content
-$byway_synopsis = get_field( 'sb_byway_synopsis' );
 ?>
+	
+	<div class="mt-3 mb-12 row"><!-- overview  -->
+		<div class="section">
+			<div class="border-2 boxed-subsection md:border-4">
+				<?php
+					// vars.
+					$byway_synopsis = get_field( 'nb_byway_synopsis' );
 
-<div class="mt-3 mb-6 row">
-    <div class="section">
-        <div class="boxed-subsection filter drop-shadow-md md:drop-shadow-xl">
-            <div id="overview" class="anchored"></div>
-            
-            <?php if ( ! empty( $byway_synopsis ) ) : ?>
-                <h2 class="text-3xl md:text-4xl h2 overview">Overview</h2>
-                <?php echo wp_kses_post( $byway_synopsis ); ?>
-            <?php else : ?>
-                <div class="text-sm truncate text-mangotango">
-                    <?php esc_html_e( 'Missing Overview ...', 'nsbf-theme' ); ?>
-                </div>
-            <?php endif; ?>
-        </div>
-    </div>
-</div> 
+				?>
+				<div id="overview" class="anchored"></div>
+				<?php
+
+				if ( ! empty( $byway_synopsis ) ) :
+					?>
+				<h2 class="text-3xl md:text-4xl h2 overview">Overview</h2>
+					<?php echo acf_esc_html( $byway_synopsis ); ?>
+
+						<script>
+							const itemOverview = document.getElementById( 'item-overview' );
+							itemOverview.classList.remove( 'hidden' );
+							itemOverview.classList.add( 'block' );
+						</script>
+					<?php
+				endif; // end.
+				?>
+			</div> <!-- .boxed-subsection -->
+		</div>
+	</div> <!-- overview row -->
