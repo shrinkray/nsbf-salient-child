@@ -20,10 +20,10 @@ $nsbf_id         = '?ref=nsbf';
 if ( $overlook_map ) :
 	?>
 	<section class="pb-0 mb-12 row">
-		
-		<div style="width: 100%; height: 500px; position: relative;">
+
+		<div class="w-full" style="width: 100%; height: 500px; position: relative;background-color: #f0f0f0;">
 			<iframe src="<?php echo esc_url( $overlook_map ); ?>"
-			title="<?php echo esc_attr( $official_byway_name ) . ' Map'; ?>"
+			title="<?php echo 'The great byway of ' . $the_title . ' map from Overlook'; ?>"
 			aria-label="Interactive map showing byway route and location."
 			width="100%"
 			height="100%"
