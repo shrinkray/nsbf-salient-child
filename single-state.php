@@ -194,7 +194,7 @@ switch ( $the_title ) {
 		<!-- Set State map -->
 		<section class="pb-0 mb-12 row">
 		
-		<div style="width: 100%; height: 500px; position: relative;">
+		<div class="w-full" style="width: 100%; height: 100%; min-height: 500px; position: relative;background-color: #f0f0f0;">
 
 			<iframe src="<?php echo 'https://overlookmaps.com/states/' .
 			esc_attr( $hyphenated_name ) .
@@ -257,7 +257,15 @@ switch ( $the_title ) {
 			// America's Byways Collection Query.
 			$nb_query = new WP_Query( $nb_args );
 
-			require_once 'page-templates/partials/national-byway-list.php';
+			nsbf_get_template_part(
+				'template-parts/list/national',
+				'',
+				array(
+					'nb_query' => $nb_query,
+					'the_title' => $the_title,
+					'nb_meta_value' => $nb_meta_value
+				)
+			);
 
 			// Destroys the previous query and sets up a new query.
 			wp_reset_postdata();
@@ -288,17 +296,18 @@ switch ( $the_title ) {
 				),
 			);
 
-
 			// State Byways Query.
 			$sb_query = new WP_Query( $sb_args );
-			/**
-			 * This is for the STATE byway list
-			 */
 
-
-
-			require_once 'page-templates/partials/state-byway-list.php';
-
+			nsbf_get_template_part(
+				'template-parts/list/state',
+				'',
+				array(
+					'sb_query' => $sb_query,
+					'the_title' => $the_title,
+					'nb_meta_value' => $nb_meta_value
+				)
+			);
 
 			// Destroys the previous query and sets up a new query.
 			wp_reset_postdata();
@@ -328,9 +337,16 @@ switch ( $the_title ) {
 				while ( $partners->have_posts() ) :
 					$partners->the_post();
 						
-					
 					// Prints website and phone number to the page.
-					include_once 'page-templates/partials/state-partners.php';
+					nsbf_get_template_part(
+						'template-parts/partner/state',
+						'',
+						array(
+							'partners' => $partners,
+							'the_title' => $the_title,
+							'nb_meta_value' => $nb_meta_value
+						)
+					);
 
 				endwhile;
 
@@ -354,13 +370,15 @@ switch ( $the_title ) {
 		$show_seo_content_option = get_field( 'show_seo_content', 'option' );
 
 		if ( $show_seo_content_option ) :
-			$seo_file = get_stylesheet_directory() . '/page-templates/partials/state-seo-flexy.php';
-			if (file_exists($seo_file)) {
-				require_once $seo_file;
-			} else {
-				error_log("SEO file not found: $seo_file");
-				echo "<!-- SEO file not found -->";
-			}
+			nsbf_get_template_part(
+				'template-parts/seo/state-flexy',
+				'',
+				array(
+					'the_title' => $the_title,
+					'nb_meta_value' => $nb_meta_value,
+					'hyphenated_name' => $hyphenated_name
+				)
+			);
 		endif;
 			
 			// this function restores the $post global to the current post in the main query.
@@ -369,6 +387,6 @@ switch ( $the_title ) {
 		?>
 		</section>
 	</div>
-</main>
+</main> <!-- Closing main container from single-state.php -->
 
 <?php get_footer(); ?>

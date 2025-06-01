@@ -98,7 +98,8 @@ endif;
 		<div class="detail-subsection mt-7">
 			<?php
 
-			require_once 'state-byway-visitor.php';
+		//	require_once 'state-byway-visitor.php';
+		nsbf_get_template_part( 'byway/content/visitor', 'visitor' );
 
 			?>
 	

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: State Byway Detail
+ * Template Name: State Byway Information Page.
  *
  * Note: This filename uses an underscore to match the custom post type name
  * and follows WordPress template hierarchy conventions. Do not rename.
@@ -43,7 +43,8 @@ get_header();
 			// Try template part first
 			nsbf_get_template_part(
 				'template-parts/map/state',
-				'page-templates/partials/byway-map-state.php'
+				'',
+				array('the_title' => get_the_title())
 			);
 		else :
 			?>
@@ -57,19 +58,19 @@ get_header();
 		nsbf_get_template_part(
 			'template-parts/byway/content/detail',
 			'state',
-			'page-templates/partials/byway-detail-sb.php'
+			''
 		);
 
 		nsbf_get_template_part(
 			'template-parts/byway/content/overview',
 			'state',
-			'page-templates/partials/byway-overview-sb.php'
+			''
 		);
 
 		nsbf_get_template_part(
 			'template-parts/partner/local',
 			'state',
-			'page-templates/partials/byway-local-partners-sb.php'
+			''
 		);
 		?>
 		<div class="update-data">
@@ -80,7 +81,7 @@ get_header();
 		</div>
 	</div><!--/container main-content-->
 
-</main> <!-- .container-wrap -->
+</main> <!-- closing main container from single-state_byway.php -->
 
 
 <?php

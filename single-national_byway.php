@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: National Byway Detail
+ * Template Name: National Byway Information Page.
  *
  * @package Salient WordPress Theme
  * @version 10.5
@@ -64,32 +64,57 @@ get_header();
 		$show_national_map = get_field( 'show_national_maps', 'option' );
 
 		if ( $show_national_map ) :
-
-			require_once 'page-templates/partials/byway-map-national.php';
+			nsbf_get_template_part(
+				'template-parts/map/national',
+				'',
+				array('the_title' => get_the_title())
+			);
 		else :
 			?>
-		<section class="pb-0 mb-12 row">
+		<section class="pb-0 mb-1,2 row">
 			<!-- Map Options are disabled -->
 		</section>
 			<?php
 		endif;
 
 		// Feature National content templates.
+		nsbf_get_template_part(
+			'template-parts/byway/content/detail',
+				'',
+		);
 
-		require_once 'page-templates/partials/byway-detail.php';
+		nsbf_get_template_part(
+			'template-parts/byway/content/overview',
+			'',
+		);
 
-		require_once 'page-templates/partials/byway-overview.php';
+		nsbf_get_template_part(
+			'template-parts/partner/local',
+			'',
+		);
 
-		require_once 'page-templates/partials/byway-local-partners.php';
+		nsbf_get_template_part(
+			'template-parts/byway/content/story',
+			'',
+		);
 
-		require_once 'page-templates/partials/byway-story.php';
+		nsbf_get_template_part(
+			'template-parts/byway/content/directions',
+			'',
+		);
 
-		require_once 'page-templates/partials/byway-directions.php';
+		nsbf_get_template_part(
+			'template-parts/byway/content/points',
+			'',
+		);
 
-		require_once 'page-templates/partials/byway-points.php';
-
-		require_once 'page-templates/partials/byway-itinerary.php';
+		nsbf_get_template_part(
+			'template-parts/byway/content/itinerary',
+			'',
+		);
 		?>
+
+		
 		<div class="update-data">
 			<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" 
 			title="Help our foundation maintain accurate information about
@@ -98,7 +123,7 @@ get_header();
 		</div>
 	</div><!--/container main-content-->
 
-</main> <!-- .container-wrap -->
+</main> <!-- closing main from single-national_byway.php -->
 
 
 <?php
