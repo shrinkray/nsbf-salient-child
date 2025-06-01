@@ -33,6 +33,7 @@ endif;
 
 			$keywords = preg_split( '/[\s,]+/', $intrinsic_quality );
 			$typelist = '';
+			$quality = '';
 
 			// for each single letter associate a word and build a new string.
 		foreach ( $keywords as $keyword ) {
