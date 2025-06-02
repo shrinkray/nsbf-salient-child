@@ -4,49 +4,66 @@
 
 ```
 theme-root/
-├── template-parts/           # WordPress standard for template parts
-│   ├── byway/               # Byway-specific components
-│   │   ├── content/         # Content components
+├── template-parts/                  # WordPress standard for template parts
+│   ├── byway/                       # Byway-specific components
+│   │   ├── content/                 # Content components (with variations)
 │   │   │   ├── detail.php
-│   │   │   ├── overview.php
-│   │   │   ├── story.php
-│   │   │   ├── points.php
+│   │   │   ├── detail-state.php
 │   │   │   ├── directions.php
-│   │   │   └── itinerary.php
-│   │   ├── navigation/      # Navigation components
+│   │   │   ├── itinerary.php
+│   │   │   ├── overview.php
+│   │   │   ├── overview-state.php
+│   │   │   ├── points.php
+│   │   │   ├── story.php
+│   │   │   ├── story-state.php
+│   │   │   └── visitor.php
+│   │   ├── navigation/
 │   │   │   └── back-button.php
-│   │   └── state/          # State-specific components
-│   │       ├── detail.php
-│   │       ├── overview.php
-│   │       └── story.php
+│   │   └── state/                   # (Currently empty)
 │   │
-│   ├── map/                # Map components
-│   │   ├── state.php
-│   │   └── national.php
-│   │
-│   ├── list/               # List components
-│   │   ├── state.php
-│   │   └── national.php
-│   │
-│   ├── partner/            # Partner components
-│   │   ├── local.php
+│   ├── map/
+│   │   ├── national.php
 │   │   └── state.php
 │   │
-│   ├── image/              # Image components
-│   │   ├── current.php
-│   │   └── sub.php
+│   ├── list/
+│   │   ├── national.php
+│   │   └── state.php
 │   │
-│   └── seo/                # SEO components
+│   ├── partner/
+│   │   ├── local.php
+│   │   ├── local-state.php
+│   │   └── state.php
+│   │
+│   ├── image/
+│   │   ├── current.php
+│   │   ├── current-state.php
+│   │   ├── sub.php
+│   │   └── sub-state.php
+│   │
+│   └── seo/
 │       └── state-flexy.php
 │
-├── page-templates/         # WordPress standard for page templates
-│   ├── webinar.php
-│   ├── training-webinar.php
-│   └── newsletter.php
+├── page-templates/                  # WordPress page templates
+│   ├── webinar-page-template.php
+│   ├── training-webinar-page-template.php
+│   └── newsletter-page-template.php
 │
-└── inc/                   # WordPress standard for includes
-    └── template-functions.php  # Template-related functions
+├── inc/                             # Theme includes
+│   └── template-functions.php
+│
+├── includes/partials/single-post/   # (Legacy or special-case partials)
+│   └── post-content-nsbf-board.php
+│
+├── single-national_byway.php
+├── single-state_byway.php
+├── single-state.php
+└── ...
 ```
+
+**Legend:**
+- `*-state.php`, `*-national.php`: Variations for state/national context.
+- Comments after `#` explain directory purpose.
+- Empty directories are noted.
 
 ## WordPress Template Hierarchy Compliance
 
@@ -60,18 +77,19 @@ theme-root/
    - Include template name in file header:
      ```php
      /**
-      * Template Name: Webinar Page
+      * Template Name: Webinar Page.
       */
      ```
 
 3. **Template Parts**
    - Use `get_template_part()` for includes:
      ```php
-     // Old
+     // Old.
      require_once 'page-templates/partials/byway-detail-sb.php';
      
-     // New
-     get_template_part( 'template-parts/byway/content/detail', 'state' );
+     // New (with optional arguments).
+     nsbf_get_template_part( 'template-parts/byway/content/detail', 'state', [$args] );
+     // Offers fallbacks and enables the ability to pass optional arguments to the template part.
      ```
 
 ## WordPress Coding Standards
