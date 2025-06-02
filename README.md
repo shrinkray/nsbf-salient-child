@@ -104,9 +104,9 @@ theme-root/
 ├── includes/partials/single-post/   # (Legacy or special-case partials)
 │   └── post-content-nsbf-board.php
 │
-├── single-national_byway.php
-├── single-state_byway.php
-├── single-state.php
+├── single-national_byway.php        # National byway single post template directs all content appearing on a byway page
+├── single-state_byway.php           # State byway single post template links to all content appearing on a byway page
+├── single-state.php                 # Listing all national and state byways for a state
 └── ...
 ```
 

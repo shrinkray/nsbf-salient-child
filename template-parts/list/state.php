@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</li>
 						
 						<?php
-						// displays all states except TX CA and VA.
+						// displays all states except TX and VA.
 
 					else :
 
