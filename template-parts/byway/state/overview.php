@@ -1,6 +1,7 @@
 <?php
 	/**
-	 * Byway overview.
+	 * State byway overview.
+	 * based on template-parts/byway/content/overview.php.
 	 *
 	 * @template
 	 * @date Jul142021

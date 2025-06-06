@@ -1,6 +1,7 @@
 <?php
 /**
  * State byway (sb) details page.
+ * based on template-parts/byway/content/detail.php.
  *
  * @template   Details Section
  * @date       Jul142021

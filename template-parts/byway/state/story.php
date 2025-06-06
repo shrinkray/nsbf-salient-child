@@ -1,6 +1,7 @@
 <?php
 	/**
-	 * Story template.
+	 * State byway story template.
+	 * based on template-parts/byway/content/story.php.
 	 *
 	 * @date Jul142021
 	 * @author Greg Miller, gregmiller.io

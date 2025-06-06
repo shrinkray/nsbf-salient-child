@@ -1,6 +1,7 @@
 <?php
 	/**
-	 * Byway local partners.
+	 * State byway local partners.
+	 * based on template-parts/partner/local.php.
 	 *
 	 * @template
 	 * @date Jul142021
