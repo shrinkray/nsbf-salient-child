@@ -56,22 +56,49 @@ get_header();
 
 		// Feature State content templates.
 		nsbf_get_template_part(
-			'template-parts/byway/content/detail',
-			'state',
+			'template-parts/byway/state/detail',
+			'',
 			''
 		);
 
 		nsbf_get_template_part(
-			'template-parts/byway/content/overview',
-			'state',
+			'template-parts/byway/state/overview',
+			'',
 			''
 		);
 
-		nsbf_get_template_part(
-			'template-parts/partner/local',
-			'state',
+		// If the state is Colorado, Florida, or Washington, show the local partners, directions, points, and itinerary.
+		if ( $state === 'CO' | $state === 'FL' | $state === 'WA' ) {
+
+			echo '<p>Local partners, directions, points, and itinerary</p>';
+
+			nsbf_get_template_part(
+			'template-parts/partner/local-state',
+			'',
 			''
-		);
+			);
+
+			nsbf_get_template_part(
+				'template-parts/byway/state/directions',
+				'',
+				''
+			);
+
+			nsbf_get_template_part(
+				'template-parts/byway/state/points',
+				'',
+				''
+			);
+
+			nsbf_get_template_part(
+				'template-parts/byway/state/itinerary',
+				'',
+				''
+			);
+
+		}
+
+		
 		?>
 		<div class="update-data">
 			<p><a href="<?php echo esc_url( site_url( '/update/', 'https' ) ); ?>" class="bell" 
